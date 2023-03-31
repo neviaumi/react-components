@@ -27,7 +27,7 @@ COMMIT_MESSAGE="publish v$VERSION [skip ci]"
 git switch -c "$RELEASE_BRANCH"
 
 npm version -m "$COMMIT_MESSAGE" $VERSION
-npm build
+npm run build
 npm publish
 git push --set-upstream origin "$RELEASE_BRANCH"
 export RELEASE_VERSION=$VERSION
