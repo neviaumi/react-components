@@ -1,0 +1,56 @@
+env:
+  CI: true
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+jobs:
+  merge-back:
+    needs: publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{needs.publish.outputs.release_branch}}
+      - env:
+          GITHUB_TOKEN: ${{secrets.REPO_SCOPED_TOKEN}}
+          PR_BODY: ${{format('Bump version to v{0}', needs.publish.outputs.released_version)}}
+          PR_TITLE: ${{format('Merge back v{0} to', needs.publish.outputs.released_version)}}
+        name: Open PR to $GITHUB_REF_NAME
+        run: |
+          PR_URL=$(gh pr create --title "$PR_TITLE $GITHUB_REF_NAME" --body "$PR_BODY" --label auto-create-pr --base \
+          "$GITHUB_REF_NAME")
+          gh pr merge --auto --rebase --delete-branch "$PR_URL"
+  publish:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    outputs:
+      release_branch: ${{steps.publish.outputs.release_branch}}
+      released_version: ${{ steps.publish.outputs.released_version }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js lts
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+      - run: bash ./scripts/ci/setup.sh
+      - name: Test
+        run: bash ./scripts/ci/test.sh
+      - env:
+          PREFERRED_VERSION: ${{ inputs.version }}
+        id: publish
+        name: Publish to NPM
+        run: |
+          source ./scripts/ci/publish.sh;
+          echo "::set-output name=released_version::$RELEASE_VERSION";
+          echo "::set-output name=release_branch::$RELEASE_BRANCH";
+        shell: bash
+name: Publish packages
+
+on:
+  push:
+    branches:
+      - main
+      - development
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Release version
+        required: true
