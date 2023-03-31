@@ -1,0 +1,89 @@
+{
+    "author": "",
+    "dependencies": {
+        "@heroicons/react": "2.0.11",
+        "@lit-labs/react": "1.1.1",
+        "classnames": "2.3.2",
+        "parse-ms": "3.0.0",
+        "roughjs": "4.4.5",
+        "wired-elements": "3.0.0-rc.6"
+    },
+    "description": "",
+    "devDependencies": {
+        "@busybox/commitlint-config": "2023.3.23-alpha.1402",
+        "@busybox/cypress": "2023.3.23-alpha.1402",
+        "@busybox/eslint-config": "2023.3.23-alpha.1402",
+        "@busybox/prettier-config": "2023.3.23-alpha.1402",
+        "@busybox/tailwindcss-config": "2023.3.23-alpha.1402",
+        "@busybox/tsconfig": "2023.3.23-alpha.1402",
+        "@storybook/addon-actions": "6.5.16",
+        "@storybook/addon-essentials": "6.5.16",
+        "@storybook/addon-interactions": "6.5.16",
+        "@storybook/addon-links": "6.5.16",
+        "@storybook/addon-postcss": "2.0.0",
+        "@storybook/builder-vite": "0.4.2",
+        "@storybook/jest": "0.0.10",
+        "@storybook/react": "6.5.16",
+        "@storybook/test-runner": "0.9.4",
+        "@storybook/testing-library": "0.0.13",
+        "@storybook/testing-react": "1.3.0",
+        "@vitejs/plugin-react": "3.1.0",
+        "autoprefixer": "10.4.12",
+        "chromatic": "6.10.1",
+        "cypress": "12.9.0",
+        "eslint": "8.23.1",
+        "jest-playwright-preset": "3.0.1",
+        "postcss": "8.4.17",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "source-map-explorer": "2.5.3",
+        "start-server-and-test": "1.14.0",
+        "storybook": "6.5.12",
+        "tailwindcss": "3.1.8",
+        "typescript": "4.9.4",
+        "vite": "4.2.1"
+    },
+    "engines": {
+        "node": ">=16",
+        "yarn": "Use npm"
+    },
+    "exports": {
+        ".": {
+            "import": "./dist/react-components.mjs",
+            "require": "./dist/react-components.umd.js"
+        }
+    },
+    "files": [
+        "dist"
+    ],
+    "license": "MIT",
+    "main": "./dist/react-components.umd.js",
+    "module": "dist/react-components.mjs",
+    "name": "@busybox/react-components",
+    "overrides": {
+        "wired-elements": {
+            "roughjs": "$roughjs"
+        }
+    },
+    "peerDependencies": {
+        "react": ">= 18",
+        "react-dom": ">= 18"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": "git@github.com:davidNHK/react-components.git",
+    "scripts": {
+        "analyze": "npm run build && source-map-explorer ./dist/*.mjs --no-border-checks",
+        "build": "vite build",
+        "build:storybook": "build-storybook",
+        "storybook": "start-storybook -p 6006",
+        "test": "cypress open --component -b chrome",
+        "test:storybook": "test-storybook"
+    },
+    "sideEffects": [
+        "./cypress/support/*.ts"
+    ],
+    "types": "./dist/out-tsc/src/index.d.ts",
+    "version": "2023.3.23-alpha.1402"
+}
