@@ -10,7 +10,7 @@
   },
   "description": "",
   "devDependencies": {
-    "@busybox/commitlint-config": "2023.3.23-alpha.1402",
+    "@busybox/commitlint-config": "2023.4.4",
     "@busybox/cypress": "2023.3.23-alpha.1402",
     "@busybox/eslint-config": "2023.3.23-alpha.1402",
     "@busybox/prettier-config": "2023.3.23-alpha.1402",
