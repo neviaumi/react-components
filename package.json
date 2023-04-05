@@ -18,7 +18,7 @@
     "@busybox/tsconfig": "2023.3.23-alpha.1402",
     "@commitlint/cli": "17.5.1",
     "@storybook/addon-actions": "6.5.16",
-    "@storybook/addon-essentials": "6.5.16",
+    "@storybook/addon-essentials": "7.0.2",
     "@storybook/addon-interactions": "6.5.16",
     "@storybook/addon-links": "7.0.2",
     "@storybook/addon-postcss": "2.0.0",
