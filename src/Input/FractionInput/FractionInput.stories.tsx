@@ -1,4 +1,4 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 import { FormEvent, useId, useState } from 'react';
 
@@ -22,93 +22,87 @@ export default {
     Label,
   },
   title: 'Component/Input/FractionNumber',
-} as ComponentMeta<typeof FractionInputComponent>;
+} as Meta<typeof FractionInputComponent>;
 
-const FractionInputTemplate: ComponentStory<typeof FractionInputComponent> = ({
-  'data-testid': testId,
-  onChange,
-  onSubmit,
-  ...rest
-}) => {
-  const [isInValid, setIsInValid] = useState(false);
-  return (
-    <form
-      onSubmit={e => {
-        e.preventDefault();
-        onSubmit?.(e as unknown as FormEvent<HTMLInputElement>);
-      }}
-    >
-      <Field>
-        <Label>Fraction Input</Label>
-        <FractionInputComponent
-          {...rest}
-          className={isInValid ? palette.error.text : ''}
-          data-testid={testId}
-          onChange={event => {
-            const { denominator, numerator } = event.detail.value;
-            setIsInValid(denominator === null && numerator === null);
-            onChange(event);
-          }}
-        />
-      </Field>
-      <Button
-        data-testid={generateTestIdWithPrefix({
-          id: 'submit-button',
-          prefix: testId,
-        })}
-        type={'submit'}
+export const FractionInput: StoryObj<typeof FractionInputComponent> = {
+  args: {
+    'data-testid': 'test-fraction-input',
+  },
+  render: ({ 'data-testid': testId, onChange, onSubmit, ...rest }) => {
+    const [isInValid, setIsInValid] = useState(false);
+    return (
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          onSubmit?.(e as unknown as FormEvent<HTMLInputElement>);
+        }}
       >
-        Submit
-      </Button>
-    </form>
-  );
-};
-
-export const FractionInput = FractionInputTemplate.bind({});
-FractionInput.args = {
-  'data-testid': 'test-fraction-input',
-};
-
-export const FractionInputWithDisplay: ComponentStory<
-  typeof FractionInputComponent
-> = ({ 'data-testid': testId }) => {
-  const id = useId();
-  const [isEditing, setIsEditing] = useState(false);
-  const [fractionString, setFractionString] = useState<string | null>(null);
-  return (
-    <div className={'tw-flex tw-flex-col tw-justify-center'}>
-      <Label htmlFor={id}>FractionInput</Label>
-      {isEditing ? (
-        <FractionInputComponent
+        <Field>
+          <Label>Fraction Input</Label>
+          <FractionInputComponent
+            {...rest}
+            className={isInValid ? palette.error.text : ''}
+            data-testid={testId}
+            onChange={event => {
+              const { denominator, numerator } = event.detail.value;
+              setIsInValid(denominator === null && numerator === null);
+              onChange(event);
+            }}
+          />
+        </Field>
+        <Button
           data-testid={generateTestIdWithPrefix({
-            id: 'input',
+            id: 'submit-button',
             prefix: testId,
           })}
-          id={id}
-          onBlur={() => setIsEditing(false)}
-          onChange={e => setFractionString(e.detail.value.raw)}
-        />
-      ) : (
-        <FractionNumberDisplayComponent
-          data-testid={generateTestIdWithPrefix({
-            id: 'display',
-            prefix: testId,
-          })}
-          id={id}
-          onClick={() => setIsEditing(true)}
-          value={fractionString}
-        />
-      )}
-    </div>
-  );
+          type={'submit'}
+        >
+          Submit
+        </Button>
+      </form>
+    );
+  },
 };
 
-FractionInputWithDisplay.args = {
-  'data-testid': 'test-fraction',
-};
-
-FractionInputWithDisplay.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  await userEvent.click(canvas.getByTestId('test-fraction-display'));
-  await canvas.findByTestId('test-fraction-input');
-};
+export const FractionInputWithDisplay: StoryObj<typeof FractionInputComponent> =
+  {
+    args: {
+      'data-testid': 'test-fraction',
+    },
+    play: async ({ canvasElement }) => {
+      const canvas = within(canvasElement);
+      await userEvent.click(canvas.getByTestId('test-fraction-display'));
+      await canvas.findByTestId('test-fraction-input');
+    },
+    render: ({ 'data-testid': testId }) => {
+      const id = useId();
+      const [isEditing, setIsEditing] = useState(false);
+      const [fractionString, setFractionString] = useState<string | null>(null);
+      return (
+        <div className={'tw-flex tw-flex-col tw-justify-center'}>
+          <Label htmlFor={id}>FractionInput</Label>
+          {isEditing ? (
+            <FractionInputComponent
+              data-testid={generateTestIdWithPrefix({
+                id: 'input',
+                prefix: testId,
+              })}
+              id={id}
+              onBlur={() => setIsEditing(false)}
+              onChange={e => setFractionString(e.detail.value.raw)}
+            />
+          ) : (
+            <FractionNumberDisplayComponent
+              data-testid={generateTestIdWithPrefix({
+                id: 'display',
+                prefix: testId,
+              })}
+              id={id}
+              onClick={() => setIsEditing(true)}
+              value={fractionString}
+            />
+          )}
+        </div>
+      );
+    },
+  };

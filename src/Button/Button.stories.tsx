@@ -1,4 +1,4 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 
 import ButtonComponent from './Button.js';
@@ -10,25 +10,23 @@ export default {
    * to learn how to generate automatic titles
    */
   title: 'Component/Button',
-} as ComponentMeta<typeof ButtonComponent>;
+} as Meta<typeof ButtonComponent>;
 
 // 👇 We create a “template” of how args map to rendering
-const Template: ComponentStory<typeof ButtonComponent> = ({
-  children,
-  ...rest
-}) => <ButtonComponent {...rest}>{children}</ButtonComponent>;
-
-export const Primary = Template.bind({});
-
-Primary.args = {
-  children: 'Primary button',
-  /* 👇 The args you need here will depend on your component */
-};
-Primary.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  await userEvent.click(
-    canvas.getByRole('button', {
-      name: 'Primary button',
-    }),
-  );
+export const Primary: StoryObj<typeof ButtonComponent> = {
+  args: {
+    children: 'Primary button',
+    /* 👇 The args you need here will depend on your component */
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(
+      canvas.getByRole('button', {
+        name: 'Primary button',
+      }),
+    );
+  },
+  render: ({ children, ...rest }) => (
+    <ButtonComponent {...rest}>{children}</ButtonComponent>
+  ),
 };

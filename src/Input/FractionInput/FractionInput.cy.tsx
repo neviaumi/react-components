@@ -1,5 +1,5 @@
 import { cy, describe, it } from '@busybox/cypress';
-import { composeStories } from '@storybook/testing-react';
+import { composeStories } from '@storybook/react';
 
 import { palette } from '../../theme.js';
 import * as stories from './FractionInput.stories.js';
