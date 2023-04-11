@@ -1,13 +1,13 @@
 import './commands.js';
 
 import { cy, Cypress } from '@busybox/cypress';
-import { setGlobalConfig } from '@storybook/testing-react';
+import { setProjectAnnotations } from '@storybook/react';
 import { mount } from 'cypress/react18';
 import type { PropsWithChildren } from 'react';
 
 import * as globalStorybookConfig from '../../.storybook/preview.js';
 
-setGlobalConfig(globalStorybookConfig);
+setProjectAnnotations(globalStorybookConfig);
 
 function TestBed(props: PropsWithChildren) {
   // @ts-expect-error https://github.com/cypress-io/cypress/issues/23025
@@ -32,6 +32,7 @@ declare global {
   namespace Cypress {
     interface Chainable {
       getComponentCanvasRoot(): Chainable<JQuery<HTMLElement>>;
+
       mount: typeof mount;
     }
   }

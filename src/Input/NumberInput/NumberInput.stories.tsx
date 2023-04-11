@@ -1,4 +1,4 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { Field } from '../Field.js';
 import Label from '../Label.js';
@@ -8,20 +8,18 @@ export default {
   component: NumberInputComponent,
   subcomponents: { Field, Label },
   title: 'Component/Input/NumberInput',
-} as ComponentMeta<typeof NumberInputComponent>;
+} as Meta<typeof NumberInputComponent>;
 
-const NumberInputTemplate: ComponentStory<
-  typeof NumberInputComponent
-> = args => {
-  return (
-    <Field>
-      <Label>Number Input</Label>
-      <NumberInputComponent {...args} />
-    </Field>
-  );
-};
-
-export const NumberInput = NumberInputTemplate.bind({});
-NumberInput.args = {
-  value: 10,
+export const NumberInput: StoryObj<typeof NumberInputComponent> = {
+  args: {
+    value: 10,
+  },
+  render: args => {
+    return (
+      <Field>
+        <Label>Number Input</Label>
+        <NumberInputComponent {...args} />
+      </Field>
+    );
+  },
 };

@@ -1,4 +1,4 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { Content, Footer, Header, Main, Page } from './LayoutForStories';
 
@@ -13,14 +13,16 @@ export default {
    * to learn how to generate automatic titles
    */
   title: 'Layout/OneColumnLayout',
-} as ComponentMeta<typeof Page>;
+} as Meta<typeof Page>;
 
-export const OneColumnLayout: ComponentStory<typeof Page> = () => (
-  <Page>
-    <Header>OneColumnLayout Header</Header>
-    <Content>
-      <Main className={'tw-h-full'}>OneColumnLayout Main</Main>
-    </Content>
-    <Footer>OneColumnLayout Footer</Footer>
-  </Page>
-);
+export const OneColumnLayout: StoryObj<typeof Page> = {
+  render: () => (
+    <Page>
+      <Header>OneColumnLayout Header</Header>
+      <Content>
+        <Main className={'tw-h-full'}>OneColumnLayout Main</Main>
+      </Content>
+      <Footer>OneColumnLayout Footer</Footer>
+    </Page>
+  ),
+};

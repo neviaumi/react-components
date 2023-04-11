@@ -1,4 +1,4 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { within } from '@storybook/testing-library';
 import { ChangeEvent, useCallback, useState } from 'react';
 
@@ -12,58 +12,57 @@ export default {
    * to learn how to generate automatic titles
    */
   title: 'Component/MediaViewer/Image',
-} as ComponentMeta<typeof ImageComponent>;
+} as Meta<typeof ImageComponent>;
 
-export const Image: ComponentStory<typeof ImageComponent> = ({
-  children,
-  ...rest
-}) => <ImageComponent {...rest}>{children}</ImageComponent>;
-
-Image.args = {
-  alt: 'Cat 201 Created',
-  src: 'https://http.cat/201',
+export const Image: StoryObj<typeof ImageComponent> = {
+  args: {
+    alt: 'Cat 201 Created',
+    src: 'https://http.cat/201',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await canvas.getByRole('img', {
+      name: 'Cat 201 Created',
+    });
+  },
+  render: ({ children, ...rest }) => (
+    <ImageComponent {...rest}>{children}</ImageComponent>
+  ),
 };
 
-Image.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  await canvas.getByRole('img', {
-    name: 'Cat 201 Created',
-  });
-};
+export const ImagePreviewWhenFileUpload: StoryObj<typeof ImageComponent> = {
+  render: args => {
+    const [uploadedImg, setUploadedImg] = useState<{
+      alt: string;
+      src: string;
+    } | null>(null);
+    const uploadImg = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+      if (!event.target.files) return;
+      const [uploadFile]: FileList = event.target.files;
+      const reader = new FileReader();
 
-export const ImagePreviewWhenFileUpload: ComponentStory<
-  typeof ImageComponent
-> = args => {
-  const [uploadedImg, setUploadedImg] = useState<{
-    alt: string;
-    src: string;
-  } | null>(null);
-  const uploadImg = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-    if (!event.target.files) return;
-    const [uploadFile]: FileList = event.target.files;
-    const reader = new FileReader();
-
-    reader.addEventListener(
-      'load',
-      () => {
-        // convert image file to base64 string
-        setUploadedImg({
-          alt: uploadFile.name,
-          src: reader.result as string,
-        });
-      },
-      false,
+      reader.addEventListener(
+        'load',
+        () => {
+          // convert image file to base64 string
+          setUploadedImg({
+            alt: uploadFile.name,
+            src: reader.result as string,
+          });
+        },
+        false,
+      );
+      reader.readAsDataURL(uploadFile);
+    }, []);
+    return (
+      <div className={'tw-flex tw-flex-col'}>
+        {uploadedImg && (
+          <ImageComponent alt={uploadedImg.alt} src={uploadedImg.src} />
+        )}
+        <FileUpload data-testid={args['data-testid']} onChange={uploadImg}>
+          Click and upload image here
+        </FileUpload>
+      </div>
     );
-    reader.readAsDataURL(uploadFile);
-  }, []);
-  return (
-    <div className={'tw-flex tw-flex-col'}>
-      {uploadedImg && (
-        <ImageComponent alt={uploadedImg.alt} src={uploadedImg.src} />
-      )}
-      <FileUpload data-testid={args['data-testid']} onChange={uploadImg}>
-        Click and upload image here
-      </FileUpload>
-    </div>
-  );
+  },
 };
