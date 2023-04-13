@@ -5,7 +5,7 @@ import { ChangeEvent, useCallback, useState } from 'react';
 import FileUpload from '../Upload/FileUpload.js';
 import ImageComponent from './Image.js';
 
-export default {
+const meta: Meta<typeof ImageComponent> = {
   component: ImageComponent,
   /* 👇 The title prop is optional.
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
@@ -14,7 +14,11 @@ export default {
   title: 'Component/MediaViewer/Image',
 } as Meta<typeof ImageComponent>;
 
-export const Image: StoryObj<typeof ImageComponent> = {
+export default meta;
+
+type Story = StoryObj<typeof ImageComponent>;
+
+export const Image: Story = {
   args: {
     alt: 'Cat 201 Created',
     src: 'https://http.cat/201',
@@ -30,7 +34,7 @@ export const Image: StoryObj<typeof ImageComponent> = {
   ),
 };
 
-export const ImagePreviewWhenFileUpload: StoryObj<typeof ImageComponent> = {
+export const ImagePreviewWhenFileUpload: Story = {
   render: args => {
     const [uploadedImg, setUploadedImg] = useState<{
       alt: string;

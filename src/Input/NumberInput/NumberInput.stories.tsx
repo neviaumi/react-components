@@ -4,13 +4,16 @@ import { Field } from '../Field.js';
 import Label from '../Label.js';
 import NumberInputComponent from './NumberInput.js';
 
-export default {
+const meta: Meta<typeof NumberInputComponent> = {
   component: NumberInputComponent,
-  subcomponents: { Field, Label },
   title: 'Component/Input/NumberInput',
-} as Meta<typeof NumberInputComponent>;
+};
 
-export const NumberInput: StoryObj<typeof NumberInputComponent> = {
+export default meta;
+
+type Story = StoryObj<typeof NumberInputComponent>;
+
+export const NumberInput: Story = {
   args: {
     value: 10,
   },

@@ -2,12 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import FileUploadComponent from './FileUpload.js';
 
-export default {
+const meta: Meta<typeof FileUploadComponent> = {
   component: FileUploadComponent,
   title: 'Component/FileUpload',
-} as Meta<typeof FileUploadComponent>;
+};
 
-export const FileUpload: StoryObj<typeof FileUploadComponent> = {
+export default meta;
+
+type Story = StoryObj<typeof FileUploadComponent>;
+
+export const FileUpload: Story = {
   args: {
     children: 'Click to Upload',
   },

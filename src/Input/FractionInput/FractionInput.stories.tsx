@@ -10,21 +10,20 @@ import { Field } from '../Field.js';
 import Label from '../Label.js';
 import FractionInputComponent from './FractionInput.js';
 
-export default {
+const meta: Meta<typeof FractionInputComponent> = {
   argTypes: {
     onChange: { action: 'value change' },
     onSubmit: { action: 'value submit' },
   },
   component: FractionInputComponent,
-  subcomponents: {
-    Field,
-    FractionNumberDisplay: FractionNumberDisplayComponent,
-    Label,
-  },
   title: 'Component/Input/FractionNumber',
-} as Meta<typeof FractionInputComponent>;
+};
 
-export const FractionInput: StoryObj<typeof FractionInputComponent> = {
+export default meta;
+
+type Story = StoryObj<typeof FractionInputComponent>;
+
+export const FractionInput: Story = {
   args: {
     'data-testid': 'test-fraction-input',
   },
@@ -64,45 +63,44 @@ export const FractionInput: StoryObj<typeof FractionInputComponent> = {
   },
 };
 
-export const FractionInputWithDisplay: StoryObj<typeof FractionInputComponent> =
-  {
-    args: {
-      'data-testid': 'test-fraction',
-    },
-    play: async ({ canvasElement }) => {
-      const canvas = within(canvasElement);
-      await userEvent.click(canvas.getByTestId('test-fraction-display'));
-      await canvas.findByTestId('test-fraction-input');
-    },
-    render: ({ 'data-testid': testId }) => {
-      const id = useId();
-      const [isEditing, setIsEditing] = useState(false);
-      const [fractionString, setFractionString] = useState<string | null>(null);
-      return (
-        <div className={'tw-flex tw-flex-col tw-justify-center'}>
-          <Label htmlFor={id}>FractionInput</Label>
-          {isEditing ? (
-            <FractionInputComponent
-              data-testid={generateTestIdWithPrefix({
-                id: 'input',
-                prefix: testId,
-              })}
-              id={id}
-              onBlur={() => setIsEditing(false)}
-              onChange={e => setFractionString(e.detail.value.raw)}
-            />
-          ) : (
-            <FractionNumberDisplayComponent
-              data-testid={generateTestIdWithPrefix({
-                id: 'display',
-                prefix: testId,
-              })}
-              id={id}
-              onClick={() => setIsEditing(true)}
-              value={fractionString}
-            />
-          )}
-        </div>
-      );
-    },
-  };
+export const FractionInputWithDisplay: Story = {
+  args: {
+    'data-testid': 'test-fraction',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByTestId('test-fraction-display'));
+    await canvas.findByTestId('test-fraction-input');
+  },
+  render: ({ 'data-testid': testId }) => {
+    const id = useId();
+    const [isEditing, setIsEditing] = useState(false);
+    const [fractionString, setFractionString] = useState<string | null>(null);
+    return (
+      <div className={'tw-flex tw-flex-col tw-justify-center'}>
+        <Label htmlFor={id}>FractionInput</Label>
+        {isEditing ? (
+          <FractionInputComponent
+            data-testid={generateTestIdWithPrefix({
+              id: 'input',
+              prefix: testId,
+            })}
+            id={id}
+            onBlur={() => setIsEditing(false)}
+            onChange={e => setFractionString(e.detail.value.raw)}
+          />
+        ) : (
+          <FractionNumberDisplayComponent
+            data-testid={generateTestIdWithPrefix({
+              id: 'display',
+              prefix: testId,
+            })}
+            id={id}
+            onClick={() => setIsEditing(true)}
+            value={fractionString}
+          />
+        )}
+      </div>
+    );
+  },
+};

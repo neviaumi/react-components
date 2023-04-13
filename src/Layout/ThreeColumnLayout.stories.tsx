@@ -2,20 +2,23 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Content, Footer, Header, Main, Page, Side } from './LayoutForStories';
 
-export default {
+const meta: Meta<typeof Page> = {
   component: Page,
   parameters: {
     layout: 'fullscreen',
   },
-  subcomponents: { Footer, Header, Main, Side },
   /* 👇 The title prop is optional.
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
   title: 'Layout/ThreeColumnLayout',
-} as Meta<typeof Page>;
+};
 
-export const MainInCenter: StoryObj<typeof Page> = {
+export default meta;
+
+type Story = StoryObj<typeof Page>;
+
+export const MainInCenter: Story = {
   render: () => (
     <Page>
       <Header>TwoColumnLayout Header</Header>
@@ -29,7 +32,7 @@ export const MainInCenter: StoryObj<typeof Page> = {
   ),
 };
 
-export const MainInLeft: StoryObj<typeof Page> = {
+export const MainInLeft: Story = {
   render: () => (
     <Page>
       <Header>TwoColumnLayout Header</Header>
@@ -43,7 +46,7 @@ export const MainInLeft: StoryObj<typeof Page> = {
   ),
 };
 
-export const MainInRight: StoryObj<typeof Page> = {
+export const MainInRight: Story = {
   render: () => (
     <Page>
       <Header>TwoColumnLayout Header</Header>

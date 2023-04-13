@@ -6,13 +6,16 @@ import AudioComponent from './Audio.js';
 // @ts-expect-error static file with file loader not working?
 import mp3Fixture from './sunshine-of-your-love.mp3';
 
-export default {
+const meta: Meta<typeof AudioComponent> = {
   component: AudioComponent,
-  subcomponents: { FileUpload },
   title: 'Component/MediaViewer/Audio',
-} as Meta<typeof AudioComponent>;
+};
 
-export const Audio: StoryObj<typeof AudioComponent> = {
+export default meta;
+
+type Story = StoryObj<typeof AudioComponent>;
+
+export const Audio: Story = {
   args: {
     src: mp3Fixture,
     type: 'audio/mpeg',
@@ -22,7 +25,7 @@ export const Audio: StoryObj<typeof AudioComponent> = {
   ),
 };
 
-export const AudioPreviewWithFileUpload: StoryObj<typeof AudioComponent> = {
+export const AudioPreviewWithFileUpload: Story = {
   render: args => {
     const [uploadedAudio, setUploadedAudio] = useState<{
       src: string;
