@@ -7,15 +7,19 @@ import FileUpload from '../Upload/FileUpload.js';
 import Link from '../wired-elements/WiredLink.js';
 import AudioRecorderComponent from './AudioRecorder.js';
 
-export default {
+const meta: Meta<typeof AudioRecorderComponent> = {
   component: AudioRecorderComponent,
-  subcomponents: { Audio, FileUpload },
   title: 'Component/MediaRecorder/Audio',
-} as Meta<typeof AudioRecorderComponent>;
+};
 
-export const AudioRecorderAndFileUploadWithPreview: StoryObj<
-  typeof AudioRecorderComponent
-> = {
+export default meta;
+type Story = StoryObj<
+  ComponentProps<typeof AudioRecorderComponent> & {
+    onAudioBufferReady?: (buffer: AudioBuffer) => void;
+  }
+>;
+
+export const AudioRecorderAndFileUploadWithPreview: Story = {
   render: args => {
     const [isRecording, setIsRecording] = useState<boolean | null>(false);
     const [downloadUrl, setDownloadUrl] = useState<{
@@ -81,11 +85,7 @@ export const AudioRecorderAndFileUploadWithPreview: StoryObj<
   },
 };
 
-export const AudioRecorderProduceAudioBuffer: StoryObj<
-  ComponentProps<typeof AudioRecorderComponent> & {
-    onAudioBufferReady: (buffer: AudioBuffer) => void;
-  }
-> = {
+export const AudioRecorderProduceAudioBuffer: Story = {
   render: ({ 'data-testid': testId, onAudioBufferReady }) => {
     return (
       <div className={'tw-flex tw-flex-col'}>
@@ -99,7 +99,7 @@ export const AudioRecorderProduceAudioBuffer: StoryObj<
             fileReader.addEventListener('loadend', async () => {
               const arrayBuffer = fileReader.result as ArrayBuffer;
               const buffer = await audioContext.decodeAudioData(arrayBuffer);
-              onAudioBufferReady(buffer);
+              onAudioBufferReady?.(buffer);
             });
             fileReader.readAsArrayBuffer(blob);
           }}

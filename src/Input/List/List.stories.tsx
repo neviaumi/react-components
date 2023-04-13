@@ -6,13 +6,16 @@ import Label from '../Label.js';
 import ListComponent from './List.js';
 import ListItemComponent from './ListItem.js';
 
-export default {
+const meta: Meta<typeof ListComponent> = {
   component: ListComponent,
-  subcomponents: { Field, Label, ListItem: ListItemComponent },
   title: 'Component/Input/List',
-} as Meta<typeof ListComponent>;
+};
 
-export const List: StoryObj<typeof ListComponent> = {
+export default meta;
+
+type Story = StoryObj<typeof ListComponent>;
+
+export const List: Story = {
   render: () => {
     const [selectedValue, setSelectedValue] = useState<string | null>(null);
     return (

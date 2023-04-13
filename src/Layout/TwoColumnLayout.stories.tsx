@@ -2,12 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Content, Footer, Header, Main, Page, Side } from './LayoutForStories';
 
-export default {
+const meta: Meta<typeof Page> = {
   component: Page,
   parameters: {
     layout: 'fullscreen',
   },
-  subcomponents: { Footer, Header, Main, Side },
   /* 👇 The title prop is optional.
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
@@ -15,7 +14,11 @@ export default {
   title: 'Layout/TwoColumnLayout',
 } as Meta<typeof Page>;
 
-export const Horizontal: StoryObj<typeof Page> = {
+export default meta;
+
+type Story = StoryObj<typeof Page>;
+
+export const Horizontal: Story = {
   render: () => (
     <Page>
       <Header>TwoColumnLayout Header</Header>
@@ -28,7 +31,7 @@ export const Horizontal: StoryObj<typeof Page> = {
   ),
 };
 
-export const HorizontalWithTwoVerticalSide: StoryObj<typeof Page> = {
+export const HorizontalWithTwoVerticalSide: Story = {
   render: () => (
     <Page>
       <Header>TwoColumnLayout Header</Header>
@@ -44,7 +47,7 @@ export const HorizontalWithTwoVerticalSide: StoryObj<typeof Page> = {
   ),
 };
 
-export const HorizontalWithTwoHorizontalSide: StoryObj<typeof Page> = {
+export const HorizontalWithTwoHorizontalSide: Story = {
   render: () => (
     <Page>
       <Header>TwoColumnLayout Header</Header>
@@ -60,7 +63,7 @@ export const HorizontalWithTwoHorizontalSide: StoryObj<typeof Page> = {
   ),
 };
 
-export const HorizontalWithInlineVertical: StoryObj<typeof Page> = {
+export const HorizontalWithInlineVertical: Story = {
   render: () => (
     <Page>
       <Header>TwoColumnLayout Header</Header>
@@ -76,7 +79,7 @@ export const HorizontalWithInlineVertical: StoryObj<typeof Page> = {
   ),
 };
 
-export const Vertical: StoryObj<typeof Page> = {
+export const Vertical: Story = {
   render: () => (
     <Page>
       <Header>TwoColumnLayout Header</Header>
@@ -89,7 +92,7 @@ export const Vertical: StoryObj<typeof Page> = {
   ),
 };
 
-export const VerticalWithTwoHorizontalSide: StoryObj<typeof Page> = {
+export const VerticalWithTwoHorizontalSide: Story = {
   render: () => (
     <Page>
       <Header>TwoColumnLayout Header</Header>
@@ -105,7 +108,7 @@ export const VerticalWithTwoHorizontalSide: StoryObj<typeof Page> = {
   ),
 };
 
-export const VerticalWithInlineHorizontal: StoryObj<typeof Page> = {
+export const VerticalWithInlineHorizontal: Story = {
   render: () => (
     <Page>
       <Header>TwoColumnLayout Header</Header>
