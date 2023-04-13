@@ -1,9 +1,32 @@
-import type { PropsWithChildren } from 'react';
+import type { SlotComponentProps as MuiSlotComponentProps } from '@mui/base';
+import type { ElementType, PropsWithChildren } from 'react';
 
-export type ComponentProps<T = Record<string, never>> = PropsWithChildren<
+export type ComponentProps<
+  SlotProps extends MuiSlotComponentProps,
+  Extra = Record<string, unknown>,
+> = PropsWithChildren<
   {
-    className?: string;
     // https://testing-library.com/docs/queries/bytestid
     'data-testid'?: string;
-  } & T
+    disableDefaultClasses?: boolean;
+    slotProps?: SlotProps;
+  } & Extra
 >;
+export type SlotComponentProps<
+  Element extends ElementType,
+  Override,
+  State,
+> = MuiSlotComponentProps<Element, Override, State>;
+
+export type SlotComponentPropsWithoutOverride<
+  Element extends ElementType,
+  State,
+> = MuiSlotComponentProps<
+  Element,
+  {
+    className?: string;
+  },
+  State
+> & {
+  className?: string;
+};

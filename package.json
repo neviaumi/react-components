@@ -3,7 +3,9 @@
   "dependencies": {
     "@heroicons/react": "2.0.17",
     "@lit-labs/react": "1.1.1",
+    "@mui/base": "5.0.0-alpha.125",
     "classnames": "2.3.2",
+    "clsx": "1.2.1",
     "parse-ms": "3.0.0",
     "roughjs": "4.4.5",
     "wired-elements": "3.0.0-rc.6"
