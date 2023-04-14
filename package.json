@@ -17,7 +17,7 @@
     "@busybox/tailwindcss-config": "2023.4.4",
     "@busybox/tsconfig": "2023.4.4",
     "@commitlint/cli": "17.6.0",
-    "@storybook/addon-actions": "7.0.2",
+    "@storybook/addon-actions": "7.0.4",
     "@storybook/addon-essentials": "7.0.4",
     "@storybook/addon-interactions": "7.0.4",
     "@storybook/addon-links": "7.0.4",
