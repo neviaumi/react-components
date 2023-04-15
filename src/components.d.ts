@@ -20,7 +20,7 @@ export type SlotComponentProps<
 
 export type SlotComponentPropsWithoutOverride<
   Element extends ElementType,
-  State,
+  State = unknown,
 > = MuiSlotComponentProps<
   Element,
   {
@@ -29,4 +29,4 @@ export type SlotComponentPropsWithoutOverride<
   State
 > & {
   className?: string;
-};
+} & Omit<ComponentProps, 'disableDefaultClasses', 'slotProps'>;

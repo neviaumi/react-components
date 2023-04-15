@@ -8,10 +8,13 @@ import type {
   SlotComponentPropsWithoutOverride,
 } from '../components';
 import { palette } from '../theme.js';
+import { assocDefaultStyle } from '../utils/assign-default-style';
 
 interface SlotProps {
   root: SlotComponentPropsWithoutOverride<'button', ButtonUnstyledOwnerState>;
 }
+
+export type ButtonProps = ComponentProps<SlotProps>;
 
 export default function Button({
   children,
@@ -19,22 +22,20 @@ export default function Button({
   disableDefaultClasses,
   slotProps: givenSlotProps,
   ...rest
-}: ComponentProps<SlotProps>) {
-  const defaultClasses = clsx(
-    palette.primary.main,
-    palette.primary.contrastText,
-    palette.primary.hover.main,
-    palette.primary.hover.contrastText,
-  );
-
-  const slotProps: SlotProps = givenSlotProps
-    ? givenSlotProps
-    : {
-        root: {},
-      };
+}: ButtonProps) {
+  let slotProps = givenSlotProps;
 
   if (!disableDefaultClasses) {
-    slotProps.root.className = clsx(defaultClasses, slotProps.root.className);
+    slotProps = assocDefaultStyle<SlotProps>({
+      slotWithDefaultClasses: {
+        root: clsx(
+          palette.primary.main,
+          palette.primary.contrastText,
+          palette.primary.hover.main,
+          palette.primary.hover.contrastText,
+        ),
+      },
+    })(givenSlotProps);
   }
 
   return (
