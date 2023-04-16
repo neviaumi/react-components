@@ -14,9 +14,6 @@ export default meta;
 type Story = StoryObj<typeof NumberInputComponent>;
 
 export const NumberInput: Story = {
-  args: {
-    value: 10,
-  },
   render: args => {
     return (
       <Field>

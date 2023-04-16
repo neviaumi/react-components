@@ -3,7 +3,9 @@ import { dirname, resolve } from 'node:path';
 import react from '@vitejs/plugin-react';
 import { defineConfig, searchForWorkspaceRoot } from 'vite';
 
-const rootDir = new URL(dirname(import.meta.url)).pathname;
+const rootDir = __dirname;
+// ESM import.meta.url is not supported in Node.js CommonJS modules
+// const rootDir = new URL(dirname(import.meta.url)).pathname;
 
 // https://vitejs.dev/config/
 // eslint-disable-next-line import/no-default-export

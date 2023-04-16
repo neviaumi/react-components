@@ -1,15 +1,19 @@
 import FormControlUnstyled, {
+  FormControlUnstyledProps,
   useFormControlUnstyledContext,
 } from '@mui/base/FormControlUnstyled';
 import { createContext, PropsWithChildren, useContext, useId } from 'react';
 
 const FieldContext = createContext<{ id?: string }>({});
 
-export function Field(props: PropsWithChildren) {
+export function Field({
+  children,
+  ...rest
+}: PropsWithChildren<FormControlUnstyledProps>) {
   const id = useId();
   return (
     <FieldContext.Provider value={{ id: id }}>
-      <FormControlUnstyled>{props.children}</FormControlUnstyled>
+      <FormControlUnstyled {...rest}>{children}</FormControlUnstyled>
     </FieldContext.Provider>
   );
 }
