@@ -1,5 +1,6 @@
 import ButtonUnstyled, {
   ButtonUnstyledOwnerState,
+  ButtonUnstyledOwnProps,
 } from '@mui/base/ButtonUnstyled';
 import clsx from 'clsx';
 
@@ -11,10 +12,10 @@ import { palette } from '../theme.js';
 import { assocDefaultStyle } from '../utils/assign-default-style';
 
 interface SlotProps {
-  root: SlotComponentPropsWithoutOverride<'button', ButtonUnstyledOwnerState>;
+  root?: SlotComponentPropsWithoutOverride<'button', ButtonUnstyledOwnerState>;
 }
 
-export type ButtonProps = ComponentProps<SlotProps>;
+export type ButtonProps = ComponentProps<SlotProps, ButtonUnstyledOwnProps>;
 
 export default function Button({
   children,

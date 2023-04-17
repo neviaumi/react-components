@@ -8,10 +8,10 @@ import { assocDefaultStyle } from '../utils/assign-default-style';
 import Button from './Button';
 
 interface SlotProps {
-  root: SlotComponentPropsWithoutOverride<'button', ButtonUnstyledOwnerState>;
+  root?: SlotComponentPropsWithoutOverride<'button', ButtonUnstyledOwnerState>;
 }
 
-export type IconButtonProps = ComponentProps<any>;
+export type IconButtonProps = ComponentProps<SlotProps>;
 
 export default function IconButton({
   children,
@@ -34,7 +34,6 @@ export default function IconButton({
     <div className={'tw-inline-block'}>
       <Button
         data-testid={testId ?? 'busybox-icon-button'}
-        role={'button'}
         slotProps={slotProps}
         {...rest}
       >

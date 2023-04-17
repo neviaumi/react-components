@@ -11,7 +11,7 @@ interface SlotProps {
   separator?: SlotComponentPropsWithoutOverride<'hr'>;
 }
 
-export type FractionNumberDisplayProps = ComponentProps<
+export type FractionNumberProps = ComponentProps<
   SlotProps,
   {
     denominator?: string;
@@ -19,9 +19,7 @@ export type FractionNumberDisplayProps = ComponentProps<
   }
 >;
 
-export default function FractionNumberDisplay(
-  props: FractionNumberDisplayProps,
-) {
+export default function FractionNumber(props: FractionNumberProps) {
   const {
     'data-testid': testId,
     denominator,

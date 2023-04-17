@@ -1,8 +1,8 @@
 import { cy, describe, it } from '@busybox/cypress';
 
-import FractionNumberDisplay from './FractionNumberDisplay';
+import FractionNumber from './FractionNumber';
 
-describe('FractionNumberDisplay', () => {
+describe('FractionNumber', () => {
   [
     {
       denominator: '4',
@@ -19,7 +19,7 @@ describe('FractionNumberDisplay', () => {
   ].forEach(({ denominator, numerator }) =>
     it(`Display given value when ${numerator}/${denominator}`, () => {
       cy.mount(
-        <FractionNumberDisplay
+        <FractionNumber
           denominator={denominator}
           numerator={numerator}
           slotProps={{

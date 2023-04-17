@@ -1,12 +1,12 @@
 export { default as Button } from './Button/Button.js';
 export { default as Card } from './Card.js';
-export { default as FractionNumberDisplay } from './Display/FractionNumberDisplay/FractionNumberDisplay.js';
+export { default as FractionNumberDisplay } from './Display/FractionNumber/FractionNumber';
 export { default as List } from './Display/List/List.js';
 export { default as ListItem } from './Display/List/ListItem.js';
 export { default as NumberInput } from './Input/NumberInput/NumberInput.js';
+export { default as FileUpload } from './Input/Upload/FileUpload.js';
 export * as Layout from './Layout/Layout.js';
 export { default as AudioRecorder } from './MediaRecorder/AudioRecorder.js';
 export { default as AudioViewer } from './MediaViewer/Audio.js';
 export * as theme from './theme.js';
-export { default as FileUpload } from './Upload/FileUpload.js';
 export { default as Divider } from './wired-elements/WiredDivider';

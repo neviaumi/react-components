@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ChangeEvent, useCallback, useState } from 'react';
 
-import FileUpload from '../Upload/FileUpload.js';
+import FileUpload from '../Input/Upload/FileUpload.js';
 import AudioComponent from './Audio.js';
 // @ts-expect-error static file with file loader not working?
 import mp3Fixture from './sunshine-of-your-love.mp3';

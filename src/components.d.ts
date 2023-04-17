@@ -4,13 +4,14 @@ import type { ElementType, PropsWithChildren } from 'react';
 export type ComponentProps<
   SlotProps extends MuiSlotComponentProps,
   Extra = Record<string, unknown>,
-> = PropsWithChildren<{
-  // https://testing-library.com/docs/queries/bytestid
-  'data-testid'?: string;
-  disableDefaultClasses?: boolean;
-  slotProps?: SlotProps;
-}> &
-  Extra;
+> = PropsWithChildren<
+  Extra & {
+    // https://testing-library.com/docs/queries/bytestid
+    'data-testid'?: string;
+    disableDefaultClasses?: boolean;
+    slotProps?: SlotProps;
+  }
+>;
 export type SlotComponentProps<
   Element extends ElementType,
   Override,
