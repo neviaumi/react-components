@@ -31,14 +31,12 @@ export default function IconButton({
   }
 
   return (
-    <div className={'tw-inline-block'}>
-      <Button
-        data-testid={testId ?? 'busybox-icon-button'}
-        slotProps={slotProps}
-        {...rest}
-      >
-        {children}
-      </Button>
-    </div>
+    <Button
+      data-testid={testId ?? 'busybox-icon-button'}
+      slotProps={slotProps}
+      {...rest}
+    >
+      {children}
+    </Button>
   );
 }

@@ -1,20 +1,41 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import IconButton from '../Button/IconButton.js';
+import {
+  ComponentProps,
+  SlotComponentPropsWithoutOverride,
+} from '../components';
 import { MicrophoneIcon, StopIcon } from '../icons/solid.js';
+import { assocDefaultStyle } from '../utils/assign-default-style';
 import { useAudioRecorder } from './use-media-recorder.js';
+
+interface SlotProps {
+  errorMessage?: SlotComponentPropsWithoutOverride<'p', object>;
+  errorTitle?: SlotComponentPropsWithoutOverride<'h1', object>;
+  root?: SlotComponentPropsWithoutOverride<'button', object>;
+  start?: SlotComponentPropsWithoutOverride<'button', object>;
+  stop?: SlotComponentPropsWithoutOverride<'button', object>;
+}
 
 export type StartRecordingHandler = () => void;
 export type StopRecordingHandler = (e: CustomEvent<{ value: Blob[] }>) => void;
 
-export type AudioRecordProps = {
-  'data-testid'?: string;
-  onStartRecording?: StartRecordingHandler;
-  onStopRecording: StopRecordingHandler;
-};
+export type AudioRecordProps = ComponentProps<
+  SlotProps,
+  {
+    onStartRecording?: StartRecordingHandler;
+    onStopRecording: StopRecordingHandler;
+  }
+>;
 
-export default function AudioRecorder(props: AudioRecordProps) {
-  const testId = props['data-testid'];
+export default function AudioRecorder({
+  'data-testid': testId,
+  disableDefaultClasses,
+  onStartRecording,
+  onStopRecording,
+  slotProps: givenSlotProps,
+  ...rest
+}: AudioRecordProps) {
   const [audioRecorder, recorderError, recordChunks] = useAudioRecorder({
     mimeType: 'audio/webm',
   });
@@ -27,14 +48,14 @@ export default function AudioRecorder(props: AudioRecordProps) {
     } else {
       recordingChunks.current = [];
       audioRecorder?.start();
-      props.onStartRecording?.();
+      onStartRecording?.();
       setIsRecording(true);
     }
-  }, [audioRecorder, isRecording, props]);
+  }, [audioRecorder, isRecording, onStartRecording]);
   useEffect(() => {
     if (!audioRecorder) return undefined;
     const onRecorderStop = () => {
-      props.onStopRecording(
+      onStopRecording(
         new CustomEvent('finishRecording', {
           detail: {
             value: recordChunks.current!,
@@ -47,18 +68,41 @@ export default function AudioRecorder(props: AudioRecordProps) {
     return () => {
       audioRecorder.removeEventListener('stop', onRecorderStop);
     };
-  }, [audioRecorder, props, recordChunks]);
-  if (!audioRecorder) return null;
+  }, [audioRecorder, onStopRecording, recordChunks]);
+  let slotProps = givenSlotProps;
+
+  if (!disableDefaultClasses) {
+    slotProps = assocDefaultStyle<SlotProps>({
+      slotWithDefaultClasses: {},
+    })(givenSlotProps);
+  }
+  // if (!audioRecorder) return null;
   if (recorderError)
     return (
       <div>
-        <h1>{recorderError.name}</h1>
-        <main>{recorderError.message}</main>
+        <h1 className={slotProps?.errorTitle?.className}>
+          {recorderError.name}
+        </h1>
+        <p className={slotProps?.errorMessage?.className}>
+          {recorderError.message}
+        </p>
       </div>
     );
   return (
-    <IconButton data-testid={testId} onClick={toggleIsRecording}>
-      {isRecording ? <StopIcon /> : <MicrophoneIcon />}
+    <IconButton
+      data-testid={testId}
+      disableDefaultClasses={disableDefaultClasses}
+      onClick={toggleIsRecording}
+      slotProps={{
+        root: { ...slotProps?.root },
+      }}
+      {...rest}
+    >
+      {isRecording ? (
+        <StopIcon className={slotProps?.stop?.className} />
+      ) : (
+        <MicrophoneIcon className={slotProps?.start?.className} />
+      )}
     </IconButton>
   );
 }

@@ -5,28 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3252ace-a70c-4f3f-b6dc-ca7cc5b6c457" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Display/FractionNumber/FractionNumber.stories.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Input/Upload/FileUpload.stories.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Input/Upload/FileUpload.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Link/Link.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Button/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Button/Button.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Button/IconButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Button/IconButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Display/FractionNumberDisplay/FractionNumberDisplay.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/FractionNumber/FractionNumber.cy.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Display/FractionNumberDisplay/FractionNumberDisplay.stories.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Display/FractionNumberDisplay/FractionNumberDisplay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/FractionNumber/FractionNumber.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Display/FractionNumberDisplay/parse-fraction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display/FractionNumber/parse-fraction.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Input/Form.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Input/Form.cy.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Input/Form.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Input/Form.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Link/Link.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Link/Link.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MediaRecorder/AudioRecorder.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaRecorder/AudioRecorder.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaViewer/Audio.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaViewer/Audio.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaViewer/Image.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaViewer/Image.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Upload/FileUpload.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Input/Upload/FileUpload.cy.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Upload/FileUpload.stories.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Upload/FileUpload.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MediaRecorder/AudioRecorder.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaRecorder/AudioRecorder.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons/solid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/icons/solid.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +82,8 @@
       <workItem from="1681567372398" duration="65000" />
       <workItem from="1681567449711" duration="97000" />
       <workItem from="1681567556801" duration="58000" />
-      <workItem from="1681567626787" duration="31938000" />
+      <workItem from="1681567626787" duration="32017000" />
+      <workItem from="1681835988327" duration="1807000" />
     </task>
     <servers />
   </component>

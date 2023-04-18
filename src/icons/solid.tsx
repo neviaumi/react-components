@@ -13,12 +13,14 @@ import { icon } from '../theme.js';
 
 function withHeroIcon(HeroIcon: React.FunctionComponent) {
   return function Wrapper(props: React.ComponentProps<'svg'>) {
+    const { className: givenClassName, ...rest } = props;
     const className = clsx(
       icon.solid.width,
       icon.solid.height,
-      ...(props.className ?? '').split(' '),
+      ...(givenClassName ?? '').split(' '),
     );
-    return <HeroIcon className={className} {...props} />;
+    // @ts-expect-error no typing fix !
+    return <HeroIcon className={className} {...rest} />;
   };
 }
 export const PauseIcon = withHeroIcon(_PauseIcon);
