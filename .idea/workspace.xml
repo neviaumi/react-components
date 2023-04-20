@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3252ace-a70c-4f3f-b6dc-ca7cc5b6c457" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Input/Slider/Slider.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Input/Slider/Slider.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Button/IconButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Button/IconButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaRecorder/AudioRecorder.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaRecorder/AudioRecorder.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaRecorder/AudioRecorder.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaRecorder/AudioRecorder.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/icons/solid.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/icons/solid.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/preview.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/preview.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,28 +37,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;ISSUE-37__integrate-mui-base&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/davidng/Documents/GitHub/self/react-components/src/Link&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/davidng/Documents/GitHub/self/react-components/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/davidng/Documents/GitHub/self/react-components/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "ISSUE-37__integrate-mui-base",
+    "last_opened_file_path": "/Users/davidng/Documents/GitHub/self/react-components/src/Input/Slider",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/davidng/Documents/GitHub/self/react-components/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+    "ts.external.directory.path": "/Users/davidng/Documents/GitHub/self/react-components/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Input/Slider" />
       <recent name="$PROJECT_DIR$/src/Link" />
       <recent name="$PROJECT_DIR$/src/Input" />
       <recent name="$PROJECT_DIR$/src/Display/FractionNumberDisplay" />
@@ -83,7 +83,7 @@
       <workItem from="1681567449711" duration="97000" />
       <workItem from="1681567556801" duration="58000" />
       <workItem from="1681567626787" duration="32017000" />
-      <workItem from="1681835988327" duration="1807000" />
+      <workItem from="1681835988327" duration="5506000" />
     </task>
     <servers />
   </component>
