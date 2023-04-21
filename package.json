@@ -27,7 +27,7 @@
     "@storybook/react-vite": "7.0.6",
     "@storybook/test-runner": "0.10.0",
     "@storybook/testing-library": "0.1.0",
-    "@vitejs/plugin-react": "3.1.0",
+    "@vitejs/plugin-react": "4.0.0",
     "autoprefixer": "10.4.14",
     "chromatic": "6.17.3",
     "cypress": "12.10.0",
