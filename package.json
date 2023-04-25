@@ -24,7 +24,7 @@
     "@storybook/addon-postcss": "2.0.0",
     "@storybook/jest": "0.1.0",
     "@storybook/react": "7.0.6",
-    "@storybook/react-vite": "7.0.6",
+    "@storybook/react-vite": "7.0.7",
     "@storybook/test-runner": "0.10.0",
     "@storybook/testing-library": "0.1.0",
     "@vitejs/plugin-react": "4.0.0",
