@@ -2,6 +2,7 @@ import './commands.js';
 
 import { cy, Cypress } from '@busybox/cypress';
 import { setProjectAnnotations } from '@storybook/react';
+import clsx from 'clsx';
 import { mount } from 'cypress/react18';
 import type { PropsWithChildren } from 'react';
 
@@ -15,10 +16,20 @@ function TestBed(props: PropsWithChildren) {
   return (
     <main>
       <h1
-        className={
-          'tw-mb-1 tw-block tw-border-b-2 tw-border-red-400 tw-bg-blue-100 tw-text-center tw-text-9xl' +
-          ' tw-font-bold tw-text-gray-600'
-        }
+        className={clsx(
+          'tw-bg-warning-bg',
+          'hover:tw-bg-warning-bg-hover',
+          'tw-text-warning-text',
+          'hover:tw-text-warning-text-hover',
+          'tw-mb-1',
+          'tw-block',
+          'tw-border-b-2',
+          'tw-border-warning-border',
+          'hover:tw-border-warning-border-hover',
+          'tw-text-center',
+          'tw-text-9xl',
+          'tw-font-bold',
+        )}
       >
         TestBed
       </h1>

@@ -1,6 +1,6 @@
 import { cy, describe, it } from '@busybox/cypress';
 import { composeStories } from '@storybook/react';
-import { assocPath } from 'ramda';
+import { dissocPath, pipe } from 'ramda';
 
 import * as stories from './Form.stories.js';
 
@@ -23,20 +23,30 @@ describe('ReactHookForm stories', () => {
       '@testUploadFixture',
       { force: true },
     );
+    cy.findByTestId('form-stories-slider-input')
+      .as('sliderInput')
+      .then(ele => {
+        const currentLocation = ele.position();
+        cy.get('@sliderInput').click(
+          currentLocation.top + 100,
+          currentLocation.left,
+          { force: true },
+        );
+      });
+
     cy.findByTestId('form-stories-submit-button').click();
     cy.findByTestId('form-values').then(ele => {
       const values = JSON.parse(ele.text());
 
-      cy.wrap(assocPath(['proofOfAge', 'url'], 'any', values)).should(
-        'deep.equal',
-        {
-          height: '20',
-          proofOfAge: {
-            name: 'example.png',
-            url: 'any',
-          },
+      cy.wrap(
+        pipe(dissocPath(['proofOfAge', 'url']), dissocPath(['rating']))(values),
+      ).should('deep.equal', {
+        height: '20',
+        proofOfAge: {
+          name: 'example.png',
         },
-      );
+      });
+      cy.wrap(values.rating).should('be.gte', 0);
     });
   });
 });

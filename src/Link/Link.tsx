@@ -5,7 +5,6 @@ import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
 } from '../components';
-import { palette } from '../theme';
 import { assocDefaultStyle } from '../utils/assign-default-style';
 
 interface SlotProps {
@@ -26,10 +25,10 @@ function Link({
     slotProps = assocDefaultStyle<SlotProps>({
       slotWithDefaultClasses: {
         root: clsx(
-          palette.primary.main,
-          palette.primary.contrastText,
-          palette.primary.hover.main,
-          palette.primary.hover.contrastText,
+          'tw-bg-primary-bg',
+          'tw-text-primary-text',
+          'hover:tw-bg-primary-bg-hover',
+          'hover:tw-text-primary-text-hover',
           'tw-block',
         ),
       },

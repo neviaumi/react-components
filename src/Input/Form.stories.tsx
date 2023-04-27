@@ -10,6 +10,7 @@ import Link from '../Link/Link';
 import { Field } from './Field.js';
 import Label from './Label.js';
 import NumberInput from './NumberInput/NumberInput';
+import SliderInput from './Slider/Slider';
 import FileUploadInput from './Upload/FileUpload';
 
 const meta: Meta = {
@@ -31,7 +32,7 @@ export const ReactHookForm: Story = {
     );
     await waitFor(async () => {
       const formValues = canvas.getByTestId('form-values').textContent || '';
-      await expect(JSON.parse(formValues)).toEqual({ height: '10' });
+      await expect(JSON.parse(formValues)).toEqual({ height: '10', rating: 0 });
     });
   },
   render: () => {
@@ -107,6 +108,24 @@ export const ReactHookForm: Story = {
                         <Link href={value?.url}>{value?.name}</Link>
                       )}
                     </>
+                  );
+                }}
+              />
+              <Controller
+                control={control}
+                defaultValue={0}
+                name={'rating'}
+                render={({ field }) => {
+                  return (
+                    <Field
+                      className={
+                        'tw-flex tw-flex-row tw-items-center tw-gap-1.5'
+                      }
+                      {...field}
+                    >
+                      <Label>Rating</Label>
+                      <SliderInput data-testid={'form-stories-slider-input'} />
+                    </Field>
                   );
                 }}
               />

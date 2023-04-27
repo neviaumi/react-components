@@ -9,6 +9,7 @@ module.exports = {
     },
   ],
   rules: {
+    'tailwindcss/classnames-order': 'error',
     'import/extensions': [
       'error',
       'ignorePackages',

@@ -2,7 +2,8 @@ import SliderUnstyled, {
   SliderUnstyledOwnerState,
   SliderUnstyledOwnProps,
 } from '@mui/base/SliderUnstyled';
-import * as React from 'react';
+import clsx from 'clsx';
+import React, { forwardRef } from 'react';
 
 import {
   ComponentProps,
@@ -30,11 +31,10 @@ interface SlotProps {
 
 export type SliderProps = ComponentProps<SlotProps, SliderUnstyledOwnProps>;
 
-export default function Slider({
-  disableDefaultClasses,
-  slotProps: givenSlotProps,
-  ...rest
-}: SliderProps) {
+export default forwardRef<HTMLSpanElement>(function Slider(
+  { disableDefaultClasses, slotProps: givenSlotProps, ...rest }: SliderProps,
+  ref,
+) {
   const { formControlContext, id } = useFieldContext();
   if (formControlContext === undefined) {
     return null;
@@ -44,14 +44,35 @@ export default function Slider({
   if (!disableDefaultClasses) {
     slotProps = assocDefaultStyle<SlotProps>({
       slotWithDefaultClasses: {
-        rail: 'tw-block tw-h-1 tw-w-full tw-absolute tw-rounded-sm tw-bg-current',
-        root: 'tw-inline-block tw-h-1.5 tw-w-full tw-cursor-pointer tw-relative',
-        thumb:
-          'tw-w-2 tw-h-2 tw-absolute tw-bg-primary tw-bg-rose-300 tw--mt-[4px] tw--ml-[8px] tw-rounded-[50%] tw-border-2 tw-border-current',
-        track:
-          'tw-block tw-h-1 tw-w-full tw-absolute tw-bg-primary tw-rounded-sm tw-bg-current',
+        rail: clsx(
+          'tw-block tw-h-1 tw-w-full tw-rounded-sm tw-bg-secondary-bg hover:tw-bg-secondary-bg-hover',
+        ),
+        root: clsx(
+          'tw-relative tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-items-center',
+        ),
+        thumb: clsx(
+          'tw-absolute tw--ml-1.5 tw--mt-[0.15rem] tw-h-2 tw-w-2 tw-rounded-[50%] tw-border-2 tw-border-primary-border tw-bg-primary-bg hover:tw-border-primary-border-hover hover:tw-bg-primary-bg-hover',
+        ),
+        track: clsx(
+          'tw-absolute tw-block tw-h-1 tw-w-full tw-rounded-sm tw-bg-secondary-bg hover:tw-bg-secondary-bg-hover',
+        ),
       },
     })(givenSlotProps);
   }
-  return <SliderUnstyled id={id} slotProps={slotProps} {...rest} />;
-}
+  return (
+    <SliderUnstyled
+      id={id}
+      onBlur={formControlContext.onBlur}
+      onChange={e => {
+        console.log('Hello ! Called?');
+        formControlContext.onChange?.(
+          e as unknown as React.ChangeEvent<HTMLInputElement>,
+        );
+      }}
+      ref={ref}
+      slotProps={slotProps}
+      value={formControlContext.value as number}
+      {...rest}
+    />
+  );
+});

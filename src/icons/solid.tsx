@@ -9,14 +9,12 @@ import {
 import clsx from 'clsx';
 import type React from 'react';
 
-import { icon } from '../theme.js';
-
 function withHeroIcon(HeroIcon: React.FunctionComponent) {
   return function Wrapper(props: React.ComponentProps<'svg'>) {
     const { className: givenClassName, ...rest } = props;
     const className = clsx(
-      icon.solid.width,
-      icon.solid.height,
+      'tw-h-[20px]',
+      'tw-w-[20px]',
       ...(givenClassName ?? '').split(' '),
     );
     // @ts-expect-error no typing fix !

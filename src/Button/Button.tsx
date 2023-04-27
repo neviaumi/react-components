@@ -8,7 +8,6 @@ import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
 } from '../components';
-import { palette } from '../theme.js';
 import { assocDefaultStyle } from '../utils/assign-default-style';
 
 interface SlotProps {
@@ -30,10 +29,15 @@ export default function Button({
     slotProps = assocDefaultStyle<SlotProps>({
       slotWithDefaultClasses: {
         root: clsx(
-          palette.primary.main,
-          palette.primary.contrastText,
-          palette.primary.hover.main,
-          palette.primary.hover.contrastText,
+          'tw-border-2',
+          'tw-p-0.5',
+          'tw-rounded-md',
+          'tw-bg-primary-bg',
+          'tw-text-primary-text',
+          'tw-border-primary-border',
+          'hover:tw-border-primary-border-hover',
+          'hover:tw-bg-primary-bg-hover',
+          'hover:tw-text-primary-text-hover',
         ),
       },
     })(givenSlotProps);
