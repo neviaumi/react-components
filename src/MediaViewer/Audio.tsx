@@ -99,6 +99,7 @@ export default function Audio({
       slotWithDefaultClasses: {
         currentDuration: clsx('tw-font-bold'),
         root: clsx('tw-flex', 'tw-items-center', 'tw-gap-1'),
+        volumeControl: clsx('tw-flex', 'tw-gap-1.5'),
       },
     })(givenSlotProps);
     slotProps.volumeSlider = deepMerge<SliderProps, SliderProps>(
@@ -130,10 +131,14 @@ export default function Audio({
           </div>
           <div className={slotProps?.volumeControl?.className}>
             <VolumeUpIcon />
-            <Field onChange={adjustAudioVolume} value={audioVolume}>
+            <Field
+              className={'tw-w-full'}
+              onChange={adjustAudioVolume}
+              value={audioVolume}
+            >
               <Slider
-                max={0}
-                min={100}
+                max={100}
+                min={0}
                 slotProps={slotProps?.volumeSlider?.slotProps}
               />
             </Field>

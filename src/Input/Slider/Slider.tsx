@@ -3,7 +3,7 @@ import SliderUnstyled, {
   SliderUnstyledOwnProps,
 } from '@mui/base/SliderUnstyled';
 import clsx from 'clsx';
-import React, { forwardRef } from 'react';
+import React from 'react';
 
 import {
   ComponentProps,
@@ -31,10 +31,11 @@ interface SlotProps {
 
 export type SliderProps = ComponentProps<SlotProps, SliderUnstyledOwnProps>;
 
-export default forwardRef<HTMLSpanElement>(function Slider(
-  { disableDefaultClasses, slotProps: givenSlotProps, ...rest }: SliderProps,
-  ref,
-) {
+export default function Slider({
+  disableDefaultClasses,
+  slotProps: givenSlotProps,
+  ...rest
+}: SliderProps) {
   const { formControlContext, id } = useFieldContext();
   if (formControlContext === undefined) {
     return null;
@@ -64,15 +65,13 @@ export default forwardRef<HTMLSpanElement>(function Slider(
       id={id}
       onBlur={formControlContext.onBlur}
       onChange={e => {
-        console.log('Hello ! Called?');
         formControlContext.onChange?.(
           e as unknown as React.ChangeEvent<HTMLInputElement>,
         );
       }}
-      ref={ref}
       slotProps={slotProps}
       value={formControlContext.value as number}
       {...rest}
     />
   );
-});
+}
