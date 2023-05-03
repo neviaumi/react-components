@@ -14,7 +14,12 @@ interface SlotProps {
   root?: SlotComponentPropsWithoutOverride<'button', ButtonUnstyledOwnerState>;
 }
 
-export type ButtonProps = ComponentProps<SlotProps, ButtonUnstyledOwnProps>;
+export type ButtonProps = ComponentProps<
+  SlotProps,
+  ButtonUnstyledOwnProps & {
+    onClick?: () => void;
+  }
+>;
 
 export default function Button({
   children,

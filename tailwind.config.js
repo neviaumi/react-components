@@ -1,14 +1,21 @@
 const colors = require('tailwindcss/colors');
+const { assocPath, pipe } = require('ramda');
 
-function createColorPalette(variant, colorsDefinition) {
+function createColorPalette(colorsDefinition) {
   return {
-    [`${variant}-bg`]: colorsDefinition.bg,
-    [`${variant}-bg-hover`]: colorsDefinition.hover.bg,
-    [`${variant}-border`]: colorsDefinition.border ?? colorsDefinition.text,
-    [`${variant}-border-hover`]:
-      colorsDefinition.hover.border ?? colorsDefinition.hover.text,
-    [`${variant}-text`]: colorsDefinition.text,
-    [`${variant}-text-hover`]: colorsDefinition.hover.text,
+    bg: {
+      DEFAULT: colorsDefinition.bg.DEFAULT,
+      hover: colorsDefinition.bg.hover,
+    },
+    border: {
+      DEFAULT:
+        colorsDefinition.border?.DEFAULT ?? colorsDefinition.text.DEFAULT,
+      hover: colorsDefinition.border?.hover ?? colorsDefinition.text.hover,
+    },
+    text: {
+      DEFAULT: colorsDefinition.text,
+      hover: colorsDefinition.text.hover,
+    },
   };
 }
 
@@ -21,42 +28,48 @@ module.exports = {
   ],
   presets: [require('@busybox/tailwindcss-config')],
   theme: {
-    colors: {
-      current: 'currentColor',
-      transparent: 'transparent',
-      ...createColorPalette('error', {
-        bg: colors.rose[500],
-        hover: {
-          bg: colors.rose[600],
-          text: colors.white,
-        },
-        text: colors.gray[50],
-      }),
-      ...createColorPalette('warning', {
-        bg: colors.amber[500],
-        hover: {
-          bg: colors.amber[600],
-          text: colors.white,
-        },
-        text: colors.gray[50],
-      }),
-      ...createColorPalette('primary', {
-        bg: colors.emerald[50],
-        border: colors.gray[700],
-        hover: {
-          bg: colors.emerald[100],
-          border: colors.black,
-          text: colors.black,
-        },
-        text: colors.gray[700],
-      }),
-      ...createColorPalette('secondary', {
-        bg: colors.sky[500],
-        hover: {
-          bg: colors.sky[600],
-          text: colors.white,
-        },
-        text: colors.gray[50],
+    extend: {
+      colors: pipe(
+        assocPath(
+          ['error'],
+          createColorPalette({
+            bg: {
+              DEFAULT: colors.rose[500],
+              hover: colors.rose[600],
+            },
+            text: { DEFAULT: colors.gray[50], hover: colors.white },
+          }),
+        ),
+        assocPath(
+          ['warning'],
+          createColorPalette({
+            bg: {
+              DEFAULT: colors.amber[500],
+              hover: colors.amber[600],
+            },
+            text: { DEFAULT: colors.gray[50], hover: colors.white },
+          }),
+        ),
+        assocPath(
+          ['primary'],
+          createColorPalette({
+            bg: {
+              DEFAULT: colors.emerald[50],
+              hover: colors.emerald[100],
+            },
+            text: { DEFAULT: colors.gray[700], hover: colors.black },
+          }),
+        ),
+        assocPath(
+          ['secondary'],
+          createColorPalette({
+            bg: { DEFAULT: colors.sky[500], hover: colors.sky[600] },
+            text: { DEFAULT: colors.gray[50], text: colors.white },
+          }),
+        ),
+      )({
+        current: 'currentColor',
+        transparent: 'transparent',
       }),
     },
   },

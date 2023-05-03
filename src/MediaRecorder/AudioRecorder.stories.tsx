@@ -3,9 +3,9 @@ import { ChangeEvent, ComponentProps, useState } from 'react';
 
 import { Field } from '../Input/Field';
 import FileUpload from '../Input/Upload/FileUpload.js';
+import Link from '../Link/Link.js';
 import Audio from '../MediaViewer/Audio.js';
 import { generateTestIdWithPrefix } from '../test-helpers/test-id.js';
-import Link from '../wired-elements/WiredLink.js';
 import AudioRecorderComponent from './AudioRecorder.js';
 
 const meta: Meta<typeof AudioRecorderComponent> = {

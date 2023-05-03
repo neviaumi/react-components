@@ -1,7 +1,37 @@
-import WiredImage, { ImageProps } from '../wired-elements/WiredImage.js';
+import clsx from 'clsx';
 
-export default function Image({ alt, src, ...props }: ImageProps) {
+import type {
+  ComponentProps,
+  SlotComponentPropsWithoutOverride,
+} from '../components';
+import { assocDefaultStyle } from '../utils/assign-default-style';
+
+interface SlotProps {
+  root?: SlotComponentPropsWithoutOverride<'img'>;
+}
+
+export type ButtonProps = ComponentProps<SlotProps>;
+
+export default function Image({
+  children,
+  'data-testid': testId,
+  disableDefaultClasses,
+  slotProps: givenSlotProps,
+  ...rest
+}: ButtonProps) {
+  let slotProps = givenSlotProps;
+
+  if (!disableDefaultClasses) {
+    slotProps = assocDefaultStyle<SlotProps>({
+      slotWithDefaultClasses: {
+        root: clsx('tw-object-cover'),
+      },
+    })(givenSlotProps);
+  }
+
   return (
-    <WiredImage alt={alt} aria-label={alt} role={'img'} src={src} {...props} />
+    <img data-testid={testId ?? 'busybox-img'} {...rest} {...slotProps?.root}>
+      {children}
+    </img>
   );
 }

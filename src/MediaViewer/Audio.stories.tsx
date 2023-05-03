@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ChangeEvent, useCallback, useState } from 'react';
 
+import { Field } from '../Input/Field';
 import FileUpload from '../Input/Upload/FileUpload.js';
 import AudioComponent from './Audio.js';
 // @ts-expect-error static file with file loader not working?
@@ -58,9 +59,11 @@ export const AudioPreviewWithFileUpload: Story = {
             type={uploadedAudio.type}
           />
         )}
-        <FileUpload data-testid={args['data-testid']} onChange={uploadImg}>
-          Click and upload MP3 here
-        </FileUpload>
+        <Field onChange={uploadImg}>
+          <FileUpload data-testid={args['data-testid']}>
+            Click and upload MP3 here
+          </FileUpload>
+        </Field>
       </div>
     );
   },

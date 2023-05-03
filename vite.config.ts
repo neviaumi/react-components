@@ -1,4 +1,4 @@
-import { dirname, resolve } from 'node:path';
+import { resolve } from 'node:path';
 
 import react from '@vitejs/plugin-react';
 import { defineConfig, searchForWorkspaceRoot } from 'vite';

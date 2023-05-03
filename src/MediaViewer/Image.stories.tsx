@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { within } from '@storybook/testing-library';
 import { ChangeEvent, useCallback, useState } from 'react';
 
+import { Field } from '../Input/Field';
 import FileUpload from '../Input/Upload/FileUpload.js';
 import ImageComponent from './Image.js';
 
@@ -61,11 +62,21 @@ export const ImagePreviewWhenFileUpload: Story = {
     return (
       <div className={'tw-flex tw-flex-col'}>
         {uploadedImg && (
-          <ImageComponent alt={uploadedImg.alt} src={uploadedImg.src} />
+          <ImageComponent
+            alt={uploadedImg.alt}
+            slotProps={{
+              root: {
+                className: 'tw-border-2 tw-w-[640px] tw-h-[480px]',
+              },
+            }}
+            src={uploadedImg.src}
+          />
         )}
-        <FileUpload data-testid={args['data-testid']} onChange={uploadImg}>
-          Click and upload image here
-        </FileUpload>
+        <Field onChange={uploadImg}>
+          <FileUpload data-testid={args['data-testid']}>
+            Click and upload image here
+          </FileUpload>
+        </Field>
       </div>
     );
   },
