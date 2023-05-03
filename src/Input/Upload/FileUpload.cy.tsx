@@ -1,7 +1,7 @@
 import { cy, describe, it } from '@busybox/cypress';
 import { composeStories } from '@storybook/react';
 
-import * as stories from './FileUpload.stories.js';
+import * as stories from './FileUpload.stories';
 
 const { FileUpload } = composeStories(stories);
 
@@ -26,7 +26,7 @@ describe('FileUpload stories', () => {
     cy.wrap(fileUploadCallback).should('be.called');
   });
 
-  it.skip('Should trigger onChange when click upload file', () => {
+  it.skip('Should trigger onChange when click upload file button', () => {
     // I can't test that behavior on Cypress
     const fileUploadCallback = cy.stub().as('fileUploadCallback');
     cy.mount(

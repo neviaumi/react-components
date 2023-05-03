@@ -2,11 +2,10 @@
   "author": "",
   "dependencies": {
     "@heroicons/react": "2.0.17",
-    "@lit-labs/react": "1.1.1",
-    "classnames": "2.3.2",
+    "@mui/base": "5.0.0-alpha.125",
+    "clsx": "1.2.1",
     "parse-ms": "3.0.0",
-    "roughjs": "4.4.5",
-    "wired-elements": "3.0.0-rc.6"
+    "ramda": "0.29.0"
   },
   "description": "",
   "devDependencies": {
@@ -27,6 +26,7 @@
     "@storybook/react-vite": "7.0.7",
     "@storybook/test-runner": "0.10.0",
     "@storybook/testing-library": "0.1.0",
+    "@types/ramda": "0.29.0",
     "@vitejs/plugin-react": "4.0.0",
     "autoprefixer": "10.4.14",
     "chromatic": "6.17.3",
@@ -39,6 +39,7 @@
     "postcss": "8.4.23",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "7.43.9",
     "source-map-explorer": "2.5.3",
     "start-server-and-test": "2.0.0",
     "storybook": "7.0.7",
@@ -63,11 +64,6 @@
   "main": "./dist/react-components.umd.js",
   "module": "dist/react-components.mjs",
   "name": "@busybox/react-components",
-  "overrides": {
-    "wired-elements": {
-      "roughjs": "$roughjs"
-    }
-  },
   "peerDependencies": {
     "react": ">= 18",
     "react-dom": ">= 18"

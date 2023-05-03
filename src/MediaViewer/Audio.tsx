@@ -1,15 +1,37 @@
+import { NativeFormControlElement } from '@mui/base/FormControlUnstyled/FormControlUnstyled.types';
+import clsx from 'clsx';
 import parseMilliseconds from 'parse-ms';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import * as React from 'react';
 
 import IconButton from '../Button/IconButton.js';
-import type { ComponentProps } from '../components.js';
+import type {
+  ComponentProps,
+  SlotComponentPropsWithoutOverride,
+} from '../components.js';
 import { PauseIcon, PlayIcon, VolumeUpIcon } from '../icons/solid.js';
-import WiredSlider from '../wired-elements/WiredSlider.js';
+import { Field } from '../Input/Field';
+import Slider, { SliderProps } from '../Input/Slider/Slider';
+import { assocDefaultStyle } from '../utils/assign-default-style';
+import { deepMerge } from '../utils/deep-merge.js';
 
-export type AudioProps = ComponentProps<{
-  src: string;
-  type: string;
-}>;
+interface SlotProps {
+  currentDuration?: SlotComponentPropsWithoutOverride<'span'>;
+  duration?: SlotComponentPropsWithoutOverride<'div'>;
+  root?: SlotComponentPropsWithoutOverride<'div'>;
+  toggle?: SlotComponentPropsWithoutOverride<'button'>;
+  totalDuration?: SlotComponentPropsWithoutOverride<'span'>;
+  volumeControl?: SlotComponentPropsWithoutOverride<'div'>;
+  volumeSlider?: SliderProps;
+}
+
+export type AudioProps = ComponentProps<
+  SlotProps,
+  {
+    src: string;
+    type: string;
+  }
+>;
 
 function formatSecond(second: number) {
   if (isNaN(second)) return '00:00';
@@ -23,6 +45,8 @@ function formatSecond(second: number) {
 
 export default function Audio({
   'data-testid': testId,
+  disableDefaultClasses,
+  slotProps: givenSlotProps,
   src,
   type,
 }: AudioProps) {
@@ -45,12 +69,15 @@ export default function Audio({
       setAudioError(e as Error);
     }
   }, [audioPlaying]);
-  const adjustAudioVolume = useCallback((event: CustomEvent) => {
-    if (!audioRef.current) return;
-    const volume = event.detail.value;
-    setAudioVolume(volume);
-    audioRef.current.volume = volume / 100.0;
-  }, []);
+  const adjustAudioVolume = useCallback(
+    (event: React.ChangeEvent<NativeFormControlElement>) => {
+      if (!audioRef.current) return;
+      const volume = Number.parseInt(event.target.value, 10);
+      setAudioVolume(volume);
+      audioRef.current.volume = volume / 100.0;
+    },
+    [],
+  );
   useEffect(function subscribeAudioTimeChange() {
     const audioEle = audioRef.current;
     const updateAudioCurrentTime: (event: Event) => void = () =>
@@ -65,32 +92,56 @@ export default function Audio({
         <div>Error: {audioError.message}</div>
       </>
     );
+  let slotProps = givenSlotProps;
+
+  if (!disableDefaultClasses) {
+    slotProps = assocDefaultStyle<SlotProps>({
+      slotWithDefaultClasses: {
+        currentDuration: clsx('tw-font-bold'),
+        root: clsx('tw-flex', 'tw-items-center', 'tw-gap-1'),
+        volumeControl: clsx('tw-flex', 'tw-gap-1.5'),
+      },
+    })(givenSlotProps);
+    slotProps.volumeSlider = deepMerge<SliderProps, SliderProps>(
+      slotProps.volumeSlider ?? {},
+      {},
+    );
+  }
   return (
     <>
       <audio ref={audioRef}>
         <source src={src} type={type} />
       </audio>
       <div
-        className={'tw-flex tw-items-center tw-gap-1'}
+        className={slotProps?.root?.className}
         data-testid={testId && `${testId}-audio-controls`}
       >
         <IconButton onClick={toggleAudioPlay}>
           {audioPlaying ? <PauseIcon /> : <PlayIcon />}
         </IconButton>
         <div>
-          <div>
-            <span className={'tw-font-bold'}>{audioDuration}</span> /{' '}
-            {formatSecond(audioRef.current?.duration ?? 0)}
+          <div className={slotProps?.duration?.className}>
+            <span className={slotProps?.currentDuration?.className}>
+              {audioDuration}
+            </span>
+            /
+            <span className={slotProps?.totalDuration?.className}>
+              {formatSecond(audioRef.current?.duration ?? 0)}
+            </span>
           </div>
-          <div className={'tw-flex tw-items-center tw-gap-0.5'}>
+          <div className={slotProps?.volumeControl?.className}>
             <VolumeUpIcon />
-            <WiredSlider
-              disabled={audioRef.current === null}
-              max={100}
-              min={0}
+            <Field
+              className={'tw-w-full'}
               onChange={adjustAudioVolume}
               value={audioVolume}
-            />
+            >
+              <Slider
+                max={100}
+                min={0}
+                slotProps={slotProps?.volumeSlider?.slotProps}
+              />
+            </Field>
           </div>
         </div>
       </div>
