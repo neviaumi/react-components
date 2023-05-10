@@ -19,7 +19,7 @@ export const CardWithHeader: Story = {
         },
       }}
     >
-      <CardHeader component={'h1'}>Card Header</CardHeader>
+      <CardHeader slot={{ root: 'h1' }}>Card Header</CardHeader>
       <section>Card Body</section>
     </CardComponent>
   ),

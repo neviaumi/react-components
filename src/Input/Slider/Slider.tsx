@@ -1,7 +1,4 @@
-import SliderUnstyled, {
-  SliderUnstyledOwnerState,
-  SliderUnstyledOwnProps,
-} from '@mui/base/SliderUnstyled';
+import MuiSlider, { SliderOwnerState, SliderOwnProps } from '@mui/base/Slider';
 import clsx from 'clsx';
 import React from 'react';
 
@@ -13,23 +10,20 @@ import { assocDefaultStyle } from '../../utils/assign-default-style';
 import { useFieldContext } from '../Field.js';
 
 interface SlotProps {
-  input?: SlotComponentPropsWithoutOverride<'input', SliderUnstyledOwnerState>;
-  mark?: SlotComponentPropsWithoutOverride<'span', SliderUnstyledOwnerState>;
-  markLabel?: SlotComponentPropsWithoutOverride<
-    'span',
-    SliderUnstyledOwnerState
-  >;
-  rail?: SlotComponentPropsWithoutOverride<'span', SliderUnstyledOwnerState>;
-  root?: SlotComponentPropsWithoutOverride<'span', SliderUnstyledOwnerState>;
-  thumb?: SlotComponentPropsWithoutOverride<'span', SliderUnstyledOwnerState>;
-  track?: SlotComponentPropsWithoutOverride<'span', SliderUnstyledOwnerState>;
+  input?: SlotComponentPropsWithoutOverride<'input', SliderOwnerState>;
+  mark?: SlotComponentPropsWithoutOverride<'span', SliderOwnerState>;
+  markLabel?: SlotComponentPropsWithoutOverride<'span', SliderOwnerState>;
+  rail?: SlotComponentPropsWithoutOverride<'span', SliderOwnerState>;
+  root?: SlotComponentPropsWithoutOverride<'span', SliderOwnerState>;
+  thumb?: SlotComponentPropsWithoutOverride<'span', SliderOwnerState>;
+  track?: SlotComponentPropsWithoutOverride<'span', SliderOwnerState>;
   valueLabel?: SlotComponentPropsWithoutOverride<
     React.ElementType,
-    SliderUnstyledOwnerState
+    SliderOwnerState
   >;
 }
 
-export type SliderProps = ComponentProps<SlotProps, SliderUnstyledOwnProps>;
+export type SliderProps = ComponentProps<SlotProps, SliderOwnProps>;
 
 export default function Slider({
   disableDefaultClasses,
@@ -61,7 +55,7 @@ export default function Slider({
     })(givenSlotProps);
   }
   return (
-    <SliderUnstyled
+    <MuiSlider
       id={id}
       onBlur={formControlContext.onBlur}
       onChange={e => {

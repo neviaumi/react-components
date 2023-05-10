@@ -54,14 +54,14 @@ interface CardHeaderSlotProps {
 export type CardHeaderProps = ComponentProps<
   CardHeaderSlotProps,
   {
-    component: keyof React.ReactHTML;
+    slot?: { root?: keyof React.ReactHTML };
   }
 >;
 
 export function CardHeader({
-  component,
   'data-testid': testId,
   disableDefaultClasses,
+  slot,
   slotProps: givenSlotProps,
   ...rest
 }: CardHeaderProps) {
@@ -74,7 +74,7 @@ export function CardHeader({
       },
     })(givenSlotProps);
   }
-  return createElement(component, {
+  return createElement(slot?.root ?? 'h1', {
     'data-testid': testId ?? 'busybox-card-header',
     ...rest,
     ...slotProps?.root,

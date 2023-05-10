@@ -1,7 +1,4 @@
-import InputUnstyled, {
-  InputUnstyledOwnerState,
-  InputUnstyledProps,
-} from '@mui/base/InputUnstyled';
+import Input, { InputOwnerState, InputProps } from '@mui/base/Input';
 
 import {
   ComponentProps,
@@ -11,11 +8,11 @@ import { assocDefaultStyle } from '../../utils/assign-default-style';
 import { useFieldContext } from '../Field.js';
 
 interface SlotProps {
-  input?: SlotComponentPropsWithoutOverride<'input', InputUnstyledOwnerState>;
-  root?: SlotComponentPropsWithoutOverride<'div', InputUnstyledOwnerState>;
+  input?: SlotComponentPropsWithoutOverride<'input', InputOwnerState>;
+  root?: SlotComponentPropsWithoutOverride<'div', InputOwnerState>;
 }
 
-export type NumberInputProps = ComponentProps<SlotProps, InputUnstyledProps>;
+export type NumberInputProps = ComponentProps<SlotProps, InputProps>;
 
 export default function NumberInput({
   disableDefaultClasses,
@@ -35,6 +32,6 @@ export default function NumberInput({
   }
   return (
     // @ts-expect-error TODO: fix this
-    <InputUnstyled id={id} slotProps={slotProps} {...rest} type={'number'} />
+    <Input id={id} slotProps={slotProps} {...rest} type={'number'} />
   );
 }
