@@ -1,7 +1,7 @@
 import FormControl, {
   FormControlProps,
   useFormControlContext,
-} from '@mui/base/FormControl';
+} from '@mui/base/FormControl/index.js';
 import { createContext, PropsWithChildren, useContext, useId } from 'react';
 
 const FieldContext = createContext<{ id?: string }>({});

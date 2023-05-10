@@ -3,6 +3,7 @@ import './commands.js';
 import { cy, Cypress } from '@busybox/cypress';
 import { setProjectAnnotations } from '@storybook/react';
 import clsx from 'clsx';
+// eslint-disable-next-line n/file-extension-in-import
 import { mount } from 'cypress/react18';
 import type { PropsWithChildren } from 'react';
 

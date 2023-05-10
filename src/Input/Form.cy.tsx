@@ -2,7 +2,7 @@ import { cy, describe, it } from '@busybox/cypress';
 import { composeStories } from '@storybook/react';
 import { dissocPath, pipe } from 'ramda';
 
-import * as stories from './Form.stories.js';
+import * as stories from './Form.stories.jsx';
 
 const { ReactHookForm } = composeStories(stories);
 

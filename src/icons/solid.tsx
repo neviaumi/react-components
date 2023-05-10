@@ -1,11 +1,9 @@
-import {
-  ArrowUpTrayIcon as _UploadIcon,
-  MicrophoneIcon as _MicrophoneIcon,
-  PauseIcon as _PauseIcon,
-  PlayIcon as _PlayIcon,
-  SpeakerWaveIcon as _VolumeUpIcon,
-  StopIcon as _StopIcon,
-} from '@heroicons/react/24/solid';
+import _UploadIcon from '@heroicons/react/24/solid/esm/ArrowUpTrayIcon.js';
+import _MicrophoneIcon from '@heroicons/react/24/solid/esm/MicrophoneIcon.js';
+import _PauseIcon from '@heroicons/react/24/solid/esm/PauseIcon.js';
+import _PlayIcon from '@heroicons/react/24/solid/esm/PlayIcon.js';
+import _VolumeUpIcon from '@heroicons/react/24/solid/esm/SpeakerWaveIcon.js';
+import _StopIcon from '@heroicons/react/24/solid/esm/StopIcon.js';
 import clsx from 'clsx';
 import type React from 'react';
 

@@ -1,7 +1,7 @@
 import { cy, describe, it } from '@busybox/cypress';
 import { composeStories } from '@storybook/react';
 
-import * as stories from './FileUpload.stories';
+import * as stories from './FileUpload.stories.jsx';
 
 const { FileUpload } = composeStories(stories);
 

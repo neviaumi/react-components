@@ -1,13 +1,16 @@
-import MuiSlider, { SliderOwnerState, SliderOwnProps } from '@mui/base/Slider';
+import MuiSlider, {
+  SliderOwnerState,
+  SliderOwnProps,
+} from '@mui/base/Slider/index.js';
 import clsx from 'clsx';
 import React from 'react';
 
 import {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../../components';
-import { assocDefaultStyle } from '../../utils/assign-default-style';
-import { useFieldContext } from '../Field.js';
+} from '../../components.d.js';
+import { assocDefaultStyle } from '../../utils/assign-default-style.js';
+import { useFieldContext } from '../Field.jsx';
 
 interface SlotProps {
   input?: SlotComponentPropsWithoutOverride<'input', SliderOwnerState>;
