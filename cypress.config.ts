@@ -1,9 +1,8 @@
 import { defineConfig } from 'cypress';
 import { mergeConfig } from 'vite';
 
-import appViteConfig from './vite.config';
+import appViteConfig from './vite.config.js';
 
-// eslint-disable-next-line import/no-default-export
 export default defineConfig({
   component: {
     devServer: {

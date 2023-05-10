@@ -13,14 +13,14 @@
     "@busybox/cypress": "2023.4.4",
     "@busybox/eslint-config": "2023.4.4",
     "@busybox/prettier-config": "2023.4.4",
-    "@busybox/tailwindcss-config": "2023.4.4",
+    "@busybox/tailwindcss-config": "2023.4.22-alpha.2402",
     "@busybox/tsconfig": "2023.4.4",
     "@commitlint/cli": "17.6.3",
     "@storybook/addon-actions": "7.0.10",
     "@storybook/addon-essentials": "7.0.9",
     "@storybook/addon-interactions": "7.0.10",
     "@storybook/addon-links": "7.0.10",
-    "@storybook/addon-postcss": "2.0.0",
+    "@storybook/addon-styling": "1.0.6",
     "@storybook/jest": "0.1.0",
     "@storybook/react": "7.0.10",
     "@storybook/react-vite": "7.0.9",
@@ -36,7 +36,6 @@
     "is-ci": "3.0.1",
     "jest-playwright-preset": "3.0.1",
     "lint-staged": "13.2.2",
-    "postcss": "8.4.23",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "7.43.9",
@@ -84,6 +83,7 @@
   "sideEffects": [
     "./cypress/support/*.ts"
   ],
+  "type": "module",
   "types": "./dist/out-tsc/src/index.d.ts",
   "version": "2023.3.23-alpha.1402"
 }

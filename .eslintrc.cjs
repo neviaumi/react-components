@@ -7,15 +7,21 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'off',
       },
     },
-  ],
-  rules: {
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        ts: 'never',
-        tsx: 'never',
+    {
+      files: [
+        './tailwind.config.mjs',
+        './vite.config.ts',
+        './.storybook/main.ts',
+        './cypress.config.ts',
+      ],
+      rules: {
+        'import/no-default-export': 'off',
       },
-    ],
+    },
+  ],
+  settings: {
+    tailwindcss: {
+      config: './tailwind.config.cjs',
+    },
   },
 };

@@ -5,16 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3252ace-a70c-4f3f-b6dc-ca7cc5b6c457" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/tailwind.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.cjs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Button/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Button/Button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Button/IconButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Button/IconButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Card.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Input/Field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Input/Field.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Input/NumberInput/NumberInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Input/NumberInput/NumberInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Input/Slider/Slider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Input/Slider/Slider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaViewer/Audio.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaViewer/Audio.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cypress.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,8 +47,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dependabot/npm__and__yarn/mui/base-…a.128",
-    "last_opened_file_path": "/Users/davidng/Documents/GitHub/self/react-components/src/Input/Slider",
+    "git-widget-placeholder": "ISSUE-69__esm-module",
+    "last_opened_file_path": "/Users/davidng/Documents/GitHub/self/react-components",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -65,11 +64,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/Input/Slider" />
       <recent name="$PROJECT_DIR$/src/Link" />
       <recent name="$PROJECT_DIR$/src/Input" />
       <recent name="$PROJECT_DIR$/src/Display/FractionNumberDisplay" />
-      <recent name="$PROJECT_DIR$/src/Button" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Input" />
@@ -93,7 +92,7 @@
       <workItem from="1682037653036" duration="3018000" />
       <workItem from="1682040782147" duration="2914000" />
       <workItem from="1682256797984" duration="5102000" />
-      <workItem from="1682553735420" duration="17771000" />
+      <workItem from="1682553735420" duration="23882000" />
     </task>
     <servers />
   </component>
