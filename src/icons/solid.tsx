@@ -6,24 +6,24 @@ import {
   SpeakerWaveIcon as _VolumeUpIcon,
   StopIcon as _StopIcon,
 } from '@heroicons/react/24/solid';
-import classnames from 'classnames';
+import clsx from 'clsx';
 import type React from 'react';
 
-import { icon } from '../theme.js';
-
-export function withHeroSolidIcon(HeroSolidIcon: React.FunctionComponent) {
+function withHeroIcon(HeroIcon: React.FunctionComponent) {
   return function Wrapper(props: React.ComponentProps<'svg'>) {
-    const className = classnames(
-      icon.solid.width,
-      icon.solid.height,
-      ...(props.className ?? '').split(' '),
+    const { className: givenClassName, ...rest } = props;
+    const className = clsx(
+      'tw-h-[20px]',
+      'tw-w-[20px]',
+      ...(givenClassName ?? '').split(' '),
     );
-    return <HeroSolidIcon className={className} {...props} />;
+    // @ts-expect-error no typing fix !
+    return <HeroIcon className={className} {...rest} />;
   };
 }
-export const PauseIcon = withHeroSolidIcon(_PauseIcon);
-export const PlayIcon = withHeroSolidIcon(_PlayIcon);
-export const VolumeUpIcon = withHeroSolidIcon(_VolumeUpIcon);
-export const MicrophoneIcon = withHeroSolidIcon(_MicrophoneIcon);
-export const StopIcon = withHeroSolidIcon(_StopIcon);
-export const UploadIcon = withHeroSolidIcon(_UploadIcon);
+export const PauseIcon = withHeroIcon(_PauseIcon);
+export const PlayIcon = withHeroIcon(_PlayIcon);
+export const VolumeUpIcon = withHeroIcon(_VolumeUpIcon);
+export const MicrophoneIcon = withHeroIcon(_MicrophoneIcon);
+export const StopIcon = withHeroIcon(_StopIcon);
+export const UploadIcon = withHeroIcon(_UploadIcon);

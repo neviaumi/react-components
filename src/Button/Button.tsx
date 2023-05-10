@@ -1,26 +1,60 @@
-import classnames from 'classnames';
+import ButtonUnstyled, {
+  ButtonUnstyledOwnerState,
+  ButtonUnstyledOwnProps,
+} from '@mui/base/ButtonUnstyled';
+import clsx from 'clsx';
 
-import { palette } from '../theme.js';
-import WiredButton, { ButtonProps } from '../wired-elements/WiredButton.js';
+import type {
+  ComponentProps,
+  SlotComponentPropsWithoutOverride,
+} from '../components';
+import { assocDefaultStyle } from '../utils/assign-default-style';
 
-export default function Button(props: ButtonProps) {
-  const classes = classnames(
-    palette.primary.main,
-    palette.primary.contrastText,
-    palette.primary.hover.main,
-    palette.primary.hover.contrastText,
-  );
+interface SlotProps {
+  root?: SlotComponentPropsWithoutOverride<'button', ButtonUnstyledOwnerState>;
+}
+
+export type ButtonProps = ComponentProps<
+  SlotProps,
+  ButtonUnstyledOwnProps & {
+    onClick?: () => void;
+  }
+>;
+
+export default function Button({
+  children,
+  'data-testid': testId,
+  disableDefaultClasses,
+  slotProps: givenSlotProps,
+  ...rest
+}: ButtonProps) {
+  let slotProps = givenSlotProps;
+
+  if (!disableDefaultClasses) {
+    slotProps = assocDefaultStyle<SlotProps>({
+      slotWithDefaultClasses: {
+        root: clsx(
+          'tw-border-2',
+          'tw-p-0.5',
+          'tw-rounded-md',
+          'tw-bg-primary-bg',
+          'tw-text-primary-text',
+          'tw-border-primary-border',
+          'hover:tw-border-primary-border-hover',
+          'hover:tw-bg-primary-bg-hover',
+          'hover:tw-text-primary-text-hover',
+        ),
+      },
+    })(givenSlotProps);
+  }
+
   return (
-    <div className={'tw-inline-block'}>
-      <WiredButton
-        aria-label={props.children as string}
-        data-testid={props['data-testid'] ?? 'wired-button'}
-        {...props}
-        className={classes}
-        role={'button'}
-      >
-        {props.children}
-      </WiredButton>
-    </div>
+    <ButtonUnstyled
+      data-testid={testId ?? 'busybox-button'}
+      slotProps={slotProps}
+      {...rest}
+    >
+      {children}
+    </ButtonUnstyled>
   );
 }

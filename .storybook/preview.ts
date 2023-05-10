@@ -9,4 +9,7 @@ export const parameters = {
     },
   },
   layout: 'centered',
+  source: {
+    language: 'tsx',
+  },
 };

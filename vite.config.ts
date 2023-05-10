@@ -3,12 +3,16 @@ import { resolve } from 'node:path';
 import react from '@vitejs/plugin-react';
 import { defineConfig, searchForWorkspaceRoot } from 'vite';
 
+const rootDir = __dirname;
+// ESM import.meta.url is not supported in Node.js CommonJS modules
+// const rootDir = new URL(dirname(import.meta.url)).pathname;
+
 // https://vitejs.dev/config/
 // eslint-disable-next-line import/no-default-export
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/index.tsx'),
+      entry: resolve(rootDir, 'src/index.tsx'),
       // the proper extensions will be added
       fileName: 'react-components',
       name: '@busybox/react-components',

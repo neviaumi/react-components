@@ -1,28 +1,42 @@
-import classnames from 'classnames';
+import type { ButtonUnstyledOwnerState } from '@mui/base/ButtonUnstyled';
 
-import { palette } from '../theme.js';
-import WiredIconButton, {
-  IconButtonProps,
-} from '../wired-elements/WiredIconButton.js';
+import {
+  ComponentProps,
+  SlotComponentPropsWithoutOverride,
+} from '../components';
+import { assocDefaultStyle } from '../utils/assign-default-style';
+import Button from './Button';
 
-export default function IconButton(props: IconButtonProps) {
-  const classes = classnames(
-    palette.primary.main,
-    palette.primary.contrastText,
-    'tw-rounded-3xl',
-    palette.primary.hover.main,
-    palette.primary.hover.contrastText,
-  );
+interface SlotProps {
+  root?: SlotComponentPropsWithoutOverride<'button', ButtonUnstyledOwnerState>;
+}
+
+export type IconButtonProps = ComponentProps<SlotProps>;
+
+export default function IconButton({
+  children,
+  'data-testid': testId,
+  disableDefaultClasses,
+  slotProps: givenSlotProps,
+  ...rest
+}: IconButtonProps) {
+  let slotProps = givenSlotProps;
+
+  if (!disableDefaultClasses) {
+    slotProps = assocDefaultStyle<SlotProps>({
+      slotWithDefaultClasses: {
+        root: 'tw-rounded-3xl',
+      },
+    })(givenSlotProps);
+  }
+
   return (
-    <div className={'tw-inline-block'}>
-      <WiredIconButton
-        className={classes}
-        data-testid={props['data-testid'] ?? 'wired-icon-button'}
-        onClick={props.onClick}
-        role={'button'}
-      >
-        {props.children}
-      </WiredIconButton>
-    </div>
+    <Button
+      data-testid={testId ?? 'busybox-icon-button'}
+      slotProps={slotProps}
+      {...rest}
+    >
+      {children}
+    </Button>
   );
 }

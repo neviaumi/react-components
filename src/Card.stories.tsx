@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import clsx from 'clsx';
 
-import CardComponent from './Card.js';
-import ReactWiredDivider from './wired-elements/WiredDivider.js';
+import CardComponent, { CardHeader } from './Card.js';
 
 const meta: Meta<typeof CardComponent> = {
   component: CardComponent,
@@ -12,11 +12,14 @@ export default meta;
 type Story = StoryObj<typeof CardComponent>;
 export const CardWithHeader: Story = {
   render: () => (
-    <CardComponent className={'tw-w-20'} fill={'#F00'}>
-      <h1>
-        Card Header
-        <ReactWiredDivider />
-      </h1>
+    <CardComponent
+      slotProps={{
+        root: {
+          className: clsx('tw-w-20'),
+        },
+      }}
+    >
+      <CardHeader component={'h1'}>Card Header</CardHeader>
       <section>Card Body</section>
     </CardComponent>
   ),

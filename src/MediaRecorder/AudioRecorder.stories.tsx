@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ChangeEvent, ComponentProps, useState } from 'react';
 
+import { Field } from '../Input/Field';
+import FileUpload from '../Input/Upload/FileUpload.js';
+import Link from '../Link/Link.js';
 import Audio from '../MediaViewer/Audio.js';
 import { generateTestIdWithPrefix } from '../test-helpers/test-id.js';
-import FileUpload from '../Upload/FileUpload.js';
-import Link from '../wired-elements/WiredLink.js';
 import AudioRecorderComponent from './AudioRecorder.js';
 
 const meta: Meta<typeof AudioRecorderComponent> = {
@@ -31,7 +32,7 @@ export const AudioRecorderAndFileUploadWithPreview: Story = {
       <div className={'tw-flex tw-flex-col'}>
         <div className={'tw-flex tw-flex-row'}>
           {!isRecording && (
-            <FileUpload
+            <Field
               onChange={(event: ChangeEvent<HTMLInputElement>) => {
                 if (!event.target.files) return;
                 const [uploadFile]: FileList = event.target.files;
@@ -51,8 +52,8 @@ export const AudioRecorderAndFileUploadWithPreview: Story = {
                 reader.readAsDataURL(uploadFile);
               }}
             >
-              Upload
-            </FileUpload>
+              <FileUpload>Upload</FileUpload>
+            </Field>
           )}
           <AudioRecorderComponent
             {...args}
@@ -88,7 +89,7 @@ export const AudioRecorderAndFileUploadWithPreview: Story = {
 export const AudioRecorderProduceAudioBuffer: Story = {
   render: ({ 'data-testid': testId, onAudioBufferReady }) => {
     return (
-      <div className={'tw-flex tw-flex-col'}>
+      <div>
         <AudioRecorderComponent
           data-testid={testId}
           onStopRecording={e => {

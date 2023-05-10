@@ -1,12 +1,11 @@
 {
   "author": "",
   "dependencies": {
-    "@heroicons/react": "2.0.17",
-    "@lit-labs/react": "1.1.1",
-    "classnames": "2.3.2",
+    "@heroicons/react": "2.0.18",
+    "@mui/base": "5.0.0-alpha.125",
+    "clsx": "1.2.1",
     "parse-ms": "3.0.0",
-    "roughjs": "4.4.5",
-    "wired-elements": "3.0.0-rc.6"
+    "ramda": "0.29.0"
   },
   "description": "",
   "devDependencies": {
@@ -16,35 +15,37 @@
     "@busybox/prettier-config": "2023.4.4",
     "@busybox/tailwindcss-config": "2023.4.4",
     "@busybox/tsconfig": "2023.4.4",
-    "@commitlint/cli": "17.6.1",
-    "@storybook/addon-actions": "7.0.4",
-    "@storybook/addon-essentials": "7.0.4",
-    "@storybook/addon-interactions": "7.0.4",
-    "@storybook/addon-links": "7.0.4",
+    "@commitlint/cli": "17.6.3",
+    "@storybook/addon-actions": "7.0.10",
+    "@storybook/addon-essentials": "7.0.9",
+    "@storybook/addon-interactions": "7.0.10",
+    "@storybook/addon-links": "7.0.10",
     "@storybook/addon-postcss": "2.0.0",
     "@storybook/jest": "0.1.0",
-    "@storybook/react": "7.0.4",
-    "@storybook/react-vite": "7.0.4",
+    "@storybook/react": "7.0.10",
+    "@storybook/react-vite": "7.0.9",
     "@storybook/test-runner": "0.10.0",
     "@storybook/testing-library": "0.1.0",
-    "@vitejs/plugin-react": "3.1.0",
+    "@types/ramda": "0.29.1",
+    "@vitejs/plugin-react": "4.0.0",
     "autoprefixer": "10.4.14",
-    "chromatic": "6.17.3",
-    "cypress": "12.9.0",
-    "eslint": "8.38.0",
+    "chromatic": "6.17.4",
+    "cypress": "12.12.0",
+    "eslint": "8.40.0",
     "husky": "8.0.3",
     "is-ci": "3.0.1",
     "jest-playwright-preset": "3.0.1",
-    "lint-staged": "13.2.1",
-    "postcss": "8.4.21",
+    "lint-staged": "13.2.2",
+    "postcss": "8.4.23",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "7.43.9",
     "source-map-explorer": "2.5.3",
     "start-server-and-test": "2.0.0",
-    "storybook": "7.0.4",
-    "tailwindcss": "3.3.1",
+    "storybook": "7.0.9",
+    "tailwindcss": "3.3.2",
     "typescript": "4.9.5",
-    "vite": "4.2.1"
+    "vite": "4.3.5"
   },
   "engines": {
     "node": ">=16",
@@ -63,11 +64,6 @@
   "main": "./dist/react-components.umd.js",
   "module": "dist/react-components.mjs",
   "name": "@busybox/react-components",
-  "overrides": {
-    "wired-elements": {
-      "roughjs": "$roughjs"
-    }
-  },
   "peerDependencies": {
     "react": ">= 18",
     "react-dom": ">= 18"
