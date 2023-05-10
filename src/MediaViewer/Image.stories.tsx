@@ -2,9 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { within } from '@storybook/testing-library';
 import { ChangeEvent, useCallback, useState } from 'react';
 
-import { Field } from '../Input/Field';
-import FileUpload from '../Input/Upload/FileUpload.js';
-import ImageComponent from './Image.js';
+import { Field } from '../Input/Field.jsx';
+import FileUpload from '../Input/Upload/FileUpload.jsx';
+import ImageComponent from './Image.jsx';
 
 const meta: Meta<typeof ImageComponent> = {
   component: ImageComponent,

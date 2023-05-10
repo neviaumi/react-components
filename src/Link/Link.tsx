@@ -4,8 +4,8 @@ import { ComponentPropsWithRef } from 'react';
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components';
-import { assocDefaultStyle } from '../utils/assign-default-style';
+} from '../components.d.js';
+import { assocDefaultStyle } from '../utils/assign-default-style.js';
 
 interface SlotProps {
   root?: SlotComponentPropsWithoutOverride<'a', object>;

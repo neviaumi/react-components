@@ -1,4 +1,4 @@
-import type { ComponentProps } from '../components';
+import type { ComponentProps } from '../components.d.js';
 
 export interface LayoutProps {
   className?: string;

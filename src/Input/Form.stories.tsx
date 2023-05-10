@@ -4,14 +4,14 @@ import { userEvent, waitFor, within } from '@storybook/testing-library';
 import { ChangeEvent, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
-import Button from '../Button/Button';
-import { Content, Header, Main, Page } from '../Layout/Layout';
-import Link from '../Link/Link';
-import { Field } from './Field.js';
-import Label from './Label.js';
-import NumberInput from './NumberInput/NumberInput';
-import SliderInput from './Slider/Slider';
-import FileUploadInput from './Upload/FileUpload';
+import Button from '../Button/Button.jsx';
+import { Content, Header, Main, Page } from '../Layout/Layout.jsx';
+import Link from '../Link/Link.jsx';
+import { Field } from './Field.jsx';
+import Label from './Label.jsx';
+import NumberInput from './NumberInput/NumberInput.jsx';
+import SliderInput from './Slider/Slider.jsx';
+import FileUploadInput from './Upload/FileUpload.jsx';
 
 const meta: Meta = {
   title: 'Demo/Form',

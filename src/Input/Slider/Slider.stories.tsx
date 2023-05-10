@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Field } from '../Field.js';
-import Label from '../Label.js';
-import SliderComponent from './Slider.js';
+import { Field } from '../Field.jsx';
+import Label from '../Label.jsx';
+import SliderComponent from './Slider.jsx';
 
 const meta: Meta<typeof SliderComponent> = {
   component: SliderComponent,

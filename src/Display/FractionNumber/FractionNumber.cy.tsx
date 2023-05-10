@@ -1,6 +1,6 @@
 import { cy, describe, it } from '@busybox/cypress';
 
-import FractionNumber from './FractionNumber';
+import FractionNumber from './FractionNumber.jsx';
 
 describe('FractionNumber', () => {
   [

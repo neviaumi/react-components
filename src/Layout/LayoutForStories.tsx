@@ -8,7 +8,7 @@ import {
   Main as UnStyledMain,
   Page as UnStyledPage,
   Side as UnStyledSide,
-} from './Layout.js';
+} from './Layout.jsx';
 
 export function Page({
   className = '',

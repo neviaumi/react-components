@@ -1,18 +1,18 @@
-import { NativeFormControlElement } from '@mui/base/FormControl/FormControl.types';
+import { NativeFormControlElement } from '@mui/base/FormControl/FormControl.types.js';
 import clsx from 'clsx';
 import parseMilliseconds from 'parse-ms';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import * as React from 'react';
 
-import IconButton from '../Button/IconButton.js';
+import IconButton from '../Button/IconButton.jsx';
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.js';
-import { PauseIcon, PlayIcon, VolumeUpIcon } from '../icons/solid.js';
-import { Field } from '../Input/Field';
-import Slider, { SliderProps } from '../Input/Slider/Slider';
-import { assocDefaultStyle } from '../utils/assign-default-style';
+} from '../components.d.js';
+import { PauseIcon, PlayIcon, VolumeUpIcon } from '../icons/solid.jsx';
+import { Field } from '../Input/Field.jsx';
+import Slider, { SliderProps } from '../Input/Slider/Slider.jsx';
+import { assocDefaultStyle } from '../utils/assign-default-style.js';
 import { deepMerge } from '../utils/deep-merge.js';
 
 interface SlotProps {

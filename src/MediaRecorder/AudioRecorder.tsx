@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import IconButton from '../Button/IconButton.js';
+import IconButton from '../Button/IconButton.jsx';
 import {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components';
-import { MicrophoneIcon, StopIcon } from '../icons/solid.js';
-import { assocDefaultStyle } from '../utils/assign-default-style';
+} from '../components.d.js';
+import { MicrophoneIcon, StopIcon } from '../icons/solid.jsx';
+import { assocDefaultStyle } from '../utils/assign-default-style.js';
 import { useAudioRecorder } from './use-media-recorder.js';
 
 interface SlotProps {

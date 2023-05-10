@@ -1,13 +1,13 @@
 import { useCallback, useRef } from 'react';
 
-import Button from '../../Button/Button';
+import Button from '../../Button/Button.jsx';
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../../components';
-import { UploadIcon } from '../../icons/solid';
-import { assocDefaultStyle } from '../../utils/assign-default-style';
-import { useFieldContext } from '../Field';
+} from '../../components.d.js';
+import { UploadIcon } from '../../icons/solid.jsx';
+import { assocDefaultStyle } from '../../utils/assign-default-style.js';
+import { useFieldContext } from '../Field.jsx';
 
 export type UploadedFileLikeObject = {
   name: string;

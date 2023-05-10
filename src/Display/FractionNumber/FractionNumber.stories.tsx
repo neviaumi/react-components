@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FractionNumberComponent from './FractionNumber';
+import FractionNumberComponent from './FractionNumber.jsx';
 
 const meta: Meta<typeof FractionNumberComponent> = {
   component: FractionNumberComponent,
