@@ -2,7 +2,7 @@
   "author": "",
   "dependencies": {
     "@heroicons/react": "2.0.18",
-    "@mui/base": "5.0.0-alpha.125",
+    "@mui/base": "5.0.0-alpha.128",
     "clsx": "1.2.1",
     "parse-ms": "3.0.0",
     "ramda": "0.29.0"

@@ -1,7 +1,7 @@
 import ButtonUnstyled, {
-  ButtonUnstyledOwnerState,
-  ButtonUnstyledOwnProps,
-} from '@mui/base/ButtonUnstyled';
+  ButtonOwnerState,
+  ButtonOwnProps,
+} from '@mui/base/Button';
 import clsx from 'clsx';
 
 import type {
@@ -11,12 +11,12 @@ import type {
 import { assocDefaultStyle } from '../utils/assign-default-style';
 
 interface SlotProps {
-  root?: SlotComponentPropsWithoutOverride<'button', ButtonUnstyledOwnerState>;
+  root?: SlotComponentPropsWithoutOverride<'button', ButtonOwnerState>;
 }
 
 export type ButtonProps = ComponentProps<
   SlotProps,
-  ButtonUnstyledOwnProps & {
+  ButtonOwnProps & {
     onClick?: () => void;
   }
 >;

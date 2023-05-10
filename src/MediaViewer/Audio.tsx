@@ -1,4 +1,4 @@
-import { NativeFormControlElement } from '@mui/base/FormControlUnstyled/FormControlUnstyled.types';
+import { NativeFormControlElement } from '@mui/base/FormControl/FormControl.types';
 import clsx from 'clsx';
 import parseMilliseconds from 'parse-ms';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -105,7 +105,7 @@ export default function Audio({
     slotProps.volumeSlider = deepMerge<SliderProps, SliderProps>(
       slotProps.volumeSlider ?? {},
       {},
-    );
+    ) as any;
   }
   return (
     <>
