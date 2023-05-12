@@ -28,8 +28,8 @@ export default function Card({
         root: clsx(
           'tw-py-0.5',
           'tw-px-1',
-          'tw-border-primary-border',
-          'hover:tw-border-primary-border-hover',
+          'tw-border-primary',
+          'hover:tw-border-primary-hover',
           'tw-border',
         ),
       },
@@ -70,7 +70,7 @@ export function CardHeader({
   if (!disableDefaultClasses) {
     slotProps = assocDefaultStyle<SlotProps>({
       slotWithDefaultClasses: {
-        root: clsx('tw-text-primary-text', 'hover:tw-text-primary-text-hover'),
+        root: clsx('tw-text-primary', 'hover:tw-text-primary-hover'),
       },
     })(givenSlotProps);
   }
