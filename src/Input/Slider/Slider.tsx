@@ -43,16 +43,16 @@ export default function Slider({
     slotProps = assocDefaultStyle<SlotProps>({
       slotWithDefaultClasses: {
         rail: clsx(
-          'tw-block tw-h-1 tw-w-full tw-rounded-sm tw-bg-secondary-bg hover:tw-bg-secondary-bg-hover',
+          'tw-block tw-h-1 tw-w-full tw-rounded-sm tw-bg-secondary hover:tw-bg-secondary-hover',
         ),
         root: clsx(
           'tw-relative tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-items-center',
         ),
         thumb: clsx(
-          'tw-absolute tw--ml-1.5 tw--mt-[0.15rem] tw-h-2 tw-w-2 tw-rounded-[50%] tw-border-2 tw-border-primary-border tw-bg-primary-bg hover:tw-border-primary-border-hover hover:tw-bg-primary-bg-hover',
+          'tw-absolute tw--ml-1.5 tw--mt-[0.15rem] tw-h-2 tw-w-2 tw-rounded-[50%] tw-border-2 tw-border-primary tw-bg-primary hover:tw-border-primary-hover hover:tw-bg-primary-hover',
         ),
         track: clsx(
-          'tw-absolute tw-block tw-h-1 tw-w-full tw-rounded-sm tw-bg-secondary-bg hover:tw-bg-secondary-bg-hover',
+          'tw-absolute tw-block tw-h-1 tw-w-full tw-rounded-sm tw-bg-secondary hover:tw-bg-secondary-hover',
         ),
       },
     })(givenSlotProps);

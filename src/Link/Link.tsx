@@ -25,10 +25,10 @@ function Link({
     slotProps = assocDefaultStyle<SlotProps>({
       slotWithDefaultClasses: {
         root: clsx(
-          'tw-bg-primary-bg',
-          'tw-text-primary-text',
-          'hover:tw-bg-primary-bg-hover',
-          'hover:tw-text-primary-text-hover',
+          'tw-bg-primary',
+          'tw-text-primary',
+          'hover:tw-bg-primary-hover',
+          'hover:tw-text-primary-hover',
           'tw-block',
         ),
       },

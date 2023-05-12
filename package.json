@@ -1,19 +1,20 @@
 {
   "author": "",
   "dependencies": {
+    "@busybox/tailwindcss-config": "2023.5.11-alpha.2048",
     "@heroicons/react": "2.0.18",
     "@mui/base": "5.0.0-beta.0",
     "clsx": "1.2.1",
     "parse-ms": "3.0.0",
-    "ramda": "0.29.0"
+    "ramda": "0.29.0",
+    "tailwindcss": "3.3.2"
   },
   "description": "",
   "devDependencies": {
     "@busybox/commitlint-config": "2023.4.4",
     "@busybox/cypress": "2023.4.4",
-    "@busybox/eslint-config": "2023.5.10-alpha.2216",
+    "@busybox/eslint-config": "2023.5.11-alpha.2048",
     "@busybox/prettier-config": "2023.4.4",
-    "@busybox/tailwindcss-config": "2023.4.22-alpha.2402",
     "@busybox/tsconfig": "2023.4.4",
     "@commitlint/cli": "17.6.3",
     "@storybook/addon-actions": "7.0.10",
@@ -42,7 +43,6 @@
     "source-map-explorer": "2.5.3",
     "start-server-and-test": "2.0.0",
     "storybook": "7.0.10",
-    "tailwindcss": "3.3.2",
     "typescript": "4.9.5",
     "vite": "4.3.5"
   },
@@ -54,10 +54,16 @@
     ".": {
       "import": "./dist/react-components.mjs",
       "require": "./dist/react-components.umd.js"
+    },
+    "./tailwind-config": {
+      "import": "./tailwind.config.mjs",
+      "require": "./tailwind.config.cjs"
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "tailwind.config.cjs",
+    "tailwind.config.mjs"
   ],
   "license": "MIT",
   "main": "./dist/react-components.umd.js",

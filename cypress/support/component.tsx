@@ -18,15 +18,15 @@ function TestBed(props: PropsWithChildren) {
     <main>
       <h1
         className={clsx(
-          'tw-bg-warning-bg',
-          'hover:tw-bg-warning-bg-hover',
-          'tw-text-warning-text',
-          'hover:tw-text-warning-text-hover',
+          'tw-bg-warning',
+          'hover:tw-bg-warning-hover',
+          'tw-text-warning',
+          'hover:tw-text-warning-hover',
           'tw-mb-1',
           'tw-block',
           'tw-border-b-2',
-          'tw-border-warning-border',
-          'hover:tw-border-warning-border-hover',
+          'tw-border-warning',
+          'hover:tw-border-warning-hover',
           'tw-text-center',
           'tw-text-9xl',
           'tw-font-bold',

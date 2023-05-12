@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import type { PropsWithChildren } from 'react';
 
 import {
@@ -14,14 +15,14 @@ export function Page({
   className = '',
   ...props
 }: PropsWithChildren<LayoutProps>) {
-  return <UnStyledPage className={`tw-h-screen ${className}`} {...props} />;
+  return <UnStyledPage className={clsx('tw-h-screen', className)} {...props} />;
 }
 
 export function Content({
   className = '',
   ...props
 }: PropsWithChildren<LayoutProps>) {
-  return <UnStyledContent className={`tw-h-1/3 ${className}`} {...props} />;
+  return <UnStyledContent className={clsx(`tw-h-1/3`, className)} {...props} />;
 }
 
 export function Footer({
@@ -30,7 +31,16 @@ export function Footer({
 }: PropsWithChildren<LayoutProps>) {
   return (
     <UnStyledFooter
-      className={`tw-flex tw-h-1/3 tw-items-center tw-justify-center tw-bg-red-400/20 tw-font-bold tw-text-neutral-400 ${className}`}
+      className={clsx(
+        'tw-bg-rose-500',
+        'tw-text-white',
+        'tw-flex',
+        'tw-h-1/3',
+        'tw-items-center',
+        'tw-justify-center',
+        'tw-font-bold',
+        className,
+      )}
       {...props}
     />
   );
@@ -42,7 +52,16 @@ export function Header({
 }: PropsWithChildren<LayoutProps>) {
   return (
     <UnStyledHeader
-      className={`tw-flex tw-h-1/3 tw-items-center tw-justify-center tw-bg-red-600/60 tw-font-bold tw-text-white ${className}`}
+      className={clsx(
+        `tw-bg-rose-600`,
+        `tw-text-white`,
+        `tw-flex`,
+        `tw-h-1/3`,
+        `tw-items-center`,
+        `tw-justify-center`,
+        `tw-font-bold`,
+        className,
+      )}
       {...props}
     />
   );
@@ -54,7 +73,15 @@ export function Main({
 }: PropsWithChildren<LayoutProps>) {
   return (
     <UnStyledMain
-      className={`tw-flex tw-items-center tw-justify-center tw-bg-lime-400/20 tw-font-bold tw-text-neutral-400 ${className}`}
+      className={clsx(
+        `tw-bg-sky-500/20`,
+        `tw-text-white`,
+        `tw-flex`,
+        `tw-items-center`,
+        `tw-justify-center`,
+        `tw-font-bold`,
+        className,
+      )}
       {...props}
     />
   );
@@ -66,7 +93,15 @@ export function Side({
 }: PropsWithChildren<LayoutProps>) {
   return (
     <UnStyledSide
-      className={`tw-flex tw-items-center tw-justify-center tw-bg-blue-400/20 tw-font-bold tw-text-neutral-400 ${className}`}
+      className={clsx(
+        `tw-bg-sky-600/20`,
+        `tw-text-white`,
+        `tw-flex`,
+        `tw-items-center`,
+        `tw-justify-center`,
+        `tw-font-bold`,
+        className,
+      )}
       {...props}
     />
   );
