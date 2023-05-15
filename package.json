@@ -81,7 +81,7 @@
     "analyze": "npm run build && source-map-explorer ./dist/*.mjs --no-border-checks",
     "build": "vite build",
     "build:storybook": "storybook build",
-    "postinstall": "is-ci || husky install",
+    "prepare": "is-ci || husky install",
     "storybook": "storybook dev -p 6006",
     "test": "cypress open --component -b chrome",
     "test:storybook": "test-storybook"

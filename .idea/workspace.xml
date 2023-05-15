@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3252ace-a70c-4f3f-b6dc-ca7cc5b6c457" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.storybook/preview.css" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/preview.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cypress/support/component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/support/component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Button/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Button/Button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Input/Slider/Slider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Input/Slider/Slider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Layout/LayoutForStories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Layout/LayoutForStories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Link/Link.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Link/Link.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.cjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +39,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "ISSUE-118__export-tailwind-css-config",
+    "git-widget-placeholder": "ISSUE-126__published-package-unable-install",
     "last_opened_file_path": "/Users/davidng/Documents/GitHub/self/react-components",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
