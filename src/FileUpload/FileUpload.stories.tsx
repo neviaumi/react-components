@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Field } from '../Field.jsx';
-import Label from '../Label.jsx';
+import { Field } from '../Form/Field.jsx';
+import Label from '../Form/Label.jsx';
 import FileUploadComponent from './FileUpload.jsx';
 
 const meta: Meta<typeof FileUploadComponent> = {
   component: FileUploadComponent,
-  title: 'Component/Input/FileUpload',
+  title: 'Component/Form/FileUpload',
 };
 
 export default meta;

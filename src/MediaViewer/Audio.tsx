@@ -9,9 +9,9 @@ import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
 } from '../components.d.js';
+import { Field } from '../Form/Field.jsx';
 import { PauseIcon, PlayIcon, VolumeUpIcon } from '../icons/solid.jsx';
-import { Field } from '../Input/Field.jsx';
-import Slider, { SliderProps } from '../Input/Slider/Slider.jsx';
+import Slider, { SliderProps } from '../Slider/Slider.jsx';
 import { assocDefaultStyle } from '../utils/assign-default-style.js';
 import { deepMerge } from '../utils/deep-merge.js';
 

@@ -3,9 +3,9 @@ import Input, { InputOwnerState, InputProps } from '@mui/base/Input/index.js';
 import {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../../components.d.js';
-import { assocDefaultStyle } from '../../utils/assign-default-style.js';
-import { useFieldContext } from '../Field.jsx';
+} from '../components.d.js';
+import { useFieldContext } from '../Form/Field.jsx';
+import { assocDefaultStyle } from '../utils/assign-default-style.js';
 
 interface SlotProps {
   input?: SlotComponentPropsWithoutOverride<'input', InputOwnerState>;
@@ -19,10 +19,7 @@ export default function NumberInput({
   slotProps: givenSlotProps,
   ...rest
 }: NumberInputProps) {
-  const { formControlContext, id } = useFieldContext();
-  if (formControlContext === undefined) {
-    return null;
-  }
+  const { id } = useFieldContext();
   let slotProps = givenSlotProps;
 
   if (!disableDefaultClasses) {

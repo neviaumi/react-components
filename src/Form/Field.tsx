@@ -1,5 +1,6 @@
 import FormControl, {
   FormControlProps,
+  FormControlState,
   useFormControlContext,
 } from '@mui/base/FormControl/index.js';
 import { createContext, PropsWithChildren, useContext, useId } from 'react';
@@ -18,11 +19,13 @@ export function Field({
   );
 }
 
-export function useFieldContext() {
+type useFieldContextOptions = Partial<FormControlState>;
+
+export function useFieldContext(opt?: useFieldContextOptions) {
   const formControlContext = useFormControlContext();
   const fieldContext = useContext(FieldContext);
   return {
     ...fieldContext,
-    formControlContext: formControlContext,
+    formControlContext: formControlContext ?? opt,
   };
 }
