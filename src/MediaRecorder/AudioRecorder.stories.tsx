@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ChangeEvent, ComponentProps, useState } from 'react';
 
-import { Field } from '../Input/Field.jsx';
-import FileUpload from '../Input/Upload/FileUpload.jsx';
+import FileUpload from '../FileUpload/FileUpload.jsx';
+import { Field } from '../Form/Field.jsx';
 import Link from '../Link/Link.jsx';
 import Audio from '../MediaViewer/Audio.jsx';
 import { generateTestIdWithPrefix } from '../test-helpers/test-id.js';

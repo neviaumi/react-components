@@ -8,9 +8,9 @@ import React from 'react';
 import {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../../components.d.js';
-import { assocDefaultStyle } from '../../utils/assign-default-style.js';
-import { useFieldContext } from '../Field.jsx';
+} from '../components.d.js';
+import { useFieldContext } from '../Form/Field.jsx';
+import { assocDefaultStyle } from '../utils/assign-default-style.js';
 
 interface SlotProps {
   input?: SlotComponentPropsWithoutOverride<'input', SliderOwnerState>;
@@ -33,10 +33,12 @@ export default function Slider({
   slotProps: givenSlotProps,
   ...rest
 }: SliderProps) {
-  const { formControlContext, id } = useFieldContext();
-  if (formControlContext === undefined) {
-    return null;
-  }
+  const { formControlContext, id } = useFieldContext({
+    // @ts-expect-error TODO: fix this
+    onChange: rest.onChange,
+    value: rest.value,
+  });
+
   let slotProps = givenSlotProps;
 
   if (!disableDefaultClasses) {
@@ -60,14 +62,14 @@ export default function Slider({
   return (
     <MuiSlider
       id={id}
-      onBlur={formControlContext.onBlur}
+      onBlur={formControlContext?.onBlur}
       onChange={e => {
-        formControlContext.onChange?.(
+        formControlContext?.onChange?.(
           e as unknown as React.ChangeEvent<HTMLInputElement>,
         );
       }}
       slotProps={slotProps}
-      value={formControlContext.value as number}
+      value={formControlContext?.value as number}
       {...rest}
     />
   );

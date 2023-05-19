@@ -1,13 +1,14 @@
 import { useCallback, useRef } from 'react';
 
-import Button from '../../Button/Button.jsx';
+import Button from '../Button/Button.jsx';
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../../components.d.js';
-import { UploadIcon } from '../../icons/solid.jsx';
-import { assocDefaultStyle } from '../../utils/assign-default-style.js';
-import { useFieldContext } from '../Field.jsx';
+} from '../components.d.js';
+import { useFieldContext } from '../Form/Field.jsx';
+import { UploadIcon } from '../icons/solid.jsx';
+import { assocDefaultStyle } from '../utils/assign-default-style.js';
+import { NO_OP } from '../utils/no-op.js';
 
 export type UploadedFileLikeObject = {
   name: string;
@@ -25,14 +26,14 @@ export default function FileUpload({
   slotProps: givenSlotProps,
   ...rest
 }: ComponentProps<SlotProps>) {
-  const { formControlContext, id } = useFieldContext();
+  const { formControlContext, id } = useFieldContext({
+    onChange: NO_OP,
+  });
   const inputRef = useRef<HTMLInputElement>(null);
   const onUploadButtonClick = useCallback(() => {
     inputRef.current!.click();
   }, [inputRef]);
-  if (formControlContext === undefined) {
-    return null;
-  }
+
   let slotProps = givenSlotProps;
 
   if (!disableDefaultClasses) {
@@ -49,7 +50,7 @@ export default function FileUpload({
         className={'tw-hidden'}
         data-testid={testId && `${testId}-raw-upload-input`}
         id={id}
-        onChange={formControlContext.onChange}
+        onChange={formControlContext?.onChange}
         ref={inputRef}
         type="file"
       />

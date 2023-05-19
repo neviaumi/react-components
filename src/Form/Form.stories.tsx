@@ -5,13 +5,13 @@ import { ChangeEvent, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 import Button from '../Button/Button.jsx';
+import FileUploadInput from '../FileUpload/FileUpload.jsx';
 import { Content, Header, Main, Page } from '../Layout/Layout.jsx';
 import Link from '../Link/Link.jsx';
+import NumberInput from '../NumberInput/NumberInput.jsx';
+import SliderInput from '../Slider/Slider.jsx';
 import { Field } from './Field.jsx';
 import Label from './Label.jsx';
-import NumberInput from './NumberInput/NumberInput.jsx';
-import SliderInput from './Slider/Slider.jsx';
-import FileUploadInput from './Upload/FileUpload.jsx';
 
 const meta: Meta = {
   title: 'Demo/Form',
