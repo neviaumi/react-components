@@ -18,7 +18,7 @@
     "@busybox/tsconfig": "2023.4.4",
     "@commitlint/cli": "17.6.3",
     "@storybook/addon-essentials": "7.0.12",
-    "@storybook/addon-interactions": "7.0.12",
+    "@storybook/addon-interactions": "7.0.15",
     "@storybook/addon-links": "7.0.12",
     "@storybook/addon-storysource": "7.0.12",
     "@storybook/addon-styling": "1.0.8",
