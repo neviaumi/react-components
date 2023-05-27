@@ -27,7 +27,7 @@
     "@storybook/react-vite": "7.0.17",
     "@storybook/test-runner": "0.10.0",
     "@storybook/testing-library": "0.1.0",
-    "@types/ramda": "0.29.1",
+    "@types/ramda": "0.29.2",
     "@vitejs/plugin-react": "4.0.0",
     "autoprefixer": "10.4.14",
     "chromatic": "6.17.4",
