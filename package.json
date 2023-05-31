@@ -30,7 +30,7 @@
     "@types/ramda": "0.29.2",
     "@vitejs/plugin-react": "4.0.0",
     "autoprefixer": "10.4.14",
-    "chromatic": "6.17.4",
+    "chromatic": "6.18.0",
     "cypress": "12.13.0",
     "eslint": "8.41.0",
     "husky": "8.0.3",
