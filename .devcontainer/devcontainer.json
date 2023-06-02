@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
+  "name": "@busybox/react-components",
+  "build": {
+    "args": {},
+    "dockerfile": "Dockerfile"
+  },
+  "postAttachCommand": "bash ./scripts/ci/setup.sh"
+}
