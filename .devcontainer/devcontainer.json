@@ -1,9 +1,10 @@
 {
   "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
-  "name": "@busybox/react-components",
   "build": {
     "args": {},
     "dockerfile": "Dockerfile"
   },
+  "forwardPorts": ["storybook:6006", "cy-component-test:5173"],
+  "name": "@busybox/react-components",
   "postAttachCommand": "bash ./scripts/ci/setup.sh"
 }
