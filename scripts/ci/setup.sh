@@ -7,8 +7,10 @@ NVM_SOURCE="$NVM_DIR/nvm.sh"
 echo "Current branch is $CURRENT_BRANCH"
 if [ -f "$NVM_SOURCE" ]
 then
-  source "$NVM_DIR/nvm.sh"
+  set +e
+  source "$NVM_SOURCE"
   nvm install
+  set -e
 fi
 
 if [ -z "$CI" ]
