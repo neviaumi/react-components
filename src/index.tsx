@@ -1,11 +1,11 @@
 export { default as Button } from './Button/Button.jsx';
-export { default as Card } from './Card/Card.jsx';
+export { default as Card, CardTitle } from './Card/Card.jsx';
 export { default as FileUpload } from './FileUpload/FileUpload.jsx';
 export { Field, useFieldContext } from './Form/Field.jsx';
 export { default as Label } from './Form/Label.jsx';
 export * as Layout from './Layout/Layout.jsx';
-export { default as List } from './List/List.jsx';
-export { default as ListItem } from './List/ListItem.jsx';
+export { default as List, ListItem } from './List/List.jsx';
 export { default as AudioRecorder } from './MediaRecorder/AudioRecorder.jsx';
 export { default as AudioViewer } from './MediaViewer/Audio.jsx';
+export { default as Modal, ModalContent, ModalTitle } from './Modal/Modal.jsx';
 export { default as NumberInput } from './NumberInput/NumberInput.jsx';
