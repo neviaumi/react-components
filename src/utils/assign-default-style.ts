@@ -9,7 +9,7 @@ export type AssocDefaultStyleInput<T extends Record<any, any>> = {
 export const assocDefaultStyle = <T extends Record<any, any>>({
   slotWithDefaultClasses,
 }: AssocDefaultStyleInput<T>) => {
-  return (currentSlotProps: T | undefined) => {
+  return (currentSlotProps: T | undefined): T => {
     const assocPathPipeline = Object.entries(slotWithDefaultClasses).map(
       ([slotName, defaultClasses]) => {
         return assocPath(
@@ -18,7 +18,7 @@ export const assocDefaultStyle = <T extends Record<any, any>>({
         );
       },
     );
-    if (assocPathPipeline.length === 0) return currentSlotProps ?? {};
+    if (assocPathPipeline.length === 0) return (currentSlotProps ?? {}) as T;
     // @ts-expect-error Not sure why this is complaining
     return pipe(...assocPathPipeline)(currentSlotProps ?? {}) as T;
   };

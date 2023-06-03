@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import clsx from 'clsx';
 
-import CardComponent, { CardHeader } from './Card.jsx';
+import CardComponent, { CardTitle } from './Card.jsx';
 
 const meta: Meta<typeof CardComponent> = {
   component: CardComponent,
@@ -19,7 +19,7 @@ export const CardWithHeader: Story = {
         },
       }}
     >
-      <CardHeader slot={{ root: 'h1' }}>Card Header</CardHeader>
+      <CardTitle slot={{ root: 'h1' }}>Card Header</CardTitle>
       <section>Card Body</section>
     </CardComponent>
   ),

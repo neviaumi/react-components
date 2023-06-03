@@ -47,24 +47,24 @@ export default function Card({
   );
 }
 
-interface CardHeaderSlotProps {
+interface CardTitleSlotProps {
   root?: SlotComponentPropsWithoutOverride<'h1'>;
 }
 
-export type CardHeaderProps = ComponentProps<
-  CardHeaderSlotProps,
+export type CardTitleProps = ComponentProps<
+  CardTitleSlotProps,
   {
     slot?: { root?: keyof React.ReactHTML };
   }
 >;
 
-export function CardHeader({
+export function CardTitle({
   'data-testid': testId,
   disableDefaultClasses,
   slot,
   slotProps: givenSlotProps,
   ...rest
-}: CardHeaderProps) {
+}: CardTitleProps) {
   let slotProps = givenSlotProps;
 
   if (!disableDefaultClasses) {
@@ -75,7 +75,7 @@ export function CardHeader({
     })(givenSlotProps);
   }
   return createElement(slot?.root ?? 'h1', {
-    'data-testid': testId ?? 'busybox-card-header',
+    'data-testid': testId ?? 'busybox-card-title',
     ...rest,
     ...slotProps?.root,
   });
