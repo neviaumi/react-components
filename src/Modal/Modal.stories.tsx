@@ -12,7 +12,7 @@ const meta: Meta<typeof ModalComponent> = {
 
 export default meta;
 type Story = StoryObj<typeof ModalComponent>;
-export const ToggleModal: Story = {
+export const Modal: Story = {
   render: () => {
     const [modalOpen, setModalOpen] = useState(false);
     const [hasOkButtonClicked, setHasOkButtonClicked] = useState(false);
