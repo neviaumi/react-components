@@ -19,6 +19,9 @@ describe('ReactHookForm stories', () => {
     cy.fixture('example.png').as('testUploadFixture');
 
     cy.findByTestId('form-stories-number-input').type('20');
+    cy.findByTestId('form-stories-select-input').click();
+    cy.findByTestId('form-stories-select-option-1').click();
+
     cy.findByTestId('form-stories-upload-input-raw-upload-input').selectFile(
       '@testUploadFixture',
       { force: true },
@@ -41,6 +44,7 @@ describe('ReactHookForm stories', () => {
       cy.wrap(
         pipe(dissocPath(['proofOfAge', 'url']), dissocPath(['rating']))(values),
       ).should('deep.equal', {
+        'Car Brand': 'Toyota',
         height: '20',
         proofOfAge: {
           name: 'example.png',

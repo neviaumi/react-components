@@ -3,11 +3,11 @@ import { composeStories } from '@storybook/react';
 
 import * as stories from './Modal.stories.jsx';
 
-const { ToggleModal } = composeStories(stories);
+const { Modal } = composeStories(stories);
 
 describe('ToggleModal stories', () => {
   it('should contain values in form when click submit', () => {
-    cy.mount(<ToggleModal />);
+    cy.mount(<Modal />);
 
     cy.findByTestId('toggle-modal-button').click();
     cy.findByTestId('ok-button').click();

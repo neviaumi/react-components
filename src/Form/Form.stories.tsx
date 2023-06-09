@@ -9,6 +9,7 @@ import FileUploadInput from '../FileUpload/FileUpload.jsx';
 import { Content, Header, Main, Page } from '../Layout/Layout.jsx';
 import Link from '../Link/Link.jsx';
 import NumberInput from '../NumberInput/NumberInput.jsx';
+import SelectInput, { SelectOption } from '../Select/Select.jsx';
 import SliderInput from '../Slider/Slider.jsx';
 import { Field } from './Field.jsx';
 import Label from './Label.jsx';
@@ -48,6 +49,61 @@ export const ReactHookForm: Story = {
         <Content>
           <Main>
             <form onSubmit={handleSubmit(submitFormValues)}>
+              <Controller
+                control={control}
+                name={'Car Brand'}
+                render={({ field }) => {
+                  return (
+                    <Field
+                      {...field}
+                      className={'tw-flex tw-flex-row tw-gap-0.5'}
+                    >
+                      <Label>Car Brand</Label>
+                      <SelectInput
+                        data-testid={'form-stories-select-input'}
+                        name={field.name}
+                        slotProps={{
+                          listbox: {
+                            className: 'tw-w-20',
+                          },
+                          root: { className: 'tw-h-5 tw-w-20' },
+                        }}
+                      >
+                        <SelectOption
+                          data-testid={'form-stories-select-option-1'}
+                          value={'Toyota'}
+                        >
+                          Toyota
+                        </SelectOption>
+                        <SelectOption
+                          data-testid={'form-stories-select-option-2'}
+                          value={'BMW'}
+                        >
+                          BMW
+                        </SelectOption>
+                        <SelectOption
+                          data-testid={'form-stories-select-option-3'}
+                          value={'Honda'}
+                        >
+                          Honda
+                        </SelectOption>
+                        <SelectOption
+                          data-testid={'form-stories-select-option-4'}
+                          value={'Fiat'}
+                        >
+                          Fiat
+                        </SelectOption>
+                        <SelectOption
+                          data-testid={'form-stories-select-option-5'}
+                          value={'Mini'}
+                        >
+                          Mini
+                        </SelectOption>
+                      </SelectInput>
+                    </Field>
+                  );
+                }}
+              />
               <Controller
                 control={control}
                 name={'height'}

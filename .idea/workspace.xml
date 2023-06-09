@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3252ace-a70c-4f3f-b6dc-ca7cc5b6c457" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Modal/Modal.cy.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Modal/Modal.stories.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Modal/Modal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/assign-default-values.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Card/Card.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card/Card.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Card/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card/Card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/List/List.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/List/List.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/List/List.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/List/List.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/List/ListItem.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/assign-default-style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/assign-default-style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modal/Modal.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modal/Modal.cy.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +16,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="Dockerfile" />
         <option value="TypeScript JSX File" />
       </list>
     </option>
@@ -45,27 +35,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.GIT_CREDENTIAL_SETUP": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "ISSUE-142__modal-popup",
-    "last_opened_file_path": "/Users/davidng/Documents/GitHub/self/react-components/src/Modal",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/davidng/Documents/GitHub/self/react-components/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
-    "ts.external.directory.path": "/Users/davidng/Documents/GitHub/self/react-components/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.GIT_CREDENTIAL_SETUP&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ISSUE-143__select-component&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/davidng/Documents/GitHub/self/react-components/src/Select&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/davidng/Documents/GitHub/self/react-components/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/davidng/Documents/GitHub/self/react-components/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33035713" />
@@ -74,11 +64,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Select" />
       <recent name="$PROJECT_DIR$/src/Modal" />
       <recent name="$PROJECT_DIR$/src/utils" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/Input/Slider" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Card" />
@@ -117,6 +107,7 @@
       <workItem from="1685172727427" duration="49000" />
       <workItem from="1685718808866" duration="2631000" />
       <workItem from="1685721955647" duration="7396000" />
+      <workItem from="1686265050235" duration="8753000" />
     </task>
     <servers />
   </component>

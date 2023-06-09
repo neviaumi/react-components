@@ -28,40 +28,43 @@ export type ModalProps = ComponentProps<
 
 export default function Modal({
   children,
+  disableDefaultClasses,
   open,
   slotProps,
   slots,
   ...rest
 }: ModalProps) {
-  const slotPropsWithDefaultStyle = useMemo<SlotProps>(
+  const slotPropsWithDefaultStyle = useMemo<SlotProps | undefined>(
     () =>
-      assocDefaultStyle<SlotProps>({
-        slotWithDefaultClasses: {
-          backdrop: clsx(
-            'tw-bg-black',
-            'tw-opacity-50',
-            'tw-fixed',
-            'tw-top-0',
-            'tw-left-0',
-            'tw-right-0',
-            'tw-bottom-0',
-            'tw--z-10',
-          ),
-          content: clsx('tw-bg-white', 'tw-px-4', 'tw-py-2', 'tw-w-100'),
-          root: clsx(
-            'tw-z-10',
-            'tw-fixed',
-            'tw-top-0',
-            'tw-left-0',
-            'tw-right-0',
-            'tw-bottom-0',
-            'tw-flex',
-            'tw-justify-center',
-            'tw-items-center',
-          ),
-        },
-      })(slotProps),
-    [slotProps],
+      disableDefaultClasses
+        ? slotProps
+        : assocDefaultStyle<SlotProps>({
+            slotWithDefaultClasses: {
+              backdrop: clsx(
+                'tw-bg-black',
+                'tw-opacity-50',
+                'tw-fixed',
+                'tw-top-0',
+                'tw-left-0',
+                'tw-right-0',
+                'tw-bottom-0',
+                'tw--z-10',
+              ),
+              content: clsx('tw-bg-white', 'tw-px-4', 'tw-py-2', 'tw-w-100'),
+              root: clsx(
+                'tw-z-10',
+                'tw-fixed',
+                'tw-top-0',
+                'tw-left-0',
+                'tw-right-0',
+                'tw-bottom-0',
+                'tw-flex',
+                'tw-justify-center',
+                'tw-items-center',
+              ),
+            },
+          })(slotProps),
+    [disableDefaultClasses, slotProps],
   );
   const slotsWithValues = useMemo(
     () =>
