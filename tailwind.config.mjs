@@ -1,7 +1,7 @@
 // import myTailwindConfig from './tailwind.config.cjs';
 //
 // const config = myTailwindConfig;
-import tailwindConfig from '@busybox/tailwindcss-config/dist/tailwind.config.mjs';
+import tailwindConfig from '@busybox/tailwindcss-config';
 import { assocPath, path, pipe } from 'ramda';
 import colors from 'tailwindcss/colors.js';
 
