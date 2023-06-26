@@ -21,7 +21,7 @@ module.exports = {
   ],
   settings: {
     tailwindcss: {
-      config: './tailwind.config.cjs',
+      config: './tailwind.config.mjs',
     },
   },
 };
