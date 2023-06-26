@@ -1,7 +1,7 @@
 {
   "author": "",
   "dependencies": {
-    "@busybox/tailwindcss-config": "2023.6.22",
+    "@busybox/tailwindcss-config": "2023.6.26",
     "@heroicons/react": "2.0.18",
     "@mui/base": "5.0.0-beta.5",
     "clsx": "1.2.1",
