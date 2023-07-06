@@ -1,7 +1,4 @@
-// import myTailwindConfig from './tailwind.config.cjs';
-//
-// const config = myTailwindConfig;
-import tailwindConfig from '@busybox/tailwindcss-config';
+import { default as tailwindConfig } from '@busybox/tailwindcss-config';
 import { assocPath, path, pipe } from 'ramda';
 import colors from 'tailwindcss/colors.js';
 
@@ -16,7 +13,7 @@ const config = {
     './src/**/*.{ts,tsx}',
     './.storybook/**/*.{.js,cjs}',
   ],
-  presets: [tailwindConfig],
+  presets: [tailwindConfig.default],
   theme: {
     extend: {
       backgroundColor: ({ theme }) => {
