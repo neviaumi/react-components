@@ -34,7 +34,7 @@ export default function Button({
     slotProps = assocDefaultStyle<SlotProps>({
       slotWithDefaultClasses: {
         root: clsx(
-          'tw-border-2',
+          'tw-border',
           'tw-p-0.5',
           'tw-rounded-md',
           'tw-bg-primary',

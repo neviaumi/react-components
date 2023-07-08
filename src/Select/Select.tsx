@@ -15,6 +15,7 @@ import {
 } from '../components.d.js';
 import { useFieldContext } from '../Form/Field.jsx';
 import { assocDefaultStyle } from '../utils/assign-default-style.js';
+import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.js';
 
 interface SlotProps {
   listbox?: SlotComponentPropsWithoutOverride<
@@ -53,16 +54,16 @@ export default function Select({
         : assocDefaultStyle<SlotProps>({
             slotWithDefaultClasses: {
               listbox: clsx(
-                'tw-m-0 tw-mt-1 tw-flex tw-flex-col tw-border-2 tw-border-primary  tw-pt-0.5',
+                'tw-m-0 tw-mt-1 tw-flex tw-flex-col tw-border-2 tw-border-primary tw-pt-0.5',
               ),
               popper: clsx('tw-z-10'),
               root: (state: SelectOwnerState<string, false>) => {
                 if (state.open)
                   return clsx(
-                    " tw-cursor-default  tw-border-0 tw-bg-disabled tw-px-2 tw-py-1 tw-text-disabled after:tw-float-right after:tw-content-['▴']",
+                    "tw-cursor-default tw-border-0 tw-bg-disabled tw-px-2 tw-py-1 tw-text-disabled after:tw-float-right after:tw-content-['▴']",
                   );
                 return clsx(
-                  " tw-border-2 tw-border-primary tw-bg-white tw-px-2 tw-py-1 tw-text-primary after:tw-float-right after:tw-content-['▾']",
+                  "tw-border tw-border-primary tw-bg-white tw-px-2 tw-py-1 tw-text-primary after:tw-float-right after:tw-content-['▾']",
                 );
               },
             },
@@ -98,6 +99,7 @@ export type SelectOptionProps = ComponentProps<
 export function SelectOption({
   disableDefaultClasses,
   slotProps,
+  value,
   ...rest
 }: SelectOptionProps) {
   const slotPropsWithDefaultStyle = useMemo<SlotProps | undefined>(
@@ -123,5 +125,17 @@ export function SelectOption({
           })(slotProps),
     [disableDefaultClasses, slotProps],
   );
-  return <MuiOption {...rest} slotProps={slotPropsWithDefaultStyle} />;
+  const rootProps = mergeRootSlotPropsToComponentProps()(
+    slotPropsWithDefaultStyle,
+    rest,
+  );
+
+  return (
+    <MuiOption
+      {...rootProps}
+      data-value={value}
+      slotProps={slotPropsWithDefaultStyle}
+      value={value}
+    />
+  );
 }
