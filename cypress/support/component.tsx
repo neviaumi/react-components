@@ -7,9 +7,9 @@ import clsx from 'clsx';
 import { mount } from 'cypress/react18';
 import type { PropsWithChildren } from 'react';
 
-import * as globalStorybookConfig from '../../.storybook/preview.js';
+import storyBookPreview from '../../.storybook/preview.js';
 
-setProjectAnnotations(globalStorybookConfig);
+setProjectAnnotations(storyBookPreview);
 
 function TestBed(props: PropsWithChildren) {
   // @ts-expect-error https://github.com/cypress-io/cypress/issues/23025
