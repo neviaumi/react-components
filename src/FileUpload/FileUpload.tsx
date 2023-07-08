@@ -19,15 +19,22 @@ interface SlotProps {
   root?: SlotComponentPropsWithoutOverride<'button', object>;
 }
 
+type FileUploadProps = ComponentProps<
+  SlotProps,
+  {
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  }
+>;
+
 export default function FileUpload({
   children,
   'data-testid': testId,
   disableDefaultClasses,
   slotProps: givenSlotProps,
   ...rest
-}: ComponentProps<SlotProps>) {
+}: FileUploadProps) {
   const { formControlContext, id } = useFieldContext({
-    onChange: NO_OP,
+    onChange: rest.onChange || NO_OP,
   });
   const inputRef = useRef<HTMLInputElement>(null);
   const onUploadButtonClick = useCallback(() => {

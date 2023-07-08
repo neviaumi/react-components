@@ -24,7 +24,7 @@ export default meta;
 type Story = StoryObj;
 
 export const CarSearchForm: Story = {
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const result = {
       carBrand: 'Toyota',
       doors: '5',
@@ -32,22 +32,27 @@ export const CarSearchForm: Story = {
       transmission: 'manual',
     };
     const canvas = within(canvasElement);
-    await userEvent.click(canvas.getByTestId('form-stories-select-input'));
-    const optionToyota = await screen
-      .findByTestId('form-stories-select-options')
-      .then(ele => ele.querySelector(`[data-value="${result.carBrand}"]`));
-    expect(optionToyota).not.toBeNull();
-    await userEvent.click(optionToyota!);
-    await userEvent.type(canvas.getByLabelText('Doors'), result.doors);
-    await userEvent.click(canvas.getByLabelText('Manual'));
-    await userEvent.click(
-      canvas.getByRole('button', {
-        name: 'Submit',
-      }),
-    );
-    await waitFor(async () => {
-      const formValues = canvas.getByTestId('form-values').textContent || '';
-      await expect(JSON.parse(formValues)).toEqual(result);
+    await step('Filling the form', async () => {
+      await userEvent.click(canvas.getByTestId('form-stories-select-input'));
+      const optionToyota = await screen
+        .findByTestId('form-stories-select-options')
+        .then(ele => ele.querySelector(`[data-value="${result.carBrand}"]`));
+      expect(optionToyota).not.toBeNull();
+      await userEvent.click(optionToyota!);
+      await userEvent.type(canvas.getByLabelText('Doors'), result.doors);
+      await userEvent.click(canvas.getByLabelText('Manual'));
+    });
+
+    await step('Form submit', async () => {
+      await userEvent.click(
+        canvas.getByRole('button', {
+          name: 'Submit',
+        }),
+      );
+      await waitFor(async () => {
+        const formValues = canvas.getByTestId('form-values').textContent || '';
+        await expect(JSON.parse(formValues)).toEqual(result);
+      });
     });
   },
   render: () => {
@@ -128,8 +133,8 @@ export const CarSearchForm: Story = {
                 render={({ field }) => {
                   return (
                     <Field
-                      className={'tw-flex tw-flex-col tw-gap-0.5'}
                       {...field}
+                      className={'tw-flex tw-flex-col tw-gap-0.5'}
                     >
                       <label>Transmission</label>
                       <RadioGroup name={field.name}>
@@ -182,8 +187,8 @@ export const CarSearchForm: Story = {
                 render={({ field }) => {
                   return (
                     <Field
-                      className={'tw-flex tw-flex-col tw-gap-0.5'}
                       {...field}
+                      className={'tw-flex tw-flex-col tw-gap-0.5'}
                     >
                       <div className={'tw-flex tw-flex-row tw-gap-1'}>
                         <Label>Rating</Label>
@@ -234,7 +239,7 @@ export const DriverRegisterForm: Story = {
                 control={control}
                 name={'proofOfAge'}
                 render={({ field }) => {
-                  const { onChange, value, ...hookFormFieldProps } = field;
+                  const { onChange, ref, value, ...hookFormFieldProps } = field;
                   const uploadFileWhenInputChanged = (
                     event: ChangeEvent<HTMLInputElement>,
                   ) => {
@@ -259,6 +264,7 @@ export const DriverRegisterForm: Story = {
                         {...hookFormFieldProps}
                         className={'tw-flex tw-flex-col tw-gap-0.5'}
                         onChange={uploadFileWhenInputChanged}
+                        ref={ref}
                         value={value}
                       >
                         <Label>Click to upload proof</Label>

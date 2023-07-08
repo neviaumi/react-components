@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Field } from '../Form/Field.jsx';
 import Label from '../Form/Label.jsx';
 import FileUploadComponent from './FileUpload.jsx';
 
@@ -18,9 +17,11 @@ export const FileUpload: Story = {
     children: 'Click to Upload',
   },
   render: ({ children, 'data-testid': testId, ...rest }) => (
-    <Field {...rest}>
+    <>
       <Label>Click toUpload File</Label>
-      <FileUploadComponent data-testid={testId}>{children}</FileUploadComponent>
-    </Field>
+      <FileUploadComponent data-testid={testId} {...rest}>
+        {children}
+      </FileUploadComponent>
+    </>
   ),
 };

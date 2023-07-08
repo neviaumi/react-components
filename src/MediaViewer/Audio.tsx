@@ -9,7 +9,6 @@ import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
 } from '../components.d.js';
-import { Field } from '../Form/Field.jsx';
 import { PauseIcon, PlayIcon, VolumeUpIcon } from '../icons/solid.jsx';
 import Slider, { SliderProps } from '../Slider/Slider.jsx';
 import { assocDefaultStyle } from '../utils/assign-default-style.js';
@@ -77,7 +76,7 @@ export default function Audio({
       audioRef.current.volume = volume / 100.0;
     },
     [],
-  );
+  ) as any;
   useEffect(function subscribeAudioTimeChange() {
     const audioEle = audioRef.current;
     const updateAudioCurrentTime: (event: Event) => void = () =>
@@ -131,17 +130,15 @@ export default function Audio({
           </div>
           <div className={slotProps?.volumeControl?.className}>
             <VolumeUpIcon />
-            <Field
-              className={'tw-w-full'}
-              onChange={adjustAudioVolume}
-              value={audioVolume}
-            >
+            <div className={'tw-w-full'}>
               <Slider
                 max={100}
                 min={0}
+                onChange={adjustAudioVolume}
                 slotProps={slotProps?.volumeSlider?.slotProps}
+                value={audioVolume}
               />
-            </Field>
+            </div>
           </div>
         </div>
       </div>
