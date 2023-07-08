@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3252ace-a70c-4f3f-b6dc-ca7cc5b6c457" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/cypress/support/component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/support/component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/main.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +41,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "ISSUE-283__integrate-console-plugin",
+    "git-widget-placeholder": "ISSUE-282__deploy-storybook",
     "last_opened_file_path": "/Users/davidng/Documents/GitHub/self/react-components/src/radioGroup",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
