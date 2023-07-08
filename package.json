@@ -97,5 +97,5 @@
   ],
   "type": "module",
   "types": "./dist/out-tsc/src/index.d.ts",
-  "version": "2023.7.8-alpha.418"
+  "version": "2023.7.8-alpha.948"
 }
