@@ -1,4 +1,5 @@
 import Input, { InputOwnerState, InputProps } from '@mui/base/Input/index.js';
+import clsx from 'clsx';
 
 import {
   ComponentProps,
@@ -6,6 +7,7 @@ import {
 } from '../components.d.js';
 import { useFieldContext } from '../Form/Field.jsx';
 import { assocDefaultStyle } from '../utils/assign-default-style.js';
+import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.js';
 
 interface SlotProps {
   input?: SlotComponentPropsWithoutOverride<'input', InputOwnerState>;
@@ -24,11 +26,13 @@ export default function NumberInput({
 
   if (!disableDefaultClasses) {
     slotProps = assocDefaultStyle<SlotProps>({
-      slotWithDefaultClasses: {},
+      slotWithDefaultClasses: {
+        input: clsx(
+          'tw-form-input tw-w-full tw-border-primary focus:tw-border-none focus:tw-shadow-none focus:tw-ring-0',
+        ),
+      },
     })(givenSlotProps);
   }
-  return (
-    // @ts-expect-error TODO: fix this
-    <Input id={id} slotProps={slotProps} {...rest} type={'number'} />
-  );
+  const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
+  return <Input id={id} slotProps={slotProps} {...rootProps} type={'number'} />;
 }
