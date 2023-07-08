@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ChangeEvent, ComponentProps, useState } from 'react';
 
 import FileUpload from '../FileUpload/FileUpload.jsx';
-import { Field } from '../Form/Field.jsx';
 import Link from '../Link/Link.jsx';
 import Audio from '../MediaViewer/Audio.jsx';
 import { generateTestIdWithPrefix } from '../test-helpers/test-id.js';
@@ -32,7 +31,7 @@ export const AudioRecorderAndFileUploadWithPreview: Story = {
       <div className={'tw-flex tw-flex-col'}>
         <div className={'tw-flex tw-flex-row'}>
           {!isRecording && (
-            <Field
+            <FileUpload
               onChange={(event: ChangeEvent<HTMLInputElement>) => {
                 if (!event.target.files) return;
                 const [uploadFile]: FileList = event.target.files;
@@ -52,8 +51,8 @@ export const AudioRecorderAndFileUploadWithPreview: Story = {
                 reader.readAsDataURL(uploadFile);
               }}
             >
-              <FileUpload>Upload</FileUpload>
-            </Field>
+              Upload
+            </FileUpload>
           )}
           <AudioRecorderComponent
             {...args}

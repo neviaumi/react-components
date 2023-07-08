@@ -3,21 +3,36 @@ import FormControl, {
   FormControlState,
   useFormControlContext,
 } from '@mui/base/FormControl/index.js';
-import { createContext, PropsWithChildren, useContext, useId } from 'react';
+import {
+  createContext,
+  forwardRef,
+  PropsWithChildren,
+  Ref,
+  useContext,
+  useId,
+} from 'react';
 
 const FieldContext = createContext<{ id?: string }>({});
 
-export function Field({
-  children,
-  ...rest
-}: PropsWithChildren<FormControlProps>) {
+export const Field = forwardRef(function Field(
+  { children, ...rest }: PropsWithChildren<FormControlProps>,
+  ref: Ref<HTMLDivElement>,
+) {
   const id = useId();
+  const { value: defaultValue, ...formControlProps } = rest;
+  const formControlDefaultValue = defaultValue ?? null;
   return (
     <FieldContext.Provider value={{ id: id }}>
-      <FormControl {...rest}>{children}</FormControl>
+      <FormControl
+        {...formControlProps}
+        ref={ref}
+        value={formControlDefaultValue}
+      >
+        {children}
+      </FormControl>
     </FieldContext.Provider>
   );
-}
+});
 
 type useFieldContextOptions = Partial<FormControlState>;
 

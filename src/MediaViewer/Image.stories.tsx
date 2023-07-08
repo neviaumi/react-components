@@ -3,7 +3,6 @@ import { within } from '@storybook/testing-library';
 import { ChangeEvent, useCallback, useState } from 'react';
 
 import FileUpload from '../FileUpload/FileUpload.jsx';
-import { Field } from '../Form/Field.jsx';
 import ImageComponent from './Image.jsx';
 
 const meta: Meta<typeof ImageComponent> = {
@@ -72,11 +71,9 @@ export const ImagePreviewWhenFileUpload: Story = {
             src={uploadedImg.src}
           />
         )}
-        <Field onChange={uploadImg}>
-          <FileUpload data-testid={args['data-testid']}>
-            Click and upload image here
-          </FileUpload>
-        </Field>
+        <FileUpload data-testid={args['data-testid']} onChange={uploadImg}>
+          Click and upload image here
+        </FileUpload>
       </div>
     );
   },

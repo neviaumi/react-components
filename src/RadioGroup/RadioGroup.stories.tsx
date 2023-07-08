@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Field } from '../Form/Field.jsx';
 import LabelWithFieldContext from '../Form/Label.jsx';
 import RadioGroupComponent, { Radio } from './RadioGroup.jsx';
 
@@ -16,9 +15,15 @@ type Story = StoryObj<typeof RadioGroupComponent>;
 export const RadioGroup: Story = {
   render: args => {
     return (
-      <Field className="tw-flex tw-flex-col">
+      <>
         <LabelWithFieldContext>RadioGroup Input</LabelWithFieldContext>
-        <RadioGroupComponent {...args} name={'demo'}>
+        <RadioGroupComponent
+          {...args}
+          name={'demo'}
+          onChange={() => {
+            return;
+          }}
+        >
           <Radio id={'1'} value={'1'}>
             Item 1
           </Radio>
@@ -29,7 +34,7 @@ export const RadioGroup: Story = {
             Item 3
           </Radio>
         </RadioGroupComponent>
-      </Field>
+      </>
     );
   },
 };

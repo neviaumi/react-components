@@ -12,13 +12,21 @@ import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-pro
 
 export type RadioGroupProps = React.PropsWithChildren<{
   name: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }>;
 
-const RadioGroupContext = createContext<{ name?: string }>({});
+const RadioGroupContext = createContext<{
+  name?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}>({});
 
-export default function RadioGroup({ children, name }: RadioGroupProps) {
+export default function RadioGroup({
+  children,
+  name,
+  onChange,
+}: RadioGroupProps) {
   return (
-    <RadioGroupContext.Provider value={{ name }}>
+    <RadioGroupContext.Provider value={{ name, onChange }}>
       {children}
     </RadioGroupContext.Provider>
   );
@@ -45,8 +53,10 @@ export function Radio({
   value,
   ...rest
 }: RadioProps) {
-  const fieldContext = useFieldContext();
   const radioGroupContext = useContext(RadioGroupContext);
+  const fieldContext = useFieldContext({
+    onChange: radioGroupContext.onChange,
+  });
   const formControlContext = fieldContext.formControlContext;
   if (!radioGroupContext || !formControlContext) {
     return null;
