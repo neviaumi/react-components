@@ -1,3 +1,5 @@
+import '@storybook/addon-console';
+
 import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
@@ -7,10 +9,15 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     '@storybook/addon-styling',
     '@storybook/addon-storysource',
+    '@storybook/addon-actions',
   ],
   core: {
     disableTelemetry: true,
   },
+  env: config => ({
+    ...config,
+    STORYBOOK_ENV: 'react',
+  }),
   framework: {
     name: '@storybook/react-vite',
     options: {},

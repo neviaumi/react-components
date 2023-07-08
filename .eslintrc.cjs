@@ -13,6 +13,7 @@ module.exports = {
         './vite.config.ts',
         './.storybook/main.ts',
         './cypress.config.ts',
+        './.storybook/preview.ts',
       ],
       rules: {
         'import/no-default-export': 'off',
