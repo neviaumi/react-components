@@ -1,3 +1,6 @@
+concurrency:
+  cancel-in-progress: false
+  group: publish
 env:
   CI: true
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -30,8 +33,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: .nvmrc
-      - run: bash ./scripts/ci/setup.sh
-      - name: Test
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Setup repository
+        run: bash ./scripts/ci/setup.sh
+      - name: Test the build
         run: bash ./scripts/ci/test.sh
       - env:
           PREFERRED_VERSION: ${{ inputs.version }}
@@ -39,9 +45,17 @@ jobs:
         name: Publish to NPM
         run: |
           source ./scripts/ci/publish.sh;
-          echo "::set-output name=released_version::$RELEASE_VERSION";
-          echo "::set-output name=release_branch::$RELEASE_BRANCH";
+          echo "released_version=$RELEASE_VERSION" >> $GITHUB_OUTPUT;
+          echo "release_branch=$RELEASE_BRANCH" >> $GITHUB_OUTPUT;
         shell: bash
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./storybook-static
+      - id: deployment
+        name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v2
+
 name: Publish packages
 
 on:

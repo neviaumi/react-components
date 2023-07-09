@@ -28,6 +28,7 @@ git switch -c "$RELEASE_BRANCH"
 
 npm version -m "$COMMIT_MESSAGE" $VERSION
 npm run build
+npm run build:storybook
 npm publish
 git push --set-upstream origin "$RELEASE_BRANCH"
 export RELEASE_VERSION=$VERSION

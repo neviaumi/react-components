@@ -14,10 +14,6 @@ const config: StorybookConfig = {
   core: {
     disableTelemetry: true,
   },
-  env: config => ({
-    ...config,
-    STORYBOOK_ENV: 'react',
-  }),
   framework: {
     name: '@storybook/react-vite',
     options: {},
