@@ -68,3 +68,7 @@ on:
       version:
         description: Release version
         required: true
+permissions:
+  contents: read
+  id-token: write
+  pages: write
