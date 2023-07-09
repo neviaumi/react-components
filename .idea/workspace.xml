@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3252ace-a70c-4f3f-b6dc-ca7cc5b6c457" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/publish.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/publish.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TextInput/TextInput.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TextInput/TextInput.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Form.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Form.cy.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Form.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Form.stories.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +45,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "ISSUE-282__deploy-storybook",
-    "last_opened_file_path": "/Users/davidng/Documents/GitHub/self/react-components/src/radioGroup",
+    "git-widget-placeholder": "ISSUE-279__text-input-components",
+    "last_opened_file_path": "/Users/davidng/Documents/GitHub/self/react-components/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -66,11 +68,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/radioGroup" />
       <recent name="$PROJECT_DIR$/src/Select" />
       <recent name="$PROJECT_DIR$/src/Modal" />
       <recent name="$PROJECT_DIR$/src/utils" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Card" />
@@ -113,6 +115,7 @@
       <workItem from="1687806291628" duration="1053000" />
       <workItem from="1688659227001" duration="6068000" />
       <workItem from="1688778923658" duration="6746000" />
+      <workItem from="1688864390741" duration="1073000" />
     </task>
     <servers />
   </component>

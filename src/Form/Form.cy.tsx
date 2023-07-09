@@ -17,6 +17,7 @@ describe('Demo Form stories', () => {
   it('should contain search conditions in form when click submit on CarSearchForm', () => {
     cy.mount(<CarSearchForm />);
 
+    cy.findByTestId('form-stories-text-input').type('Yaris');
     cy.findByTestId('form-stories-number-input').type('3');
     cy.findByTestId('form-stories-select-input').click();
     cy.findByTestId('form-stories-select-option-1').click();
@@ -38,6 +39,7 @@ describe('Demo Form stories', () => {
       cy.wrap(pipe(dissocPath(['rating']))(values)).should('deep.equal', {
         carBrand: 'Toyota',
         doors: '3',
+        model: 'Yaris',
         transmission: 'manual',
       });
       cy.wrap(values.rating).should('be.gte', 0);
