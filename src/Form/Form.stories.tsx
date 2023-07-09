@@ -12,6 +12,7 @@ import NumberInput from '../NumberInput/NumberInput.jsx';
 import RadioGroup, { Radio } from '../RadioGroup/RadioGroup.jsx';
 import SelectInput, { SelectOption } from '../Select/Select.jsx';
 import SliderInput from '../Slider/Slider.jsx';
+import TextInput from '../TextInput/TextInput.jsx';
 import { Field } from './Field.jsx';
 import Label from './Label.jsx';
 
@@ -28,6 +29,7 @@ export const CarSearchForm: Story = {
     const result = {
       carBrand: 'Toyota',
       doors: '5',
+      model: 'Yaris',
       rating: 3,
       transmission: 'manual',
     };
@@ -40,6 +42,7 @@ export const CarSearchForm: Story = {
       expect(optionToyota).not.toBeNull();
       await userEvent.click(optionToyota!);
       await userEvent.type(canvas.getByLabelText('Doors'), result.doors);
+      await userEvent.type(canvas.getByLabelText('Model'), result.model);
       await userEvent.click(canvas.getByLabelText('Manual'));
     });
 
@@ -123,6 +126,21 @@ export const CarSearchForm: Story = {
                           Mini
                         </SelectOption>
                       </SelectInput>
+                    </Field>
+                  );
+                }}
+              />
+              <Controller
+                control={control}
+                name={'model'}
+                render={({ field }) => {
+                  return (
+                    <Field
+                      {...field}
+                      className={'tw-flex tw-flex-col tw-gap-0.5'}
+                    >
+                      <Label>Model</Label>
+                      <TextInput data-testid={'form-stories-text-input'} />
                     </Field>
                   );
                 }}
