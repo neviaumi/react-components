@@ -11,8 +11,6 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(rootDir, 'src/index.tsx'),
-      // the proper extensions will be added
-      fileName: 'react-components',
       name: '@busybox/react-components',
     },
     minify: true,
