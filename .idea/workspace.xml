@@ -5,55 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3252ace-a70c-4f3f-b6dc-ca7cc5b6c457" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/react-components.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-components.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cypress.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cypress.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cypress/support/component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/support/component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Button/Button.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Button/Button.cy.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Button/Button.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Button/Button.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Button/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Button/Button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Button/IconButton.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Button/IconButton.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Button/IconButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Button/IconButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Card/Card.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card/Card.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Card/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card/Card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FileUpload/FileUpload.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileUpload/FileUpload.cy.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FileUpload/FileUpload.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileUpload/FileUpload.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FileUpload/FileUpload.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileUpload/FileUpload.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Form.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Form.cy.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Form.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Form.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Label.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Label.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Layout/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Layout/Layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Layout/LayoutForStories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Layout/LayoutForStories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Layout/OneColumnLayout.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Layout/OneColumnLayout.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Layout/ThreeColumnLayout.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Layout/ThreeColumnLayout.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Layout/TwoColumnLayout.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Layout/TwoColumnLayout.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Link/Link.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Link/Link.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Link/Link.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Link/Link.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/List/List.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/List/List.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaRecorder/AudioRecorder.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaRecorder/AudioRecorder.cy.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaRecorder/AudioRecorder.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaRecorder/AudioRecorder.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaRecorder/AudioRecorder.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaRecorder/AudioRecorder.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaViewer/Audio.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaViewer/Audio.cy.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaViewer/Audio.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaViewer/Audio.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaViewer/Audio.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaViewer/Audio.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaViewer/Image.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaViewer/Image.cy.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaViewer/Image.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaViewer/Image.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MediaViewer/Image.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MediaViewer/Image.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modal/Modal.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modal/Modal.cy.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modal/Modal.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modal/Modal.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modal/Modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modal/Modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NumberInput/NumberInput.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/NumberInput/NumberInput.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NumberInput/NumberInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/NumberInput/NumberInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RadioGroup/RadioGroup.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/RadioGroup/RadioGroup.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RadioGroup/RadioGroup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/RadioGroup/RadioGroup.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Select/Select.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Select/Select.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Select/Select.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Select/Select.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Slider/Slider.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Slider/Slider.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Slider/Slider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Slider/Slider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TextInput/TextInput.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/TextInput/TextInput.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TextInput/TextInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/TextInput/TextInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/assign-default-style.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/assign-default-style.cy.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nvmrc" beforeDir="false" afterPath="$PROJECT_DIR$/.nvmrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "ISSUE-28__typescript5",
+    "git-widget-placeholder": "ISSUE-321__node-18",
     "last_opened_file_path": "/Users/davidng/Documents/GitHub/self/react-components/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
