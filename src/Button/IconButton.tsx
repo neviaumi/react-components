@@ -1,4 +1,4 @@
-import type { ButtonOwnerState as ButtonUnstyledOwnerState } from '@mui/base/Button/index.js';
+import type { ButtonOwnerState as ButtonUnstyledOwnerState } from '@mui/base/Button';
 
 import type {
   ComponentProps,

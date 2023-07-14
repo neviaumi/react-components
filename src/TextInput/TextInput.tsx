@@ -1,4 +1,4 @@
-import Input, { InputOwnerState, InputProps } from '@mui/base/Input/index.js';
+import Input, { InputOwnerState, InputProps } from '@mui/base/Input';
 import clsx from 'clsx';
 
 import type {
