@@ -15,7 +15,7 @@
     "@busybox/cypress": "2023.7.13",
     "@busybox/eslint-config": "2023.7.13",
     "@busybox/prettier-config": "2023.7.13",
-    "@busybox/tsconfig": "2023.7.13",
+    "@busybox/tsconfig": "2023.7.14",
     "@commitlint/cli": "17.6.6",
     "@storybook/addon-actions": "7.0.27",
     "@storybook/addon-console": "2.0.0",
