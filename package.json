@@ -97,5 +97,5 @@
   ],
   "type": "module",
   "types": "./dist/out-tsc/src/index.d.ts",
-  "version": "2023.7.14-alpha.1454"
+  "version": "2023.7.14-alpha.1536"
 }
