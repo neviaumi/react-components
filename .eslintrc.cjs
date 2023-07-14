@@ -2,6 +2,14 @@ module.exports = {
   extends: ['@busybox'],
   overrides: [
     {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        'import/extensions': ['error', 'ignorePackages'],
+        'n/file-extension-in-import': ['off'],
+        'n/no-missing-import': ['off'],
+      },
+    },
+    {
       files: ['*.stories.jsx', '*.stories.tsx'],
       rules: {
         'react-hooks/rules-of-hooks': 'off',

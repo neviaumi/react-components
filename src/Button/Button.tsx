@@ -1,13 +1,13 @@
 import ButtonUnstyled, {
   ButtonOwnerState,
   ButtonOwnProps,
-} from '@mui/base/Button/index.js';
+} from '@mui/base/Button';
 import clsx from 'clsx';
 
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.ts';
+} from '../components';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 
 interface SlotProps {

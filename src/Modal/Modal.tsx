@@ -2,7 +2,7 @@ import MuiModal, {
   ModalOwnerState,
   ModalOwnProps,
   ModalSlots,
-} from '@mui/base/Modal/index.js';
+} from '@mui/base/Modal';
 import clsx from 'clsx';
 import React, { createElement, useMemo } from 'react';
 

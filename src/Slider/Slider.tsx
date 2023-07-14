@@ -1,7 +1,4 @@
-import MuiSlider, {
-  SliderOwnerState,
-  SliderOwnProps,
-} from '@mui/base/Slider/index.js';
+import MuiSlider, { SliderOwnerState, SliderOwnProps } from '@mui/base/Slider';
 import clsx from 'clsx';
 import React from 'react';
 

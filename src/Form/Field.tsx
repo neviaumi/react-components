@@ -2,7 +2,7 @@ import FormControl, {
   FormControlProps,
   FormControlState,
   useFormControlContext,
-} from '@mui/base/FormControl/index.js';
+} from '@mui/base/FormControl';
 import {
   createContext,
   forwardRef,

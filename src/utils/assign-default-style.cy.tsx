@@ -1,5 +1,5 @@
 import { cy, describe, it } from '@busybox/cypress';
-import MuiButton, { ButtonOwnerState } from '@mui/base/Button/index.js';
+import MuiButton, { ButtonOwnerState } from '@mui/base/Button';
 import clsx from 'clsx';
 import React, { useMemo } from 'react';
 
