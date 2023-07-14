@@ -13,7 +13,7 @@
   "devDependencies": {
     "@busybox/commitlint-config": "2023.7.14",
     "@busybox/cypress": "2023.7.14",
-    "@busybox/eslint-config": "2023.7.13",
+    "@busybox/eslint-config": "2023.7.14-alpha.2405",
     "@busybox/prettier-config": "2023.7.14",
     "@busybox/tsconfig": "2023.7.14",
     "@commitlint/cli": "17.6.6",
@@ -54,16 +54,15 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/react-components.mjs",
-      "require": "./dist/react-components.umd.js"
+      "import": "./dist/react-components.js",
+      "require": "./dist/react-components.umd.cjs"
     },
     "./style.css": {
       "import": "./dist/index.css",
       "require": "./dist/index.css"
     },
     "./tailwind-config": {
-      "import": "./tailwind.config.mjs",
-      "require": "./tailwind.config.cjs"
+      "import": "./tailwind.config.mjs"
     }
   },
   "files": [
