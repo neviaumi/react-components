@@ -1,14 +1,14 @@
 import clsx from 'clsx';
 import React, { createContext, useContext } from 'react';
 
-import {
+import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.js';
-import { useFieldContext } from '../Form/Field.jsx';
-import { Label } from '../Form/Label.jsx';
-import { assocDefaultStyle } from '../utils/assign-default-style.js';
-import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.js';
+} from '../components.d.ts';
+import { useFieldContext } from '../Form/Field.tsx';
+import { Label } from '../Form/Label.tsx';
+import { assocDefaultStyle } from '../utils/assign-default-style.ts';
+import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
 
 export type RadioGroupProps = React.PropsWithChildren<{
   name: string;

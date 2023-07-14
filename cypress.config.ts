@@ -1,7 +1,7 @@
 import { defineConfig } from 'cypress';
 import { mergeConfig } from 'vite';
 
-import appViteConfig from './vite.config.js';
+import appViteConfig from './vite.config.ts';
 
 export default defineConfig({
   component: {

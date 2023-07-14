@@ -4,15 +4,15 @@ import parseMilliseconds from 'parse-ms';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import * as React from 'react';
 
-import IconButton from '../Button/IconButton.jsx';
+import IconButton from '../Button/IconButton.tsx';
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.js';
-import { PauseIcon, PlayIcon, VolumeUpIcon } from '../icons/solid.jsx';
-import Slider, { SliderProps } from '../Slider/Slider.jsx';
-import { assocDefaultStyle } from '../utils/assign-default-style.js';
-import { deepMerge } from '../utils/deep-merge.js';
+} from '../components.d.ts';
+import { PauseIcon, PlayIcon, VolumeUpIcon } from '../icons/solid.tsx';
+import Slider, { SliderProps } from '../Slider/Slider.tsx';
+import { assocDefaultStyle } from '../utils/assign-default-style.ts';
+import { deepMerge } from '../utils/deep-merge.ts';
 
 interface SlotProps {
   currentDuration?: SlotComponentPropsWithoutOverride<'span'>;

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ChangeEvent, ComponentProps, useState } from 'react';
 
-import FileUpload from '../FileUpload/FileUpload.jsx';
-import Link from '../Link/Link.jsx';
-import Audio from '../MediaViewer/Audio.jsx';
-import { generateTestIdWithPrefix } from '../test-helpers/test-id.js';
-import AudioRecorderComponent from './AudioRecorder.jsx';
+import FileUpload from '../FileUpload/FileUpload.tsx';
+import Link from '../Link/Link.tsx';
+import Audio from '../MediaViewer/Audio.tsx';
+import { generateTestIdWithPrefix } from '../test-helpers/test-id.ts';
+import AudioRecorderComponent from './AudioRecorder.tsx';
 
 const meta: Meta<typeof AudioRecorderComponent> = {
   component: AudioRecorderComponent,

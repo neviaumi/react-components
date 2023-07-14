@@ -9,7 +9,7 @@ import {
   Main as UnStyledMain,
   Page as UnStyledPage,
   Side as UnStyledSide,
-} from './Layout.jsx';
+} from './Layout.tsx';
 
 export function Page({
   className = '',

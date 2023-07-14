@@ -3,7 +3,7 @@ import MuiButton, { ButtonOwnerState } from '@mui/base/Button/index.js';
 import clsx from 'clsx';
 import React, { useMemo } from 'react';
 
-import { assocDefaultStyle } from './assign-default-style.js';
+import { assocDefaultStyle } from './assign-default-style.ts';
 
 describe('Assign default style', () => {
   it('default style can be empty object', () => {

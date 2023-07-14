@@ -1,11 +1,11 @@
 import type { ButtonOwnerState as ButtonUnstyledOwnerState } from '@mui/base/Button/index.js';
 
-import {
+import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.js';
-import { assocDefaultStyle } from '../utils/assign-default-style.js';
-import Button from './Button.jsx';
+} from '../components.d.ts';
+import { assocDefaultStyle } from '../utils/assign-default-style.ts';
+import Button from './Button.tsx';
 
 interface SlotProps {
   root?: SlotComponentPropsWithoutOverride<'button', ButtonUnstyledOwnerState>;

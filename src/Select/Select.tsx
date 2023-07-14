@@ -9,13 +9,13 @@ import MuiSelect, {
 import clsx from 'clsx';
 import React, { useCallback, useMemo } from 'react';
 
-import {
+import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.js';
-import { useFieldContext } from '../Form/Field.jsx';
+} from '../components.d.ts';
+import { useFieldContext } from '../Form/Field.tsx';
 import { assocDefaultStyle } from '../utils/assign-default-style.js';
-import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.js';
+import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
 
 interface SlotProps {
   listbox?: SlotComponentPropsWithoutOverride<

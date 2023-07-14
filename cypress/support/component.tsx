@@ -1,4 +1,4 @@
-import './commands.js';
+import './commands.ts';
 
 import { cy, Cypress } from '@busybox/cypress';
 import { setProjectAnnotations } from '@storybook/react';
@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import { mount } from 'cypress/react18';
 import type { PropsWithChildren } from 'react';
 
-import storyBookPreview from '../../.storybook/preview.js';
+import storyBookPreview from '../../.storybook/preview.ts';
 
 setProjectAnnotations(storyBookPreview);
 

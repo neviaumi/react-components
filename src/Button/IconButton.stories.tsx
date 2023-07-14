@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import * as icons from '../icons/solid.jsx';
-import IconButtonComponent from './IconButton.jsx';
+import * as icons from '../icons/solid.tsx';
+import IconButtonComponent from './IconButton.tsx';
 
 const meta: Meta<typeof IconButtonComponent> = {
   component: IconButtonComponent,

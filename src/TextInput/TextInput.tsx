@@ -1,13 +1,13 @@
 import Input, { InputOwnerState, InputProps } from '@mui/base/Input/index.js';
 import clsx from 'clsx';
 
-import {
+import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.js';
-import { useFieldContext } from '../Form/Field.jsx';
-import { assocDefaultStyle } from '../utils/assign-default-style.js';
-import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.js';
+} from '../components.d.ts';
+import { useFieldContext } from '../Form/Field.tsx';
+import { assocDefaultStyle } from '../utils/assign-default-style.ts';
+import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
 
 interface SlotProps {
   input?: SlotComponentPropsWithoutOverride<'input', InputOwnerState>;

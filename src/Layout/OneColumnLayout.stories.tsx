@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Content, Footer, Header, Main, Page } from './LayoutForStories.jsx';
+import { Content, Footer, Header, Main, Page } from './LayoutForStories.tsx';
 
 const meta: Meta<typeof Page> = {
   component: Page,

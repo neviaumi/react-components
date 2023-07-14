@@ -4,17 +4,17 @@ import { screen, userEvent, waitFor, within } from '@storybook/testing-library';
 import { ChangeEvent, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
-import Button from '../Button/Button.jsx';
-import FileUploadInput from '../FileUpload/FileUpload.jsx';
-import { Content, Header, Main, Page } from '../Layout/Layout.jsx';
-import Link from '../Link/Link.jsx';
-import NumberInput from '../NumberInput/NumberInput.jsx';
-import RadioGroup, { Radio } from '../RadioGroup/RadioGroup.jsx';
-import SelectInput, { SelectOption } from '../Select/Select.jsx';
-import SliderInput from '../Slider/Slider.jsx';
-import TextInput from '../TextInput/TextInput.jsx';
-import { Field } from './Field.jsx';
-import Label from './Label.jsx';
+import Button from '../Button/Button.tsx';
+import FileUploadInput from '../FileUpload/FileUpload.tsx';
+import { Content, Header, Main, Page } from '../Layout/Layout.tsx';
+import Link from '../Link/Link.tsx';
+import NumberInput from '../NumberInput/NumberInput.tsx';
+import RadioGroup, { Radio } from '../RadioGroup/RadioGroup.tsx';
+import SelectInput, { SelectOption } from '../Select/Select.tsx';
+import SliderInput from '../Slider/Slider.tsx';
+import TextInput from '../TextInput/TextInput.tsx';
+import { Field } from './Field.tsx';
+import Label from './Label.tsx';
 
 const meta: Meta = {
   title: 'Demo/Form',

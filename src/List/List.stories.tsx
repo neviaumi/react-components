@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import ListComponent, { ListItem as ListItemComponent } from './List.jsx';
+import ListComponent, { ListItem as ListItemComponent } from './List.tsx';
 
 const meta: Meta<typeof ListComponent> = {
   component: ListComponent,

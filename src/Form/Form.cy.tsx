@@ -2,7 +2,7 @@ import { cy, describe, it } from '@busybox/cypress';
 import { composeStories } from '@storybook/react';
 import { dissocPath, pipe } from 'ramda';
 
-import * as stories from './Form.stories.jsx';
+import * as stories from './Form.stories.tsx';
 
 const { CarSearchForm, DriverRegisterForm } = composeStories(stories);
 

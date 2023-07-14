@@ -2,8 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import clsx from 'clsx';
 import { useCallback, useState } from 'react';
 
-import Button from '../Button/Button.jsx';
-import ModalComponent, { ModalContent, ModalTitle } from './Modal.jsx';
+import Button from '../Button/Button.tsx';
+import ModalComponent, { ModalContent, ModalTitle } from './Modal.tsx';
 
 const meta: Meta<typeof ModalComponent> = {
   component: ModalComponent,
