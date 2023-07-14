@@ -1,6 +1,6 @@
 import type { LabelHTMLAttributes } from 'react';
 
-import { useFieldContext } from './Field.jsx';
+import { useFieldContext } from './Field.tsx';
 
 export function Label(props: LabelHTMLAttributes<HTMLLabelElement>) {
   return <label {...props} />;

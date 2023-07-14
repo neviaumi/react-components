@@ -7,7 +7,7 @@ import {
   Main,
   Page,
   Side,
-} from './LayoutForStories.jsx';
+} from './LayoutForStories.tsx';
 
 const meta: Meta<typeof Page> = {
   component: Page,

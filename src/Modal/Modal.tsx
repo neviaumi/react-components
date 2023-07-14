@@ -6,12 +6,12 @@ import MuiModal, {
 import clsx from 'clsx';
 import React, { createElement, useMemo } from 'react';
 
-import {
+import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.js';
-import { assocDefaultStyle } from '../utils/assign-default-style.js';
-import { assocDefaultValues } from '../utils/assign-default-values.js';
+} from '../components.d.ts';
+import { assocDefaultStyle } from '../utils/assign-default-style.ts';
+import { assocDefaultValues } from '../utils/assign-default-values.ts';
 
 interface SlotProps {
   backdrop?: SlotComponentPropsWithoutOverride<'div'>;

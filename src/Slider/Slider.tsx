@@ -5,12 +5,12 @@ import MuiSlider, {
 import clsx from 'clsx';
 import React from 'react';
 
-import {
+import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.js';
-import { useFieldContext } from '../Form/Field.jsx';
-import { assocDefaultStyle } from '../utils/assign-default-style.js';
+} from '../components.d.ts';
+import { useFieldContext } from '../Form/Field.tsx';
+import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 
 interface SlotProps {
   input?: SlotComponentPropsWithoutOverride<'input', SliderOwnerState>;

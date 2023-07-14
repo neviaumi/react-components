@@ -1,14 +1,14 @@
 import { useCallback, useRef } from 'react';
 
-import Button from '../Button/Button.jsx';
+import Button from '../Button/Button.tsx';
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.js';
-import { useFieldContext } from '../Form/Field.jsx';
-import { UploadIcon } from '../icons/solid.jsx';
-import { assocDefaultStyle } from '../utils/assign-default-style.js';
-import { NO_OP } from '../utils/no-op.js';
+} from '../components.d.ts';
+import { useFieldContext } from '../Form/Field.tsx';
+import { UploadIcon } from '../icons/solid.tsx';
+import { assocDefaultStyle } from '../utils/assign-default-style.ts';
+import { NO_OP } from '../utils/no-op.ts';
 
 export type UploadedFileLikeObject = {
   name: string;

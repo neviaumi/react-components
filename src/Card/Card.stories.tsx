@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import clsx from 'clsx';
 
-import CardComponent, { CardTitle } from './Card.jsx';
+import CardComponent, { CardTitle } from './Card.tsx';
 
 const meta: Meta<typeof CardComponent> = {
   component: CardComponent,

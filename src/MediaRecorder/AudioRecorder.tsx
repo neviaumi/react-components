@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import IconButton from '../Button/IconButton.jsx';
-import {
+import IconButton from '../Button/IconButton.tsx';
+import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.js';
-import { MicrophoneIcon, StopIcon } from '../icons/solid.jsx';
-import { assocDefaultStyle } from '../utils/assign-default-style.js';
-import { useAudioRecorder } from './use-media-recorder.js';
+} from '../components.d.ts';
+import { MicrophoneIcon, StopIcon } from '../icons/solid.tsx';
+import { assocDefaultStyle } from '../utils/assign-default-style.ts';
+import { useAudioRecorder } from './use-media-recorder.ts';
 
 interface SlotProps {
   errorMessage?: SlotComponentPropsWithoutOverride<'p', object>;
