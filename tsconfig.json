@@ -2,12 +2,7 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "baseUrl": ".",
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "noEmit": false,
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "verbatimModuleSyntax": true
+    "outDir": "./dist/out-tsc"
   },
   "extends": "@busybox/tsconfig/tsconfig-react.json",
   "include": ["src", "cypress/support/component.tsx", ".storybook/"]
