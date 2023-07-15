@@ -1,6 +1,6 @@
-import { default as tailwindConfig } from '@busybox/tailwindcss-config';
+import tailwindConfig from '@busybox/tailwindcss-config';
 import { assocPath, path, pipe } from 'ramda';
-import colors from 'tailwindcss/colors.js';
+import colors from 'tailwindcss/colors';
 
 function extractColor(colorPath) {
   return assocPath(colorPath, path(colorPath, colors));
