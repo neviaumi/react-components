@@ -5,7 +5,7 @@ import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
 } from '../components.d.ts';
-import { useFieldContext } from '../Form/Field.tsx';
+import useFieldContext from '../Form/useFieldContext.ts';
 import { UploadIcon } from '../icons/solid.tsx';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 import { NO_OP } from '../utils/no-op.ts';
@@ -26,7 +26,7 @@ type FileUploadProps = ComponentProps<
   }
 >;
 
-export default function FileUpload({
+export default function FileUploadInput({
   children,
   'data-testid': testId,
   disableDefaultClasses,

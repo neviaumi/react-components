@@ -1,4 +1,7 @@
-import MuiSlider, { SliderOwnerState, SliderOwnProps } from '@mui/base/Slider';
+import MuiSlider, {
+  type SliderOwnerState,
+  type SliderOwnProps,
+} from '@mui/base/Slider';
 import clsx from 'clsx';
 import React from 'react';
 
@@ -6,7 +9,7 @@ import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
 } from '../components.d.ts';
-import { useFieldContext } from '../Form/Field.tsx';
+import useFieldContext from '../Form/useFieldContext.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 
 interface SlotProps {

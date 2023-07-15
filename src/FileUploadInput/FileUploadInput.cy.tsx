@@ -1,20 +1,20 @@
 import { cy, describe, it } from '@busybox/cypress';
 import { composeStories } from '@storybook/react';
 
-import * as stories from './FileUpload.stories.tsx';
+import * as stories from './FileUploadInput.stories.tsx';
 
-const { FileUpload } = composeStories(stories);
+const { FileUploadInput } = composeStories(stories);
 
-describe('FileUpload stories', () => {
+describe('FileUploadInput stories', () => {
   it('Should trigger onChange when selected file to upload', () => {
     const fileUploadCallback = cy.stub().as('fileUploadCallback');
     cy.mount(
-      <FileUpload
+      <FileUploadInput
         data-testid={'test-file-upload'}
         onChange={fileUploadCallback}
       >
         File upload test
-      </FileUpload>,
+      </FileUploadInput>,
     );
 
     cy.fixture('example.json').as('testUploadFixture');
@@ -30,12 +30,12 @@ describe('FileUpload stories', () => {
     // I can't test that behavior on Cypress
     const fileUploadCallback = cy.stub().as('fileUploadCallback');
     cy.mount(
-      <FileUpload
+      <FileUploadInput
         data-testid={'test-file-upload'}
         onChange={fileUploadCallback}
       >
         File upload test
-      </FileUpload>,
+      </FileUploadInput>,
     );
 
     cy.findByTestId('test-file-upload').click();

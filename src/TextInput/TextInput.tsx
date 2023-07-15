@@ -1,11 +1,11 @@
-import Input, { InputOwnerState, InputProps } from '@mui/base/Input';
+import Input, { type InputOwnerState, type InputProps } from '@mui/base/Input';
 import clsx from 'clsx';
 
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
 } from '../components.d.ts';
-import { useFieldContext } from '../Form/Field.tsx';
+import useFieldContext from '../Form/useFieldContext.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
 

@@ -1,6 +1,6 @@
 import ButtonUnstyled, {
-  ButtonOwnerState,
-  ButtonOwnProps,
+  type ButtonOwnerState,
+  type ButtonOwnProps,
 } from '@mui/base/Button';
 import clsx from 'clsx';
 

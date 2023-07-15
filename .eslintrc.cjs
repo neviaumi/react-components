@@ -3,16 +3,6 @@ module.exports = {
   overrides: [
     {
       files: [
-        'cypress/support/component.tsx',
-        'src/Form/Field.tsx',
-        'src/index.tsx',
-      ],
-      rules: {
-        'react-refresh/only-export-components': 'off',
-      },
-    },
-    {
-      files: [
         './tailwind.config.mjs',
         './vite.config.ts',
         './.storybook/main.ts',

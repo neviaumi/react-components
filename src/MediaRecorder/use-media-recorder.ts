@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef, useState } from 'react';
+import { type MutableRefObject, useEffect, useRef, useState } from 'react';
 
 export function useMediaStream(constraints: MediaStreamConstraints) {
   const [mediaStream, setMediaStream] = useState<MediaStream | null>(null);

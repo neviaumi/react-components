@@ -5,7 +5,7 @@ import {
   Content as UnStyledContent,
   Footer as UnStyledFooter,
   Header as UnStyledHeader,
-  LayoutProps,
+  type LayoutProps,
   Main as UnStyledMain,
   Page as UnStyledPage,
   Side as UnStyledSide,

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ChangeEvent, ComponentProps, useState } from 'react';
+import { type ChangeEvent, type ComponentProps, useState } from 'react';
 
-import FileUpload from '../FileUpload/FileUpload.tsx';
+import FileUploadInput from '../FileUploadInput/FileUploadInput.tsx';
 import Link from '../Link/Link.tsx';
 import Audio from '../MediaViewer/Audio.tsx';
 import { generateTestIdWithPrefix } from '../test-helpers/test-id.ts';
@@ -31,7 +31,7 @@ export const AudioRecorderAndFileUploadWithPreview: Story = {
       <div className={'tw-flex tw-flex-col'}>
         <div className={'tw-flex tw-flex-row'}>
           {!isRecording && (
-            <FileUpload
+            <FileUploadInput
               onChange={(event: ChangeEvent<HTMLInputElement>) => {
                 if (!event.target.files) return;
                 const [uploadFile]: FileList = event.target.files;
@@ -52,7 +52,7 @@ export const AudioRecorderAndFileUploadWithPreview: Story = {
               }}
             >
               Upload
-            </FileUpload>
+            </FileUploadInput>
           )}
           <AudioRecorderComponent
             {...args}

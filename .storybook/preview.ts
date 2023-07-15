@@ -1,7 +1,7 @@
 import './preview.css';
 
 import { withConsole } from '@storybook/addon-console';
-import { Preview } from '@storybook/react';
+import { type Preview } from '@storybook/react';
 
 const preview: Preview = {
   decorators: [(storyFn, context) => withConsole()(storyFn)(context)],
