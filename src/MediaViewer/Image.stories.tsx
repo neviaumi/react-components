@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { within } from '@storybook/testing-library';
-import { ChangeEvent, useCallback, useState } from 'react';
+import { type ChangeEvent, useCallback, useState } from 'react';
 
-import FileUpload from '../FileUpload/FileUpload.tsx';
+import FileUploadInput from '../FileUploadInput/FileUploadInput.tsx';
 import ImageComponent from './Image.tsx';
 
 const meta: Meta<typeof ImageComponent> = {
@@ -71,9 +71,9 @@ export const ImagePreviewWhenFileUpload: Story = {
             src={uploadedImg.src}
           />
         )}
-        <FileUpload data-testid={args['data-testid']} onChange={uploadImg}>
+        <FileUploadInput data-testid={args['data-testid']} onChange={uploadImg}>
           Click and upload image here
-        </FileUpload>
+        </FileUploadInput>
       </div>
     );
   },

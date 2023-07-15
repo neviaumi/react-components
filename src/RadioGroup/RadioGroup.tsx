@@ -5,8 +5,8 @@ import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
 } from '../components.d.ts';
-import { useFieldContext } from '../Form/Field.tsx';
 import { Label } from '../Form/Label.tsx';
+import useFieldContext from '../Form/useFieldContext.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
 

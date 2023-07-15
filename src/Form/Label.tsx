@@ -1,6 +1,6 @@
 import type { LabelHTMLAttributes } from 'react';
 
-import { useFieldContext } from './Field.tsx';
+import useFieldContext from '../Form/useFieldContext.ts';
 
 export function Label(props: LabelHTMLAttributes<HTMLLabelElement>) {
   return <label {...props} />;

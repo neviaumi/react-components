@@ -1,11 +1,11 @@
 import { expect } from '@storybook/jest';
 import type { Meta, StoryObj } from '@storybook/react';
-import { screen, userEvent, waitFor, within } from '@storybook/testing-library';
-import { ChangeEvent, useState } from 'react';
+import { userEvent, waitFor, within } from '@storybook/testing-library';
+import { type ChangeEvent, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 import Button from '../Button/Button.tsx';
-import FileUploadInput from '../FileUpload/FileUpload.tsx';
+import FileUploadInput from '../FileUploadInput/FileUploadInput.tsx';
 import { Content, Header, Main, Page } from '../Layout/Layout.tsx';
 import Link from '../Link/Link.tsx';
 import NumberInput from '../NumberInput/NumberInput.tsx';
@@ -13,7 +13,7 @@ import RadioGroup, { Radio } from '../RadioGroup/RadioGroup.tsx';
 import SelectInput, { SelectOption } from '../Select/Select.tsx';
 import SliderInput from '../Slider/Slider.tsx';
 import TextInput from '../TextInput/TextInput.tsx';
-import { Field } from './Field.tsx';
+import Field from './Field.tsx';
 import Label from './Label.tsx';
 
 const meta: Meta = {
@@ -36,7 +36,7 @@ export const CarSearchForm: Story = {
     const canvas = within(canvasElement);
     await step('Filling the form', async () => {
       await userEvent.click(canvas.getByTestId('form-stories-select-input'));
-      const optionToyota = await screen
+      const optionToyota = await within(document.body)
         .findByTestId('form-stories-select-options')
         .then(ele => ele.querySelector(`[data-value="${result.carBrand}"]`));
       expect(optionToyota).not.toBeNull();

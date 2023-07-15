@@ -1,5 +1,11 @@
-import MuiOption, { OptionOwnerState, OptionOwnProps } from '@mui/base/Option';
-import MuiSelect, { SelectOwnerState, SelectOwnProps } from '@mui/base/Select';
+import MuiOption, {
+  type OptionOwnerState,
+  type OptionOwnProps,
+} from '@mui/base/Option';
+import MuiSelect, {
+  type SelectOwnerState,
+  type SelectOwnProps,
+} from '@mui/base/Select';
 import clsx from 'clsx';
 import React, { useCallback, useMemo } from 'react';
 
@@ -7,7 +13,7 @@ import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
 } from '../components.d.ts';
-import { useFieldContext } from '../Form/Field.tsx';
+import useFieldContext from '../Form/useFieldContext.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
 

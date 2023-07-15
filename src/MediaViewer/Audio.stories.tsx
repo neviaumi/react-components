@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ChangeEvent, useCallback, useState } from 'react';
+import { type ChangeEvent, useCallback, useState } from 'react';
 
-import FileUpload from '../FileUpload/FileUpload.tsx';
+import FileUploadInput from '../FileUploadInput/FileUploadInput.tsx';
 import AudioComponent from './Audio.tsx';
 // @ts-expect-error static file with file loader not working?
 import mp3Fixture from './sunshine-of-your-love.mp3';
@@ -58,9 +58,9 @@ export const AudioPreviewWithFileUpload: Story = {
             type={uploadedAudio.type}
           />
         )}
-        <FileUpload data-testid={args['data-testid']} onChange={uploadImg}>
+        <FileUploadInput data-testid={args['data-testid']} onChange={uploadImg}>
           Click and upload MP3 here
-        </FileUpload>
+        </FileUploadInput>
       </div>
     );
   },

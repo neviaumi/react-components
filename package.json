@@ -52,9 +52,81 @@
     "yarn": "Use npm"
   },
   "exports": {
-    ".": {
-      "import": "./dist/react-components.js",
-      "require": "./dist/react-components.umd.cjs"
+    "./AudioRecorder": {
+      "import": "./dist/AudioRecorder.js",
+      "require": "./dist/AudioRecorder.cjs"
+    },
+    "./AudioViewer": {
+      "import": "./dist/Audio.js",
+      "require": "./dist/Audio.cjs"
+    },
+    "./Button": {
+      "import": "./dist/Button.js",
+      "require": "./dist/Button.cjs"
+    },
+    "./Card": {
+      "import": "./dist/Card.js",
+      "require": "./dist/Card.cjs"
+    },
+    "./Field": {
+      "import": "./dist/Field.js",
+      "require": "./dist/Field.cjs"
+    },
+    "./FileUploadInput": {
+      "import": "./dist/FileUploadInput.js",
+      "require": "./dist/FileUploadInput.cjs"
+    },
+    "./IconButton": {
+      "import": "./dist/IconButton.js",
+      "require": "./dist/IconButton.cjs"
+    },
+    "./Icons": {
+      "import": "./dist/solid.js",
+      "require": "./dist/solid.cjs"
+    },
+    "./ImageViewer": {
+      "import": "./dist/Image.js",
+      "require": "./dist/Image.cjs"
+    },
+    "./Label": {
+      "import": "./dist/Label.js",
+      "require": "./dist/Label.cjs"
+    },
+    "./Layout": {
+      "import": "./dist/Layout.js",
+      "require": "./dist/Layout.cjs"
+    },
+    "./Link": {
+      "import": "./dist/Link.js",
+      "require": "./dist/Link.cjs"
+    },
+    "./List": {
+      "import": "./dist/List.js",
+      "require": "./dist/List.cjs"
+    },
+    "./Modal": {
+      "import": "./dist/Modal.js",
+      "require": "./dist/Modal.cjs"
+    },
+    "./NumberInput": {
+      "import": "./dist/NumberInput.js",
+      "require": "./dist/NumberInput.cjs"
+    },
+    "./RadioGroup": {
+      "import": "./dist/RadioGroup.js",
+      "require": "./dist/RadioGroup.cjs"
+    },
+    "./Select": {
+      "import": "./dist/Select.js",
+      "require": "./dist/Select.cjs"
+    },
+    "./Slider": {
+      "import": "./dist/Slider.js",
+      "require": "./dist/Slider.cjs"
+    },
+    "./TextInput": {
+      "import": "./dist/TextInput.js",
+      "require": "./dist/TextInput.cjs"
     },
     "./style.css": {
       "import": "./dist/index.css",
