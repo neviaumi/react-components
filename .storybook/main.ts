@@ -9,7 +9,6 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     '@storybook/addon-styling',
     '@storybook/addon-storysource',
-    '@storybook/addon-actions',
   ],
   core: {
     disableTelemetry: true,
