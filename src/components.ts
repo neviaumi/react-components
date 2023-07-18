@@ -2,7 +2,7 @@ import type { SlotComponentProps as MuiSlotComponentProps } from '@mui/base';
 import type { ElementType, PropsWithChildren } from 'react';
 
 export type ComponentProps<
-  SlotProps extends MuiSlotComponentProps,
+  SlotProps extends MuiSlotComponentProps<any, any, any>,
   Extra = Record<string, unknown>,
 > = PropsWithChildren<
   Extra & {
@@ -29,4 +29,7 @@ export type SlotComponentPropsWithoutOverride<
   State
 > & {
   className?: string;
-} & Omit<ComponentProps, 'disableDefaultClasses', 'slotProps'>;
+} & Omit<
+    ComponentProps<unknown, unknown>,
+    'disableDefaultClasses' | 'slotProps'
+  >;

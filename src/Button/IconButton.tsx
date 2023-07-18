@@ -3,7 +3,7 @@ import type { ButtonOwnerState as ButtonUnstyledOwnerState } from '@mui/base/But
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.ts';
+} from '../components.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 import Button from './Button.tsx';
 

@@ -4,7 +4,7 @@ import React, { createContext, useContext } from 'react';
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.ts';
+} from '../components.ts';
 import { Label } from '../Form/Label.tsx';
 import useFieldContext from '../Form/useFieldContext.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';

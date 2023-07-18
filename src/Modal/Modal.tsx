@@ -9,7 +9,7 @@ import React, { createElement, useMemo } from 'react';
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.ts';
+} from '../components.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 import { assocDefaultValues } from '../utils/assign-default-values.ts';
 
@@ -110,7 +110,7 @@ export function ModalTitle({
 }: ModalTitleProps) {
   const slotPropsWithDefaultStyle = useMemo<ModalTitleSlotProps>(
     () =>
-      assocDefaultStyle<SlotProps>({
+      assocDefaultStyle<ModalTitleSlotProps>({
         slotWithDefaultClasses: {
           root: clsx(
             'tw-mb-2 tw-flex tw-border-b tw-border-primary tw-pb-2 tw-text-primary',
@@ -155,9 +155,9 @@ export function ModalContent({
   slotProps,
   ...rest
 }: ModalContentProps) {
-  const slotPropsWithDefaultStyle = useMemo<ModalTitleSlotProps>(
+  const slotPropsWithDefaultStyle = useMemo<ModalContentSlotProps>(
     () =>
-      assocDefaultStyle<SlotProps>({
+      assocDefaultStyle<ModalContentSlotProps>({
         slotWithDefaultClasses: {
           root: clsx('tw-mb-4 tw-flex tw-border-b-2 tw-pb-2 tw-text-primary'),
         },

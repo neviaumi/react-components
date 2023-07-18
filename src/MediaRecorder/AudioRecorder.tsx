@@ -4,7 +4,7 @@ import IconButton from '../Button/IconButton.tsx';
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.ts';
+} from '../components.ts';
 import { MicrophoneIcon, StopIcon } from '../icons/solid.tsx';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 import { useAudioRecorder } from './use-media-recorder.ts';

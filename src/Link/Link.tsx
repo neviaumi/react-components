@@ -4,7 +4,7 @@ import { type ComponentPropsWithRef } from 'react';
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.ts';
+} from '../components.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 
 interface SlotProps {
@@ -36,7 +36,7 @@ function Link({
   }
   return (
     <a
-      className={slotProps?.root.className}
+      className={slotProps?.root?.className}
       data-testid={testId ?? 'busybox-link'}
       {...rest}
     />

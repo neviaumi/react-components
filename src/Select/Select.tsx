@@ -12,7 +12,7 @@ import React, { useCallback, useMemo } from 'react';
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.ts';
+} from '../components.ts';
 import useFieldContext from '../Form/useFieldContext.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
@@ -102,11 +102,11 @@ export function SelectOption({
   value,
   ...rest
 }: SelectOptionProps) {
-  const slotPropsWithDefaultStyle = useMemo<SlotProps | undefined>(
+  const slotPropsWithDefaultStyle = useMemo<SelectOptionSlotProps | undefined>(
     () =>
       disableDefaultClasses
         ? slotProps
-        : assocDefaultStyle<SlotProps>({
+        : assocDefaultStyle<SelectOptionSlotProps>({
             slotWithDefaultClasses: {
               root: (state: OptionOwnerState<string>) => {
                 if (state.disabled)

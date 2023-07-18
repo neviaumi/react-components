@@ -8,7 +8,7 @@ import IconButton from '../Button/IconButton.tsx';
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.ts';
+} from '../components.ts';
 import { PauseIcon, PlayIcon, VolumeUpIcon } from '../icons/solid.tsx';
 import Slider, { type SliderProps } from '../Slider/Slider.tsx';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';

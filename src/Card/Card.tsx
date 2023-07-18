@@ -4,7 +4,7 @@ import React, { createElement } from 'react';
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.ts';
+} from '../components.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 
 interface SlotProps {
