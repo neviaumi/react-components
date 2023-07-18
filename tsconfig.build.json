@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "outDir": "./dist/types"
+  },
+  "exclude": ["**/*.cy.tsx", "**/*.stories.tsx"],
+  "extends": "./tsconfig.json",
+  "include": ["src"]
+}

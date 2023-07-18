@@ -8,7 +8,7 @@ import React from 'react';
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.ts';
+} from '../components.ts';
 import useFieldContext from '../Form/useFieldContext.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 

@@ -4,7 +4,7 @@ import Button from '../Button/Button.tsx';
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
-} from '../components.d.ts';
+} from '../components.ts';
 import useFieldContext from '../Form/useFieldContext.ts';
 import { UploadIcon } from '../icons/solid.tsx';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';

@@ -4,10 +4,10 @@ import ButtonUnstyled, {
 } from '@mui/base/Button';
 import clsx from 'clsx';
 
-import type {
-  ComponentProps,
-  SlotComponentPropsWithoutOverride,
-} from '../components';
+import {
+  type ComponentProps,
+  type SlotComponentPropsWithoutOverride,
+} from '../components.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 
 interface SlotProps {

@@ -1,4 +1,4 @@
-import { dirname, join, resolve } from 'node:path';
+import { dirname, resolve } from 'node:path';
 
 import react from '@vitejs/plugin-react';
 import { defineConfig, searchForWorkspaceRoot } from 'vite';
@@ -6,35 +6,31 @@ import { defineConfig, searchForWorkspaceRoot } from 'vite';
 // ESM import.meta.url is not supported in Node.js CommonJS modules
 const rootDir = new URL(dirname(import.meta.url)).pathname;
 
-function getEntryPointFromSource(filePath: string) {
-  return resolve(rootDir, join('src', filePath));
-}
-
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
     lib: {
       entry: [
-        'Button/Button.tsx',
-        'Button/IconButton.tsx',
-        'Card/Card.tsx',
-        'FileUploadInput/FileUploadInput.tsx',
-        'Form/Field.tsx',
-        'Form/Label.tsx',
-        'icons/solid.tsx',
-        'Layout/Layout.tsx',
-        'Link/Link.tsx',
-        'List/List.tsx',
-        'MediaRecorder/AudioRecorder.tsx',
-        'MediaViewer/Audio.tsx',
-        'MediaViewer/Image.tsx',
-        'Modal/Modal.tsx',
-        'NumberInput/NumberInput.tsx',
-        'RadioGroup/RadioGroup.tsx',
-        'Select/Select.tsx',
-        'Slider/Slider.tsx',
-        'TextInput/TextInput.tsx',
-      ].map(sourcePath => getEntryPointFromSource(sourcePath)),
+        resolve(rootDir, 'src/Button/Button.tsx'),
+        resolve(rootDir, 'src/Button/IconButton.tsx'),
+        resolve(rootDir, 'src/Card/Card.tsx'),
+        resolve(rootDir, 'src/FileUploadInput/FileUploadInput.tsx'),
+        resolve(rootDir, 'src/Form/Field.tsx'),
+        resolve(rootDir, 'src/Form/Label.tsx'),
+        resolve(rootDir, 'src/icons/solid.tsx'),
+        resolve(rootDir, 'src/Layout/Layout.tsx'),
+        resolve(rootDir, 'src/Link/Link.tsx'),
+        resolve(rootDir, 'src/List/List.tsx'),
+        resolve(rootDir, 'src/MediaRecorder/AudioRecorder.tsx'),
+        resolve(rootDir, 'src/MediaViewer/Audio.tsx'),
+        resolve(rootDir, 'src/MediaViewer/Image.tsx'),
+        resolve(rootDir, 'src/Modal/Modal.tsx'),
+        resolve(rootDir, 'src/NumberInput/NumberInput.tsx'),
+        resolve(rootDir, 'src/RadioGroup/RadioGroup.tsx'),
+        resolve(rootDir, 'src/Select/Select.tsx'),
+        resolve(rootDir, 'src/Slider/Slider.tsx'),
+        resolve(rootDir, 'src/TextInput/TextInput.tsx'),
+      ],
       name: '@busybox/react-components',
     },
     minify: true,

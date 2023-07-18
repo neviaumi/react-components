@@ -54,79 +54,98 @@
   "exports": {
     "./AudioRecorder": {
       "import": "./dist/AudioRecorder.js",
-      "require": "./dist/AudioRecorder.cjs"
+      "require": "./dist/AudioRecorder.cjs",
+      "types": "./dist/types/MediaRecorder/AudioRecorder.d.ts"
     },
     "./AudioViewer": {
       "import": "./dist/Audio.js",
-      "require": "./dist/Audio.cjs"
+      "require": "./dist/Audio.cjs",
+      "types": "./dist/types/MediaViewer/Audio.d.ts"
     },
     "./Button": {
       "import": "./dist/Button.js",
-      "require": "./dist/Button.cjs"
+      "require": "./dist/Button.cjs",
+      "types": "./dist/types/Button/Button.d.ts"
     },
     "./Card": {
       "import": "./dist/Card.js",
-      "require": "./dist/Card.cjs"
+      "require": "./dist/Card.cjs",
+      "types": "./dist/types/Card/Card.d.ts"
     },
     "./Field": {
       "import": "./dist/Field.js",
-      "require": "./dist/Field.cjs"
+      "require": "./dist/Field.cjs",
+      "types": "./dist/types/Form/Field.d.ts"
     },
     "./FileUploadInput": {
       "import": "./dist/FileUploadInput.js",
-      "require": "./dist/FileUploadInput.cjs"
+      "require": "./dist/FileUploadInput.cjs",
+      "types": "./dist/types/FileUploadInput/FileUploadInput.d.ts"
     },
     "./IconButton": {
       "import": "./dist/IconButton.js",
-      "require": "./dist/IconButton.cjs"
+      "require": "./dist/IconButton.cjs",
+      "types": "./dist/types/Button/IconButton.d.ts"
     },
     "./Icons": {
       "import": "./dist/solid.js",
-      "require": "./dist/solid.cjs"
+      "require": "./dist/solid.cjs",
+      "types": "./dist/types/icons/solid.d.ts"
     },
     "./ImageViewer": {
       "import": "./dist/Image.js",
-      "require": "./dist/Image.cjs"
+      "require": "./dist/Image.cjs",
+      "types": "./dist/types/MediaViewer/Image.d.ts"
     },
     "./Label": {
       "import": "./dist/Label.js",
-      "require": "./dist/Label.cjs"
+      "require": "./dist/Label.cjs",
+      "types": "./dist/types/Form/Label.d.ts"
     },
     "./Layout": {
       "import": "./dist/Layout.js",
-      "require": "./dist/Layout.cjs"
+      "require": "./dist/Layout.cjs",
+      "types": "./dist/types/Layout/Layout.d.ts"
     },
     "./Link": {
       "import": "./dist/Link.js",
-      "require": "./dist/Link.cjs"
+      "require": "./dist/Link.cjs",
+      "types": "./dist/types/Link/Link.d.ts"
     },
     "./List": {
       "import": "./dist/List.js",
-      "require": "./dist/List.cjs"
+      "require": "./dist/List.cjs",
+      "types": "./dist/types/List/List.d.ts"
     },
     "./Modal": {
       "import": "./dist/Modal.js",
-      "require": "./dist/Modal.cjs"
+      "require": "./dist/Modal.cjs",
+      "types": "./dist/types/Modal/Modal.d.ts"
     },
     "./NumberInput": {
       "import": "./dist/NumberInput.js",
-      "require": "./dist/NumberInput.cjs"
+      "require": "./dist/NumberInput.cjs",
+      "types": "./dist/types/NumberInput/NumberInput.d.ts"
     },
     "./RadioGroup": {
       "import": "./dist/RadioGroup.js",
-      "require": "./dist/RadioGroup.cjs"
+      "require": "./dist/RadioGroup.cjs",
+      "types": "./dist/types/RadioGroup/RadioGroup.d.ts"
     },
     "./Select": {
       "import": "./dist/Select.js",
-      "require": "./dist/Select.cjs"
+      "require": "./dist/Select.cjs",
+      "types": "./dist/types/Select/Select.d.ts"
     },
     "./Slider": {
       "import": "./dist/Slider.js",
-      "require": "./dist/Slider.cjs"
+      "require": "./dist/Slider.cjs",
+      "types": "./dist/types/Slider/Slider.d.ts"
     },
     "./TextInput": {
       "import": "./dist/TextInput.js",
-      "require": "./dist/TextInput.cjs"
+      "require": "./dist/TextInput.cjs",
+      "types": "./dist/types/TextInput/TextInput.d.ts"
     },
     "./style.css": {
       "import": "./dist/index.css",
@@ -142,8 +161,6 @@
     "tailwind.config.mjs"
   ],
   "license": "MIT",
-  "main": "./dist/react-components.umd.js",
-  "module": "dist/react-components.mjs",
   "name": "@busybox/react-components",
   "peerDependencies": {
     "react": ">= 18",
@@ -154,9 +171,10 @@
   },
   "repository": "git@github.com:davidNHK/react-components.git",
   "scripts": {
-    "analyze": "npm run build && source-map-explorer ./dist/*.mjs --no-border-checks",
+    "analyze": "npm run build && source-map-explorer ./dist/*.js --no-border-checks",
     "build": "vite build",
     "build:storybook": "storybook build",
+    "build:types": "npx tsc -p tsconfig.build.json",
     "prepare": "is-ci || husky install",
     "storybook": "storybook dev -p 6006",
     "test": "cypress open --component -b chrome",
@@ -166,6 +184,5 @@
     "./cypress/support/*.ts"
   ],
   "type": "module",
-  "types": "./dist/out-tsc/src/index.d.ts",
   "version": "2023.7.15-alpha.1926"
 }

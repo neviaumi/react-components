@@ -2,8 +2,14 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "./dist/out-tsc"
+    "emitDeclarationOnly": false,
+    "noEmit": true,
   },
   "extends": "@busybox/tsconfig/tsconfig-react.json",
-  "include": ["src", "cypress/support/component.tsx", ".storybook/"]
+  "include": [
+    "src",
+    "cypress/support/component.tsx",
+    ".storybook/",
+    "./src/components.ts"
+  ]
 }
