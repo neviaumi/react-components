@@ -30,6 +30,7 @@ export default defineConfig({
         resolve(rootDir, 'src/Select/Select.tsx'),
         resolve(rootDir, 'src/Slider/Slider.tsx'),
         resolve(rootDir, 'src/TextInput/TextInput.tsx'),
+        resolve(rootDir, 'src/Tab/Tab.tsx'),
       ],
       name: '@busybox/react-components',
     },
