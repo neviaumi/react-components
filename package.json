@@ -16,7 +16,7 @@
     "@busybox/eslint-config": "2023.7.14-alpha.2405",
     "@busybox/prettier-config": "2023.7.14",
     "@busybox/tsconfig": "2023.7.15-alpha.1910",
-    "@commitlint/cli": "17.6.6",
+    "@commitlint/cli": "17.6.7",
     "@storybook/addon-console": "2.0.0",
     "@storybook/addon-essentials": "7.1.0",
     "@storybook/addon-interactions": "7.1.0",
