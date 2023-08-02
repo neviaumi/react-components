@@ -18,7 +18,7 @@
     "@busybox/tsconfig": "2023.7.15-alpha.1910",
     "@commitlint/cli": "17.6.7",
     "@storybook/addon-console": "2.0.0",
-    "@storybook/addon-essentials": "7.1.1",
+    "@storybook/addon-essentials": "7.2.0",
     "@storybook/addon-interactions": "7.2.0",
     "@storybook/addon-links": "7.2.0",
     "@storybook/addon-storysource": "7.2.0",
