@@ -44,7 +44,7 @@
     "react-router-dom": "6.14.2",
     "source-map-explorer": "2.5.3",
     "start-server-and-test": "2.0.0",
-    "storybook": "7.1.1",
+    "storybook": "7.2.0",
     "typescript": "5.1.6",
     "vite": "4.4.8"
   },
