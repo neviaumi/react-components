@@ -2,6 +2,5 @@
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "npmClient": "npm",
   "packages": ["package", "integration-test"],
-  "useNx": true,
   "version": "2023.7.20-alpha.2436"
 }
