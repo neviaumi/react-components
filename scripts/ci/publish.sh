@@ -27,6 +27,7 @@ fi
 export RELEASE_BRANCH="release-$VERSION"
 COMMIT_MESSAGE="publish v$VERSION [skip ci]"
 git switch -c "$RELEASE_BRANCH"
+git push --set-upstream origin "$RELEASE_BRANCH"
 
 npx lerna version --message "$COMMIT_MESSAGE" --yes $VERSION
 npx lerna publish --message "$COMMIT_MESSAGE" --yes from-git
