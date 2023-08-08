@@ -12,9 +12,14 @@ React components build with
 npm install @busybox/react-components
 ```
 
-## Development
+## Setup
 
 ```bash
 bash ./scripts/ci/setup.sh
-npm run storybook
+```
+
+## Development
+
+```bash
+npm run storybook --workspace=package
 ```

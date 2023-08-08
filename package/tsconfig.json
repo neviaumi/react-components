@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "emitDeclarationOnly": false,
-    "noEmit": true,
+    "noEmit": true
   },
   "extends": "@busybox/tsconfig/tsconfig-react.json",
   "include": [

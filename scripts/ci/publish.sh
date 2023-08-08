@@ -2,6 +2,8 @@
 
 set -ex
 
+npx lerna exec --concurrency 1 --stream -- "test ! -f  scripts/ci/pre-publish.sh || bash \
+scripts/ci/pre-publish.sh"
 export HUSKY=0
 # https://github.com/orgs/community/discussions/26560
 git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -26,10 +28,7 @@ export RELEASE_BRANCH="release-$VERSION"
 COMMIT_MESSAGE="publish v$VERSION [skip ci]"
 git switch -c "$RELEASE_BRANCH"
 
-npm version -m "$COMMIT_MESSAGE" $VERSION
-npm run build
-npm run build:types
-npm run build:storybook
-npm publish
-git push --set-upstream origin "$RELEASE_BRANCH"
+npx lerna version --message "$COMMIT_MESSAGE" --yes $VERSION
+npx lerna publish --message "$COMMIT_MESSAGE" --yes from-git
+
 export RELEASE_VERSION=$VERSION

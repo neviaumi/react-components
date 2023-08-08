@@ -1,14 +1,6 @@
 {
-  "author": "",
-  "dependencies": {
-    "@busybox/tailwindcss-config": "2023.7.15-alpha.1910",
-    "@heroicons/react": "2.0.18",
-    "@mui/base": "5.0.0-beta.8",
-    "clsx": "2.0.0",
-    "parse-ms": "3.0.0",
-    "ramda": "0.29.0",
-    "tailwindcss": "3.3.3"
-  },
+  "author": "David Ng",
+  "dependencies": {},
   "description": "",
   "devDependencies": {
     "@busybox/commitlint-config": "2023.7.14",
@@ -17,178 +9,27 @@
     "@busybox/prettier-config": "2023.7.14",
     "@busybox/tsconfig": "2023.7.15-alpha.1910",
     "@commitlint/cli": "17.6.7",
-    "@storybook/addon-console": "2.0.0",
-    "@storybook/addon-essentials": "7.1.1",
-    "@storybook/addon-interactions": "7.1.0",
-    "@storybook/addon-links": "7.1.1",
-    "@storybook/addon-storysource": "7.1.1",
-    "@storybook/addon-styling": "1.3.4",
-    "@storybook/jest": "0.1.0",
-    "@storybook/react": "7.1.0",
-    "@storybook/react-vite": "7.1.0",
-    "@storybook/test-runner": "0.11.0",
-    "@storybook/testing-library": "0.2.0",
-    "@types/ramda": "0.29.3",
-    "@vitejs/plugin-react": "4.0.3",
-    "autoprefixer": "10.4.14",
-    "chromatic": "6.20.0",
-    "cypress": "12.17.2",
     "eslint": "8.45.0",
     "husky": "8.0.3",
     "is-ci": "3.0.1",
-    "jest-playwright-preset": "3.0.1",
-    "lint-staged": "13.2.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-hook-form": "7.45.2",
-    "react-router-dom": "6.14.2",
-    "source-map-explorer": "2.5.3",
-    "start-server-and-test": "2.0.0",
-    "storybook": "7.1.1",
-    "typescript": "5.1.6",
-    "vite": "4.4.6"
+    "lerna": "7.1.4",
+    "lint-staged": "13.2.3"
   },
   "engines": {
     "node": ">=18",
     "yarn": "Use npm"
   },
-  "exports": {
-    "./AudioRecorder": {
-      "import": "./dist/AudioRecorder.js",
-      "require": "./dist/AudioRecorder.cjs",
-      "types": "./dist/types/MediaRecorder/AudioRecorder.d.ts"
-    },
-    "./AudioViewer": {
-      "import": "./dist/Audio.js",
-      "require": "./dist/Audio.cjs",
-      "types": "./dist/types/MediaViewer/Audio.d.ts"
-    },
-    "./Button": {
-      "import": "./dist/Button.js",
-      "require": "./dist/Button.cjs",
-      "types": "./dist/types/Button/Button.d.ts"
-    },
-    "./Card": {
-      "import": "./dist/Card.js",
-      "require": "./dist/Card.cjs",
-      "types": "./dist/types/Card/Card.d.ts"
-    },
-    "./Field": {
-      "import": "./dist/Field.js",
-      "require": "./dist/Field.cjs",
-      "types": "./dist/types/Form/Field.d.ts"
-    },
-    "./FileUploadInput": {
-      "import": "./dist/FileUploadInput.js",
-      "require": "./dist/FileUploadInput.cjs",
-      "types": "./dist/types/FileUploadInput/FileUploadInput.d.ts"
-    },
-    "./IconButton": {
-      "import": "./dist/IconButton.js",
-      "require": "./dist/IconButton.cjs",
-      "types": "./dist/types/Button/IconButton.d.ts"
-    },
-    "./Icons": {
-      "import": "./dist/solid.js",
-      "require": "./dist/solid.cjs",
-      "types": "./dist/types/icons/solid.d.ts"
-    },
-    "./ImageViewer": {
-      "import": "./dist/Image.js",
-      "require": "./dist/Image.cjs",
-      "types": "./dist/types/MediaViewer/Image.d.ts"
-    },
-    "./Label": {
-      "import": "./dist/Label.js",
-      "require": "./dist/Label.cjs",
-      "types": "./dist/types/Form/Label.d.ts"
-    },
-    "./Layout": {
-      "import": "./dist/Layout.js",
-      "require": "./dist/Layout.cjs",
-      "types": "./dist/types/Layout/Layout.d.ts"
-    },
-    "./Link": {
-      "import": "./dist/Link.js",
-      "require": "./dist/Link.cjs",
-      "types": "./dist/types/Link/Link.d.ts"
-    },
-    "./List": {
-      "import": "./dist/List.js",
-      "require": "./dist/List.cjs",
-      "types": "./dist/types/List/List.d.ts"
-    },
-    "./Modal": {
-      "import": "./dist/Modal.js",
-      "require": "./dist/Modal.cjs",
-      "types": "./dist/types/Modal/Modal.d.ts"
-    },
-    "./NumberInput": {
-      "import": "./dist/NumberInput.js",
-      "require": "./dist/NumberInput.cjs",
-      "types": "./dist/types/NumberInput/NumberInput.d.ts"
-    },
-    "./RadioGroup": {
-      "import": "./dist/RadioGroup.js",
-      "require": "./dist/RadioGroup.cjs",
-      "types": "./dist/types/RadioGroup/RadioGroup.d.ts"
-    },
-    "./Select": {
-      "import": "./dist/Select.js",
-      "require": "./dist/Select.cjs",
-      "types": "./dist/types/Select/Select.d.ts"
-    },
-    "./Slider": {
-      "import": "./dist/Slider.js",
-      "require": "./dist/Slider.cjs",
-      "types": "./dist/types/Slider/Slider.d.ts"
-    },
-    "./Tab": {
-      "import": "./dist/Tab.js",
-      "require": "./dist/Tab.cjs",
-      "types": "./dist/types/Tab/Tab.d.ts"
-    },
-    "./TextInput": {
-      "import": "./dist/TextInput.js",
-      "require": "./dist/TextInput.cjs",
-      "types": "./dist/types/TextInput/TextInput.d.ts"
-    },
-    "./style.css": {
-      "import": "./dist/index.css",
-      "require": "./dist/index.css"
-    },
-    "./tailwind-config": {
-      "import": "./tailwind.config.mjs"
-    }
-  },
-  "files": [
-    "dist",
-    "tailwind.config.cjs",
-    "tailwind.config.mjs"
-  ],
   "license": "MIT",
-  "name": "@busybox/react-components",
-  "peerDependencies": {
-    "react": ">= 18",
-    "react-dom": ">= 18"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
+  "name": "busybox",
+  "private": true,
   "repository": "git@github.com:davidNHK/react-components.git",
   "scripts": {
-    "analyze": "npm run build && source-map-explorer ./dist/*.js --no-border-checks",
-    "build": "vite build",
-    "build:storybook": "storybook build",
-    "build:types": "npx tsc -p tsconfig.build.json",
-    "prepare": "is-ci || husky install",
-    "storybook": "storybook dev -p 6006",
-    "test": "cypress open --component -b chrome",
-    "test:storybook": "test-storybook"
+    "prepare": "is-ci || husky install"
   },
-  "sideEffects": [
-    "./cypress/support/*.ts"
-  ],
   "type": "module",
-  "version": "2023.7.20-alpha.2436"
+  "version": "2023.7.20-alpha.2436",
+  "workspaces": [
+    "./package",
+    "./integration-test"
+  ]
 }

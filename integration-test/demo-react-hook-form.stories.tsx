@@ -1,20 +1,19 @@
+import Button from '@busybox/react-components/Button';
+import Field from '@busybox/react-components/Field';
+import FileUploadInput from '@busybox/react-components/FileUploadInput';
+import Label from '@busybox/react-components/Label';
+import { Content, Header, Main, Page } from '@busybox/react-components/Layout';
+import Link from '@busybox/react-components/Link';
+import NumberInput from '@busybox/react-components/NumberInput';
+import RadioGroup, { Radio } from '@busybox/react-components/RadioGroup';
+import SelectInput, { SelectOption } from '@busybox/react-components/Select';
+import SliderInput from '@busybox/react-components/Slider';
+import TextInput from '@busybox/react-components/TextInput';
 import { expect } from '@storybook/jest';
 import type { Meta, StoryObj } from '@storybook/react';
 import { userEvent, waitFor, within } from '@storybook/testing-library';
 import { type ChangeEvent, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-
-import Button from '../Button/Button.tsx';
-import FileUploadInput from '../FileUploadInput/FileUploadInput.tsx';
-import { Content, Header, Main, Page } from '../Layout/Layout.tsx';
-import Link from '../Link/Link.tsx';
-import NumberInput from '../NumberInput/NumberInput.tsx';
-import RadioGroup, { Radio } from '../RadioGroup/RadioGroup.tsx';
-import SelectInput, { SelectOption } from '../Select/Select.tsx';
-import SliderInput from '../Slider/Slider.tsx';
-import TextInput from '../TextInput/TextInput.tsx';
-import Field from './Field.tsx';
-import Label from './Label.tsx';
 
 const meta: Meta = {
   title: 'Demo/Form',

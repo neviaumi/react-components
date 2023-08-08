@@ -3,4 +3,4 @@
 set -ex
 
 npx vite build
-npx tsc
+npx tsc -p tsconfig.build.json
