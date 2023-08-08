@@ -21,3 +21,6 @@ else
   echo "Run in CI, installing dependencies with npm ci"
   npm ci
 fi
+
+npx lerna exec --concurrency 1 --stream -- "test ! -f  scripts/ci/setup.sh || bash \
+scripts/ci/setup.sh"

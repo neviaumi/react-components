@@ -1,0 +1,54 @@
+{
+  "author": "",
+  "description": "",
+  "devDependencies": {
+    "@busybox/eslint-config": "2023.7.14-alpha.2405",
+    "@busybox/prettier-config": "2023.7.14",
+    "@busybox/tsconfig": "2023.7.15-alpha.1910",
+    "@storybook/addon-console": "2.0.0",
+    "@storybook/addon-essentials": "7.1.1",
+    "@storybook/addon-interactions": "7.1.0",
+    "@storybook/addon-links": "7.1.1",
+    "@storybook/addon-storysource": "7.1.1",
+    "@storybook/addon-styling": "1.3.4",
+    "@storybook/jest": "0.1.0",
+    "@storybook/react": "7.1.0",
+    "@storybook/react-vite": "7.1.0",
+    "@storybook/test-runner": "0.11.0",
+    "@storybook/testing-library": "0.2.0",
+    "@types/ramda": "0.29.3",
+    "@vitejs/plugin-react": "4.0.3",
+    "autoprefixer": "10.4.14",
+    "chromatic": "6.20.0",
+    "eslint": "8.45.0",
+    "jest-playwright-preset": "3.0.1",
+    "lint-staged": "13.2.3",
+    "ramda": "0.29.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "7.45.2",
+    "react-router-dom": "6.14.2",
+    "storybook": "7.1.1",
+    "tailwindcss": "3.3.3",
+    "typescript": "5.1.6",
+    "vite": "4.4.6"
+  },
+  "engines": {
+    "node": ">=18",
+    "yarn": "Use npm"
+  },
+  "license": "MIT",
+  "name": "@busybox/test-react-components",
+  "peerDependencies": {
+    "react": ">= 18",
+    "react-dom": ">= 18"
+  },
+  "private": true,
+  "repository": "git@github.com:davidNHK/react-components.git",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "test:storybook": "test-storybook"
+  },
+  "type": "module",
+  "version": "2023.7.20-alpha.2436"
+}

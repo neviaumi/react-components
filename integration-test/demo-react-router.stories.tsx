@@ -1,3 +1,9 @@
+import Tabs, {
+  Tab,
+  type TabProps,
+  TabsList,
+  type TabSlotProps,
+} from '@busybox/react-components/Tab';
 import { expect } from '@storybook/jest';
 import type { Meta, StoryObj } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
@@ -13,13 +19,6 @@ import {
   RouterProvider,
   useLocation,
 } from 'react-router-dom';
-
-import Tabs, {
-  Tab,
-  type TabProps,
-  TabsList,
-  type TabSlotProps,
-} from './Tab.tsx';
 
 const meta: Meta<typeof Tabs> = {
   component: Tabs,
