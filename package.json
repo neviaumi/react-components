@@ -7,7 +7,7 @@
     "@busybox/eslint-config": "2023.7.14-alpha.2405",
     "@busybox/prettier-config": "2023.7.14",
     "@busybox/tsconfig": "2023.7.15-alpha.1910",
-    "@commitlint/cli": "17.6.7",
+    "@commitlint/cli": "17.7.0",
     "eslint": "8.46.0",
     "husky": "8.0.3",
     "is-ci": "3.0.1",
