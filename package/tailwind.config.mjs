@@ -11,7 +11,7 @@ const config = {
   content: [
     './cypress/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-    './.storybook/**/*.{.js,cjs}',
+    './.storybook/**/*.{js,cjs}',
   ],
   presets: [tailwindConfig.default],
   theme: {

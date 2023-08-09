@@ -17,7 +17,7 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
-  stories: ['../**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../stories/**/*.stories.@(js|jsx|ts|tsx)'],
   typescript: {
     reactDocgen: false,
   },

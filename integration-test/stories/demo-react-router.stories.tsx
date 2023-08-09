@@ -22,7 +22,7 @@ import {
 
 const meta: Meta<typeof Tabs> = {
   component: Tabs,
-  title: 'Demo/React Router',
+  title: 'Demo/React router',
 };
 
 export default meta;

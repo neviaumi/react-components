@@ -1,4 +1,5 @@
 import Button from '@busybox/react-components/Button';
+import DateInput from '@busybox/react-components/DateInput';
 import Field from '@busybox/react-components/Field';
 import FileUploadInput from '@busybox/react-components/FileUploadInput';
 import Label from '@busybox/react-components/Label';
@@ -11,12 +12,17 @@ import SliderInput from '@busybox/react-components/Slider';
 import TextInput from '@busybox/react-components/TextInput';
 import { expect } from '@storybook/jest';
 import type { Meta, StoryObj } from '@storybook/react';
-import { userEvent, waitFor, within } from '@storybook/testing-library';
+import {
+  fireEvent,
+  userEvent,
+  waitFor,
+  within,
+} from '@storybook/testing-library';
 import { type ChangeEvent, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 const meta: Meta = {
-  title: 'Demo/Form',
+  title: 'Demo/React hook form',
 };
 
 export default meta;
@@ -53,7 +59,7 @@ export const CarSearchForm: Story = {
       );
       await waitFor(async () => {
         const formValues = canvas.getByTestId('form-values').textContent || '';
-        await expect(JSON.parse(formValues)).toEqual(result);
+        expect(JSON.parse(formValues)).toEqual(result);
       });
     });
   },
@@ -222,6 +228,7 @@ export const CarSearchForm: Story = {
               />
 
               <Button
+                className={'tw-mt-2'}
                 data-testid={'form-stories-submit-button'}
                 type={'submit'}
               >
@@ -235,7 +242,47 @@ export const CarSearchForm: Story = {
   },
 };
 
-export const DriverRegisterForm: Story = {
+export const CarInsuranceRegisterForm: Story = {
+  play: async ({ canvasElement, step }) => {
+    const result = {
+      drivingLicence: {
+        name: 'testing.png',
+      },
+      effectiveDate: '2021-01-01',
+    };
+    const canvas = within(canvasElement);
+    await step('Filling the form', async () => {
+      await userEvent.upload(
+        canvas.getByTestId('form-stories-file-upload-raw-upload-input'),
+        [
+          new File(['123'], result.drivingLicence.name, {
+            type: 'image/png',
+          }),
+        ],
+      );
+      fireEvent.change(canvas.getByLabelText('Effective Date'), {
+        target: {
+          value: result.effectiveDate,
+        },
+      });
+    });
+    await step('Form submit', async () => {
+      await userEvent.click(
+        canvas.getByRole('button', {
+          name: 'Submit',
+        }),
+      );
+      await waitFor(async () => {
+        const formValues = JSON.parse(
+          canvas.getByTestId('form-values').textContent || '',
+        );
+        expect(formValues.drivingLicence.name).toEqual(
+          result.drivingLicence.name,
+        );
+        expect(formValues.effectiveDate).toEqual(result.effectiveDate);
+      });
+    });
+  },
   render: () => {
     const { control, handleSubmit } = useForm();
     const [formValues, submitFormValues] = useState({});
@@ -254,7 +301,7 @@ export const DriverRegisterForm: Story = {
             >
               <Controller
                 control={control}
-                name={'proofOfAge'}
+                name={'drivingLicence'}
                 render={({ field }) => {
                   const { onChange, ref, value, ...hookFormFieldProps } = field;
                   const uploadFileWhenInputChanged = (
@@ -284,11 +331,12 @@ export const DriverRegisterForm: Story = {
                         ref={ref}
                         value={value}
                       >
-                        <Label>Click to upload proof</Label>
+                        <Label>Driving Licence</Label>
                         <FileUploadInput
-                          data-testid={'form-stories-upload-input'}
+                          className={'tw-items-center tw-justify-center'}
+                          data-testid={'form-stories-file-upload'}
                         >
-                          Upload Proof
+                          Upload
                         </FileUploadInput>
                       </Field>
                       {value?.url && (
@@ -298,7 +346,25 @@ export const DriverRegisterForm: Story = {
                   );
                 }}
               />
+              <Controller
+                control={control}
+                defaultValue={new Date().toISOString().split('T')[0]}
+                name={'effectiveDate'}
+                render={({ field: { onChange, ...field } }) => {
+                  return (
+                    <Field
+                      onChange={onChange}
+                      {...field}
+                      className={'tw-flex tw-flex-col tw-gap-0.5'}
+                    >
+                      <Label>Effective Date</Label>
+                      <DateInput data-testid={'form-stories-date-input'} />
+                    </Field>
+                  );
+                }}
+              />
               <Button
+                className={'tw-mt-2'}
                 data-testid={'form-stories-submit-button'}
                 type={'submit'}
               >

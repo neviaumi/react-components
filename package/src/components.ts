@@ -6,6 +6,7 @@ export type ComponentProps<
   Extra = Record<string, unknown>,
 > = PropsWithChildren<
   Extra & {
+    className?: string;
     // https://testing-library.com/docs/queries/bytestid
     'data-testid'?: string;
     disableDefaultClasses?: boolean;

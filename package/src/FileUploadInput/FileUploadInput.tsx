@@ -8,6 +8,7 @@ import type {
 import useFieldContext from '../Form/useFieldContext.ts';
 import { UploadIcon } from '../icons/solid.tsx';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
+import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
 import { NO_OP } from '../utils/no-op.ts';
 
 export type UploadedFileLikeObject = {
@@ -46,10 +47,11 @@ export default function FileUploadInput({
   if (!disableDefaultClasses) {
     slotProps = assocDefaultStyle<SlotProps>({
       slotWithDefaultClasses: {
-        root: 'tw-flex tw-flex-row tw-content-center tw-items-center tw-gap-0.5',
+        root: 'tw-flex tw-flex-row tw-gap-0.5',
       },
     })(givenSlotProps);
   }
+  const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
 
   return (
     <>
@@ -66,7 +68,7 @@ export default function FileUploadInput({
         slotProps={{
           root: { ...slotProps?.root, onClick: onUploadButtonClick },
         }}
-        {...rest}
+        {...rootProps}
       >
         <UploadIcon />
         {children}
