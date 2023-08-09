@@ -6,9 +6,5 @@
     "noEmit": true
   },
   "extends": "@busybox/tsconfig/tsconfig-react.json",
-  "include": [
-    ".storybook/",
-    "demo-react-hook-form.stories.tsx",
-    "demo-react-router.stories.tsx"
-  ]
+  "include": [".storybook/", "stories/"]
 }

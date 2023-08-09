@@ -66,6 +66,11 @@
       "require": "./dist/Card.cjs",
       "types": "./dist/types/Card/Card.d.ts"
     },
+    "./DateInput": {
+      "import": "./dist/DateInput.js",
+      "require": "./dist/DateInput.cjs",
+      "types": "./dist/types/DateInput/DateInput.d.ts"
+    },
     "./Field": {
       "import": "./dist/Field.js",
       "require": "./dist/Field.cjs",
