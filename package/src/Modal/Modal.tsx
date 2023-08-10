@@ -1,4 +1,5 @@
-import MuiModal, {
+import {
+  Modal as MuiModal,
   type ModalOwnerState,
   type ModalOwnProps,
   type ModalSlots,

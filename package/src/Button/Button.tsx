@@ -1,4 +1,5 @@
-import ButtonUnstyled, {
+import {
+  Button as ButtonUnstyled,
   type ButtonOwnerState,
   type ButtonOwnProps,
 } from '@mui/base/Button';

@@ -1,4 +1,4 @@
-import FormControl, { type FormControlProps } from '@mui/base/FormControl';
+import { FormControl, type FormControlProps } from '@mui/base/FormControl';
 import {
   createContext,
   forwardRef,
