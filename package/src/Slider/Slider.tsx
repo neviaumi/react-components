@@ -1,4 +1,5 @@
-import MuiSlider, {
+import {
+  Slider as MuiSlider,
   type SliderOwnerState,
   type SliderOwnProps,
 } from '@mui/base/Slider';

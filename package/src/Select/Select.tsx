@@ -1,8 +1,10 @@
-import MuiOption, {
+import {
+  Option as MuiOption,
   type OptionOwnerState,
   type OptionOwnProps,
 } from '@mui/base/Option';
-import MuiSelect, {
+import {
+  Select as MuiSelect,
   type SelectOwnerState,
   type SelectOwnProps,
 } from '@mui/base/Select';

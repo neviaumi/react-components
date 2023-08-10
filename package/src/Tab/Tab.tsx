@@ -1,14 +1,19 @@
-import MuiTab, {
+import {
+  Tab as MuiTab,
   type TabOwnerState,
   type TabProps as MuiTabProps,
   type TabRootSlotProps,
 } from '@mui/base/Tab';
-import MuiTabPanel, {
+import {
+  TabPanel as MuiTabPanel,
   type TabPanelProps as MuiTabPanelProps,
   type TabPanelRootSlotProps as MuiTabPanelRootSlotProps,
 } from '@mui/base/TabPanel';
-import MuiTabs, { type TabsProps } from '@mui/base/Tabs';
-import MuiTabsList, { type TabsListProps } from '@mui/base/TabsList';
+import { Tabs as MuiTabs, type TabsProps } from '@mui/base/Tabs';
+import {
+  TabsList as MuiTabsList,
+  type TabsListProps,
+} from '@mui/base/TabsList';
 import clsx from 'clsx';
 
 import type { ComponentProps } from '../components.ts';
