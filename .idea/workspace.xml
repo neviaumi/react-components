@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3252ace-a70c-4f3f-b6dc-ca7cc5b6c457" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/src/Button/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/Button/Button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/src/DateInput/DateInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/DateInput/DateInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/src/Form/Field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/Form/Field.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/src/Modal/Modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/Modal/Modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/src/NumberInput/NumberInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/NumberInput/NumberInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/src/Select/Select.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/Select/Select.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/src/Slider/Slider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/Slider/Slider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/src/Tab/Tab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/Tab/Tab.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/src/TextInput/TextInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/TextInput/TextInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/src/utils/assign-default-style.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/utils/assign-default-style.cy.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +172,7 @@
       <workItem from="1689891285688" duration="4240000" />
       <workItem from="1691450803262" duration="4720000" />
       <workItem from="1691455947015" duration="33000" />
-      <workItem from="1691624242073" duration="1299000" />
+      <workItem from="1691624242073" duration="1695000" />
     </task>
     <servers />
   </component>
