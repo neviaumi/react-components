@@ -49,7 +49,10 @@ export default function FileUploadInput({
       },
     })(givenSlotProps);
   }
-  const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
+  const { onChange, ...rootProps } = mergeRootSlotPropsToComponentProps()(
+    slotProps,
+    rest,
+  );
 
   return (
     <>
@@ -57,6 +60,7 @@ export default function FileUploadInput({
         className={'tw-hidden'}
         data-testid={testId && `${testId}-raw-upload-input`}
         id={id}
+        onChange={onChange}
         slotProps={{
           input: {
             ref: inputRef,

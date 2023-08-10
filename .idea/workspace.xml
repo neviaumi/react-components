@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3252ace-a70c-4f3f-b6dc-ca7cc5b6c457" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/react-components.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-components.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration-test/stories/demo-react-hook-form.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/integration-test/stories/demo-react-hook-form.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/src/FileUploadInput/FileUploadInput.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/FileUploadInput/FileUploadInput.cy.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package/src/FileUploadInput/FileUploadInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/FileUploadInput/FileUploadInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/src/MediaViewer/Audio.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/MediaViewer/Audio.cy.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/src/MediaViewer/Image.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/MediaViewer/Image.cy.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

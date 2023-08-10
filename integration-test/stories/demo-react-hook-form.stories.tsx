@@ -252,14 +252,11 @@ export const CarInsuranceRegisterForm: Story = {
     };
     const canvas = within(canvasElement);
     await step('Filling the form', async () => {
-      await userEvent.upload(
-        canvas.getByTestId('form-stories-file-upload-raw-upload-input'),
-        [
-          new File(['123'], result.drivingLicence.name, {
-            type: 'image/png',
-          }),
-        ],
-      );
+      await userEvent.upload(canvas.getByLabelText('Driving Licence'), [
+        new File(['123'], result.drivingLicence.name, {
+          type: 'image/png',
+        }),
+      ]);
       fireEvent.change(canvas.getByLabelText('Effective Date'), {
         target: {
           value: result.effectiveDate,
@@ -314,6 +311,7 @@ export const CarInsuranceRegisterForm: Story = {
                       'load',
                       () => {
                         onChange({
+                          files: event.target.files,
                           name: uploadFile.name,
                           url: reader.result as string,
                         });
@@ -329,7 +327,6 @@ export const CarInsuranceRegisterForm: Story = {
                         className={'tw-flex tw-flex-col tw-gap-0.5'}
                         onChange={uploadFileWhenInputChanged}
                         ref={ref}
-                        value={value}
                       >
                         <Label>Driving Licence</Label>
                         <FileUploadInput

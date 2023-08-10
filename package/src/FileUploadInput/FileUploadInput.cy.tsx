@@ -19,10 +19,9 @@ describe('FileUploadInput stories', () => {
 
     cy.fixture('example.json').as('testUploadFixture');
 
-    cy.findByTestId('test-file-upload-raw-upload-input').selectFile(
-      '@testUploadFixture',
-      { force: true },
-    );
+    cy.findByTestId('test-file-upload-raw-upload-input')
+      .get('input')
+      .selectFile('@testUploadFixture', { force: true });
     cy.wrap(fileUploadCallback).should('be.called');
   });
 

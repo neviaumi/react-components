@@ -15,10 +15,9 @@ describe('ImagePreviewWhenFileUpload stories', () => {
 
     cy.fixture('example.png').as('testUploadFixture');
 
-    cy.findByTestId('test-file-upload-raw-upload-input').selectFile(
-      '@testUploadFixture',
-      { force: true },
-    );
+    cy.findByTestId('test-file-upload-raw-upload-input')
+      .get('input')
+      .selectFile('@testUploadFixture', { force: true });
 
     cy.findByRole('img', { name: 'example.png' }).should('be.visible');
   });

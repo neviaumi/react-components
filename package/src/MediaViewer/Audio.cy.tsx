@@ -15,10 +15,9 @@ describe('AudioPreviewWhenFileUpload stories', () => {
 
     cy.fixture('sunshine-of-your-love.mp3').as('testUploadFixture');
 
-    cy.findByTestId('test-file-upload-raw-upload-input').selectFile(
-      '@testUploadFixture',
-      { force: true },
-    );
+    cy.findByTestId('test-file-upload-raw-upload-input')
+      .get('input')
+      .selectFile('@testUploadFixture', { force: true });
 
     cy.findByTestId('test-file-upload-audio-controls').should('be.visible');
   });
