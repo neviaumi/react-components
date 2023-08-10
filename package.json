@@ -29,6 +29,6 @@
   "version": "2023.7.20-alpha.2436",
   "workspaces": [
     "./package",
-    "./integration-test"
+    "./examples"
   ]
 }
