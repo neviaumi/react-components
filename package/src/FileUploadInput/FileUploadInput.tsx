@@ -1,3 +1,4 @@
+import { Input } from '@mui/base/Input';
 import { useCallback, useRef } from 'react';
 
 import Button from '../Button/Button.tsx';
@@ -9,7 +10,6 @@ import useFieldContext from '../Form/useFieldContext.ts';
 import { UploadIcon } from '../icons/solid.tsx';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
-import { NO_OP } from '../utils/no-op.ts';
 
 export type UploadedFileLikeObject = {
   name: string;
@@ -34,9 +34,7 @@ export default function FileUploadInput({
   slotProps: givenSlotProps,
   ...rest
 }: FileUploadProps) {
-  const { formControlContext, id } = useFieldContext({
-    onChange: rest.onChange || NO_OP,
-  });
+  const { id } = useFieldContext();
   const inputRef = useRef<HTMLInputElement>(null);
   const onUploadButtonClick = useCallback(() => {
     inputRef.current!.click();
@@ -55,12 +53,15 @@ export default function FileUploadInput({
 
   return (
     <>
-      <input
+      <Input
         className={'tw-hidden'}
         data-testid={testId && `${testId}-raw-upload-input`}
         id={id}
-        onChange={formControlContext?.onChange}
-        ref={inputRef}
+        slotProps={{
+          input: {
+            ref: inputRef,
+          },
+        }}
         type="file"
       />
       <Button

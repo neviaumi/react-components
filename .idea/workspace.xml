@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3252ace-a70c-4f3f-b6dc-ca7cc5b6c457" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/package/src/utils/assign-default-style.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/utils/assign-default-style.cy.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/react-components.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-components.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/src/FileUploadInput/FileUploadInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/FileUploadInput/FileUploadInput.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +52,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dependabot/npm__and__yarn/mui/base-5.0.0-beta.10",
+    "git-widget-placeholder": "ISSUE-423__use-@mui/base-input",
     "last_opened_file_path": "/Users/davidng/Documents/GitHub/self/react-components/package/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
