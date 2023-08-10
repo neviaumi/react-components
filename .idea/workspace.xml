@@ -5,7 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3252ace-a70c-4f3f-b6dc-ca7cc5b6c457" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/package/src/utils/assign-default-style.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/utils/assign-default-style.cy.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration-test/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/examples/.eslintignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration-test/.eslintrc.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/examples/.eslintrc.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration-test/.lintstagedrc.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/examples/.lintstagedrc.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration-test/.prettierrc.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/examples/.prettierrc.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration-test/.storybook/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/examples/.storybook/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration-test/.storybook/preview-head.html" beforeDir="false" afterPath="$PROJECT_DIR$/examples/.storybook/preview-head.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration-test/.storybook/preview.css" beforeDir="false" afterPath="$PROJECT_DIR$/examples/.storybook/preview.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration-test/.storybook/preview.ts" beforeDir="false" afterPath="$PROJECT_DIR$/examples/.storybook/preview.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration-test/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration-test/postcss.config.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/examples/postcss.config.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration-test/scripts/ci/test.sh" beforeDir="false" afterPath="$PROJECT_DIR$/examples/scripts/ci/test.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration-test/stories/demo-react-hook-form.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/examples/stories/demo-react-hook-form.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration-test/stories/demo-react-router.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/examples/stories/demo-react-router.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration-test/tailwind.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/examples/tailwind.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration-test/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lerna.json" beforeDir="false" afterPath="$PROJECT_DIR$/lerna.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +69,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dependabot/npm__and__yarn/mui/base-5.0.0-beta.10",
+    "git-widget-placeholder": "ISSUE-424__rename-folders",
     "last_opened_file_path": "/Users/davidng/Documents/GitHub/self/react-components/package/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",

@@ -5,4 +5,4 @@ node_modules/
 storybook-static/
 package-lock.json
 package/
-integration-test/
+examples/

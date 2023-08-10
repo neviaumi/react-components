@@ -38,7 +38,7 @@
     "yarn": "Use npm"
   },
   "license": "MIT",
-  "name": "@busybox/test-react-components",
+  "name": "react-components-example",
   "peerDependencies": {
     "react": ">= 18",
     "react-dom": ">= 18"
