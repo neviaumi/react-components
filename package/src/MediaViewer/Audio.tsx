@@ -13,6 +13,7 @@ import { PauseIcon, PlayIcon, VolumeUpIcon } from '../icons/solid.tsx';
 import Slider, { type SliderProps } from '../Slider/Slider.tsx';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 import { deepMerge } from '../utils/deep-merge.ts';
+import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
 
 interface SlotProps {
   currentDuration?: SlotComponentPropsWithoutOverride<'span'>;
@@ -48,6 +49,7 @@ export default function Audio({
   slotProps: givenSlotProps,
   src,
   type,
+  ...rest
 }: AudioProps) {
   const [audioError, setAudioError] = useState<Error | null>(null);
   const [audioPlaying, setAudioPlaying] = useState(false);
@@ -106,15 +108,13 @@ export default function Audio({
       {},
     ) as any;
   }
+  const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
   return (
     <>
       <audio ref={audioRef}>
         <source src={src} type={type} />
       </audio>
-      <div
-        className={slotProps?.root?.className}
-        data-testid={testId && `${testId}-audio-controls`}
-      >
+      <div data-testid={testId && `${testId}-audio-controls`} {...rootProps}>
         <IconButton onClick={toggleAudioPlay}>
           {audioPlaying ? <PauseIcon /> : <PlayIcon />}
         </IconButton>

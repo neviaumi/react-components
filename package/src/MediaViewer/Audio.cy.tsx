@@ -6,20 +6,37 @@ import * as stories from './Audio.stories.tsx';
 const { AudioPreviewWithFileUpload } = composeStories(stories);
 
 describe('AudioPreviewWhenFileUpload stories', () => {
-  it('Should show audio control when selected file to upload', () => {
+  function setupTest(args: any = {}) {
     cy.mount(
-      <AudioPreviewWithFileUpload data-testid={'test-file-upload'}>
+      <AudioPreviewWithFileUpload data-testid={'test-audio-preview'} {...args}>
         Audio File upload test
       </AudioPreviewWithFileUpload>,
     );
 
     cy.fixture('sunshine-of-your-love.mp3').as('testUploadFixture');
 
-    cy.findByTestId('test-file-upload-raw-upload-input').selectFile(
+    cy.findByTestId('test-audio-preview-raw-upload-input').selectFile(
       '@testUploadFixture',
       { force: true },
     );
 
-    cy.findByTestId('test-file-upload-audio-controls').should('be.visible');
+    cy.findByTestId('test-audio-preview-audio-controls').should('be.visible');
+  }
+
+  it('extra class should able to pass into root from props', () => {
+    setupTest({ className: 'tw-w-full' });
+    cy.findByTestId('test-audio-preview-audio-controls').should(
+      'have.class',
+      'tw-w-full',
+    );
+  });
+
+  it('no default class should be applied when disableDefaultClasses used', () => {
+    setupTest({ className: 'tw-w-full', disableDefaultClasses: true });
+    cy.findByTestId('test-audio-preview-audio-controls').should(
+      'have.attr',
+      'class',
+      'tw-w-full',
+    );
   });
 });

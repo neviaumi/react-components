@@ -5,26 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3252ace-a70c-4f3f-b6dc-ca7cc5b6c457" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration-test/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/examples/.eslintignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration-test/.eslintrc.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/examples/.eslintrc.cjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration-test/.lintstagedrc.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/examples/.lintstagedrc.cjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration-test/.prettierrc.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/examples/.prettierrc.cjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration-test/.storybook/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/examples/.storybook/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration-test/.storybook/preview-head.html" beforeDir="false" afterPath="$PROJECT_DIR$/examples/.storybook/preview-head.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration-test/.storybook/preview.css" beforeDir="false" afterPath="$PROJECT_DIR$/examples/.storybook/preview.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration-test/.storybook/preview.ts" beforeDir="false" afterPath="$PROJECT_DIR$/examples/.storybook/preview.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration-test/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration-test/postcss.config.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/examples/postcss.config.cjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration-test/scripts/ci/test.sh" beforeDir="false" afterPath="$PROJECT_DIR$/examples/scripts/ci/test.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration-test/stories/demo-react-hook-form.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/examples/stories/demo-react-hook-form.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration-test/stories/demo-react-router.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/examples/stories/demo-react-router.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration-test/tailwind.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/examples/tailwind.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/integration-test/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lerna.json" beforeDir="false" afterPath="$PROJECT_DIR$/lerna.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/src/MediaRecorder/AudioRecorder.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/MediaRecorder/AudioRecorder.cy.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/src/Tab/Tab.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/Tab/Tab.stories.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,27 +46,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.GIT_CREDENTIAL_SETUP": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "ISSUE-424__rename-folders",
-    "last_opened_file_path": "/Users/davidng/Documents/GitHub/self/react-components/package/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/davidng/Documents/GitHub/self/react-components/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
-    "ts.external.directory.path": "/Users/davidng/Documents/GitHub/self/react-components/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.GIT_CREDENTIAL_SETUP&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ISSUE-422__accept-class-name&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/davidng/Documents/GitHub/self/react-components/package/src/TextInput&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/davidng/Documents/GitHub/self/react-components/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/davidng/Documents/GitHub/self/react-components/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33035713" />
@@ -92,11 +75,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/package/src" />
-      <recent name="$PROJECT_DIR$/integration-test" />
-      <recent name="$PROJECT_DIR$/package/testing" />
-      <recent name="$PROJECT_DIR$/package/scripts/ci" />
-      <recent name="$PROJECT_DIR$/package/scripts" />
+      <recent name="$PROJECT_DIR$/package/src/TextInput" />
+      <recent name="$PROJECT_DIR$/package/src/Slider" />
+      <recent name="$PROJECT_DIR$/package/src/Select" />
+      <recent name="$PROJECT_DIR$/package/src/RadioGroup" />
+      <recent name="$PROJECT_DIR$/package/src/NumberInput" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/integration-test/stories" />

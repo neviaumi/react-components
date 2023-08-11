@@ -7,6 +7,7 @@ import type {
 } from '../components.ts';
 import { MicrophoneIcon, StopIcon } from '../icons/solid.tsx';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
+import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
 import { useAudioRecorder } from './use-media-recorder.ts';
 
 interface SlotProps {
@@ -76,6 +77,7 @@ export default function AudioRecorder({
       slotWithDefaultClasses: {},
     })(givenSlotProps);
   }
+  const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
   // if (!audioRecorder) return null;
   if (recorderError)
     return (
@@ -94,9 +96,9 @@ export default function AudioRecorder({
       disableDefaultClasses={disableDefaultClasses}
       onClick={toggleIsRecording}
       slotProps={{
-        root: { ...slotProps?.root },
+        root: slotProps?.root,
       }}
-      {...rest}
+      {...rootProps}
     >
       {isRecording ? (
         <StopIcon className={slotProps?.stop?.className} />

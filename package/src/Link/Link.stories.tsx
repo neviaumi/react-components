@@ -16,11 +16,11 @@ type Story = StoryObj<typeof LinkComponent>;
 
 // 👇 We create a “template” of how args map to rendering
 export const Link: Story = {
-  render: () => {
+  render: args => {
     return (
-      <>
-        <LinkComponent href={'https://www.google.com'}>Google</LinkComponent>
-      </>
+      <LinkComponent href={'https://www.google.com'} {...args}>
+        Google
+      </LinkComponent>
     );
   },
 };

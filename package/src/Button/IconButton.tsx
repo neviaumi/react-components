@@ -33,6 +33,7 @@ export default function IconButton({
   return (
     <Button
       data-testid={testId ?? 'busybox-icon-button'}
+      disableDefaultClasses={disableDefaultClasses}
       slotProps={slotProps}
       {...rest}
     >

@@ -50,7 +50,7 @@ export const ImagePreviewWhenFileUpload: Story = {
         () => {
           // convert image file to base64 string
           setUploadedImg({
-            alt: uploadFile.name,
+            alt: 'example.png',
             src: reader.result as string,
           });
         },
@@ -62,6 +62,7 @@ export const ImagePreviewWhenFileUpload: Story = {
       <div className={'tw-flex tw-flex-col'}>
         {uploadedImg && (
           <ImageComponent
+            {...args}
             alt={uploadedImg.alt}
             slotProps={{
               root: {
