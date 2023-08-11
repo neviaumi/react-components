@@ -79,6 +79,6 @@ export function TabPanel({ 'data-testid': testId, ...rest }: TabPanelProps) {
   return <MuiTabPanel data-testid={testId ?? 'busybox-tab-panel'} {...rest} />;
 }
 
-export default function Tabs(props: TabsProps) {
+export function Tabs(props: TabsProps) {
   return <MuiTabs {...props} />;
 }

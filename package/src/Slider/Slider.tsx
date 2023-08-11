@@ -12,6 +12,7 @@ import type {
 } from '../components.ts';
 import useFieldContext from '../Form/useFieldContext.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
+import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
 
 interface SlotProps {
   input?: SlotComponentPropsWithoutOverride<'input', SliderOwnerState>;
@@ -60,6 +61,7 @@ export default function Slider({
       },
     })(givenSlotProps);
   }
+  const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
   return (
     <MuiSlider
       id={id}
@@ -71,7 +73,7 @@ export default function Slider({
       }}
       slotProps={slotProps}
       value={formControlContext?.value as number}
-      {...rest}
+      {...rootProps}
     />
   );
 }

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import clsx from 'clsx';
 
-import CardComponent, { CardTitle } from './Card.tsx';
+import { Card as CardComponent, CardTitle } from './Card.tsx';
 
 const meta: Meta<typeof CardComponent> = {
   component: CardComponent,
@@ -10,7 +10,7 @@ const meta: Meta<typeof CardComponent> = {
 
 export default meta;
 type Story = StoryObj<typeof CardComponent>;
-export const CardWithHeader: Story = {
+export const Card: Story = {
   render: () => (
     <CardComponent
       slotProps={{

@@ -10,6 +10,7 @@ import {
   type SlotComponentPropsWithoutOverride,
 } from '../components.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
+import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
 
 interface SlotProps {
   root?: SlotComponentPropsWithoutOverride<'button', ButtonOwnerState>;
@@ -48,12 +49,13 @@ export default function Button({
       },
     })(givenSlotProps);
   }
+  const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
 
   return (
     <ButtonUnstyled
       data-testid={testId ?? 'busybox-button'}
       slotProps={slotProps}
-      {...rest}
+      {...rootProps}
     >
       {children}
     </ButtonUnstyled>

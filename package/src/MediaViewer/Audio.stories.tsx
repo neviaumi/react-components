@@ -53,7 +53,7 @@ export const AudioPreviewWithFileUpload: Story = {
       <div className={'tw-flex tw-flex-col'}>
         {uploadedAudio && (
           <AudioComponent
-            data-testid={args['data-testid']}
+            {...args}
             src={uploadedAudio.src}
             type={uploadedAudio.type}
           />

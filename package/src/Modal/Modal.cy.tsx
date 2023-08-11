@@ -13,4 +13,26 @@ describe('ToggleModal stories', () => {
     cy.findByTestId('ok-button').click();
     cy.findByTestId('message-ok-button-clicked').should('be.visible');
   });
+
+  it('extra class should able to pass into root from props', () => {
+    cy.mount(<Modal className={'tw-font-bold'} data-testid={'test-modal'} />);
+    cy.findByTestId('toggle-modal-button').click();
+    cy.findByTestId('test-modal').should('have.class', 'tw-font-bold');
+  });
+
+  it('no default class should be applied when disableDefaultClasses used', () => {
+    cy.mount(
+      <Modal
+        className={'tw-font-bold'}
+        data-testid={'test-modal'}
+        disableDefaultClasses
+      />,
+    );
+    cy.findByTestId('toggle-modal-button').click();
+    cy.findByTestId('test-modal').should(
+      'have.attr',
+      'class',
+      'tw-font-bold MuiModal-root',
+    );
+  });
 });

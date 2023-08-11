@@ -1,21 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Tabs, { Tab, TabPanel, TabsList } from './Tab.tsx';
+import { Tab, TabPanel, Tabs as TabsComponent, TabsList } from './Tab.tsx';
 
-const meta: Meta<typeof Tabs> = {
-  component: Tabs,
+const meta: Meta<typeof TabsComponent> = {
+  component: TabsComponent,
   title: 'Component/Tabs',
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Tabs>;
+type Story = StoryObj<typeof TabsComponent>;
 
-export const TabStory: Story = {
-  name: 'Tabs',
+export const Tabs: Story = {
   render: () => {
     return (
-      <Tabs defaultValue={'0'}>
+      <TabsComponent defaultValue={'0'}>
         <TabsList>
           <Tab data-testid={'test-tab-0'} value={'0'}>
             Tab 1
@@ -36,7 +35,7 @@ export const TabStory: Story = {
         <TabPanel data-testid={'test-tab-panel-2'} value={'2'}>
           Tab 3 content
         </TabPanel>
-      </Tabs>
+      </TabsComponent>
     );
   },
 };

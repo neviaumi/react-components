@@ -1,6 +1,7 @@
-import Tabs, {
+import {
   Tab,
   type TabProps,
+  Tabs,
   TabsList,
   type TabSlotProps,
 } from '@busybox/react-components/Tab';

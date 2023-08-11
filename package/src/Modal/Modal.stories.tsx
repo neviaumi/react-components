@@ -13,7 +13,7 @@ const meta: Meta<typeof ModalComponent> = {
 export default meta;
 type Story = StoryObj<typeof ModalComponent>;
 export const Modal: Story = {
-  render: () => {
+  render: (args: any) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [hasOkButtonClicked, setHasOkButtonClicked] = useState(false);
     const closeModal = useCallback(() => {
@@ -31,11 +31,7 @@ export const Modal: Story = {
         >
           Click to {modalOpen ? 'close' : 'open'} modal
         </Button>
-        <ModalComponent
-          data-testid={'modal'}
-          onClose={closeModal}
-          open={modalOpen}
-        >
+        <ModalComponent {...args} onClose={closeModal} open={modalOpen}>
           <ModalTitle>Modal Title</ModalTitle>
           <ModalContent>Modal Content</ModalContent>
           <footer className={clsx('tw-mb-2 tw-flex tw-justify-end tw-gap-2')}>

@@ -26,6 +26,31 @@ describe('FileUploadInput stories', () => {
     cy.wrap(fileUploadCallback).should('be.called');
   });
 
+  it('extra class should able to pass into root from props', () => {
+    cy.mount(
+      <FileUploadInput
+        className={'tw-font-bold'}
+        data-testid={'test-file-upload'}
+      />,
+    );
+    cy.findByTestId('test-file-upload').should('have.class', 'tw-font-bold');
+  });
+
+  it('no default class should be applied when disableDefaultClasses used', () => {
+    cy.mount(
+      <FileUploadInput
+        className={'tw-font-bold'}
+        data-testid={'test-file-upload'}
+        disableDefaultClasses
+      />,
+    );
+    cy.findByTestId('test-file-upload').should(
+      'have.attr',
+      'class',
+      'MuiButton-root tw-font-bold',
+    );
+  });
+
   it.skip('Should trigger onChange when click upload file button', () => {
     // I can't test that behavior on Cypress
     const fileUploadCallback = cy.stub().as('fileUploadCallback');

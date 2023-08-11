@@ -9,14 +9,14 @@ const meta: Meta<typeof ButtonComponent> = {
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: 'Component/Button/Primary',
+  title: 'Component/Button',
 };
 
 export default meta;
 type Story = StoryObj<typeof ButtonComponent>;
 
 // 👇 We create a “template” of how args map to rendering
-export const Primary: Story = {
+export const Button: Story = {
   args: {
     children: 'Primary button',
     /* 👇 The args you need here will depend on your component */

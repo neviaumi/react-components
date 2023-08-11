@@ -6,6 +6,7 @@ import type {
   SlotComponentPropsWithoutOverride,
 } from '../components.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
+import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
 
 interface SlotProps {
   root?: SlotComponentPropsWithoutOverride<'a', object>;
@@ -34,11 +35,12 @@ function Link({
       },
     })(givenSlotProps);
   }
+  const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
   return (
     <a
-      className={slotProps?.root?.className}
       data-testid={testId ?? 'busybox-link'}
-      {...rest}
+      {...slotProps?.root}
+      {...rootProps}
     />
   );
 }

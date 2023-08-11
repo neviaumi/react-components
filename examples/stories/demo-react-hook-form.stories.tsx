@@ -6,8 +6,8 @@ import Label from '@busybox/react-components/Label';
 import { Content, Header, Main, Page } from '@busybox/react-components/Layout';
 import Link from '@busybox/react-components/Link';
 import NumberInput from '@busybox/react-components/NumberInput';
-import RadioGroup, { Radio } from '@busybox/react-components/RadioGroup';
-import SelectInput, { SelectOption } from '@busybox/react-components/Select';
+import { Radio, RadioGroup } from '@busybox/react-components/RadioGroup';
+import { Select, SelectOption } from '@busybox/react-components/Select';
 import SliderInput from '@busybox/react-components/Slider';
 import TextInput from '@busybox/react-components/TextInput';
 import { expect } from '@storybook/jest';
@@ -89,7 +89,7 @@ export const CarSearchForm: Story = {
                       className={'tw-flex tw-flex-col tw-gap-0.5'}
                     >
                       <Label>Car Brand</Label>
-                      <SelectInput
+                      <Select
                         data-testid={'form-stories-select-input'}
                         name={field.name}
                         slotProps={{
@@ -130,7 +130,7 @@ export const CarSearchForm: Story = {
                         >
                           Mini
                         </SelectOption>
-                      </SelectInput>
+                      </Select>
                     </Field>
                   );
                 }}

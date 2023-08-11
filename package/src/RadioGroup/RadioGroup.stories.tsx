@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import LabelWithFieldContext from '../Form/Label.tsx';
-import RadioGroupComponent, { Radio } from './RadioGroup.tsx';
+import { Radio, RadioGroup as RadioGroupComponent } from './RadioGroup.tsx';
 
 const meta: Meta<typeof RadioGroupComponent> = {
   component: RadioGroupComponent,

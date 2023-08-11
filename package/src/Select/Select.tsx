@@ -39,7 +39,7 @@ export type SelectProps = ComponentProps<
   SelectOwnProps<string, false>
 >;
 
-export default function Select({
+export function Select({
   disableDefaultClasses,
   slotProps,
   ...rest
@@ -72,6 +72,10 @@ export default function Select({
           })(slotProps),
     [disableDefaultClasses, slotProps],
   );
+  const rootProps = mergeRootSlotPropsToComponentProps()(
+    slotPropsWithDefaultStyle,
+    rest,
+  );
   const connectMuiSelectToFormContext = useCallback(
     (_: unknown, value: string | null) => {
       if (!formControlContext?.onChange) return;
@@ -86,7 +90,7 @@ export default function Select({
       id={id}
       onChange={connectMuiSelectToFormContext}
       slotProps={slotPropsWithDefaultStyle}
-      {...rest}
+      {...rootProps}
     />
   );
 }

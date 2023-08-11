@@ -5,20 +5,20 @@ import type {
   SlotComponentPropsWithoutOverride,
 } from '../components.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
+import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
 
 interface SlotProps {
   root?: SlotComponentPropsWithoutOverride<'img'>;
 }
 
-export type ButtonProps = ComponentProps<SlotProps>;
+export type ImageProps = ComponentProps<SlotProps>;
 
 export default function Image({
-  children,
   'data-testid': testId,
   disableDefaultClasses,
   slotProps: givenSlotProps,
   ...rest
-}: ButtonProps) {
+}: ImageProps) {
   let slotProps = givenSlotProps;
 
   if (!disableDefaultClasses) {
@@ -29,9 +29,7 @@ export default function Image({
     })(givenSlotProps);
   }
 
-  return (
-    <img data-testid={testId ?? 'busybox-img'} {...rest} {...slotProps?.root}>
-      {children}
-    </img>
-  );
+  const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
+
+  return <img data-testid={testId ?? 'busybox-img'} {...rootProps} />;
 }

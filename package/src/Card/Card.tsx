@@ -6,6 +6,7 @@ import type {
   SlotComponentPropsWithoutOverride,
 } from '../components.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
+import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
 
 interface SlotProps {
   root?: SlotComponentPropsWithoutOverride<'div'>;
@@ -13,7 +14,7 @@ interface SlotProps {
 
 export type CardProps = ComponentProps<SlotProps>;
 
-export default function Card({
+export function Card({
   children,
   'data-testid': testId,
   disableDefaultClasses,
@@ -36,11 +37,13 @@ export default function Card({
     })(givenSlotProps);
   }
 
+  const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
+
   return (
     <section
       data-testid={testId ?? 'busybox-card'}
-      {...rest}
       {...slotProps?.root}
+      {...rootProps}
     >
       {children}
     </section>
@@ -54,7 +57,7 @@ interface CardTitleSlotProps {
 export type CardTitleProps = ComponentProps<
   CardTitleSlotProps,
   {
-    slot?: { root?: keyof React.ReactHTML };
+    slot?: { root?: keyof React.ReactHTML | React.FunctionComponent };
   }
 >;
 
@@ -74,9 +77,11 @@ export function CardTitle({
       },
     })(givenSlotProps);
   }
+  const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
+
   return createElement(slot?.root ?? 'h1', {
     'data-testid': testId ?? 'busybox-card-title',
-    ...rest,
     ...slotProps?.root,
+    ...rootProps,
   });
 }

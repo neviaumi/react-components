@@ -5,7 +5,6 @@ import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
 } from '../components.ts';
-import { Label } from '../Form/Label.tsx';
 import useFieldContext from '../Form/useFieldContext.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
@@ -20,11 +19,7 @@ const RadioGroupContext = createContext<{
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }>({});
 
-export default function RadioGroup({
-  children,
-  name,
-  onChange,
-}: RadioGroupProps) {
+export function RadioGroup({ children, name, onChange }: RadioGroupProps) {
   return (
     <RadioGroupContext.Provider value={{ name, onChange }}>
       {children}
@@ -53,6 +48,7 @@ export function Radio({
   value,
   ...rest
 }: RadioProps) {
+  const testIdPrefix = testId ?? 'busybox-radio';
   const radioGroupContext = useContext(RadioGroupContext);
   const fieldContext = useFieldContext({
     onChange: radioGroupContext.onChange,
@@ -81,14 +77,11 @@ export function Radio({
   const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
   const { name } = radioGroupContext;
   return (
-    <Label
-      htmlFor={id}
-      {...slotProps?.label}
-      data-testid={testId ?? 'busybox-radio'}
-    >
+    <label htmlFor={id} {...slotProps?.label} data-testid={testIdPrefix}>
       <input
         {...rootProps}
         checked={currentValue === value}
+        data-testid={`${testIdPrefix}-input`}
         id={id}
         name={name}
         onBlur={onBlur}
@@ -98,6 +91,6 @@ export function Radio({
         value={value}
       />
       {children}
-    </Label>
+    </label>
   );
 }

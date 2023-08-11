@@ -65,6 +65,7 @@ export default function FileUploadInput({
       />
       <Button
         data-testid={testId}
+        disableDefaultClasses={disableDefaultClasses}
         slotProps={{
           root: { ...slotProps?.root, onClick: onUploadButtonClick },
         }}
