@@ -18,7 +18,7 @@
     "@storybook/testing-library": "0.2.0",
     "@types/ramda": "0.29.3",
     "@vitejs/plugin-react": "4.0.4",
-    "autoprefixer": "10.4.14",
+    "autoprefixer": "10.4.15",
     "chromatic": "6.21.0",
     "eslint": "8.46.0",
     "jest-playwright-preset": "3.0.1",
