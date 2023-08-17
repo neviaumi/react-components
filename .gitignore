@@ -120,3 +120,4 @@ dist-babel/
 cypress/videos/
 cypress/screenshots/
 storybook-static/
+.idea/workspace.xml
