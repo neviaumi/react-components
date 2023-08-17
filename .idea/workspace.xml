@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d3252ace-a70c-4f3f-b6dc-ca7cc5b6c457" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/src/MediaRecorder/AudioRecorder.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/MediaRecorder/AudioRecorder.cy.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package/src/Tab/Tab.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/Tab/Tab.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package/src/Modal/Modal.cy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/package/src/Modal/Modal.cy.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,27 +45,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.GIT_CREDENTIAL_SETUP&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;ISSUE-422__accept-class-name&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/davidng/Documents/GitHub/self/react-components/package/src/TextInput&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/davidng/Documents/GitHub/self/react-components/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/davidng/Documents/GitHub/self/react-components/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.GIT_CREDENTIAL_SETUP": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "dependabot/npm__and__yarn/mui/base-5.0.0-beta.11",
+    "last_opened_file_path": "/Users/davidng/Documents/GitHub/self/react-components/package/src/TextInput",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/davidng/Documents/GitHub/self/react-components/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+    "ts.external.directory.path": "/Users/davidng/Documents/GitHub/self/react-components/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33035713" />

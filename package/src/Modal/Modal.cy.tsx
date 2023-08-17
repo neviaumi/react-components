@@ -32,7 +32,7 @@ describe('ToggleModal stories', () => {
     cy.findByTestId('test-modal').should(
       'have.attr',
       'class',
-      'tw-font-bold MuiModal-root',
+      'MuiModal-root tw-font-bold',
     );
   });
 });
