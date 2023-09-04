@@ -9,7 +9,7 @@ jobs:
     needs: publish
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: ${{needs.publish.outputs.release_branch}}
       - env:
@@ -28,7 +28,7 @@ jobs:
       released_version: ${{ steps.publish.outputs.released_version }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js lts
         uses: actions/setup-node@v3
         with:
