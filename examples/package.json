@@ -19,7 +19,7 @@
     "@types/ramda": "0.29.4",
     "@vitejs/plugin-react": "4.0.4",
     "autoprefixer": "10.4.15",
-    "chromatic": "7.1.0",
+    "chromatic": "7.2.0",
     "eslint": "8.49.0",
     "jest-playwright-preset": "3.0.1",
     "lint-staged": "14.0.1",
