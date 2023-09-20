@@ -1,6 +1,6 @@
 import { cy, describe, it } from '@busybox/cypress';
 
-import AudioRecorder from './AudioRecorder.tsx';
+import { AudioRecorder } from './AudioRecorder.tsx';
 
 describe('AudioRecorder', () => {
   it('extra class should able to pass into root from props', () => {

@@ -15,7 +15,7 @@ export const Card: Story = {
     <CardComponent
       slotProps={{
         root: {
-          className: clsx('tw-w-20'),
+          className: clsx('tw-w-20', 'tw-border-primary', 'tw-border'),
         },
       }}
     >

@@ -5,7 +5,7 @@ import { setProjectAnnotations } from '@storybook/react';
 import { mount } from 'cypress/react18';
 
 import storyBookPreview from '../../.storybook/preview.ts';
-import TestBed from './TestBed.tsx';
+import { TestBed } from './TestBed.tsx';
 
 setProjectAnnotations(storyBookPreview);
 

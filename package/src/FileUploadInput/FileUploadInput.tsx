@@ -1,11 +1,11 @@
 import { useCallback, useRef } from 'react';
 
-import Button from '../Button/Button.tsx';
+import { Button } from '../Button/Button.tsx';
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
 } from '../components.ts';
-import useFieldContext from '../Form/useFieldContext.ts';
+import { useFieldContext } from '../Form/useFieldContext.ts';
 import { UploadIcon } from '../icons/solid.tsx';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
@@ -27,7 +27,7 @@ type FileUploadProps = ComponentProps<
   }
 >;
 
-export default function FileUploadInput({
+export function FileUploadInput({
   children,
   'data-testid': testId,
   disableDefaultClasses,

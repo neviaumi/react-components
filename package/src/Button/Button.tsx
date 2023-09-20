@@ -4,6 +4,7 @@ import {
   type ButtonOwnProps,
 } from '@mui/base/Button';
 import clsx from 'clsx';
+import type { MouseEvent } from 'react';
 
 import {
   type ComponentProps,
@@ -19,11 +20,11 @@ interface SlotProps {
 export type ButtonProps = ComponentProps<
   SlotProps,
   ButtonOwnProps & {
-    onClick?: () => void;
+    onClick?: (e?: MouseEvent<HTMLElement>) => void;
   }
 >;
 
-export default function Button({
+export function Button({
   children,
   'data-testid': testId,
   disableDefaultClasses,

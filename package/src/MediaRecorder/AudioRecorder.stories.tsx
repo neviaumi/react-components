@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { type ChangeEvent, type ComponentProps, useState } from 'react';
 
-import FileUploadInput from '../FileUploadInput/FileUploadInput.tsx';
-import Link from '../Link/Link.tsx';
-import Audio from '../MediaViewer/Audio.tsx';
+import { AudioPlayer } from '../AudioPlayer/AudioPlayer.tsx';
+import { FileUploadInput } from '../FileUploadInput/FileUploadInput.tsx';
+import { Link } from '../Link/Link.tsx';
 import { generateTestIdWithPrefix } from '../test-helpers/test-id.ts';
-import AudioRecorderComponent from './AudioRecorder.tsx';
+import { AudioRecorder as AudioRecorderComponent } from './AudioRecorder.tsx';
 
 const meta: Meta<typeof AudioRecorderComponent> = {
   component: AudioRecorderComponent,
@@ -74,7 +74,7 @@ export const AudioRecorderAndFileUploadWithPreview: Story = {
               prefix: args['data-testid'],
             })}
           >
-            <Audio src={downloadUrl?.src} type={downloadUrl?.type} />
+            <AudioPlayer src={downloadUrl?.src} type={downloadUrl?.type} />
             <Link download={'recording.webm'} href={downloadUrl?.src}>
               Download Record here
             </Link>

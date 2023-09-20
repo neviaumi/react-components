@@ -1,7 +1,7 @@
 import { cy, describe, it } from '@busybox/cypress';
 import { composeStories } from '@storybook/react';
 
-import * as stories from './Audio.stories.tsx';
+import * as stories from './AudioPlayer.stories.tsx';
 
 const { AudioPreviewWithFileUpload } = composeStories(stories);
 

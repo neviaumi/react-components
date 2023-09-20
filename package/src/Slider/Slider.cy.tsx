@@ -1,6 +1,6 @@
 import { cy, describe, it } from '@busybox/cypress';
 
-import Slider from './Slider.tsx';
+import { Slider } from './Slider.tsx';
 
 describe('Slider', () => {
   it('extra class should able to pass into root from props', () => {

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Label from '../Form/Label.tsx';
-import SliderComponent from './Slider.tsx';
+import { Label } from '../Form/Label.tsx';
+import { Slider as SliderComponent } from './Slider.tsx';
 
 const meta: Meta<typeof SliderComponent> = {
   component: SliderComponent,

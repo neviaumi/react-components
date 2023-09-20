@@ -9,7 +9,7 @@ import {
 
 export const FieldContext = createContext<{ id?: string }>({});
 
-const Field = forwardRef(function Field(
+export const Field = forwardRef(function Field(
   { children, ...rest }: PropsWithChildren<FormControlProps>,
   ref: Ref<HTMLDivElement>,
 ) {
@@ -28,5 +28,3 @@ const Field = forwardRef(function Field(
     </FieldContext.Provider>
   );
 });
-
-export default Field;

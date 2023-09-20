@@ -46,15 +46,15 @@
     "yarn": "Use npm"
   },
   "exports": {
+    "./AudioPlayer": {
+      "import": "./dist/AudioPlayer.js",
+      "require": "./dist/AudioPlayer.cjs",
+      "types": "./dist/types/MediaViewer/AudioPlayer.d.ts"
+    },
     "./AudioRecorder": {
       "import": "./dist/AudioRecorder.js",
       "require": "./dist/AudioRecorder.cjs",
       "types": "./dist/types/MediaRecorder/AudioRecorder.d.ts"
-    },
-    "./AudioViewer": {
-      "import": "./dist/Audio.js",
-      "require": "./dist/Audio.cjs",
-      "types": "./dist/types/MediaViewer/Audio.d.ts"
     },
     "./Button": {
       "import": "./dist/Button.js",
@@ -91,10 +91,10 @@
       "require": "./dist/solid.cjs",
       "types": "./dist/types/icons/solid.d.ts"
     },
-    "./ImageViewer": {
+    "./Image": {
       "import": "./dist/Image.js",
       "require": "./dist/Image.cjs",
-      "types": "./dist/types/MediaViewer/Image.d.ts"
+      "types": "./dist/types/Image/Image.d.ts"
     },
     "./Label": {
       "import": "./dist/Label.js",

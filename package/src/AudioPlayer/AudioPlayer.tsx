@@ -4,13 +4,13 @@ import parseMilliseconds from 'parse-ms';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import * as React from 'react';
 
-import IconButton from '../Button/IconButton.tsx';
+import { IconButton } from '../Button/IconButton.tsx';
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
 } from '../components.ts';
 import { PauseIcon, PlayIcon, VolumeUpIcon } from '../icons/solid.tsx';
-import Slider, { type SliderProps } from '../Slider/Slider.tsx';
+import { Slider, type SliderProps } from '../Slider/Slider.tsx';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 import { deepMerge } from '../utils/deep-merge.ts';
 import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
@@ -43,7 +43,7 @@ function formatSecond(second: number) {
   )}`;
 }
 
-export default function Audio({
+export function AudioPlayer({
   'data-testid': testId,
   disableDefaultClasses,
   slotProps: givenSlotProps,
