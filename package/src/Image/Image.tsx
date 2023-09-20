@@ -13,7 +13,7 @@ interface SlotProps {
 
 export type ImageProps = ComponentProps<SlotProps>;
 
-export default function Image({
+export function Image({
   'data-testid': testId,
   disableDefaultClasses,
   slotProps: givenSlotProps,

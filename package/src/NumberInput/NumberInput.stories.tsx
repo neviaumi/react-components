@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Label from '../Form/Label.tsx';
-import NumberInputComponent from './NumberInput.tsx';
+import { Label } from '../Form/Label.tsx';
+import { NumberInput as NumberInputComponent } from './NumberInput.tsx';
 
 const meta: Meta<typeof NumberInputComponent> = {
   component: NumberInputComponent,

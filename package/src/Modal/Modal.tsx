@@ -27,7 +27,7 @@ export type ModalProps = ComponentProps<
   }
 >;
 
-export default function Modal({
+export function Modal({
   children,
   disableDefaultClasses,
   open,

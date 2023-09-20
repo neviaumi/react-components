@@ -23,7 +23,7 @@ export type ButtonProps = ComponentProps<
   }
 >;
 
-export default function Button({
+export function Button({
   children,
   'data-testid': testId,
   disableDefaultClasses,

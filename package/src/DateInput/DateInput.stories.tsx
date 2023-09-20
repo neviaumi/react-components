@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Label from '../Form/Label.tsx';
-import DateInputComponent from './DateInput.tsx';
+import { Label } from '../Form/Label.tsx';
+import { DateInput as DateInputComponent } from './DateInput.tsx';
 
 const meta: Meta<typeof DateInputComponent> = {
   component: DateInputComponent,

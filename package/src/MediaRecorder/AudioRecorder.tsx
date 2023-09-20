@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import IconButton from '../Button/IconButton.tsx';
+import { IconButton } from '../Button/IconButton.tsx';
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
@@ -29,7 +29,7 @@ export type AudioRecordProps = ComponentProps<
   }
 >;
 
-export default function AudioRecorder({
+export function AudioRecorder({
   'data-testid': testId,
   disableDefaultClasses,
   onStartRecording,

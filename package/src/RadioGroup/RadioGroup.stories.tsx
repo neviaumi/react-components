@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import LabelWithFieldContext from '../Form/Label.tsx';
+import { Label } from '../Form/Label.tsx';
 import { Radio, RadioGroup as RadioGroupComponent } from './RadioGroup.tsx';
 
 const meta: Meta<typeof RadioGroupComponent> = {
@@ -16,7 +16,7 @@ export const RadioGroup: Story = {
   render: args => {
     return (
       <>
-        <LabelWithFieldContext>RadioGroup Input</LabelWithFieldContext>
+        <Label>RadioGroup Input</Label>
         <RadioGroupComponent
           {...args}
           name={'demo'}

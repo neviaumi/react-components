@@ -5,7 +5,7 @@ import type {
   SlotComponentPropsWithoutOverride,
 } from '../components.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
-import Button from './Button.tsx';
+import { Button } from './Button.tsx';
 
 interface SlotProps {
   root?: SlotComponentPropsWithoutOverride<'button', ButtonUnstyledOwnerState>;
@@ -13,7 +13,7 @@ interface SlotProps {
 
 export type IconButtonProps = ComponentProps<SlotProps>;
 
-export default function IconButton({
+export function IconButton({
   children,
   'data-testid': testId,
   disableDefaultClasses,

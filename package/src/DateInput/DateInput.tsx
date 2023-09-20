@@ -5,7 +5,7 @@ import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
 } from '../components.ts';
-import useFieldContext from '../Form/useFieldContext.ts';
+import { useFieldContext } from '../Form/useFieldContext.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
 
@@ -16,7 +16,7 @@ interface SlotProps {
 
 export type DateInputProps = ComponentProps<SlotProps, InputProps>;
 
-export default function DateInput({
+export function DateInput({
   disableDefaultClasses,
   slotProps: givenSlotProps,
   ...rest

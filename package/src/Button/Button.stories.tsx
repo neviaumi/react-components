@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 
-import ButtonComponent from './Button.tsx';
+import { Button as ButtonComponent } from './Button.tsx';
 
 const meta: Meta<typeof ButtonComponent> = {
   component: ButtonComponent,

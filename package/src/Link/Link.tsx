@@ -14,7 +14,7 @@ interface SlotProps {
 
 export type LinkProps = ComponentProps<SlotProps, ComponentPropsWithRef<'a'>>;
 
-function Link({
+export function Link({
   'data-testid': testId,
   disableDefaultClasses,
   slotProps: givenSlotProps,
@@ -44,4 +44,3 @@ function Link({
     />
   );
 }
-export default Link;

@@ -8,7 +8,7 @@ import { FieldContext } from './Field.tsx';
 
 type useFieldContextOptions = Partial<FormControlState>;
 
-export default function useFieldContext(opt?: useFieldContextOptions) {
+export function useFieldContext(opt?: useFieldContextOptions) {
   const formControlContext = useFormControlContext();
   const fieldContext = useContext(FieldContext);
   return {

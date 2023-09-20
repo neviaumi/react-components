@@ -3,7 +3,7 @@ import '../../.storybook/preview.css';
 import clsx from 'clsx';
 import type { PropsWithChildren } from 'react';
 
-export default function TestBed(props: PropsWithChildren) {
+export function TestBed(props: PropsWithChildren) {
   return (
     <main>
       <h1

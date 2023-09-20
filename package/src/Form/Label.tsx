@@ -1,20 +1,9 @@
 import type { LabelHTMLAttributes } from 'react';
 
-import useFieldContext from '../Form/useFieldContext.ts';
+import { useFieldContext } from '../Form/useFieldContext.ts';
 
 export function Label(props: LabelHTMLAttributes<HTMLLabelElement>) {
-  return <label {...props} />;
+  const { id } = useFieldContext();
+
+  return <label htmlFor={id} {...props} />;
 }
-
-function withFieldContext(Component: typeof Label) {
-  return function WithFieldContextComponent(
-    props: LabelHTMLAttributes<HTMLLabelElement>,
-  ) {
-    const { id } = useFieldContext();
-    return <Component htmlFor={id} {...props} />;
-  };
-}
-
-const LabelWithFieldContext = withFieldContext(Label);
-
-export default LabelWithFieldContext;

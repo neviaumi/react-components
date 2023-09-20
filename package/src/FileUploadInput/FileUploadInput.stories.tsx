@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Label from '../Form/Label.tsx';
-import FileUploadInputComponent from './FileUploadInput.tsx';
+import { Label } from '../Form/Label.tsx';
+import { FileUploadInput as FileUploadInputComponent } from './FileUploadInput.tsx';
 
 const meta: Meta<typeof FileUploadInputComponent> = {
   component: FileUploadInputComponent,

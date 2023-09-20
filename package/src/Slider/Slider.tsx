@@ -10,7 +10,7 @@ import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
 } from '../components.ts';
-import useFieldContext from '../Form/useFieldContext.ts';
+import { useFieldContext } from '../Form/useFieldContext.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
 
@@ -30,7 +30,7 @@ interface SlotProps {
 
 export type SliderProps = ComponentProps<SlotProps, SliderOwnProps>;
 
-export default function Slider({
+export function Slider({
   disableDefaultClasses,
   slotProps: givenSlotProps,
   ...rest
