@@ -26,13 +26,7 @@ export function Card({
   if (!disableDefaultClasses) {
     slotProps = assocDefaultStyle<SlotProps>({
       slotWithDefaultClasses: {
-        root: clsx(
-          'tw-py-0.5',
-          'tw-px-1',
-          'tw-border-primary',
-          'hover:tw-border-primary-hover',
-          'tw-border',
-        ),
+        root: clsx('tw-py-0.5', 'tw-px-1'),
       },
     })(givenSlotProps);
   }
@@ -73,7 +67,7 @@ export function CardTitle({
   if (!disableDefaultClasses) {
     slotProps = assocDefaultStyle<SlotProps>({
       slotWithDefaultClasses: {
-        root: clsx('tw-text-primary', 'hover:tw-text-primary-hover'),
+        root: clsx('tw-text-primary'),
       },
     })(givenSlotProps);
   }
