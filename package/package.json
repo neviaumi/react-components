@@ -29,7 +29,7 @@
     "@types/ramda": "0.29.5",
     "@vitejs/plugin-react": "4.1.0",
     "autoprefixer": "10.4.16",
-    "cypress": "13.2.0",
+    "cypress": "13.3.0",
     "eslint": "8.50.0",
     "husky": "8.0.3",
     "is-ci": "3.0.1",
