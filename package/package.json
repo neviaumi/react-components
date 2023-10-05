@@ -39,7 +39,7 @@
     "source-map-explorer": "2.5.3",
     "storybook": "7.4.6",
     "typescript": "5.2.2",
-    "vite": "4.4.9"
+    "vite": "4.4.11"
   },
   "engines": {
     "node": ">=18",
