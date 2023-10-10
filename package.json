@@ -11,7 +11,7 @@
     "eslint": "8.51.0",
     "husky": "8.0.3",
     "is-ci": "3.0.1",
-    "lerna": "7.3.0",
+    "lerna": "7.3.1",
     "lint-staged": "14.0.1"
   },
   "engines": {
