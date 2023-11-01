@@ -85,11 +85,13 @@ export function Select({
     },
     [formControlContext],
   );
+
   return (
     <MuiSelect
       id={id}
       onChange={connectMuiSelectToFormContext}
       slotProps={slotPropsWithDefaultStyle}
+      value={formControlContext?.value}
       {...rootProps}
     />
   );
