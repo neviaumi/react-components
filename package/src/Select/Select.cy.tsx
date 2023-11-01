@@ -1,6 +1,8 @@
 import { cy, describe, it } from '@busybox/cypress';
 import clsx from 'clsx';
 
+import { Field } from '../Form/Field.tsx';
+import { Label } from '../Form/Label.tsx';
 import { Select, SelectOption } from './Select.tsx';
 
 describe('Select', () => {
@@ -104,5 +106,21 @@ describe('Select', () => {
       'class',
       'MuiOption-root MuiOption-highlighted tw-font-bold',
     );
+  });
+});
+
+describe('Select with Field', () => {
+  it('should read value from field context', () => {
+    cy.mount(
+      <Field value={'BMW'}>
+        <Label>Car band</Label>
+        <Select data-testid={'test-select'} name={'carBand'}>
+          <SelectOption value={'Toyota'}>Toyota</SelectOption>
+          <SelectOption value={'BMW'}>BMW</SelectOption>
+          <SelectOption value={'Mini'}>Mini</SelectOption>
+        </Select>
+      </Field>,
+    );
+    cy.findByTestId('test-select').should('have.text', 'BMW');
   });
 });
