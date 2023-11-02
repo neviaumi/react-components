@@ -41,14 +41,20 @@ export type SelectProps = ComponentProps<
 
 export function Select({
   disableDefaultClasses,
+  name: inputName,
   slotProps,
   ...rest
 }: SelectProps) {
-  const { formControlContext, id } = useFieldContext({
+  const {
+    formControlContext,
+    id,
+    name: fieldName,
+  } = useFieldContext({
     // @ts-expect-error TODO: fix this
     onChange: rest.onChange,
     value: rest.value,
   });
+  const name = fieldName || inputName;
   const slotPropsWithDefaultStyle = useMemo<SlotProps | undefined>(
     () =>
       disableDefaultClasses
@@ -89,6 +95,7 @@ export function Select({
   return (
     <MuiSelect
       id={id}
+      name={name}
       onChange={connectMuiSelectToFormContext}
       slotProps={slotPropsWithDefaultStyle}
       value={formControlContext?.value}

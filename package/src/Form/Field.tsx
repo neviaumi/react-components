@@ -7,17 +7,24 @@ import {
   useId,
 } from 'react';
 
-export const FieldContext = createContext<{ id?: string }>({});
+export const FieldContext = createContext<{ id: string; name: string }>({
+  id: '',
+  name: '',
+});
 
 export const Field = forwardRef(function Field(
-  { children, ...rest }: PropsWithChildren<FormControlProps>,
+  {
+    children,
+    name,
+    ...rest
+  }: PropsWithChildren<FormControlProps & { name: string }>,
   ref: Ref<HTMLDivElement>,
 ) {
   const id = useId();
   const { value: defaultValue, ...formControlProps } = rest;
   const formControlDefaultValue = defaultValue ?? null;
   return (
-    <FieldContext.Provider value={{ id: id }}>
+    <FieldContext.Provider value={{ id: id, name }}>
       <FormControl
         {...formControlProps}
         ref={ref}
