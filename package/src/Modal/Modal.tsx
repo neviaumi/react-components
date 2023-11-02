@@ -13,6 +13,7 @@ import type {
 } from '../components.ts';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 import { assocDefaultValues } from '../utils/assign-default-values.ts';
+import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
 
 interface SlotProps {
   backdrop?: SlotComponentPropsWithoutOverride<'div'>;
@@ -89,8 +90,7 @@ export function Modal({
 }
 
 interface ModalTitleSlotProps {
-  content?: SlotComponentPropsWithoutOverride<'h1'>;
-  root?: SlotComponentPropsWithoutOverride<'div'>;
+  root?: SlotComponentPropsWithoutOverride<'h1'>;
 }
 
 export type ModalTitleProps = ComponentProps<
@@ -104,40 +104,40 @@ export type ModalTitleProps = ComponentProps<
 export function ModalTitle({
   children,
   'data-testid': testId,
+  disableDefaultClasses,
   id,
   slot,
   slotProps,
   ...rest
 }: ModalTitleProps) {
-  const slotPropsWithDefaultStyle = useMemo<ModalTitleSlotProps>(
+  const slotPropsWithDefaultStyle = useMemo<ModalTitleSlotProps | undefined>(
     () =>
-      assocDefaultStyle<ModalTitleSlotProps>({
-        slotWithDefaultClasses: {
-          root: clsx(
-            'tw-mb-2 tw-flex tw-border-b tw-border-primary tw-pb-2 tw-text-primary',
-          ),
-        },
-      })(slotProps),
-    [slotProps],
+      disableDefaultClasses
+        ? slotProps
+        : assocDefaultStyle<ModalTitleSlotProps>({
+            slotWithDefaultClasses: {
+              root: clsx('tw-mb-2 tw-flex tw-pb-2 tw-text-primary'),
+            },
+          })(slotProps),
+    [disableDefaultClasses, slotProps],
   );
-  return (
-    <div {...rest} {...slotPropsWithDefaultStyle?.root}>
-      {createElement(
-        slot?.root ?? 'h1',
-        {
-          'data-testid': testId ?? 'busybox-modal-title',
-          id: id ?? 'busybox-modal-title',
-          ...slotPropsWithDefaultStyle?.content,
-        },
-        children,
-      )}
-    </div>
+  const rootProps = mergeRootSlotPropsToComponentProps()(
+    slotPropsWithDefaultStyle,
+    rest,
+  );
+  return createElement(
+    slot?.root ?? 'h1',
+    {
+      'data-testid': testId ?? 'busybox-modal-title',
+      id: id ?? 'busybox-modal-title',
+      ...rootProps,
+    },
+    children,
   );
 }
 
 interface ModalContentSlotProps {
-  content?: SlotComponentPropsWithoutOverride<'section'>;
-  root?: SlotComponentPropsWithoutOverride<'div'>;
+  root?: SlotComponentPropsWithoutOverride<'section'>;
 }
 
 export type ModalContentProps = ComponentProps<
@@ -151,32 +151,34 @@ export type ModalContentProps = ComponentProps<
 export function ModalContent({
   children,
   'data-testid': testId,
+  disableDefaultClasses,
   id,
   slot,
   slotProps,
   ...rest
 }: ModalContentProps) {
-  const slotPropsWithDefaultStyle = useMemo<ModalContentSlotProps>(
+  const slotPropsWithDefaultStyle = useMemo<ModalContentSlotProps | undefined>(
     () =>
-      assocDefaultStyle<ModalContentSlotProps>({
-        slotWithDefaultClasses: {
-          root: clsx('tw-mb-4 tw-flex tw-border-b-2 tw-pb-2 tw-text-primary'),
-        },
-      })(slotProps),
-    [slotProps],
+      disableDefaultClasses
+        ? slotProps
+        : assocDefaultStyle<ModalContentSlotProps>({
+            slotWithDefaultClasses: {
+              root: clsx('tw-mb-4 tw-flex tw-pb-2 tw-text-primary'),
+            },
+          })(slotProps),
+    [disableDefaultClasses, slotProps],
   );
-  return (
-    <div {...rest} {...slotPropsWithDefaultStyle?.root}>
-      {createElement(
-        slot?.root ?? 'section',
-        {
-          'data-testid': testId ?? 'busybox-modal-content',
-          id: id ?? 'busybox-modal-content',
-          ...rest,
-          ...slotProps?.content,
-        },
-        children,
-      )}
-    </div>
+  const rootProps = mergeRootSlotPropsToComponentProps()(
+    slotPropsWithDefaultStyle,
+    rest,
+  );
+  return createElement(
+    slot?.root ?? 'section',
+    {
+      'data-testid': testId ?? 'busybox-modal-content',
+      id: id ?? 'busybox-modal-content',
+      ...rootProps,
+    },
+    children,
   );
 }
