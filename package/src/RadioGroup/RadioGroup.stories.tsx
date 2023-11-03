@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { useState } from 'react';
 
 import { Label } from '../Form/Label.tsx';
 import { Radio, RadioGroup as RadioGroupComponent } from './RadioGroup.tsx';
@@ -13,16 +14,17 @@ export default meta;
 type Story = StoryObj<typeof RadioGroupComponent>;
 
 export const RadioGroup: Story = {
-  render: args => {
+  render: () => {
+    const [radioValue, setRadioSelectedValue] = useState('');
     return (
       <>
         <Label>RadioGroup Input</Label>
         <RadioGroupComponent
-          {...args}
           name={'demo'}
-          onChange={() => {
-            return;
+          onChange={e => {
+            setRadioSelectedValue(e.target.value);
           }}
+          value={radioValue}
         >
           <Radio id={'1'} value={'1'}>
             Item 1

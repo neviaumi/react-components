@@ -12,16 +12,39 @@ import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-pro
 export type RadioGroupProps = React.PropsWithChildren<{
   name: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
 }>;
 
 const RadioGroupContext = createContext<{
   name?: string;
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  value?: string;
 }>({});
 
-export function RadioGroup({ children, name, onChange }: RadioGroupProps) {
+export function RadioGroup({
+  children,
+  name,
+  onChange,
+  value,
+}: RadioGroupProps) {
+  const fieldContext = useFieldContext({
+    onChange: onChange,
+    value: value,
+  });
+  const { formControlContext } = fieldContext;
+  const { onBlur, onFocus, value: currentValue } = formControlContext!;
   return (
-    <RadioGroupContext.Provider value={{ name, onChange }}>
+    <RadioGroupContext.Provider
+      value={{
+        name: fieldContext?.name || name,
+        onBlur,
+        onChange: formControlContext?.onChange,
+        onFocus,
+        value: currentValue as string,
+      }}
+    >
       {children}
     </RadioGroupContext.Provider>
   );
@@ -50,14 +73,16 @@ export function Radio({
 }: RadioProps) {
   const testIdPrefix = testId ?? 'busybox-radio';
   const radioGroupContext = useContext(RadioGroupContext);
-  const fieldContext = useFieldContext({
-    onChange: radioGroupContext.onChange,
-  });
-  const formControlContext = fieldContext.formControlContext;
-  if (!radioGroupContext || !formControlContext) {
+  if (!radioGroupContext) {
     return null;
   }
-  const { onBlur, onChange, onFocus, value: currentValue } = formControlContext;
+  const {
+    name,
+    onBlur,
+    onChange,
+    onFocus,
+    value: currentValue,
+  } = radioGroupContext;
   const isChecked = currentValue === value;
   let slotProps = givenSlotProps;
   if (!disableDefaultClasses) {
@@ -75,7 +100,6 @@ export function Radio({
     })(givenSlotProps);
   }
   const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
-  const { name } = radioGroupContext;
   return (
     <label htmlFor={id} {...slotProps?.label} data-testid={testIdPrefix}>
       <input

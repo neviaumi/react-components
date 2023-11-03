@@ -6,6 +6,16 @@ import { Label } from '../Form/Label.tsx';
 import { Select, SelectOption } from './Select.tsx';
 
 describe('Select', () => {
+  it('should render hidden input with name', () => {
+    cy.mount(
+      <Select data-testid={'test-select'} name={'demo'}>
+        <SelectOption value={'Toyota'}>Toyota</SelectOption>
+        <SelectOption value={'BMW'}>BMW</SelectOption>
+        <SelectOption value={'Mini'}>Mini</SelectOption>
+      </Select>,
+    );
+    cy.get('input').should('have.attr', 'name', 'demo');
+  });
   it('extra class should able to pass into root from props', () => {
     cy.mount(
       <Select
@@ -112,9 +122,9 @@ describe('Select', () => {
 describe('Select with Field', () => {
   it('should read value from field context', () => {
     cy.mount(
-      <Field value={'BMW'}>
+      <Field name={'carBand'} value={'BMW'}>
         <Label>Car band</Label>
-        <Select data-testid={'test-select'} name={'carBand'}>
+        <Select data-testid={'test-select'}>
           <SelectOption value={'Toyota'}>Toyota</SelectOption>
           <SelectOption value={'BMW'}>BMW</SelectOption>
           <SelectOption value={'Mini'}>Mini</SelectOption>
@@ -122,5 +132,19 @@ describe('Select with Field', () => {
       </Field>,
     );
     cy.findByTestId('test-select').should('have.text', 'BMW');
+  });
+
+  it('should read input name from field context', () => {
+    cy.mount(
+      <Field name={'carBand'} value={'BMW'}>
+        <Label>Car band</Label>
+        <Select data-testid={'test-select'}>
+          <SelectOption value={'Toyota'}>Toyota</SelectOption>
+          <SelectOption value={'BMW'}>BMW</SelectOption>
+          <SelectOption value={'Mini'}>Mini</SelectOption>
+        </Select>
+      </Field>,
+    );
+    cy.get('input').should('have.attr', 'name', 'carBand');
   });
 });
