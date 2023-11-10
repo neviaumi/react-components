@@ -4,6 +4,7 @@ import {
   type SliderOwnProps,
 } from '@mui/base/Slider';
 import clsx from 'clsx';
+import { always, assocPath, pipe } from 'ramda';
 import React from 'react';
 
 import type {
@@ -35,36 +36,36 @@ export function Slider({
   slotProps: givenSlotProps,
   ...rest
 }: SliderProps) {
-  const { formControlContext, id } = useFieldContext({
+  const { formControlContext, id, name } = useFieldContext({
     // @ts-expect-error TODO: fix this
     onChange: rest.onChange,
     value: rest.value,
   });
 
-  let slotProps = givenSlotProps;
+  const slotProps = pipe(id ? assocPath(['input', 'id'], id) : always)(
+    disableDefaultClasses
+      ? givenSlotProps
+      : assocDefaultStyle<SlotProps>({
+          slotWithDefaultClasses: {
+            rail: clsx(
+              'tw-block tw-h-1 tw-w-full tw-rounded-sm tw-bg-secondary hover:tw-bg-secondary-hover',
+            ),
+            root: clsx(
+              'tw-relative tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-items-center',
+            ),
+            thumb: clsx(
+              'tw-absolute tw--ml-1.5 tw--mt-[0.15rem] tw-h-2 tw-w-2 tw-rounded-[50%] tw-border-2 tw-border-primary tw-bg-primary hover:tw-border-primary-hover hover:tw-bg-primary-hover',
+            ),
+            track: clsx(
+              'tw-absolute tw-block tw-h-1 tw-w-full tw-rounded-sm tw-bg-secondary hover:tw-bg-secondary-hover',
+            ),
+          },
+        })(givenSlotProps),
+  ) as SlotProps;
 
-  if (!disableDefaultClasses) {
-    slotProps = assocDefaultStyle<SlotProps>({
-      slotWithDefaultClasses: {
-        rail: clsx(
-          'tw-block tw-h-1 tw-w-full tw-rounded-sm tw-bg-secondary hover:tw-bg-secondary-hover',
-        ),
-        root: clsx(
-          'tw-relative tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-items-center',
-        ),
-        thumb: clsx(
-          'tw-absolute tw--ml-1.5 tw--mt-[0.15rem] tw-h-2 tw-w-2 tw-rounded-[50%] tw-border-2 tw-border-primary tw-bg-primary hover:tw-border-primary-hover hover:tw-bg-primary-hover',
-        ),
-        track: clsx(
-          'tw-absolute tw-block tw-h-1 tw-w-full tw-rounded-sm tw-bg-secondary hover:tw-bg-secondary-hover',
-        ),
-      },
-    })(givenSlotProps);
-  }
   const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
   return (
     <MuiSlider
-      id={id}
       onBlur={formControlContext?.onBlur}
       onChange={e => {
         formControlContext?.onChange?.(
@@ -74,6 +75,7 @@ export function Slider({
       slotProps={slotProps}
       value={formControlContext?.value as number}
       {...rootProps}
+      name={name || rootProps.name}
     />
   );
 }

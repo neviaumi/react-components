@@ -2,6 +2,7 @@ import { cy, describe, it } from '@busybox/cypress';
 import { useState } from 'react';
 
 import { Field } from '../Form/Field.tsx';
+import { Label } from '../Form/Label.tsx';
 import { Radio, RadioGroup } from './RadioGroup.tsx';
 
 describe('RadioGroup', () => {
@@ -81,6 +82,21 @@ describe('RadioGroup', () => {
     });
   });
   describe('With field context', () => {
+    it('name of fieldset should populated from label', () => {
+      cy.mount(
+        <Field name={'demo'} role={'radiogroup'}>
+          <Label>Demo Radio Group</Label>
+          <RadioGroup>
+            <Radio data-testid={'test-radio'} id={'1'} value={'1'}>
+              Item 1
+            </Radio>
+          </RadioGroup>
+        </Field>,
+      );
+      cy.findByRole('radiogroup', {
+        name: 'Demo Radio Group',
+      }).should('exist');
+    });
     it('name prop specific in Field should take precedence over RadioGroup', () => {
       function ControlledRadioGroup() {
         const [fieldValue, setFieldValue] = useState('');

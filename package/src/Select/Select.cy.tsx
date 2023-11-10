@@ -1,5 +1,6 @@
 import { cy, describe, it } from '@busybox/cypress';
 import clsx from 'clsx';
+import { useState } from 'react';
 
 import { Field } from '../Form/Field.tsx';
 import { Label } from '../Form/Label.tsx';
@@ -145,6 +146,44 @@ describe('Select with Field', () => {
         </Select>
       </Field>,
     );
-    cy.get('input').should('have.attr', 'name', 'carBand');
+    cy.findByRole('textbox', {
+      hidden: true,
+    }).should('have.attr', 'name', 'carBand');
+  });
+
+  it('should reflect label value as button aria name ', () => {
+    function SelectWithLabelAndOnChange() {
+      const [value, setValue] = useState('BMW');
+      return (
+        <Field
+          name={'carBand'}
+          onChange={e => setValue(e.target.value)}
+          value={value}
+        >
+          <Label>Car band</Label>
+          <Select data-testid={'test-select'}>
+            <SelectOption value={'Toyota'}>Toyota</SelectOption>
+            <SelectOption value={'BMW'}>BMW</SelectOption>
+            <SelectOption value={'Mini'}>Mini</SelectOption>
+          </Select>
+        </Field>
+      );
+    }
+    cy.mount(<SelectWithLabelAndOnChange />);
+    cy.findByRole('combobox', {
+      name: 'Car band',
+    }).click();
+    cy.findByRole('listbox', {
+      name: 'carBand options',
+    })
+      .should('be.visible')
+      .within(() => {
+        cy.findByRole('option', {
+          name: 'Toyota',
+        }).click();
+      });
+    cy.findByRole('combobox', {
+      name: 'Car band',
+    }).should('have.text', 'Toyota');
   });
 });

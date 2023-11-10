@@ -1,33 +1,71 @@
 import { cy, describe, it } from '@busybox/cypress';
 import { composeStories } from '@storybook/react';
 
+import { Field } from '../Form/Field.tsx';
+import { Label } from '../Form/Label.tsx';
 import * as stories from './NumberInput.stories.tsx';
+import { NumberInput } from './NumberInput.tsx';
 
-const { NumberInput } = composeStories(stories);
+const { NumberInput: NumerInputStories } = composeStories(stories);
 
-describe('NumberInput stories', () => {
-  it('extra class should able to pass into root from props', () => {
-    cy.mount(
-      <NumberInput
-        className={'tw-font-bold'}
-        data-testid={'test-number-input'}
-      />,
-    );
-    cy.findByTestId('test-number-input').should('have.class', 'tw-font-bold');
+describe('NumberInput', () => {
+  describe('With FieldContext', () => {
+    it('input should resolvable by label content', () => {
+      cy.mount(
+        <Field name={'test-number-input'}>
+          <Label>Number Input</Label>
+          <NumberInput />
+        </Field>,
+      );
+      cy.findByRole('spinbutton', {
+        name: 'Number Input',
+      }).should('have.attr', 'name', 'test-number-input');
+    });
+    it('should render input with name', () => {
+      cy.mount(
+        <Field name={'test-number-input'}>
+          <NumberInput />
+        </Field>,
+      );
+      cy.findByRole('spinbutton').should(
+        'have.attr',
+        'name',
+        'test-number-input',
+      );
+    });
   });
+  describe('Without FieldContext', () => {
+    it('should render input with name', () => {
+      cy.mount(<NumberInput name="test-number-input" />);
+      cy.findByRole('spinbutton').should(
+        'have.attr',
+        'name',
+        'test-number-input',
+      );
+    });
+    it('extra class should able to pass into root from props', () => {
+      cy.mount(
+        <NumerInputStories
+          className={'tw-font-bold'}
+          data-testid={'test-number-input'}
+        />,
+      );
+      cy.findByTestId('test-number-input').should('have.class', 'tw-font-bold');
+    });
 
-  it('no default class should be applied when disableDefaultClasses used', () => {
-    cy.mount(
-      <NumberInput
-        className={'tw-font-bold'}
-        data-testid={'test-number-input'}
-        disableDefaultClasses
-      />,
-    );
-    cy.findByTestId('test-number-input').should(
-      'have.attr',
-      'class',
-      'MuiInput-root tw-font-bold',
-    );
+    it('no default class should be applied when disableDefaultClasses used', () => {
+      cy.mount(
+        <NumerInputStories
+          className={'tw-font-bold'}
+          data-testid={'test-number-input'}
+          disableDefaultClasses
+        />,
+      );
+      cy.findByTestId('test-number-input').should(
+        'have.attr',
+        'class',
+        'MuiInput-root tw-font-bold',
+      );
+    });
   });
 });

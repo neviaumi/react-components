@@ -21,7 +21,7 @@ export function TextInput({
   slotProps: givenSlotProps,
   ...rest
 }: TextInputProps) {
-  const { id } = useFieldContext();
+  const { id, name } = useFieldContext();
   let slotProps = givenSlotProps;
 
   if (!disableDefaultClasses) {
@@ -34,5 +34,13 @@ export function TextInput({
     })(givenSlotProps);
   }
   const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
-  return <Input id={id} slotProps={slotProps} {...rootProps} type={'text'} />;
+  return (
+    <Input
+      id={id}
+      slotProps={slotProps}
+      {...rootProps}
+      name={name || rootProps.name}
+      type={'text'}
+    />
+  );
 }

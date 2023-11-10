@@ -21,7 +21,7 @@ export function NumberInput({
   slotProps: givenSlotProps,
   ...rest
 }: NumberInputProps) {
-  const { id } = useFieldContext();
+  const { id, name } = useFieldContext();
   let slotProps = givenSlotProps;
 
   if (!disableDefaultClasses) {
@@ -34,5 +34,13 @@ export function NumberInput({
     })(givenSlotProps);
   }
   const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
-  return <Input id={id} slotProps={slotProps} {...rootProps} type={'number'} />;
+  return (
+    <Input
+      id={id}
+      slotProps={slotProps}
+      {...rootProps}
+      name={name || rootProps.name}
+      type={'number'}
+    />
+  );
 }

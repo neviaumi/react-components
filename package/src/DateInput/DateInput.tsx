@@ -21,7 +21,7 @@ export function DateInput({
   slotProps: givenSlotProps,
   ...rest
 }: DateInputProps) {
-  const { id } = useFieldContext();
+  const { id, name } = useFieldContext();
   let slotProps = givenSlotProps;
 
   if (!disableDefaultClasses) {
@@ -34,5 +34,13 @@ export function DateInput({
     })(givenSlotProps);
   }
   const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
-  return <Input id={id} slotProps={slotProps} {...rootProps} type={'date'} />;
+  return (
+    <Input
+      id={id}
+      slotProps={slotProps}
+      {...rootProps}
+      name={name || rootProps.name}
+      type={'date'}
+    />
+  );
 }
