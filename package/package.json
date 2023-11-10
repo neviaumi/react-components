@@ -183,5 +183,5 @@
     "./cypress/support/*.ts"
   ],
   "type": "module",
-  "version": "2023.11.10-alpha.1803"
+  "version": "2023.11.10-alpha.2349"
 }
