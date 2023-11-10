@@ -28,6 +28,7 @@ export const Field = forwardRef(function Field(
       <FormControl
         {...formControlProps}
         ref={ref}
+        slots={{ root: 'fieldset' }}
         value={formControlDefaultValue}
       >
         {children}
