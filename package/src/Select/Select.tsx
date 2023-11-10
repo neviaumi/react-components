@@ -9,6 +9,7 @@ import {
   type SelectOwnProps,
 } from '@mui/base/Select';
 import clsx from 'clsx';
+import { always, assocPath, pipe } from 'ramda';
 import React, { useCallback, useMemo } from 'react';
 
 import type {
@@ -57,26 +58,30 @@ export function Select({
   const name = fieldName || inputName;
   const slotPropsWithDefaultStyle = useMemo<SlotProps | undefined>(
     () =>
-      disableDefaultClasses
-        ? slotProps
-        : assocDefaultStyle<SlotProps>({
-            slotWithDefaultClasses: {
-              listbox: clsx(
-                'tw-m-0 tw-mt-1 tw-flex tw-flex-col tw-border-2 tw-border-primary tw-pt-0.5',
-              ),
-              popper: clsx('tw-z-10'),
-              root: (state: SelectOwnerState<string, false>) => {
-                if (state.open)
+      pipe(
+        name ? assocPath(['listbox', 'aria-label'], `${name} options`) : always,
+      )(
+        disableDefaultClasses
+          ? slotProps
+          : assocDefaultStyle<SlotProps>({
+              slotWithDefaultClasses: {
+                listbox: clsx(
+                  'tw-m-0 tw-mt-1 tw-flex tw-flex-col tw-border-2 tw-border-primary tw-pt-0.5',
+                ),
+                popper: clsx('tw-z-10'),
+                root: (state: SelectOwnerState<string, false>) => {
+                  if (state.open)
+                    return clsx(
+                      "tw-cursor-default tw-border-0 tw-bg-disabled tw-px-2 tw-py-1 tw-text-disabled after:tw-float-right after:tw-content-['▴']",
+                    );
                   return clsx(
-                    "tw-cursor-default tw-border-0 tw-bg-disabled tw-px-2 tw-py-1 tw-text-disabled after:tw-float-right after:tw-content-['▴']",
+                    "tw-border tw-border-primary tw-bg-white tw-px-2 tw-py-1 tw-text-primary after:tw-float-right after:tw-content-['▾']",
                   );
-                return clsx(
-                  "tw-border tw-border-primary tw-bg-white tw-px-2 tw-py-1 tw-text-primary after:tw-float-right after:tw-content-['▾']",
-                );
+                },
               },
-            },
-          })(slotProps),
-    [disableDefaultClasses, slotProps],
+            })(slotProps),
+      ) as SlotProps,
+    [disableDefaultClasses, name, slotProps],
   );
   const rootProps = mergeRootSlotPropsToComponentProps()(
     slotPropsWithDefaultStyle,
@@ -93,14 +98,16 @@ export function Select({
   );
 
   return (
-    <MuiSelect
-      id={id}
-      name={name}
-      onChange={connectMuiSelectToFormContext}
-      slotProps={slotPropsWithDefaultStyle}
-      value={formControlContext?.value}
-      {...rootProps}
-    />
+    <>
+      <MuiSelect
+        id={id}
+        name={name}
+        onChange={connectMuiSelectToFormContext}
+        slotProps={slotPropsWithDefaultStyle}
+        value={formControlContext?.value}
+        {...rootProps}
+      />
+    </>
   );
 }
 interface SelectOptionSlotProps {

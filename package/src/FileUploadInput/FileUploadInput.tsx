@@ -23,6 +23,7 @@ interface SlotProps {
 type FileUploadProps = ComponentProps<
   SlotProps,
   {
+    name?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   }
 >;
@@ -34,7 +35,7 @@ export function FileUploadInput({
   slotProps: givenSlotProps,
   ...rest
 }: FileUploadProps) {
-  const { formControlContext, id } = useFieldContext({
+  const { formControlContext, id, name } = useFieldContext({
     onChange: rest.onChange || NO_OP,
   });
   const inputRef = useRef<HTMLInputElement>(null);
@@ -59,6 +60,7 @@ export function FileUploadInput({
         className={'tw-hidden'}
         data-testid={testId && `${testId}-raw-upload-input`}
         id={id}
+        name={name || rootProps.name}
         onChange={formControlContext?.onChange}
         ref={inputRef}
         type="file"
