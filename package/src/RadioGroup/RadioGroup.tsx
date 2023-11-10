@@ -10,7 +10,7 @@ import { assocDefaultStyle } from '../utils/assign-default-style.ts';
 import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
 
 export type RadioGroupProps = React.PropsWithChildren<{
-  name: string;
+  name?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   value?: string;
 }>;

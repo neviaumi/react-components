@@ -158,8 +158,9 @@ export const CarSearchForm: Story = {
                     <Field
                       {...field}
                       className={'tw-flex tw-flex-col tw-gap-0.5'}
+                      role={'radiogroup'}
                     >
-                      <label>Transmission</label>
+                      <Label>Transmission</Label>
                       <RadioGroup>
                         <Radio
                           data-testid={'form-stories-radio-input-option-1'}
