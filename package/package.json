@@ -14,7 +14,7 @@
     "@busybox/cypress": "2023.11.11-alpha.145",
     "@busybox/eslint-config": "2023.11.11-alpha.145",
     "@busybox/prettier-config": "2023.11.11-alpha.145",
-    "@busybox/tsconfig": "2023.11.11-alpha.145",
+    "@busybox/tsconfig": "2023.11.11-alpha.305",
     "@storybook/addon-console": "2.0.0",
     "@storybook/addon-essentials": "7.5.3",
     "@storybook/addon-interactions": "7.5.3",
