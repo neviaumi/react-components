@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react';
+import { forwardRef, useCallback, useImperativeHandle, useRef } from 'react';
 
 import { Button } from '../Button/Button.tsx';
 import type {
@@ -28,54 +28,61 @@ type FileUploadProps = ComponentProps<
   }
 >;
 
-export function FileUploadInput({
-  children,
-  'data-testid': testId,
-  disableDefaultClasses,
-  slotProps: givenSlotProps,
-  ...rest
-}: FileUploadProps) {
-  const { formControlContext, id, name } = useFieldContext({
-    onChange: rest.onChange || NO_OP,
-  });
-  const inputRef = useRef<HTMLInputElement>(null);
-  const onUploadButtonClick = useCallback(() => {
-    inputRef.current!.click();
-  }, [inputRef]);
+export const FileUploadInput = forwardRef<HTMLInputElement, FileUploadProps>(
+  function FileUploadInput(
+    {
+      children,
+      'data-testid': testId,
+      disableDefaultClasses,
+      slotProps: givenSlotProps,
+      ...rest
+    },
+    ref,
+  ) {
+    const { formControlContext, id, name } = useFieldContext({
+      onChange: rest.onChange || NO_OP,
+    });
+    const inputRef = useRef<HTMLInputElement>(null);
+    const onUploadButtonClick = useCallback(() => {
+      inputRef.current!.click();
+    }, [inputRef]);
 
-  let slotProps = givenSlotProps;
+    let slotProps = givenSlotProps;
 
-  if (!disableDefaultClasses) {
-    slotProps = assocDefaultStyle<SlotProps>({
-      slotWithDefaultClasses: {
-        root: 'tw-flex tw-flex-row tw-gap-0.5',
-      },
-    })(givenSlotProps);
-  }
-  const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
-
-  return (
-    <>
-      <input
-        className={'tw-hidden'}
-        data-testid={testId && `${testId}-raw-upload-input`}
-        id={id}
-        name={name || rootProps.name}
-        onChange={formControlContext?.onChange}
-        ref={inputRef}
-        type="file"
-      />
-      <Button
-        data-testid={testId}
-        disableDefaultClasses={disableDefaultClasses}
-        slotProps={{
-          root: { ...slotProps?.root, onClick: onUploadButtonClick },
-        }}
-        {...rootProps}
-      >
-        <UploadIcon />
-        {children}
-      </Button>
-    </>
-  );
-}
+    if (!disableDefaultClasses) {
+      slotProps = assocDefaultStyle<SlotProps>({
+        slotWithDefaultClasses: {
+          root: 'tw-flex tw-flex-row tw-gap-0.5',
+        },
+      })(givenSlotProps);
+    }
+    const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
+    useImperativeHandle(ref, () => inputRef.current!);
+    return (
+      <div className={'tw-grid tw-grid-rows-[1fr_0px]'}>
+        <Button
+          data-testid={testId}
+          disableDefaultClasses={disableDefaultClasses}
+          slotProps={{
+            root: { ...slotProps?.root, onClick: onUploadButtonClick },
+          }}
+          {...rootProps}
+        >
+          <UploadIcon />
+          {children}
+        </Button>
+        <input
+          className={
+            'tw-form-input tw-h-px tw-w-px tw-justify-self-center tw-border-none tw-p-0 focus:tw-border-none focus:tw-shadow-none focus:tw-ring-0'
+          }
+          data-testid={testId && `${testId}-raw-upload-input`}
+          id={id}
+          name={name || rootProps.name}
+          onChange={formControlContext?.onChange}
+          ref={inputRef}
+          type="file"
+        />
+      </div>
+    );
+  },
+);

@@ -4,8 +4,8 @@ import {
   type SliderOwnProps,
 } from '@mui/base/Slider';
 import clsx from 'clsx';
-import { always, assocPath, pipe } from 'ramda';
-import React from 'react';
+import { assocPath, identity, pipe } from 'ramda';
+import React, { forwardRef } from 'react';
 
 import type {
   ComponentProps,
@@ -31,18 +31,20 @@ interface SlotProps {
 
 export type SliderProps = ComponentProps<SlotProps, SliderOwnProps>;
 
-export function Slider({
-  disableDefaultClasses,
-  slotProps: givenSlotProps,
-  ...rest
-}: SliderProps) {
+export const Slider = forwardRef<HTMLInputElement, SliderProps>(function Slider(
+  { disableDefaultClasses, slotProps: givenSlotProps, ...rest },
+  ref,
+) {
   const { formControlContext, id, name } = useFieldContext({
     // @ts-expect-error TODO: fix this
     onChange: rest.onChange,
     value: rest.value,
   });
 
-  const slotProps = pipe(id ? assocPath(['input', 'id'], id) : always)(
+  const slotProps = pipe(
+    id ? assocPath(['input', 'id'], id) : identity,
+    ref ? assocPath(['input', 'ref'], ref) : identity,
+  )(
     disableDefaultClasses
       ? givenSlotProps
       : assocDefaultStyle<SlotProps>({
@@ -64,6 +66,8 @@ export function Slider({
   ) as SlotProps;
 
   const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
+  const sliderValue = Number(formControlContext?.value);
+
   return (
     <MuiSlider
       onBlur={formControlContext?.onBlur}
@@ -73,9 +77,9 @@ export function Slider({
         );
       }}
       slotProps={slotProps}
-      value={formControlContext?.value as number}
+      value={sliderValue}
       {...rootProps}
       name={name || rootProps.name}
     />
   );
-}
+});

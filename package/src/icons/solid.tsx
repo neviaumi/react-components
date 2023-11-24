@@ -1,9 +1,10 @@
-import _UploadIcon from '@heroicons/react/24/solid/esm/ArrowUpTrayIcon.js';
-import _MicrophoneIcon from '@heroicons/react/24/solid/esm/MicrophoneIcon.js';
-import _PauseIcon from '@heroicons/react/24/solid/esm/PauseIcon.js';
-import _PlayIcon from '@heroicons/react/24/solid/esm/PlayIcon.js';
-import _VolumeUpIcon from '@heroicons/react/24/solid/esm/SpeakerWaveIcon.js';
-import _StopIcon from '@heroicons/react/24/solid/esm/StopIcon.js';
+import _UploadIcon from '@heroicons/react/20/solid/esm/ArrowUpTrayIcon.js';
+import _ExclamationIcon from '@heroicons/react/20/solid/esm/ExclamationTriangleIcon.js';
+import _MicrophoneIcon from '@heroicons/react/20/solid/esm/MicrophoneIcon.js';
+import _PauseIcon from '@heroicons/react/20/solid/esm/PauseIcon.js';
+import _PlayIcon from '@heroicons/react/20/solid/esm/PlayIcon.js';
+import _VolumeUpIcon from '@heroicons/react/20/solid/esm/SpeakerWaveIcon.js';
+import _StopIcon from '@heroicons/react/20/solid/esm/StopIcon.js';
 import clsx from 'clsx';
 import type React from 'react';
 
@@ -25,3 +26,4 @@ export const VolumeUpIcon = withHeroIcon(_VolumeUpIcon);
 export const MicrophoneIcon = withHeroIcon(_MicrophoneIcon);
 export const StopIcon = withHeroIcon(_StopIcon);
 export const UploadIcon = withHeroIcon(_UploadIcon);
+export const ExclamationIcon = withHeroIcon(_ExclamationIcon);

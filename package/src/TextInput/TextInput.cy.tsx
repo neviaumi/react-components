@@ -1,4 +1,4 @@
-import { cy, describe, it } from '@busybox/cypress';
+import { cy, describe, expect, it } from '@busybox/cypress';
 import { composeStories } from '@storybook/react';
 
 import { Field } from '../Form/Field.tsx';
@@ -9,6 +9,17 @@ import { TextInput } from './TextInput.tsx';
 const { TextInput: TextInputStories } = composeStories(stories);
 
 describe('TextInput', () => {
+  describe('ref Prop', () => {
+    it('ref should linked to input element', () => {
+      const ref = cy.stub().as('ref');
+      cy.mount(<TextInput ref={ref} />);
+      cy.get('@ref').should('be.calledOnce');
+      cy.get<typeof ref>('@ref').then(spy => {
+        const [ele] = spy.firstCall.args;
+        expect(ele).to.be.instanceOf(HTMLInputElement);
+      });
+    });
+  });
   describe('TextInput with Field Context should working good', () => {
     it('create input with field context', () => {
       cy.mount(

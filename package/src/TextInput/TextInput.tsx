@@ -1,5 +1,7 @@
 import { Input, type InputOwnerState, type InputProps } from '@mui/base/Input';
 import clsx from 'clsx';
+import { assocPath, pipe } from 'ramda';
+import { forwardRef } from 'react';
 
 import type {
   ComponentProps,
@@ -16,31 +18,33 @@ interface SlotProps {
 
 export type TextInputProps = ComponentProps<SlotProps, InputProps>;
 
-export function TextInput({
-  disableDefaultClasses,
-  slotProps: givenSlotProps,
-  ...rest
-}: TextInputProps) {
-  const { id, name } = useFieldContext();
-  let slotProps = givenSlotProps;
+export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+  function TextInput(
+    { disableDefaultClasses, slotProps: givenSlotProps, ...rest },
+    ref,
+  ) {
+    const { id, name } = useFieldContext();
+    const slotProps = pipe(assocPath(['input', 'ref'], ref))(
+      disableDefaultClasses
+        ? givenSlotProps
+        : assocDefaultStyle<SlotProps>({
+            slotWithDefaultClasses: {
+              input: clsx(
+                'tw-form-input tw-w-full tw-border-primary invalid:tw-border-error focus:tw-border-none focus:tw-shadow-none focus:tw-ring-0',
+              ),
+            },
+          })(givenSlotProps),
+    ) as SlotProps;
 
-  if (!disableDefaultClasses) {
-    slotProps = assocDefaultStyle<SlotProps>({
-      slotWithDefaultClasses: {
-        input: clsx(
-          'tw-form-input tw-w-full tw-border-primary focus:tw-border-none focus:tw-shadow-none focus:tw-ring-0',
-        ),
-      },
-    })(givenSlotProps);
-  }
-  const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
-  return (
-    <Input
-      id={id}
-      slotProps={slotProps}
-      {...rootProps}
-      name={name || rootProps.name}
-      type={'text'}
-    />
-  );
-}
+    const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
+    return (
+      <Input
+        id={id}
+        slotProps={slotProps}
+        {...rootProps}
+        name={name || rootProps.name}
+        type={'text'}
+      />
+    );
+  },
+);

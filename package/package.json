@@ -1,7 +1,7 @@
 {
   "author": "",
   "dependencies": {
-    "@busybox/tailwindcss-config": "2023.7.15-alpha.1910",
+    "@busybox/tailwindcss-config": "2023.11.11-alpha.145",
     "@heroicons/react": "2.0.18",
     "@mui/base": "5.0.0-beta.23",
     "clsx": "2.0.0",
@@ -11,10 +11,10 @@
   },
   "description": "",
   "devDependencies": {
-    "@busybox/cypress": "2023.7.14",
-    "@busybox/eslint-config": "2023.7.14-alpha.2405",
-    "@busybox/prettier-config": "2023.7.14",
-    "@busybox/tsconfig": "2023.7.15-alpha.1910",
+    "@busybox/cypress": "2023.11.11-alpha.145",
+    "@busybox/eslint-config": "2023.11.11-alpha.145",
+    "@busybox/prettier-config": "2023.11.11-alpha.145",
+    "@busybox/tsconfig": "2023.11.11-alpha.145",
     "@storybook/addon-console": "2.0.0",
     "@storybook/addon-essentials": "7.5.3",
     "@storybook/addon-interactions": "7.5.3",
@@ -75,6 +75,16 @@
       "import": "./dist/Field.js",
       "require": "./dist/Field.cjs",
       "types": "./dist/types/Form/Field.d.ts"
+    },
+    "./FieldError": {
+      "import": "./dist/FieldError.js",
+      "require": "./dist/FieldError.cjs",
+      "types": "./dist/types/Form/FieldError.d.ts"
+    },
+    "./FieldErrorMessage": {
+      "import": "./dist/FieldErrorMessage.js",
+      "require": "./dist/FieldErrorMessage.cjs",
+      "types": "./dist/types/Form/FieldErrorMessage.d.ts"
     },
     "./FileUploadInput": {
       "import": "./dist/FileUploadInput.js",
@@ -152,7 +162,12 @@
       "types": "./dist/types/TextInput/TextInput.d.ts"
     },
     "./style.css": "./dist/index.css",
-    "./tailwind-config": "./tailwind.config.mjs"
+    "./tailwind-config": "./tailwind.config.mjs",
+    "./with-check-new-value-is-not-equal": {
+      "import": "./dist/with-check-new-value-is-not-equal.js",
+      "require": "./dist/with-check-new-value-is-not-equal.cjs",
+      "types": "./dist/types/utils/with-check-new-value-is-not-equal.d.ts"
+    }
   },
   "files": [
     "dist",

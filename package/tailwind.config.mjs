@@ -1,45 +1,13 @@
-import tailwindConfig from '@busybox/tailwindcss-config';
-import { assocPath, path, pipe } from 'ramda';
-import colors from 'tailwindcss/colors';
-
-function extractColor(colorPath) {
-  return assocPath(colorPath, path(colorPath, colors));
-}
+import tailwindConfig, { withColors } from '@busybox/tailwindcss-config';
 
 /** @type {import('tailwindcss').Config} */
-const config = {
+const config = withColors({
   content: [
     './cypress/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
     './.storybook/**/*.{js,cjs}',
   ],
   presets: [tailwindConfig.default],
-  theme: {
-    extend: {
-      backgroundColor: ({ theme }) => {
-        return pipe(
-          assocPath(['disabled'], {
-            DEFAULT: theme('colors.gray.200'),
-            hover: theme('colors.gray.50'),
-          }),
-        )(theme('colors'));
-      },
-      colors: pipe(
-        extractColor(['gray', '50']),
-        extractColor(['gray', '200']),
-        extractColor(['gray', '600']),
-        extractColor(['gray', '800']),
-      )({}),
-      textColor: ({ theme }) => {
-        return pipe(
-          assocPath(['disabled'], {
-            DEFAULT: theme('colors.gray.800'),
-            hover: theme('colors.gray.600'),
-          }),
-        )(theme('colors'));
-      },
-    },
-  },
-};
+});
 
 export default config;

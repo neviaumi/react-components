@@ -1,19 +1,31 @@
-import { cy, describe, it } from '@busybox/cypress';
+import { cy, describe, expect, it } from '@busybox/cypress';
 import { composeStories } from '@storybook/react';
 
 import { Field } from '../Form/Field.tsx';
 import { Label } from '../Form/Label.tsx';
 import * as stories from './DateInput.stories.tsx';
+import { DateInput } from './DateInput.tsx';
 
 const { DateInput: DateInputStories } = composeStories(stories);
 
 describe('DateInput', () => {
+  describe('ref Prop', () => {
+    it('ref should linked to input element', () => {
+      const ref = cy.stub().as('ref');
+      cy.mount(<DateInput data-testid={'test-file-upload'} ref={ref} />);
+      cy.get('@ref').should('be.calledOnce');
+      cy.get<typeof ref>('@ref').then(spy => {
+        const [ele] = spy.firstCall.args;
+        expect(ele).to.be.instanceOf(HTMLInputElement);
+      });
+    });
+  });
   describe('With field context', () => {
     it('should able to locate by label content ', () => {
       cy.mount(
         <Field name={'demo-date'}>
           <Label>Test Date</Label>
-          <DateInputStories data-testid={'test-date-input'} />
+          <DateInput data-testid={'test-date-input'} />
         </Field>,
       );
       cy.findByLabelText('Test Date').should('have.attr', 'name', 'demo-date');
@@ -21,7 +33,7 @@ describe('DateInput', () => {
     it('should able to render with name that reflected from field context', () => {
       cy.mount(
         <Field name={'demo-date'}>
-          <DateInputStories data-testid={'test-date-input'} />
+          <DateInput data-testid={'test-date-input'} />
         </Field>,
       );
       cy.findByTestId('test-date-input').within(() =>

@@ -9,8 +9,8 @@ import {
   type SelectOwnProps,
 } from '@mui/base/Select';
 import clsx from 'clsx';
-import { always, assocPath, pipe } from 'ramda';
-import React, { useCallback, useMemo } from 'react';
+import { assocPath, identity, pipe } from 'ramda';
+import React, { forwardRef, useCallback, useEffect, useMemo } from 'react';
 
 import type {
   ComponentProps,
@@ -40,12 +40,10 @@ export type SelectProps = ComponentProps<
   SelectOwnProps<string, false>
 >;
 
-export function Select({
-  disableDefaultClasses,
-  name: inputName,
-  slotProps,
-  ...rest
-}: SelectProps) {
+export const Select = forwardRef<HTMLInputElement, SelectProps>(function Select(
+  { disableDefaultClasses, name: inputName, slotProps, ...rest },
+  ref,
+) {
   const {
     formControlContext,
     id,
@@ -59,7 +57,9 @@ export function Select({
   const slotPropsWithDefaultStyle = useMemo<SlotProps | undefined>(
     () =>
       pipe(
-        name ? assocPath(['listbox', 'aria-label'], `${name} options`) : always,
+        name
+          ? assocPath(['listbox', 'aria-label'], `${name} options`)
+          : identity,
       )(
         disableDefaultClasses
           ? slotProps
@@ -97,6 +97,14 @@ export function Select({
     [formControlContext],
   );
 
+  useEffect(() => {
+    const inputElement = document.querySelector<HTMLInputElement>(
+      `input[name="${name}"]`,
+    );
+    if (!inputElement || !ref) return;
+    if (typeof ref === 'function') ref(inputElement);
+  }, [name, ref]);
+
   return (
     <>
       <MuiSelect
@@ -109,7 +117,7 @@ export function Select({
       />
     </>
   );
-}
+});
 interface SelectOptionSlotProps {
   root?: SlotComponentPropsWithoutOverride<'li', OptionOwnerState<string>>;
 }
