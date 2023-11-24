@@ -3,7 +3,7 @@
   "dependencies": {},
   "description": "",
   "devDependencies": {
-    "@busybox/commitlint-config": "2023.11.11-alpha.145",
+    "@busybox/commitlint-config": "2023.11.11-alpha.305",
     "@busybox/eslint-config": "2023.11.11-alpha.145",
     "@busybox/prettier-config": "2023.11.11-alpha.145",
     "@busybox/tsconfig": "2023.11.11-alpha.305",
