@@ -12,7 +12,7 @@
   "description": "",
   "devDependencies": {
     "@busybox/cypress": "2023.11.11-alpha.145",
-    "@busybox/eslint-config": "2023.11.11-alpha.145",
+    "@busybox/eslint-config": "2023.11.11-alpha.305",
     "@busybox/prettier-config": "2023.11.11-alpha.145",
     "@busybox/tsconfig": "2023.11.11-alpha.305",
     "@storybook/addon-console": "2.0.0",
