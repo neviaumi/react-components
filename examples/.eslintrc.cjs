@@ -12,6 +12,12 @@ module.exports = {
         'import/no-unresolved': 'off',
       },
     },
+    {
+      files: ['./stories/*.stories.tsx'],
+      rules: {
+        'max-lines': 'off',
+      },
+    },
   ],
   root: true,
   rules: {

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { createContext, useContext } from 'react';
+import React, { createContext, forwardRef, useContext } from 'react';
 
 import type {
   ComponentProps,
@@ -23,7 +23,7 @@ const RadioGroupContext = createContext<{
   value?: string;
 }>({});
 
-export function RadioGroup({
+export const RadioGroup = function RadioGroup({
   children,
   name,
   onChange,
@@ -48,11 +48,12 @@ export function RadioGroup({
       {children}
     </RadioGroupContext.Provider>
   );
-}
+};
 
 interface RadioSlotProps {
+  input?: SlotComponentPropsWithoutOverride<'input'>;
   label?: SlotComponentPropsWithoutOverride<'label'>;
-  root?: SlotComponentPropsWithoutOverride<'input'>;
+  root?: SlotComponentPropsWithoutOverride<'div'>;
 }
 
 export type RadioProps = ComponentProps<
@@ -62,15 +63,18 @@ export type RadioProps = ComponentProps<
     value: string;
   }
 >;
-export function Radio({
-  children,
-  'data-testid': testId,
-  disableDefaultClasses,
-  id,
-  slotProps: givenSlotProps,
-  value,
-  ...rest
-}: RadioProps) {
+export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
+  {
+    children,
+    'data-testid': testId,
+    disableDefaultClasses,
+    id,
+    slotProps: givenSlotProps,
+    value,
+    ...rest
+  }: RadioProps,
+  ref,
+) {
   const testIdPrefix = testId ?? 'busybox-radio';
   const radioGroupContext = useContext(RadioGroupContext);
   if (!radioGroupContext) {
@@ -88,22 +92,23 @@ export function Radio({
   if (!disableDefaultClasses) {
     slotProps = assocDefaultStyle<RadioSlotProps>({
       slotWithDefaultClasses: {
+        input: clsx(
+          'tw-form-radio tw-h-px tw-w-px tw-border-0 focus:tw-shadow-none focus:tw-ring-0',
+        ),
         label: isChecked
           ? clsx(
-              'tw-flex tw-cursor-pointer tw-bg-primary tw-font-bold hover:tw-bg-primary-hover',
+              'tw-cursor-pointer tw-bg-primary tw-font-bold hover:tw-bg-primary-hover',
             )
-          : clsx('tw-flex tw-cursor-pointer hover:tw-bg-primary-hover'),
-        root: clsx(
-          'tw-form-radio tw-h-0 tw-w-0 tw-border-0 focus:tw-shadow-none focus:tw-ring-0',
-        ),
+          : clsx('tw-cursor-pointer hover:tw-bg-primary-hover'),
+        root: clsx('tw-grid tw-grid-cols-[0px_1fr]'),
       },
     })(givenSlotProps);
   }
   const rootProps = mergeRootSlotPropsToComponentProps()(slotProps, rest);
   return (
-    <label htmlFor={id} {...slotProps?.label} data-testid={testIdPrefix}>
+    <div {...rootProps}>
       <input
-        {...rootProps}
+        {...slotProps?.input}
         checked={currentValue === value}
         data-testid={`${testIdPrefix}-input`}
         id={id}
@@ -111,10 +116,14 @@ export function Radio({
         onBlur={onBlur}
         onChange={onChange}
         onFocus={onFocus}
+        ref={ref}
         type="radio"
         value={value}
       />
-      {children}
-    </label>
+      <label htmlFor={id} {...slotProps?.label} data-testid={testIdPrefix}>
+        {' '}
+        {children}
+      </label>
+    </div>
   );
-}
+});

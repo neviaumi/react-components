@@ -74,7 +74,7 @@ export function Main({
   return (
     <UnStyledMain
       className={clsx(
-        `tw-bg-sky-500/20`,
+        `tw-bg-sky-300`,
         `tw-text-white`,
         `tw-flex`,
         `tw-items-center`,
@@ -94,7 +94,7 @@ export function Side({
   return (
     <UnStyledSide
       className={clsx(
-        `tw-bg-sky-600/20`,
+        `tw-bg-sky-800`,
         `tw-text-white`,
         `tw-flex`,
         `tw-items-center`,

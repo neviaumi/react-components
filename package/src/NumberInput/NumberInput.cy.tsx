@@ -1,4 +1,4 @@
-import { cy, describe, it } from '@busybox/cypress';
+import { cy, describe, expect, it } from '@busybox/cypress';
 import { composeStories } from '@storybook/react';
 
 import { Field } from '../Form/Field.tsx';
@@ -9,6 +9,17 @@ import { NumberInput } from './NumberInput.tsx';
 const { NumberInput: NumerInputStories } = composeStories(stories);
 
 describe('NumberInput', () => {
+  describe('ref Prop', () => {
+    it('ref should linked to input element', () => {
+      const ref = cy.stub().as('ref');
+      cy.mount(<NumberInput ref={ref} />);
+      cy.get('@ref').should('be.calledOnce');
+      cy.get<typeof ref>('@ref').then(spy => {
+        const [ele] = spy.firstCall.args;
+        expect(ele).to.be.instanceOf(HTMLInputElement);
+      });
+    });
+  });
   describe('With FieldContext', () => {
     it('input should resolvable by label content', () => {
       cy.mount(

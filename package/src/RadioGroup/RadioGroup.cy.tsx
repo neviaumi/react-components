@@ -1,4 +1,4 @@
-import { cy, describe, it } from '@busybox/cypress';
+import { cy, describe, expect, it } from '@busybox/cypress';
 import { useState } from 'react';
 
 import { Field } from '../Form/Field.tsx';
@@ -6,6 +6,29 @@ import { Label } from '../Form/Label.tsx';
 import { Radio, RadioGroup } from './RadioGroup.tsx';
 
 describe('RadioGroup', () => {
+  describe('ref Prop', () => {
+    it('ref should linked to input element', () => {
+      const ref = cy.stub().as('ref');
+      cy.mount(
+        <RadioGroup name={'demo'} onChange={() => {}}>
+          <Radio data-testid={'test-radio-1'} id={'1'} ref={ref} value={'1'}>
+            Item 1
+          </Radio>
+          <Radio id={'2'} value={'2'}>
+            Item 2
+          </Radio>
+          <Radio id={'3'} value={'3'}>
+            Item 3
+          </Radio>
+        </RadioGroup>,
+      );
+      cy.get('@ref').should('be.calledOnce');
+      cy.get<typeof ref>('@ref').then(spy => {
+        const [ele] = spy.firstCall.args;
+        expect(ele).to.be.instanceOf(HTMLInputElement);
+      });
+    });
+  });
   describe('Without field context', () => {
     it('select value should able to work without field context', () => {
       function ControlledRadioGroup() {
@@ -52,7 +75,9 @@ describe('RadioGroup', () => {
           </Radio>
         </RadioGroup>,
       );
-      cy.findByTestId('test-radio-input').should('have.class', 'tw-font-bold');
+      cy.findByTestId('test-radio-input')
+        .parent()
+        .should('have.class', 'tw-font-bold');
     });
 
     it('no default class should be applied when disableDefaultClasses used', () => {
@@ -74,11 +99,9 @@ describe('RadioGroup', () => {
           </Radio>
         </RadioGroup>,
       );
-      cy.findByTestId('test-radio-input').should(
-        'have.attr',
-        'class',
-        'tw-font-bold',
-      );
+      cy.findByTestId('test-radio-input')
+        .parent()
+        .should('have.attr', 'class', 'tw-font-bold');
     });
   });
   describe('With field context', () => {

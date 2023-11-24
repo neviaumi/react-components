@@ -1,10 +1,28 @@
-import { cy, describe, it } from '@busybox/cypress';
+import { cy, describe, expect, it } from '@busybox/cypress';
 import clsx from 'clsx';
 import { useState } from 'react';
 
 import { Field } from '../Form/Field.tsx';
 import { Label } from '../Form/Label.tsx';
 import { Select, SelectOption } from './Select.tsx';
+
+describe('ref Prop', () => {
+  it('ref should linked to input element', () => {
+    const ref = cy.stub().as('ref');
+    cy.mount(
+      <Select data-testid={'test-select'} name={'demo'} ref={ref}>
+        <SelectOption value={'Toyota'}>Toyota</SelectOption>
+        <SelectOption value={'BMW'}>BMW</SelectOption>
+        <SelectOption value={'Mini'}>Mini</SelectOption>
+      </Select>,
+    );
+    cy.get('@ref').should('be.calledOnce');
+    cy.get<typeof ref>('@ref').then(spy => {
+      const [ele] = spy.firstCall.args;
+      expect(ele).to.be.instanceOf(HTMLInputElement);
+    });
+  });
+});
 
 describe('Select', () => {
   it('should render hidden input with name', () => {
