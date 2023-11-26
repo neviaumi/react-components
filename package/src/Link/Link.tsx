@@ -27,9 +27,9 @@ export function Link({
       slotWithDefaultClasses: {
         root: clsx(
           'tw-bg-primary',
-          'tw-text-primary',
-          'hover:tw-bg-primary-hover',
-          'hover:tw-text-primary-hover',
+          'tw-text-primary-contrast',
+          'hover:tw-bg-primary-user-action',
+          'hover:tw-text-primary-user-action',
           'tw-block',
         ),
       },

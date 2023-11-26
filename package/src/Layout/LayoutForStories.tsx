@@ -53,7 +53,7 @@ export function Header({
   return (
     <UnStyledHeader
       className={clsx(
-        `tw-bg-rose-600`,
+        `tw-bg-rose-800`,
         `tw-text-white`,
         `tw-flex`,
         `tw-h-1/3`,
@@ -94,7 +94,7 @@ export function Side({
   return (
     <UnStyledSide
       className={clsx(
-        `tw-bg-sky-800`,
+        `tw-bg-sky-500`,
         `tw-text-white`,
         `tw-flex`,
         `tw-items-center`,
