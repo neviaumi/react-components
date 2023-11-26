@@ -137,9 +137,9 @@ describe('Assign default style', () => {
                 'tw-bg-primary',
                 'tw-text-primary',
                 'tw-border-primary',
-                'hover:tw-border-primary-hover',
-                'hover:tw-bg-primary-hover',
-                'hover:tw-text-primary-hover',
+                'hover:tw-border-primary-user-action',
+                'hover:tw-bg-primary-user-action',
+                'hover:tw-text-primary-user-action',
               );
             },
             root: 'tw-bg-white',
@@ -201,7 +201,7 @@ describe('Assign default style', () => {
       cy.findByTestId('button').should(
         'have.attr',
         'class',
-        'MuiButton-root tw-border-2 tw-p-0.5 tw-rounded-md tw-bg-primary tw-text-primary tw-border-primary hover:tw-border-primary-hover hover:tw-bg-primary-hover hover:tw-text-primary-hover tw-text-2xl',
+        'MuiButton-root tw-border-2 tw-p-0.5 tw-rounded-md tw-bg-primary tw-text-primary tw-border-primary hover:tw-border-primary-user-action hover:tw-bg-primary-user-action hover:tw-text-primary-user-action tw-text-2xl',
       );
       cy.findByTestId('button-disabled').should(
         'have.attr',
@@ -236,7 +236,7 @@ describe('Assign default style', () => {
       cy.findByTestId('button').should(
         'have.attr',
         'class',
-        'MuiButton-root tw-border-2 tw-p-0.5 tw-rounded-md tw-bg-primary tw-text-primary tw-border-primary hover:tw-border-primary-hover hover:tw-bg-primary-hover hover:tw-text-primary-hover',
+        'MuiButton-root tw-border-2 tw-p-0.5 tw-rounded-md tw-bg-primary tw-text-primary tw-border-primary hover:tw-border-primary-user-action hover:tw-bg-primary-user-action hover:tw-text-primary-user-action',
       );
 
       cy.findByTestId('button-disabled').should(

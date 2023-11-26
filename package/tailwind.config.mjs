@@ -1,13 +1,16 @@
-import tailwindConfig, { withColors } from '@busybox/tailwindcss-config';
+import tailwindConfig, {
+  withColors,
+  withSpacing,
+} from '@busybox/tailwindcss-config';
 
 /** @type {import('tailwindcss').Config} */
-const config = withColors({
+const config = {
   content: [
     './cypress/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
     './.storybook/**/*.{js,cjs}',
   ],
-  presets: [tailwindConfig.default],
-});
+  presets: [withSpacing(withColors(tailwindConfig.default))],
+};
 
 export default config;

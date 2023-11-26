@@ -41,7 +41,7 @@ export function Tab({
                 'tw-cursor-default tw-border-primary tw-bg-primary tw-px-2 tw-py-1',
               )
             : clsx(
-                'tw-border-primary tw-px-2 tw-py-1 hover:tw-cursor-pointer hover:tw-bg-primary-hover',
+                'tw-border-primary tw-px-2 tw-py-1 hover:tw-cursor-pointer hover:tw-bg-primary-user-action',
               ),
       },
     })(givenSlotProps);

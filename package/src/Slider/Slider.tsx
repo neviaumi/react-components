@@ -50,16 +50,16 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(function Slider(
       : assocDefaultStyle<SlotProps>({
           slotWithDefaultClasses: {
             rail: clsx(
-              'tw-block tw-h-1 tw-w-full tw-rounded-sm tw-bg-secondary hover:tw-bg-secondary-hover',
+              'tw-block tw-h-1 tw-w-full tw-rounded-sm tw-bg-secondary hover:tw-bg-secondary-user-action',
             ),
             root: clsx(
               'tw-relative tw-flex tw-h-full tw-w-full tw-cursor-pointer tw-items-center',
             ),
             thumb: clsx(
-              'tw-absolute tw--ml-1.5 tw--mt-[0.15rem] tw-h-2 tw-w-2 tw-rounded-[50%] tw-border-2 tw-border-primary tw-bg-primary hover:tw-border-primary-hover hover:tw-bg-primary-hover',
+              'tw-absolute tw--ml-1.5 tw--mt-[0.15rem] tw-h-2 tw-w-2 tw-rounded-[50%] tw-border-2 tw-border-primary tw-bg-primary hover:tw-border-primary-user-action hover:tw-bg-primary-user-action',
             ),
             track: clsx(
-              'tw-absolute tw-block tw-h-1 tw-w-full tw-rounded-sm tw-bg-secondary hover:tw-bg-secondary-hover',
+              'tw-absolute tw-block tw-h-1 tw-w-full tw-rounded-sm tw-bg-secondary hover:tw-bg-secondary-user-action',
             ),
           },
         })(givenSlotProps),

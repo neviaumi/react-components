@@ -97,9 +97,9 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
         ),
         label: isChecked
           ? clsx(
-              'tw-cursor-pointer tw-bg-primary tw-font-bold hover:tw-bg-primary-hover',
+              'tw-cursor-pointer tw-bg-primary tw-font-bold hover:tw-bg-primary-user-action',
             )
-          : clsx('tw-cursor-pointer hover:tw-bg-primary-hover'),
+          : clsx('tw-cursor-pointer hover:tw-bg-primary-user-action'),
         root: clsx('tw-grid tw-grid-cols-[0px_1fr]'),
       },
     })(givenSlotProps);
