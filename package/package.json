@@ -198,5 +198,5 @@
     "./cypress/support/*.ts"
   ],
   "type": "module",
-  "version": "2023.11.24-alpha.2231"
+  "version": "2023.11.26-alpha.144"
 }
