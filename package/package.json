@@ -11,7 +11,7 @@
   },
   "description": "",
   "devDependencies": {
-    "@busybox/cypress": "2023.11.11-alpha.145",
+    "@busybox/cypress": "2023.11.11-alpha.305",
     "@busybox/eslint-config": "2023.11.11-alpha.305",
     "@busybox/prettier-config": "2023.11.11-alpha.305",
     "@busybox/tsconfig": "2023.11.11-alpha.305",
