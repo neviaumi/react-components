@@ -24,7 +24,7 @@
     "@storybook/jest": "0.2.3",
     "@storybook/react": "7.5.3",
     "@storybook/react-vite": "7.5.3",
-    "@storybook/test-runner": "0.15.2",
+    "@storybook/test-runner": "0.16.0",
     "@storybook/testing-library": "0.2.2",
     "@types/ramda": "0.29.9",
     "@vitejs/plugin-react": "4.2.0",
