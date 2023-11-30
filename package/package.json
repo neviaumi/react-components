@@ -16,7 +16,7 @@
     "@busybox/prettier-config": "2023.11.11-alpha.305",
     "@busybox/tsconfig": "2023.11.11-alpha.305",
     "@storybook/addon-console": "2.0.0",
-    "@storybook/addon-essentials": "7.5.3",
+    "@storybook/addon-essentials": "7.6.2",
     "@storybook/addon-interactions": "7.6.2",
     "@storybook/addon-links": "7.6.1",
     "@storybook/addon-storysource": "7.6.1",
