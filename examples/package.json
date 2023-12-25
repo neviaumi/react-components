@@ -24,7 +24,7 @@
     "chromatic": "9.1.0",
     "eslint": "8.54.0",
     "jest-playwright-preset": "4.0.0",
-    "lint-staged": "15.1.0",
+    "lint-staged": "15.2.0",
     "ramda": "0.29.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
