@@ -1,7 +1,15 @@
 updates:
   - directory: /
-    ignore:
-      - dependency-name: roughjs
+    groups:
+      storybook:
+        patterns:
+          - '@storybook/addon-essentials'
+          - '@storybook/addon-interactions'
+          - '@storybook/addon-links'
+          - '@storybook/addon-storysource'
+          - '@storybook/react'
+          - '@storybook/react-vite'
+          - storybook
     package-ecosystem: npm
     schedule:
       interval: daily

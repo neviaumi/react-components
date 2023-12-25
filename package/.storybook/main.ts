@@ -1,4 +1,4 @@
-import '@storybook/addon-console';
+// import '@storybook/addon-console';
 
 import type { StorybookConfig } from '@storybook/react-vite';
 
