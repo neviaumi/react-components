@@ -2,7 +2,7 @@
   "author": "",
   "dependencies": {
     "@busybox/tailwindcss-config": "2023.11.25-alpha.232",
-    "@heroicons/react": "2.0.18",
+    "@heroicons/react": "2.1.1",
     "@mui/base": "5.0.0-beta.29",
     "clsx": "2.0.0",
     "parse-ms": "3.0.0",
