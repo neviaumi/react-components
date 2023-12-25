@@ -17,6 +17,8 @@
     "@storybook/test-runner": "0.15.2",
     "@storybook/testing-library": "0.2.2",
     "@types/ramda": "0.29.9",
+    "@types/react": "18.2.45",
+    "@types/react-dom": "18.2.18",
     "@vitejs/plugin-react": "4.2.0",
     "autoprefixer": "10.4.16",
     "chromatic": "9.1.0",
@@ -47,6 +49,8 @@
   "private": true,
   "repository": "git@github.com:davidNHK/react-components.git",
   "scripts": {
+    "dev": "vite",
+    "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "test:storybook": "test-storybook"
   },

@@ -12,7 +12,7 @@ import { Radio, RadioGroup } from '@busybox/react-components/RadioGroup';
 import { Select, SelectOption } from '@busybox/react-components/Select';
 import { Slider } from '@busybox/react-components/Slider';
 import { TextInput } from '@busybox/react-components/TextInput';
-import { withCheckNewValueIsNotEqual } from '@busybox/react-components/with-check-new-value-is-not-equal';
+import { withCheckNewValueIsNotEqual } from '@busybox/react-components/utils/with-check-new-value-is-not-equal';
 import { expect } from '@storybook/jest';
 import type { Meta, StoryObj } from '@storybook/react';
 import {

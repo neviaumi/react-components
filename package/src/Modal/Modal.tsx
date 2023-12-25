@@ -78,13 +78,17 @@ export function Modal({
 
   return (
     <MuiModal
-      aria-labelledby={'busybox-modal-title'}
       open={open}
       slotProps={slotPropsWithDefaultStyle}
       slots={slotsWithValues}
       {...rest}
     >
-      <article {...slotPropsWithDefaultStyle?.content}>{children}</article>
+      <article
+        aria-labelledby={'busybox-modal-title'}
+        {...slotPropsWithDefaultStyle?.content}
+      >
+        {children}
+      </article>
     </MuiModal>
   );
 }

@@ -11,6 +11,20 @@ const config = {
     './.storybook/**/*.{js,cjs}',
   ],
   presets: [withSpacing(withColors(tailwindConfig.default))],
+  theme: {
+    extend: {
+      keyframes: {
+        hide: {
+          from: { transform: 'scale(1)' },
+          to: { transform: 'scale(0)' },
+        },
+        show: {
+          from: { transform: 'scale(0)' },
+          to: { transform: 'scale(1)' },
+        },
+      },
+    },
+  },
 };
 
 export default config;
