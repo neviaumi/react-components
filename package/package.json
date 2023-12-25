@@ -151,6 +151,16 @@
       "require": "./dist/Slider.cjs",
       "types": "./dist/types/Slider/Slider.d.ts"
     },
+    "./Snackbar": {
+      "import": "./dist/Snackbar.js",
+      "require": "./dist/Snackbar.cjs",
+      "types": "./dist/types/Snackbar/Snackbar.d.ts"
+    },
+    "./SnackbarProvider": {
+      "import": "./dist/SnackbarProvider.js",
+      "require": "./dist/SnackbarProvider.cjs",
+      "types": "./dist/types/Snackbar/SnackbarProvider.d.ts"
+    },
     "./Tab": {
       "import": "./dist/Tab.js",
       "require": "./dist/Tab.cjs",
@@ -163,7 +173,12 @@
     },
     "./style.css": "./dist/index.css",
     "./tailwind-config": "./tailwind.config.mjs",
-    "./with-check-new-value-is-not-equal": {
+    "./useSnackbar": {
+      "import": "./dist/useSnackbar.js",
+      "require": "./dist/useSnackbar.cjs",
+      "types": "./dist/types/Snackbar/useSnackbar.d.ts"
+    },
+    "./utils/with-check-new-value-is-not-equal": {
       "import": "./dist/with-check-new-value-is-not-equal.js",
       "require": "./dist/with-check-new-value-is-not-equal.cjs",
       "types": "./dist/types/utils/with-check-new-value-is-not-equal.d.ts"
