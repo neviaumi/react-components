@@ -55,5 +55,5 @@
     "test:storybook": "test-storybook"
   },
   "type": "module",
-  "version": "2023.11.26-alpha.144"
+  "version": "2023.12.25-alpha.2140"
 }
