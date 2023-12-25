@@ -8,7 +8,7 @@
     "@busybox/prettier-config": "2023.11.11-alpha.305",
     "@busybox/tsconfig": "2023.11.11-alpha.305",
     "@commitlint/cli": "17.8.1",
-    "eslint": "8.54.0",
+    "eslint": "8.56.0",
     "husky": "8.0.3",
     "is-ci": "3.0.1",
     "lerna": "8.0.1",
