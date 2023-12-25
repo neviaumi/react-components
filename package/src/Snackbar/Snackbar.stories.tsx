@@ -20,7 +20,13 @@ export const Snackbar: Story = {
     const [open, setOpen] = useState(false);
     return (
       <>
-        <Button onClick={() => setOpen(true)}>Open Snackbar</Button>
+        <Button
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
+          Open Snackbar
+        </Button>
         <SnackbarComponent
           autoHideDuration={1000}
           className={`tw-h-5 tw-w-20 tw-border-error tw-bg-error tw-text-error-contrast ${
