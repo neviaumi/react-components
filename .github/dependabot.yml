@@ -1,6 +1,13 @@
 updates:
   - directory: /
     groups:
+      bysybox:
+        patterns:
+          - '@busybox/commitlint-config'
+          - '@busybox/eslint-config'
+          - '@busybox/prettier-config'
+          - '@busybox/tsconfig'
+          - '@busybox/cypress'
       storybook:
         patterns:
           - '@storybook/addon-essentials'
