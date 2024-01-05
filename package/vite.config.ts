@@ -38,6 +38,7 @@ export default defineConfig({
         resolve(rootDir, 'src/Snackbar/Snackbar.tsx'),
         resolve(rootDir, 'src/Snackbar/SnackbarProvider.tsx'),
         resolve(rootDir, 'src/Snackbar/useSnackbar.ts'),
+        resolve(rootDir, 'src/Skeleton/Skeleton.tsx'),
       ],
       name: '@busybox/react-components',
     },

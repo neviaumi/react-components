@@ -13,6 +13,8 @@ import { Select, SelectOption } from '@busybox/react-components/Select';
 import { Slider } from '@busybox/react-components/Slider';
 import { TextInput } from '@busybox/react-components/TextInput';
 import { withCheckNewValueIsNotEqual } from '@busybox/react-components/utils/with-check-new-value-is-not-equal';
+import { Skeleton } from '@busybox/react-components/Skeleton';
+
 import { expect } from '@storybook/jest';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
@@ -21,8 +23,19 @@ import {
   waitFor,
   within,
 } from '@storybook/testing-library';
-import { type ChangeEvent, useState } from 'react';
-import { Controller, useForm } from 'react-hook-form';
+import {
+  type ChangeEvent,
+  type PropsWithChildren,
+  type PropsWithoutRef,
+  type ReactElement,
+  useState,
+} from 'react';
+import {
+  Controller,
+  useForm,
+  useFormContext,
+  FormProvider,
+} from 'react-hook-form';
 
 const meta: Meta = {
   title: 'Demo/React hook form',
@@ -31,6 +44,19 @@ const meta: Meta = {
 export default meta;
 
 type Story = StoryObj;
+
+function FieldInput({
+  children,
+  skeleton,
+}: PropsWithChildren<{
+  skeleton: ReactElement;
+}>) {
+  const { formState } = useFormContext();
+
+  if (formState.isSubmitting) {
+    return skeleton;
+  } else return children;
+}
 
 export const CarSearchForm: Story = {
   play: async ({ canvasElement, step }) => {
@@ -89,312 +115,346 @@ export const CarSearchForm: Story = {
         }),
       );
       await waitFor(async () => {
-        const formValues = canvas.getByTestId('form-values').textContent || '';
+        const formValues =
+          (await canvas.findByTestId('form-values')).textContent || '';
         expect(JSON.parse(formValues)).toEqual(result);
       });
     });
   },
   render: () => {
-    const { control, handleSubmit } = useForm({
+    const methods = useForm({
       mode: 'onChange',
       shouldUseNativeValidation: true,
     });
+    const { control, handleSubmit, formState } = methods;
     const [formValues, submitFormValues] = useState({});
+    const { isSubmitting, isSubmitted } = formState;
     return (
       <Page>
         <Header>
-          <pre data-testid={'form-values'}>
-            {JSON.stringify(formValues, null, 4)}
-          </pre>
+          {isSubmitted && (
+            <pre data-testid={'form-values'}>
+              {JSON.stringify(formValues, null, 4)}
+            </pre>
+          )}
         </Header>
         <Content>
           <Main>
-            <form
-              className={'tw-flex tw-flex-col tw-justify-start tw-gap-2'}
-              onSubmit={handleSubmit(submitFormValues)}
-            >
-              <Controller
-                control={control}
-                name={'carBrand'}
-                render={({ field, fieldState, formState }) => {
-                  const { disabled, name, onBlur, onChange, ref, value } =
-                    field;
-                  return (
-                    <Field
-                      className={'tw-relative tw-flex tw-flex-col tw-gap-0.5'}
-                      disabled={disabled}
-                      error={fieldState.invalid}
-                      name={name}
-                      onBlur={onBlur}
-                      onChange={withCheckNewValueIsNotEqual(value)(onChange)}
-                      value={value}
-                    >
-                      <Label className={'group-invalid:tw-text-error'}>
-                        Car Brand
-                      </Label>
-                      <Select
-                        data-testid={'form-stories-select-input'}
-                        placeholder={'Select car brand'}
-                        ref={ref}
-                        slotProps={{
-                          listbox: {
-                            className: 'tw-w-30',
-                            'data-testid': 'form-stories-select-options',
-                          },
-                          root: {
-                            className:
-                              'tw-h-5 tw-w-30 group-invalid:tw-border-error',
-                          },
-                        }}
-                      >
-                        <SelectOption
-                          data-testid={'form-stories-select-option-1'}
-                          value={'Toyota'}
-                        >
-                          Toyota
-                        </SelectOption>
-                        <SelectOption
-                          data-testid={'form-stories-select-option-2'}
-                          value={'BMW'}
-                        >
-                          BMW
-                        </SelectOption>
-                        <SelectOption
-                          data-testid={'form-stories-select-option-3'}
-                          value={'Honda'}
-                        >
-                          Honda
-                        </SelectOption>
-                        <SelectOption
-                          data-testid={'form-stories-select-option-4'}
-                          value={'Fiat'}
-                        >
-                          Fiat
-                        </SelectOption>
-                        <SelectOption
-                          data-testid={'form-stories-select-option-5'}
-                          value={'Mini'}
-                        >
-                          Mini
-                        </SelectOption>
-                      </Select>
-                      <FieldErrorMessage
-                        level={
-                          formState.isSubmitted
-                            ? ErrorLevel.Error
-                            : ErrorLevel.Warning
-                        }
-                      >
-                        {fieldState.error?.message}
-                      </FieldErrorMessage>
-                    </Field>
-                  );
-                }}
-                rules={{ required: 'Car brand must be selected' }}
-              />
-              <Controller
-                control={control}
-                name={'model'}
-                render={({ field, fieldState, formState }) => {
-                  const { disabled, name, onBlur, onChange, ref, value } =
-                    field;
-
-                  return (
-                    <Field
-                      className={'tw-flex tw-flex-col tw-gap-0.5'}
-                      disabled={disabled}
-                      error={fieldState.invalid}
-                      name={name}
-                      onBlur={onBlur}
-                      onChange={onChange}
-                      value={value}
-                    >
-                      <Label className={'group-invalid:tw-text-error'}>
-                        Model
-                      </Label>
-                      <TextInput
-                        data-testid={'form-stories-text-input'}
-                        ref={ref}
-                      />
-                      <FieldErrorMessage
-                        level={
-                          formState.isSubmitted
-                            ? ErrorLevel.Error
-                            : ErrorLevel.Warning
-                        }
-                      >
-                        {fieldState.error?.message}
-                      </FieldErrorMessage>
-                    </Field>
-                  );
-                }}
-                rules={{
-                  required: 'Model is required',
-                  validate: value => {
-                    if (value.length < 5)
-                      return 'Model can not be less than 5 characters';
-                    return true;
-                  },
-                }}
-              />
-              <Controller
-                control={control}
-                name={'transmission'}
-                render={({ field, fieldState, formState }) => {
-                  const { disabled, name, onBlur, onChange, ref, value } =
-                    field;
-                  return (
-                    <Field
-                      className={'tw-flex tw-flex-col tw-gap-0.5'}
-                      disabled={disabled}
-                      error={fieldState.invalid}
-                      name={name}
-                      onBlur={onBlur}
-                      onChange={onChange}
-                      role={'radiogroup'}
-                      value={value}
-                    >
-                      <Label
-                        className={'group-invalid:tw-text-error'}
-                        htmlFor={undefined}
-                      >
-                        Transmission
-                      </Label>
-                      <RadioGroup>
-                        <Radio
-                          data-testid={'form-stories-radio-input-option-1'}
-                          id={'auto'}
-                          ref={ref}
-                          value={'automatic'}
-                        >
-                          Automatic
-                        </Radio>
-                        <Radio
-                          data-testid={'form-stories-radio-input-option-2'}
-                          id={'manual'}
-                          value={'manual'}
-                        >
-                          Manual
-                        </Radio>
-                      </RadioGroup>
-                      <FieldErrorMessage
-                        level={
-                          formState.isSubmitted
-                            ? ErrorLevel.Error
-                            : ErrorLevel.Warning
-                        }
-                      >
-                        {fieldState.error?.message}
-                      </FieldErrorMessage>
-                    </Field>
-                  );
-                }}
-                rules={{ required: 'Transmission muse be selected' }}
-              />
-              <Controller
-                control={control}
-                name={'doors'}
-                render={({ field, fieldState, formState }) => {
-                  const { disabled, name, onBlur, onChange, ref, value } =
-                    field;
-                  return (
-                    <Field
-                      className={'tw-flex tw-flex-col tw-gap-0.5'}
-                      disabled={disabled}
-                      error={fieldState.invalid}
-                      name={name}
-                      onBlur={onBlur}
-                      onChange={onChange}
-                      value={value}
-                    >
-                      <Label className={'group-invalid:tw-text-error'}>
-                        Doors
-                      </Label>
-                      <NumberInput
-                        data-testid={'form-stories-number-input'}
-                        ref={ref}
-                        slotProps={{
-                          input: {
-                            max: 5,
-                            min: 2,
-                          },
-                        }}
-                      />
-                      <FieldErrorMessage
-                        level={
-                          formState.isSubmitted
-                            ? ErrorLevel.Error
-                            : ErrorLevel.Warning
-                        }
-                      >
-                        {fieldState.error?.message}
-                      </FieldErrorMessage>
-                    </Field>
-                  );
-                }}
-                rules={{
-                  max: {
-                    message: 'Door can not be more than 5',
-                    value: 5,
-                  },
-                  min: {
-                    message: 'Door can less than 2',
-                    value: 1,
-                  },
-                  required: 'Number of Door muse be specified',
-                }}
-              />
-              <Controller
-                control={control}
-                name={'rating'}
-                render={({ field, fieldState, formState }) => {
-                  const { disabled, name, onBlur, onChange, ref, value } =
-                    field;
-                  return (
-                    <Field
-                      className={'tw-flex tw-flex-col tw-gap-0.5'}
-                      disabled={disabled}
-                      error={fieldState.invalid}
-                      name={name}
-                      onBlur={onBlur}
-                      onChange={onChange}
-                      value={value}
-                    >
-                      <div className={'tw-flex tw-flex-row tw-gap-1'}>
-                        <Label className={'group-invalid:tw-text-error'}>
-                          Rating
-                        </Label>
-                        <span className={'tw-font-bold'}>{field.value}</span>
-                      </div>
-                      <Slider
-                        data-testid={'form-stories-slider-input'}
-                        max={5}
-                        min={1}
-                        ref={ref}
-                      />
-                      <FieldErrorMessage
-                        level={
-                          formState.isSubmitted
-                            ? ErrorLevel.Error
-                            : ErrorLevel.Warning
-                        }
-                      >
-                        {fieldState.error?.message}
-                      </FieldErrorMessage>
-                    </Field>
-                  );
-                }}
-                rules={{ required: 'Rating must be specified' }}
-              />
-
-              <Button
-                className={'tw-mt-2'}
-                data-testid={'form-stories-submit-button'}
-                type={'submit'}
+            <FormProvider {...methods}>
+              <form
+                className={'tw-flex tw-flex-col tw-justify-start tw-gap-2'}
+                onSubmit={handleSubmit(async values => {
+                  await new Promise(resolve => setTimeout(resolve, 1000));
+                  submitFormValues(values);
+                })}
               >
-                Submit
-              </Button>
-            </form>
+                <Controller
+                  control={control}
+                  name={'carBrand'}
+                  render={({ field, fieldState, formState }) => {
+                    const { disabled, name, onBlur, onChange, ref, value } =
+                      field;
+                    return (
+                      <Field
+                        className={'tw-relative tw-flex tw-flex-col tw-gap-0.5'}
+                        disabled={disabled}
+                        error={fieldState.invalid}
+                        name={name}
+                        onBlur={onBlur}
+                        onChange={withCheckNewValueIsNotEqual(value)(onChange)}
+                        value={value}
+                      >
+                        <Label className={'group-invalid:tw-text-error'}>
+                          Car Brand
+                        </Label>
+                        <FieldInput
+                          skeleton={<Skeleton className={'tw-h-5 tw-w-30'} />}
+                        >
+                          <Select
+                            data-testid={'form-stories-select-input'}
+                            placeholder={'Select car brand'}
+                            ref={ref}
+                            slotProps={{
+                              listbox: {
+                                className: 'tw-w-30',
+                                'data-testid': 'form-stories-select-options',
+                              },
+                              root: {
+                                className:
+                                  'tw-h-5 tw-w-30 group-invalid:tw-border-error',
+                              },
+                            }}
+                          >
+                            <SelectOption
+                              data-testid={'form-stories-select-option-1'}
+                              value={'Toyota'}
+                            >
+                              Toyota
+                            </SelectOption>
+                            <SelectOption
+                              data-testid={'form-stories-select-option-2'}
+                              value={'BMW'}
+                            >
+                              BMW
+                            </SelectOption>
+                            <SelectOption
+                              data-testid={'form-stories-select-option-3'}
+                              value={'Honda'}
+                            >
+                              Honda
+                            </SelectOption>
+                            <SelectOption
+                              data-testid={'form-stories-select-option-4'}
+                              value={'Fiat'}
+                            >
+                              Fiat
+                            </SelectOption>
+                            <SelectOption
+                              data-testid={'form-stories-select-option-5'}
+                              value={'Mini'}
+                            >
+                              Mini
+                            </SelectOption>
+                          </Select>
+                        </FieldInput>
+                        <FieldErrorMessage
+                          level={
+                            formState.isSubmitted
+                              ? ErrorLevel.Error
+                              : ErrorLevel.Warning
+                          }
+                        >
+                          {fieldState.error?.message}
+                        </FieldErrorMessage>
+                      </Field>
+                    );
+                  }}
+                  rules={{ required: 'Car brand must be selected' }}
+                />
+                <Controller
+                  control={control}
+                  name={'model'}
+                  render={({ field, fieldState, formState }) => {
+                    const { disabled, name, onBlur, onChange, ref, value } =
+                      field;
+
+                    return (
+                      <Field
+                        className={'tw-flex tw-flex-col tw-gap-0.5'}
+                        disabled={disabled}
+                        error={fieldState.invalid}
+                        name={name}
+                        onBlur={onBlur}
+                        onChange={onChange}
+                        value={value}
+                      >
+                        <Label className={'group-invalid:tw-text-error'}>
+                          Model
+                        </Label>
+                        <FieldInput
+                          skeleton={<Skeleton className={'tw-h-5 tw-w-full'} />}
+                        >
+                          <TextInput
+                            data-testid={'form-stories-text-input'}
+                            className={'tw-h-5'}
+                            ref={ref}
+                          />
+                        </FieldInput>
+                        <FieldErrorMessage
+                          level={
+                            formState.isSubmitted
+                              ? ErrorLevel.Error
+                              : ErrorLevel.Warning
+                          }
+                        >
+                          {fieldState.error?.message}
+                        </FieldErrorMessage>
+                      </Field>
+                    );
+                  }}
+                  rules={{
+                    required: 'Model is required',
+                    validate: value => {
+                      if (value.length < 5)
+                        return 'Model can not be less than 5 characters';
+                      return true;
+                    },
+                  }}
+                />
+                <Controller
+                  control={control}
+                  name={'transmission'}
+                  render={({ field, fieldState, formState }) => {
+                    const { disabled, name, onBlur, onChange, ref, value } =
+                      field;
+                    return (
+                      <Field
+                        className={'tw-flex tw-flex-col tw-gap-0.5'}
+                        disabled={disabled}
+                        error={fieldState.invalid}
+                        name={name}
+                        onBlur={onBlur}
+                        onChange={onChange}
+                        role={'radiogroup'}
+                        value={value}
+                      >
+                        <Label
+                          className={'group-invalid:tw-text-error'}
+                          htmlFor={undefined}
+                        >
+                          Transmission
+                        </Label>
+                        <FieldInput
+                          skeleton={<Skeleton className={'tw-h-5 tw-w-full'} />}
+                        >
+                          <RadioGroup>
+                            <Radio
+                              data-testid={'form-stories-radio-input-option-1'}
+                              id={'auto'}
+                              ref={ref}
+                              value={'automatic'}
+                            >
+                              Automatic
+                            </Radio>
+                            <Radio
+                              data-testid={'form-stories-radio-input-option-2'}
+                              id={'manual'}
+                              value={'manual'}
+                            >
+                              Manual
+                            </Radio>
+                          </RadioGroup>
+                        </FieldInput>
+                        <FieldErrorMessage
+                          level={
+                            formState.isSubmitted
+                              ? ErrorLevel.Error
+                              : ErrorLevel.Warning
+                          }
+                        >
+                          {fieldState.error?.message}
+                        </FieldErrorMessage>
+                      </Field>
+                    );
+                  }}
+                  rules={{ required: 'Transmission muse be selected' }}
+                />
+                <Controller
+                  control={control}
+                  name={'doors'}
+                  render={({ field, fieldState, formState }) => {
+                    const { disabled, name, onBlur, onChange, ref, value } =
+                      field;
+                    return (
+                      <Field
+                        className={'tw-flex tw-flex-col tw-gap-0.5'}
+                        disabled={disabled}
+                        error={fieldState.invalid}
+                        name={name}
+                        onBlur={onBlur}
+                        onChange={onChange}
+                        value={value}
+                      >
+                        <Label className={'group-invalid:tw-text-error'}>
+                          Doors
+                        </Label>
+                        <FieldInput
+                          skeleton={<Skeleton className={'tw-h-5 tw-w-full'} />}
+                        >
+                          <NumberInput
+                            data-testid={'form-stories-number-input'}
+                            ref={ref}
+                            slotProps={{
+                              input: {
+                                max: 5,
+                                min: 2,
+                              },
+                            }}
+                          />
+                        </FieldInput>
+                        <FieldErrorMessage
+                          level={
+                            formState.isSubmitted
+                              ? ErrorLevel.Error
+                              : ErrorLevel.Warning
+                          }
+                        >
+                          {fieldState.error?.message}
+                        </FieldErrorMessage>
+                      </Field>
+                    );
+                  }}
+                  rules={{
+                    max: {
+                      message: 'Door can not be more than 5',
+                      value: 5,
+                    },
+                    min: {
+                      message: 'Door can less than 2',
+                      value: 1,
+                    },
+                    required: 'Number of Door muse be specified',
+                  }}
+                />
+                <Controller
+                  control={control}
+                  name={'rating'}
+                  render={({ field, fieldState, formState }) => {
+                    const { disabled, name, onBlur, onChange, ref, value } =
+                      field;
+                    return (
+                      <Field
+                        className={'tw-flex tw-flex-col tw-gap-0.5'}
+                        disabled={disabled}
+                        error={fieldState.invalid}
+                        name={name}
+                        onBlur={onBlur}
+                        onChange={onChange}
+                        value={value}
+                      >
+                        <div className={'tw-flex tw-flex-row tw-gap-1'}>
+                          <Label className={'group-invalid:tw-text-error'}>
+                            Rating
+                          </Label>
+                          <span className={'tw-font-bold'}>{field.value}</span>
+                        </div>
+                        <FieldInput
+                          skeleton={<Skeleton className={'tw-h-5 tw-w-full'} />}
+                        >
+                          <Slider
+                            data-testid={'form-stories-slider-input'}
+                            max={5}
+                            min={1}
+                            ref={ref}
+                          />
+                          <FieldErrorMessage
+                            level={
+                              formState.isSubmitted
+                                ? ErrorLevel.Error
+                                : ErrorLevel.Warning
+                            }
+                          >
+                            {fieldState.error?.message}
+                          </FieldErrorMessage>
+                        </FieldInput>
+                      </Field>
+                    );
+                  }}
+                  rules={{ required: 'Rating must be specified' }}
+                />
+
+                <Button
+                  className={
+                    'tw-mt-2 disabled:tw-border-disabled disabled:tw-bg-disabled'
+                  }
+                  data-testid={'form-stories-submit-button'}
+                  type={'submit'}
+                  disabled={isSubmitting}
+                >
+                  Submit
+                </Button>
+              </form>
+            </FormProvider>
           </Main>
         </Content>
       </Page>
