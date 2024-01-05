@@ -146,6 +146,11 @@
       "require": "./dist/Select.cjs",
       "types": "./dist/types/Select/Select.d.ts"
     },
+    "./Skeleton": {
+      "import": "./dist/Skeleton.js",
+      "require": "./dist/Skeleton.cjs",
+      "types": "./dist/types/Skeleton/Skeleton.d.ts"
+    },
     "./Slider": {
       "import": "./dist/Slider.js",
       "require": "./dist/Slider.cjs",
