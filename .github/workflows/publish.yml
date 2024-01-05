@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       - env:
           GITHUB_TOKEN: ${{secrets.REPO_SCOPED_TOKEN}}
-          HEAD_BRANCH: ${{needs.release.outputs.release_branch}}
+          HEAD_BRANCH: ${{needs.publish.outputs.release_branch}}
           PR_BODY: ${{format('Bump version to v{0}', needs.publish.outputs.released_version)}}
           PR_TITLE: ${{format('Merge back v{0} to', needs.publish.outputs.released_version)}}
         name: Open PR to $GITHUB_REF_NAME
