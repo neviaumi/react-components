@@ -11,6 +11,9 @@ export default [
     },
   },
   {
+    ignores: ['storybook-static/', 'package-lock.json'],
+  },
+  {
     settings: {
       tailwindcss: {
         config: './tailwind.config.mjs',

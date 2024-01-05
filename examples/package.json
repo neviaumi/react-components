@@ -2,9 +2,9 @@
   "author": "",
   "description": "",
   "devDependencies": {
-    "@busybox/eslint-config": "2023.12.30-alpha.1648",
-    "@busybox/prettier-config": "2023.12.30-alpha.1648",
-    "@busybox/tsconfig": "2023.12.30-alpha.1648",
+    "@busybox/eslint-config": "2024.1.5-alpha.110",
+    "@busybox/prettier-config": "2024.1.5-alpha.110",
+    "@busybox/tsconfig": "2024.1.5-alpha.110",
     "@storybook/addon-console": "2.0.0",
     "@storybook/addon-essentials": "7.6.7",
     "@storybook/addon-interactions": "7.6.7",

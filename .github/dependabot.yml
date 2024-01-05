@@ -1,7 +1,7 @@
 updates:
   - directory: /
     groups:
-      bysybox:
+      busybox:
         patterns:
           - '@busybox/commitlint-config'
           - '@busybox/eslint-config'
