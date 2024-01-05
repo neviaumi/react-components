@@ -11,6 +11,9 @@ export default [
   },
   ...busyboxEslintConfig,
   {
+    ignores: ['package-lock.json', 'package/', 'examples/'],
+  },
+  {
     plugins: {
       n: eslintPluginN,
     },

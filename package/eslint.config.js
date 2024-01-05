@@ -10,6 +10,9 @@ export default [
     },
   },
   {
+    ignores: ['package-lock.json'],
+  },
+  {
     settings: {
       tailwindcss: {
         config: './tailwind.config.mjs',
