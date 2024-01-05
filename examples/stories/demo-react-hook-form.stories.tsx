@@ -1,10 +1,9 @@
 import { Button } from '@busybox/react-components/Button';
 import { DateInput } from '@busybox/react-components/DateInput';
-import { Field } from '@busybox/react-components/Field';
-import { ErrorLevel } from '@busybox/react-components/FieldError';
-import { FieldErrorMessage } from '@busybox/react-components/FieldErrorMessage';
+import { Field } from '@busybox/react-components/FormField/Field';
+import { FieldErrorMessage } from '@busybox/react-components/FormField/FieldErrorMessage';
 import { FileUploadInput } from '@busybox/react-components/FileUploadInput';
-import { Label } from '@busybox/react-components/Label';
+import { Label } from '@busybox/react-components/FormField/Label';
 import { Content, Header, Main, Page } from '@busybox/react-components/Layout';
 import { Link } from '@busybox/react-components/Link';
 import { NumberInput } from '@busybox/react-components/NumberInput';
@@ -26,7 +25,6 @@ import {
 import {
   type ChangeEvent,
   type PropsWithChildren,
-  type PropsWithoutRef,
   type ReactElement,
   useState,
 } from 'react';
@@ -217,13 +215,7 @@ export const CarSearchForm: Story = {
                             </SelectOption>
                           </Select>
                         </FieldInput>
-                        <FieldErrorMessage
-                          level={
-                            formState.isSubmitted
-                              ? ErrorLevel.Error
-                              : ErrorLevel.Warning
-                          }
-                        >
+                        <FieldErrorMessage className={'tw-text-error'}>
                           {fieldState.error?.message}
                         </FieldErrorMessage>
                       </Field>
@@ -260,13 +252,7 @@ export const CarSearchForm: Story = {
                             ref={ref}
                           />
                         </FieldInput>
-                        <FieldErrorMessage
-                          level={
-                            formState.isSubmitted
-                              ? ErrorLevel.Error
-                              : ErrorLevel.Warning
-                          }
-                        >
+                        <FieldErrorMessage className={'tw-text-error'}>
                           {fieldState.error?.message}
                         </FieldErrorMessage>
                       </Field>
@@ -325,13 +311,7 @@ export const CarSearchForm: Story = {
                             </Radio>
                           </RadioGroup>
                         </FieldInput>
-                        <FieldErrorMessage
-                          level={
-                            formState.isSubmitted
-                              ? ErrorLevel.Error
-                              : ErrorLevel.Warning
-                          }
-                        >
+                        <FieldErrorMessage className={'tw-text-error'}>
                           {fieldState.error?.message}
                         </FieldErrorMessage>
                       </Field>
@@ -372,13 +352,7 @@ export const CarSearchForm: Story = {
                             }}
                           />
                         </FieldInput>
-                        <FieldErrorMessage
-                          level={
-                            formState.isSubmitted
-                              ? ErrorLevel.Error
-                              : ErrorLevel.Warning
-                          }
-                        >
+                        <FieldErrorMessage className={'tw-text-error'}>
                           {fieldState.error?.message}
                         </FieldErrorMessage>
                       </Field>
@@ -427,13 +401,7 @@ export const CarSearchForm: Story = {
                             min={1}
                             ref={ref}
                           />
-                          <FieldErrorMessage
-                            level={
-                              formState.isSubmitted
-                                ? ErrorLevel.Error
-                                : ErrorLevel.Warning
-                            }
-                          >
+                          <FieldErrorMessage className={'tw-text-error'}>
                             {fieldState.error?.message}
                           </FieldErrorMessage>
                         </FieldInput>
@@ -567,13 +535,7 @@ export const CarInsuranceRegisterForm: Story = {
                         >
                           Upload
                         </FileUploadInput>
-                        <FieldErrorMessage
-                          level={
-                            formState.isSubmitted
-                              ? ErrorLevel.Error
-                              : ErrorLevel.Warning
-                          }
-                        >
+                        <FieldErrorMessage className={'tw-text-error'}>
                           {fieldState.error?.message}
                         </FieldErrorMessage>
                       </Field>
@@ -610,13 +572,7 @@ export const CarInsuranceRegisterForm: Story = {
                         data-testid={'form-stories-date-input'}
                         ref={ref}
                       />
-                      <FieldErrorMessage
-                        level={
-                          formState.isSubmitted
-                            ? ErrorLevel.Error
-                            : ErrorLevel.Warning
-                        }
-                      >
+                      <FieldErrorMessage className={'tw-text-error'}>
                         {fieldState.error?.message}
                       </FieldErrorMessage>
                     </Field>
