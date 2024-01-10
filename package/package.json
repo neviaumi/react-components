@@ -171,6 +171,11 @@
       "require": "./dist/Tab.cjs",
       "types": "./dist/types/Tab/Tab.d.ts"
     },
+    "./Table/TablePagination": {
+      "import": "./dist/TablePagination.js",
+      "require": "./dist/TablePagination.cjs",
+      "types": "./dist/types/Table/TablePagination.d.ts"
+    },
     "./TextInput": {
       "import": "./dist/TextInput.js",
       "require": "./dist/TextInput.cjs",

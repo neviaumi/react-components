@@ -39,6 +39,7 @@ export default defineConfig({
         resolve(rootDir, 'src/Snackbar/useSnackbar.ts'),
         resolve(rootDir, 'src/Skeleton/Skeleton.tsx'),
         resolve(rootDir, 'src/Form/useFieldContext.ts'),
+        resolve(rootDir, 'src/Table/TablePagination.tsx'),
       ],
       name: '@busybox/react-components',
     },

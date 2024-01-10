@@ -1,10 +1,15 @@
-import _UploadIcon from '@heroicons/react/20/solid/esm/ArrowUpTrayIcon.js';
-import _ExclamationIcon from '@heroicons/react/20/solid/esm/ExclamationTriangleIcon.js';
-import _MicrophoneIcon from '@heroicons/react/20/solid/esm/MicrophoneIcon.js';
-import _PauseIcon from '@heroicons/react/20/solid/esm/PauseIcon.js';
-import _PlayIcon from '@heroicons/react/20/solid/esm/PlayIcon.js';
-import _VolumeUpIcon from '@heroicons/react/20/solid/esm/SpeakerWaveIcon.js';
-import _StopIcon from '@heroicons/react/20/solid/esm/StopIcon.js';
+import _UploadIcon from '@heroicons/react/20/solid/ArrowUpTrayIcon';
+import _ExclamationIcon from '@heroicons/react/20/solid/ExclamationTriangleIcon';
+import _MicrophoneIcon from '@heroicons/react/20/solid/MicrophoneIcon';
+import _PauseIcon from '@heroicons/react/20/solid/PauseIcon';
+import _PlayIcon from '@heroicons/react/20/solid/PlayIcon';
+import _VolumeUpIcon from '@heroicons/react/20/solid/SpeakerWaveIcon';
+import _StopIcon from '@heroicons/react/20/solid/StopIcon';
+import _ChevronRightIcon from '@heroicons/react/20/solid/ChevronRightIcon';
+import _ChevronLeftIcon from '@heroicons/react/20/solid/ChevronLeftIcon';
+import _ChevronDoubleLeftIcon from '@heroicons/react/20/solid/ChevronDoubleLeftIcon';
+import _ChevronDoubleRightIcon from '@heroicons/react/20/solid/ChevronDoubleRightIcon';
+
 import clsx from 'clsx';
 import type React from 'react';
 
@@ -27,3 +32,9 @@ export const MicrophoneIcon = withHeroIcon(_MicrophoneIcon);
 export const StopIcon = withHeroIcon(_StopIcon);
 export const UploadIcon = withHeroIcon(_UploadIcon);
 export const ExclamationIcon = withHeroIcon(_ExclamationIcon);
+
+export const ChevronRightIcon = withHeroIcon(_ChevronRightIcon);
+export const ChevronLeftIcon = withHeroIcon(_ChevronLeftIcon);
+
+export const ChevronDoubleLeftIcon = withHeroIcon(_ChevronDoubleLeftIcon);
+export const ChevronDoubleRightIcon = withHeroIcon(_ChevronDoubleRightIcon);
