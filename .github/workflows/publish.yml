@@ -50,7 +50,7 @@ jobs:
       - name: Upload storybook build
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./package/storybook-static
+          path: ./example/storybook-static
       - id: deployment
         name: Deploy storybook to GitHub Pages
         uses: actions/deploy-pages@v4
