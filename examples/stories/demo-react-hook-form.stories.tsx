@@ -13,7 +13,7 @@ import { Slider } from '@busybox/react-components/Slider';
 import { TextInput } from '@busybox/react-components/TextInput';
 import { withCheckNewValueIsNotEqual } from '@busybox/react-components/utils/with-check-new-value-is-not-equal';
 import { Skeleton } from '@busybox/react-components/Skeleton';
-
+import clsx from 'clsx';
 import { expect } from '@storybook/jest';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
@@ -140,6 +140,7 @@ export const CarSearchForm: Story = {
           <Main>
             <FormProvider {...methods}>
               <form
+                noValidate
                 className={'tw-flex tw-flex-col tw-justify-start tw-gap-2'}
                 onSubmit={handleSubmit(async values => {
                   await new Promise(resolve => setTimeout(resolve, 1000));
@@ -152,17 +153,28 @@ export const CarSearchForm: Story = {
                   render={({ field, fieldState, formState }) => {
                     const { disabled, name, onBlur, onChange, ref, value } =
                       field;
+                    const { invalid, isDirty, error } = fieldState;
+                    const { isSubmitted } = formState;
+                    const shouldShowAsError = isSubmitted || isDirty;
                     return (
                       <Field
                         className={'tw-relative tw-flex tw-flex-col tw-gap-0.5'}
                         disabled={disabled}
-                        error={fieldState.invalid}
+                        error={invalid}
                         name={name}
                         onBlur={onBlur}
                         onChange={withCheckNewValueIsNotEqual(value)(onChange)}
                         value={value}
+                        required
                       >
-                        <Label className={'group-invalid:tw-text-error'}>
+                        <Label
+                          className={clsx(
+                            shouldShowAsError
+                              ? 'group-invalid:tw-text-error'
+                              : 'group-invalid:tw-text-warning',
+                            'after:tw-content-["_*"]',
+                          )}
+                        >
                           Car Brand
                         </Label>
                         <FieldInput
@@ -178,8 +190,12 @@ export const CarSearchForm: Story = {
                                 'data-testid': 'form-stories-select-options',
                               },
                               root: {
-                                className:
-                                  'tw-h-5 tw-w-30 group-invalid:tw-border-error',
+                                className: clsx(
+                                  'tw-h-5 tw-w-30',
+                                  shouldShowAsError
+                                    ? 'group-invalid:tw-border-error group-invalid:tw-text-error'
+                                    : 'group-invalid:tw-border-warning group-invalid:tw-text-warning',
+                                ),
                               },
                             }}
                           >
@@ -216,7 +232,7 @@ export const CarSearchForm: Story = {
                           </Select>
                         </FieldInput>
                         <FieldErrorMessage className={'tw-text-error'}>
-                          {fieldState.error?.message}
+                          {error?.message}
                         </FieldErrorMessage>
                       </Field>
                     );
@@ -229,18 +245,28 @@ export const CarSearchForm: Story = {
                   render={({ field, fieldState, formState }) => {
                     const { disabled, name, onBlur, onChange, ref, value } =
                       field;
-
+                    const { invalid, isDirty, error } = fieldState;
+                    const { isSubmitted } = formState;
+                    const shouldShowAsError = isSubmitted || isDirty;
                     return (
                       <Field
                         className={'tw-flex tw-flex-col tw-gap-0.5'}
                         disabled={disabled}
-                        error={fieldState.invalid}
+                        error={invalid}
                         name={name}
                         onBlur={onBlur}
                         onChange={onChange}
                         value={value}
+                        required
                       >
-                        <Label className={'group-invalid:tw-text-error'}>
+                        <Label
+                          className={clsx(
+                            shouldShowAsError
+                              ? 'group-invalid:tw-text-error'
+                              : 'group-invalid:tw-text-warning',
+                            'after:tw-content-["_*"]',
+                          )}
+                        >
                           Model
                         </Label>
                         <FieldInput
@@ -249,11 +275,18 @@ export const CarSearchForm: Story = {
                           <TextInput
                             data-testid={'form-stories-text-input'}
                             className={'tw-h-5'}
+                            slotProps={{
+                              input: {
+                                className: shouldShowAsError
+                                  ? 'invalid:tw-border-error'
+                                  : 'invalid:tw-border-warning',
+                              },
+                            }}
                             ref={ref}
                           />
                         </FieldInput>
                         <FieldErrorMessage className={'tw-text-error'}>
-                          {fieldState.error?.message}
+                          {error?.message}
                         </FieldErrorMessage>
                       </Field>
                     );
@@ -270,22 +303,31 @@ export const CarSearchForm: Story = {
                 <Controller
                   control={control}
                   name={'transmission'}
-                  render={({ field, fieldState, formState }) => {
+                  render={({ field, fieldState }) => {
                     const { disabled, name, onBlur, onChange, ref, value } =
                       field;
+                    const { invalid, isDirty, error } = fieldState;
+                    const shouldShowAsError = isSubmitted || isDirty;
+
                     return (
                       <Field
                         className={'tw-flex tw-flex-col tw-gap-0.5'}
                         disabled={disabled}
-                        error={fieldState.invalid}
+                        error={invalid}
                         name={name}
                         onBlur={onBlur}
                         onChange={onChange}
                         role={'radiogroup'}
                         value={value}
+                        required
                       >
                         <Label
-                          className={'group-invalid:tw-text-error'}
+                          className={clsx(
+                            shouldShowAsError
+                              ? 'group-invalid:tw-text-error'
+                              : 'group-invalid:tw-text-warning',
+                            'after:tw-content-["_*"]',
+                          )}
                           htmlFor={undefined}
                         >
                           Transmission
@@ -299,6 +341,12 @@ export const CarSearchForm: Story = {
                               id={'auto'}
                               ref={ref}
                               value={'automatic'}
+                              className={clsx(
+                                shouldShowAsError
+                                  ? 'group-invalid:tw-border-error group-invalid:tw-text-error'
+                                  : 'group-invalid:tw-border-warning group-invalid:tw-text-warning',
+                                'group-invalid:tw-border-l-8 group-invalid:tw-pl-0.5',
+                              )}
                             >
                               Automatic
                             </Radio>
@@ -306,13 +354,19 @@ export const CarSearchForm: Story = {
                               data-testid={'form-stories-radio-input-option-2'}
                               id={'manual'}
                               value={'manual'}
+                              className={clsx(
+                                shouldShowAsError
+                                  ? 'group-invalid:tw-border-error group-invalid:tw-text-error'
+                                  : 'group-invalid:tw-border-warning group-invalid:tw-text-warning',
+                                'group-invalid:tw-border-l-8 group-invalid:tw-pl-0.5',
+                              )}
                             >
                               Manual
                             </Radio>
                           </RadioGroup>
                         </FieldInput>
                         <FieldErrorMessage className={'tw-text-error'}>
-                          {fieldState.error?.message}
+                          {error?.message}
                         </FieldErrorMessage>
                       </Field>
                     );
@@ -325,17 +379,28 @@ export const CarSearchForm: Story = {
                   render={({ field, fieldState, formState }) => {
                     const { disabled, name, onBlur, onChange, ref, value } =
                       field;
+                    const { invalid, isDirty, error } = fieldState;
+                    const { isSubmitted } = formState;
+                    const shouldShowAsError = isSubmitted || isDirty;
                     return (
                       <Field
                         className={'tw-flex tw-flex-col tw-gap-0.5'}
                         disabled={disabled}
-                        error={fieldState.invalid}
+                        error={invalid}
                         name={name}
                         onBlur={onBlur}
                         onChange={onChange}
                         value={value}
+                        required
                       >
-                        <Label className={'group-invalid:tw-text-error'}>
+                        <Label
+                          className={clsx(
+                            shouldShowAsError
+                              ? 'group-invalid:tw-text-error'
+                              : 'group-invalid:tw-text-warning',
+                            'after:tw-content-["_*"]',
+                          )}
+                        >
                           Doors
                         </Label>
                         <FieldInput
@@ -348,12 +413,15 @@ export const CarSearchForm: Story = {
                               input: {
                                 max: 5,
                                 min: 2,
+                                className: shouldShowAsError
+                                  ? 'invalid:tw-border-error'
+                                  : 'invalid:tw-border-warning',
                               },
                             }}
                           />
                         </FieldInput>
                         <FieldErrorMessage className={'tw-text-error'}>
-                          {fieldState.error?.message}
+                          {error?.message}
                         </FieldErrorMessage>
                       </Field>
                     );
@@ -376,21 +444,36 @@ export const CarSearchForm: Story = {
                   render={({ field, fieldState, formState }) => {
                     const { disabled, name, onBlur, onChange, ref, value } =
                       field;
+                    const { invalid, isDirty, error } = fieldState;
+                    const { isSubmitted } = formState;
+                    const isError = invalid || !value;
+                    const shouldShowAsError = isSubmitted || isDirty;
                     return (
                       <Field
                         className={'tw-flex tw-flex-col tw-gap-0.5'}
                         disabled={disabled}
-                        error={fieldState.invalid}
+                        error={invalid}
                         name={name}
                         onBlur={onBlur}
                         onChange={onChange}
                         value={value}
+                        required
                       >
-                        <div className={'tw-flex tw-flex-row tw-gap-1'}>
-                          <Label className={'group-invalid:tw-text-error'}>
+                        <div className={'tw-flex tw-flex-row'}>
+                          <Label
+                            className={clsx(
+                              isError &&
+                                (shouldShowAsError
+                                  ? 'tw-text-error'
+                                  : 'tw-text-warning'),
+                              'after:tw-content-["_*"]',
+                            )}
+                          >
                             Rating
                           </Label>
-                          <span className={'tw-font-bold'}>{field.value}</span>
+                          <span className={'tw-ml-1 tw-font-bold'}>
+                            {field.value}
+                          </span>
                         </div>
                         <FieldInput
                           skeleton={<Skeleton className={'tw-h-5 tw-w-full'} />}
@@ -400,9 +483,19 @@ export const CarSearchForm: Story = {
                             max={5}
                             min={1}
                             ref={ref}
+                            slotProps={{
+                              thumb: {
+                                className: clsx(
+                                  isError &&
+                                    (shouldShowAsError
+                                      ? 'tw-border-error tw-bg-error'
+                                      : 'tw-border-warning tw-bg-warning'),
+                                ),
+                              },
+                            }}
                           />
                           <FieldErrorMessage className={'tw-text-error'}>
-                            {fieldState.error?.message}
+                            {error?.message}
                           </FieldErrorMessage>
                         </FieldInput>
                       </Field>

@@ -103,7 +103,9 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(function Select(
     );
     if (!inputElement || !ref) return;
     if (typeof ref === 'function') ref(inputElement);
-  }, [name, ref]);
+    if (formControlContext?.required)
+      inputElement.setAttribute('required', 'true');
+  }, [name, ref, formControlContext?.required]);
 
   return (
     <>
