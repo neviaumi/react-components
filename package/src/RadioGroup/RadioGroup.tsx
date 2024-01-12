@@ -17,6 +17,7 @@ export type RadioGroupProps = React.PropsWithChildren<{
 
 const RadioGroupContext = createContext<{
   name?: string;
+  required?: boolean;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
@@ -34,7 +35,12 @@ export const RadioGroup = function RadioGroup({
     value: value,
   });
   const { formControlContext } = fieldContext;
-  const { onBlur, onFocus, value: currentValue } = formControlContext!;
+  const {
+    onBlur,
+    onFocus,
+    value: currentValue,
+    required,
+  } = formControlContext!;
   return (
     <RadioGroupContext.Provider
       value={{
@@ -42,6 +48,7 @@ export const RadioGroup = function RadioGroup({
         onBlur,
         onChange: formControlContext?.onChange,
         onFocus,
+        required,
         value: currentValue as string,
       }}
     >
@@ -86,6 +93,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
     onChange,
     onFocus,
     value: currentValue,
+    required,
   } = radioGroupContext;
   const isChecked = currentValue === value;
   let slotProps = givenSlotProps;
@@ -97,9 +105,11 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
         ),
         label: isChecked
           ? clsx(
-              'tw-cursor-pointer tw-bg-primary tw-font-bold hover:tw-bg-primary-user-action',
+              'tw-cursor-pointer tw-bg-primary tw-font-bold hover:tw-bg-primary-user-action hover:tw-text-primary-user-action',
             )
-          : clsx('tw-cursor-pointer hover:tw-bg-primary-user-action'),
+          : clsx(
+              'tw-cursor-pointer hover:tw-bg-primary-user-action hover:tw-text-primary-user-action',
+            ),
         root: clsx('tw-grid tw-grid-cols-[0px_1fr]'),
       },
     })(givenSlotProps);
@@ -118,6 +128,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
         onFocus={onFocus}
         ref={ref}
         type="radio"
+        required={required}
         value={value}
       />
       <label htmlFor={id} {...slotProps?.label} data-testid={testIdPrefix}>

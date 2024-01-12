@@ -30,7 +30,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         : assocDefaultStyle<SlotProps>({
             slotWithDefaultClasses: {
               input: clsx(
-                'tw-form-input tw-w-full tw-border-primary invalid:tw-border-error focus:tw-border-none focus:tw-shadow-none focus:tw-ring-0',
+                'tw-form-input tw-w-full tw-border-primary focus:tw-border-none focus:tw-shadow-none focus:tw-ring-0',
               ),
             },
           })(givenSlotProps),

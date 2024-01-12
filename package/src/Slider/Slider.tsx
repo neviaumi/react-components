@@ -5,7 +5,7 @@ import {
 } from '@mui/base/Slider';
 import clsx from 'clsx';
 import { assocPath, identity, pipe } from 'ramda';
-import React, { forwardRef } from 'react';
+import React, { forwardRef, type ComponentPropsWithRef } from 'react';
 
 import type {
   ComponentProps,
@@ -31,6 +31,22 @@ interface SlotProps {
 
 export type SliderProps = ComponentProps<SlotProps, SliderOwnProps>;
 
+const SliderInput = forwardRef<
+  HTMLInputElement,
+  ComponentPropsWithRef<'input'> & {
+    ownerState: ComponentPropsWithRef<'input'>;
+  }
+>(function SliderInput(props, ref) {
+  const { ownerState, value: inputValue, ...inputProps } = props;
+  return (
+    <input
+      {...inputProps}
+      value={ownerState?.value === 0 ? undefined : ownerState?.value}
+      ref={ref}
+    />
+  );
+});
+
 export const Slider = forwardRef<HTMLInputElement, SliderProps>(function Slider(
   { disableDefaultClasses, slotProps: givenSlotProps, ...rest },
   ref,
@@ -44,6 +60,9 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(function Slider(
   const slotProps = pipe(
     id ? assocPath(['input', 'id'], id) : identity,
     ref ? assocPath(['input', 'ref'], ref) : identity,
+    formControlContext?.required
+      ? assocPath(['input', 'required'], true)
+      : identity,
   )(
     disableDefaultClasses
       ? givenSlotProps
@@ -78,6 +97,9 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(function Slider(
       }}
       slotProps={slotProps}
       value={sliderValue}
+      slots={{
+        input: SliderInput,
+      }}
       {...rootProps}
       name={name || rootProps.name}
     />
