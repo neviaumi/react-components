@@ -277,9 +277,11 @@ export const CarSearchForm: Story = {
                             className={'tw-h-5'}
                             slotProps={{
                               input: {
-                                className: shouldShowAsError
-                                  ? 'invalid:tw-border-error'
-                                  : 'invalid:tw-border-warning',
+                                className: clsx(
+                                  shouldShowAsError
+                                    ? 'invalid:tw-border-error'
+                                    : 'invalid:tw-border-warning',
+                                ),
                               },
                             }}
                             ref={ref}
@@ -346,7 +348,14 @@ export const CarSearchForm: Story = {
                                   ? 'group-invalid:tw-border-error group-invalid:tw-text-error'
                                   : 'group-invalid:tw-border-warning group-invalid:tw-text-warning',
                                 'group-invalid:tw-border-l-8 group-invalid:tw-pl-0.5',
+                                'group-focus:tw-border group-focus:tw-border-primary-user-action',
                               )}
+                              slotProps={{
+                                label: {
+                                  className:
+                                    'group-focus:tw-ring-primary group-focus:tw-ring-2',
+                                },
+                              }}
                             >
                               Automatic
                             </Radio>
@@ -360,6 +369,15 @@ export const CarSearchForm: Story = {
                                   : 'group-invalid:tw-border-warning group-invalid:tw-text-warning',
                                 'group-invalid:tw-border-l-8 group-invalid:tw-pl-0.5',
                               )}
+                              slotProps={{
+                                // input: {
+                                //   className: 'focus-visible:tw-outline-primary'
+                                // },
+                                label: {
+                                  className:
+                                    'group-focus:tw-ring-primary group-focus:tw-ring-2',
+                                },
+                              }}
                             >
                               Manual
                             </Radio>

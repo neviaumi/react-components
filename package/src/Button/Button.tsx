@@ -46,6 +46,7 @@ export function Button({
           'hover:tw-border-primary-user-action',
           'hover:tw-bg-primary-user-action',
           'hover:tw-text-primary-user-action',
+          'focus:tw-outline-primary',
         ),
       },
     })(givenSlotProps);

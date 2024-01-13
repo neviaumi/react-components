@@ -30,6 +30,7 @@ export function Link({
           'tw-text-primary-contrast',
           'hover:tw-bg-primary-user-action',
           'hover:tw-text-primary-user-action',
+          'focus:tw-outline-primary',
           'tw-block',
         ),
       },
