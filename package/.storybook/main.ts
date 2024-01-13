@@ -1,5 +1,3 @@
-// import '@storybook/addon-console';
-
 import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
@@ -7,7 +5,6 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    '@storybook/addon-styling',
     '@storybook/addon-storysource',
   ],
   core: {
