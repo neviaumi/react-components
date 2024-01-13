@@ -75,7 +75,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(function Select(
                       "tw-cursor-default tw-border-0 tw-bg-disabled tw-px-2 tw-py-1 tw-text-disabled after:tw-float-right after:tw-content-['▴']",
                     );
                   return clsx(
-                    "tw-border tw-border-primary tw-bg-white tw-px-2 tw-py-1 tw-text-primary after:tw-float-right after:tw-content-['▾']",
+                    "tw-border tw-border-primary tw-bg-white tw-px-2 tw-py-1 tw-text-primary focus:tw-border-primary-user-action focus:tw-outline-primary after:tw-float-right after:tw-content-['▾']",
                   );
                 },
               },
@@ -143,14 +143,14 @@ export function SelectOption({
               root: (state: OptionOwnerState<string>) => {
                 if (state.disabled)
                   return clsx(
-                    'tw-cursor-default tw-bg-disabled tw-text-center tw-text-disabled',
+                    'focus-visible:tw-outline-primary tw-cursor-default tw-bg-disabled tw-text-center tw-text-disabled',
                   );
                 if (state.selected)
                   return clsx(
-                    'tw-cursor-default tw-bg-primary tw-text-center tw-font-bold tw-text-primary',
+                    'focus-visible:tw-outline-primary tw-cursor-default tw-bg-primary tw-text-center tw-font-bold tw-text-primary',
                   );
                 return clsx(
-                  'tw-cursor-default tw-bg-white tw-px-1 tw-text-center tw-text-primary hover:tw-cursor-pointer hover:tw-bg-primary hover:tw-text-primary',
+                  'focus-visible:tw-outline-primary tw-cursor-default tw-bg-white tw-px-1 tw-text-center tw-text-primary hover:tw-cursor-pointer hover:tw-bg-primary hover:tw-text-primary',
                 );
               },
             },

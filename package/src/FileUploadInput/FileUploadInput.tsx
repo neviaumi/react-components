@@ -79,6 +79,7 @@ export const FileUploadInput = forwardRef<HTMLInputElement, FileUploadProps>(
           id={id}
           name={name || rootProps.name}
           onChange={formControlContext?.onChange}
+          required={formControlContext?.required}
           ref={inputRef}
           type="file"
         />

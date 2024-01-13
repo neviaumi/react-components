@@ -101,7 +101,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
     slotProps = assocDefaultStyle<RadioSlotProps>({
       slotWithDefaultClasses: {
         input: clsx(
-          'tw-form-radio tw-h-px tw-w-px tw-border-0 focus:tw-shadow-none focus:tw-ring-0',
+          'tw-form-radio tw-h-px tw-w-px tw-border-0 focus:tw-ring-primary',
         ),
         label: isChecked
           ? clsx(
@@ -132,7 +132,6 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
         value={value}
       />
       <label htmlFor={id} {...slotProps?.label} data-testid={testIdPrefix}>
-        {' '}
         {children}
       </label>
     </div>

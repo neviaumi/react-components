@@ -277,9 +277,11 @@ export const CarSearchForm: Story = {
                             className={'tw-h-5'}
                             slotProps={{
                               input: {
-                                className: shouldShowAsError
-                                  ? 'invalid:tw-border-error'
-                                  : 'invalid:tw-border-warning',
+                                className: clsx(
+                                  shouldShowAsError
+                                    ? 'invalid:tw-border-error'
+                                    : 'invalid:tw-border-warning',
+                                ),
                               },
                             }}
                             ref={ref}
@@ -346,7 +348,14 @@ export const CarSearchForm: Story = {
                                   ? 'group-invalid:tw-border-error group-invalid:tw-text-error'
                                   : 'group-invalid:tw-border-warning group-invalid:tw-text-warning',
                                 'group-invalid:tw-border-l-8 group-invalid:tw-pl-0.5',
+                                'group-focus:tw-border group-focus:tw-border-primary-user-action',
                               )}
+                              slotProps={{
+                                label: {
+                                  className:
+                                    'group-focus:tw-ring-primary group-focus:tw-ring-2',
+                                },
+                              }}
                             >
                               Automatic
                             </Radio>
@@ -360,6 +369,15 @@ export const CarSearchForm: Story = {
                                   : 'group-invalid:tw-border-warning group-invalid:tw-text-warning',
                                 'group-invalid:tw-border-l-8 group-invalid:tw-pl-0.5',
                               )}
+                              slotProps={{
+                                // input: {
+                                //   className: 'focus-visible:tw-outline-primary'
+                                // },
+                                label: {
+                                  className:
+                                    'group-focus:tw-ring-primary group-focus:tw-ring-2',
+                                },
+                              }}
                             >
                               Manual
                             </Radio>
@@ -441,6 +459,7 @@ export const CarSearchForm: Story = {
                 <Controller
                   control={control}
                   name={'rating'}
+                  defaultValue={1}
                   render={({ field, fieldState, formState }) => {
                     const { disabled, name, onBlur, onChange, ref, value } =
                       field;
@@ -457,7 +476,6 @@ export const CarSearchForm: Story = {
                         onBlur={onBlur}
                         onChange={onChange}
                         value={value}
-                        required
                       >
                         <div className={'tw-flex tw-flex-row'}>
                           <Label
@@ -580,6 +598,7 @@ export const CarInsuranceRegisterForm: Story = {
         <Content>
           <Main>
             <form
+              noValidate
               className={'tw-flex tw-flex-col tw-justify-start tw-gap-2'}
               onSubmit={handleSubmit(submitFormValues)}
             >
@@ -589,6 +608,9 @@ export const CarInsuranceRegisterForm: Story = {
                 render={({ field, fieldState, formState }) => {
                   const { disabled, name, onBlur, onChange, ref, value } =
                     field;
+                  const { invalid, isDirty, error } = fieldState;
+                  const { isSubmitted } = formState;
+                  const shouldShowAsError = isSubmitted || isDirty;
                   const uploadFileWhenInputChanged = (
                     event: ChangeEvent<HTMLInputElement>,
                   ) => {
@@ -612,24 +634,38 @@ export const CarInsuranceRegisterForm: Story = {
                       <Field
                         className={'tw-flex tw-flex-col tw-gap-0.5'}
                         disabled={disabled}
-                        error={fieldState.invalid}
+                        error={invalid}
                         name={name}
                         onBlur={onBlur}
                         onChange={uploadFileWhenInputChanged}
                         value={value}
+                        required
                       >
-                        <Label className={'group-invalid:tw-text-error'}>
+                        <Label
+                          className={clsx(
+                            shouldShowAsError
+                              ? 'group-invalid:tw-text-error'
+                              : 'group-invalid:tw-text-warning',
+                            'after:tw-content-["_*"]',
+                          )}
+                        >
                           Driving Licence
                         </Label>
                         <FileUploadInput
-                          className={'tw-items-center tw-justify-center'}
+                          className={clsx(
+                            'tw-items-center tw-justify-center',
+                            shouldShowAsError
+                              ? 'group-invalid:tw-border-error group-invalid:tw-bg-error group-invalid:tw-text-error'
+                              : 'group-invalid:tw-border-warning group-invalid:tw-bg-white group-invalid:tw-text-warning',
+                            'group-invalid:hover:tw-border-primary-user-action group-invalid:hover:tw-bg-primary-user-action group-invalid:hover:tw-text-primary-user-action',
+                          )}
                           data-testid={'form-stories-file-upload'}
                           ref={ref}
                         >
                           Upload
                         </FileUploadInput>
                         <FieldErrorMessage className={'tw-text-error'}>
-                          {fieldState.error?.message}
+                          {error?.message}
                         </FieldErrorMessage>
                       </Field>
                       {value?.url && (
@@ -648,25 +684,45 @@ export const CarInsuranceRegisterForm: Story = {
                 render={({ field, fieldState, formState }) => {
                   const { disabled, name, onBlur, onChange, ref, value } =
                     field;
+                  const { invalid, isDirty, error } = fieldState;
+                  const { isSubmitted } = formState;
+                  const shouldShowAsError = isSubmitted || isDirty;
                   return (
                     <Field
                       className={'tw-flex tw-flex-col tw-gap-0.5'}
                       disabled={disabled}
-                      error={fieldState.invalid}
+                      error={invalid}
                       name={name}
                       onBlur={onBlur}
                       onChange={onChange}
                       value={value}
+                      required
                     >
-                      <Label className={'group-invalid:tw-text-error'}>
+                      <Label
+                        className={clsx(
+                          shouldShowAsError
+                            ? 'group-invalid:tw-text-error'
+                            : 'group-invalid:tw-text-warning',
+                          'after:tw-content-["_*"]',
+                        )}
+                      >
                         Effective Date
                       </Label>
                       <DateInput
                         data-testid={'form-stories-date-input'}
+                        slotProps={{
+                          input: {
+                            className: clsx(
+                              shouldShowAsError
+                                ? 'invalid:tw-border-error invalid:tw-text-error'
+                                : 'invalid:tw-border-warning invalid:tw-text-warning',
+                            ),
+                          },
+                        }}
                         ref={ref}
                       />
                       <FieldErrorMessage className={'tw-text-error'}>
-                        {fieldState.error?.message}
+                        {error?.message}
                       </FieldErrorMessage>
                     </Field>
                   );
