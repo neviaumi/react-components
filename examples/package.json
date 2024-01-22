@@ -17,7 +17,7 @@
     "@storybook/react-vite": "7.6.10",
     "@storybook/test-runner": "0.16.0",
     "@storybook/testing-library": "0.2.2",
-    "@tanstack/react-table": "8.11.6",
+    "@tanstack/react-table": "8.11.7",
     "@types/ramda": "0.29.9",
     "@types/react": "18.2.48",
     "@types/react-dom": "18.2.18",
