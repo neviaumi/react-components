@@ -9,7 +9,7 @@
     "@busybox/tsconfig": "2024.1.25-alpha.2443",
     "@commitlint/cli": "17.8.1",
     "eslint": "8.56.0",
-    "husky": "8.0.3",
+    "husky": "9.0.6",
     "is-ci": "3.0.1",
     "lerna": "8.0.2",
     "lint-staged": "15.2.0"
