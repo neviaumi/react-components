@@ -10,7 +10,13 @@ import {
 } from '@mui/base/Select';
 import clsx from 'clsx';
 import { assocPath, identity, pipe } from 'ramda';
-import React, { forwardRef, useCallback, useEffect, useMemo } from 'react';
+import React, {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+} from 'react';
 
 import type {
   ComponentProps,
@@ -44,6 +50,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(function Select(
   { disableDefaultClasses, name: inputName, slotProps, ...rest },
   ref,
 ) {
+  const containerRef = useRef<HTMLSpanElement>(null);
   const {
     formControlContext,
     id,
@@ -98,17 +105,21 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(function Select(
   );
 
   useEffect(() => {
-    const inputElement = document.querySelector<HTMLInputElement>(
+    if (!containerRef.current || !ref) return;
+    const inputElement = containerRef.current.querySelector<HTMLInputElement>(
       `input[name="${name}"]`,
     );
-    if (!inputElement || !ref) return;
+    if (!inputElement) return;
     if (typeof ref === 'function') ref(inputElement);
     if (formControlContext?.required)
       inputElement.setAttribute('required', 'true');
   }, [name, ref, formControlContext?.required]);
 
   return (
-    <>
+    <span
+      data-description={'workaround-to-make-sure-hidden-input-is-selected'}
+      ref={containerRef}
+    >
       <MuiSelect
         id={id}
         name={name}
@@ -117,7 +128,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(function Select(
         value={formControlContext?.value}
         {...rootProps}
       />
-    </>
+    </span>
   );
 });
 interface SelectOptionSlotProps {
