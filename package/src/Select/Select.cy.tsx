@@ -22,6 +22,28 @@ describe('ref Prop', () => {
       expect(ele).to.be.instanceOf(HTMLInputElement);
     });
   });
+
+  it('ref should linked to input element that within select', () => {
+    const ref = cy.stub().as('ref');
+    cy.mount(
+      <>
+        <input data-x-out-side={'should-not-select-here'} name={'demo'} />
+        <Select data-testid={'test-select'} name={'demo'} ref={ref}>
+          <SelectOption value={'Toyota'}>Toyota</SelectOption>
+          <SelectOption value={'BMW'}>BMW</SelectOption>
+          <SelectOption value={'Mini'}>Mini</SelectOption>
+        </Select>
+      </>,
+    );
+    cy.get('@ref').should('be.calledOnce');
+    cy.get<typeof ref>('@ref').then(spy => {
+      const [ele] = spy.firstCall.args;
+      expect(ele).to.be.instanceOf(HTMLInputElement);
+      expect(ele.getAttribute('data-x-out-side')).to.not.equal(
+        'should-not-select-here',
+      );
+    });
+  });
 });
 
 describe('Select', () => {
@@ -76,7 +98,7 @@ describe('Select', () => {
     );
   });
 
-  it.only('no default class should be applied when disableDefaultClasses used', () => {
+  it('no default class should be applied when disableDefaultClasses used', () => {
     cy.mount(
       <Select
         className={'tw-px-2 tw-py-1'}
