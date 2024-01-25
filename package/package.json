@@ -1,7 +1,7 @@
 {
   "author": "",
   "dependencies": {
-    "@busybox/tailwindcss-config": "2024.1.12-alpha.2422",
+    "@busybox/tailwindcss-config": "2024.1.25-alpha.1904",
     "@heroicons/react": "2.1.1",
     "@mui/base": "5.0.0-beta.33",
     "clsx": "2.1.0",
@@ -11,10 +11,10 @@
   },
   "description": "",
   "devDependencies": {
-    "@busybox/cypress": "2024.1.5-alpha.110",
-    "@busybox/eslint-config": "2024.1.5-alpha.110",
-    "@busybox/prettier-config": "2024.1.5-alpha.110",
-    "@busybox/tsconfig": "2024.1.5-alpha.110",
+    "@busybox/cypress": "2024.1.25-alpha.1904",
+    "@busybox/eslint-config": "2024.1.25-alpha.1904",
+    "@busybox/prettier-config": "2024.1.25-alpha.1904",
+    "@busybox/tsconfig": "2024.1.25-alpha.1904",
     "@storybook/addon-essentials": "7.6.10",
     "@storybook/addon-interactions": "7.6.10",
     "@storybook/addon-links": "7.6.10",

@@ -1,6 +1,7 @@
 import { TablePagination } from '@busybox/react-components/Table/TablePagination';
+import { expect } from '@storybook/jest';
 import type { Meta, StoryObj } from '@storybook/react';
-import vehicleMadeInUK from './fixtures/vehicle-made-in-uk.ts';
+import { within } from '@storybook/testing-library';
 import {
   createColumnHelper,
   flexRender,
@@ -8,31 +9,31 @@ import {
   getPaginationRowModel,
   useReactTable,
 } from '@tanstack/react-table';
-import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+
+import vehicleMadeInUK from './fixtures/vehicle-made-in-uk.ts';
 
 const columnHelper = createColumnHelper<(typeof vehicleMadeInUK)[0]>();
 
 const columns = [
   columnHelper.accessor(vehicle => vehicle.company, {
-    id: 'company',
-    header: 'Company',
     cell: info => info.getValue(),
+    header: 'Company',
+    id: 'company',
   }),
   columnHelper.accessor(vehicle => vehicle.parentCompany, {
-    id: 'parentCompany',
-    header: 'Parent Company',
     cell: info => info.getValue(),
+    header: 'Parent Company',
+    id: 'parentCompany',
   }),
   columnHelper.accessor(vehicle => vehicle.headquarters, {
-    id: 'headquarters',
-    header: 'Headquarters',
     cell: info => info.renderValue(),
+    header: 'Headquarters',
+    id: 'headquarters',
   }),
   columnHelper.accessor(vehicle => vehicle.modal, {
-    id: 'modal',
-    header: 'Modal',
     cell: info => info.renderValue(),
+    header: 'Modal',
+    id: 'modal',
   }),
 ];
 
@@ -59,14 +60,14 @@ export const DemoTablePaginationStory: Story = {
   },
   render: () => {
     const table = useReactTable({
-      data: vehicleMadeInUK,
       columns,
+      data: vehicleMadeInUK,
       getCoreRowModel: getCoreRowModel(),
       getPaginationRowModel: getPaginationRowModel(),
       initialState: {
         pagination: {
-          pageSize: 10,
           pageIndex: 0,
+          pageSize: 10,
         },
       },
     });
@@ -102,27 +103,26 @@ export const DemoTablePaginationStory: Story = {
         <tfoot>
           <tr>
             <TablePagination
+              count={vehicleMadeInUK.length}
+              onPageChange={(_, page) => {
+                table.setPageIndex(page);
+              }}
+              onRowsPerPageChange={e => {
+                table.setPageSize(parseInt(e.target.value, 10));
+              }}
+              page={table.getState().pagination.pageIndex}
+              rowsPerPage={table.getState().pagination.pageSize}
+              rowsPerPageOptions={[
+                10,
+                20,
+                30,
+                { label: 'All', value: vehicleMadeInUK.length },
+              ]}
               slotProps={{
                 displayedRows: {
                   'aria-label': 'displayed rows',
                 },
               }}
-              rowsPerPageOptions={[
-                10,
-                20,
-                30,
-                { value: vehicleMadeInUK.length, label: 'All' },
-              ]}
-              count={vehicleMadeInUK.length}
-              onRowsPerPageChange={e => {
-                table.setPageSize(parseInt(e.target.value, 10));
-              }}
-              onPageChange={(_, page) => {
-                console.log('page', page);
-                table.setPageIndex(page);
-              }}
-              page={table.getState().pagination.pageIndex}
-              rowsPerPage={table.getState().pagination.pageSize}
             />
           </tr>
         </tfoot>

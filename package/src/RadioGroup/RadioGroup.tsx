@@ -17,10 +17,10 @@ export type RadioGroupProps = React.PropsWithChildren<{
 
 const RadioGroupContext = createContext<{
   name?: string;
-  required?: boolean;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  required?: boolean;
   value?: string;
 }>({});
 
@@ -38,8 +38,8 @@ export const RadioGroup = function RadioGroup({
   const {
     onBlur,
     onFocus,
-    value: currentValue,
     required,
+    value: currentValue,
   } = formControlContext!;
   return (
     <RadioGroupContext.Provider
@@ -92,8 +92,8 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
     onBlur,
     onChange,
     onFocus,
-    value: currentValue,
     required,
+    value: currentValue,
   } = radioGroupContext;
   const isChecked = currentValue === value;
   let slotProps = givenSlotProps;
@@ -127,8 +127,8 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
         onChange={onChange}
         onFocus={onFocus}
         ref={ref}
-        type="radio"
         required={required}
+        type="radio"
         value={value}
       />
       <label htmlFor={id} {...slotProps?.label} data-testid={testIdPrefix}>

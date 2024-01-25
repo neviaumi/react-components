@@ -35,20 +35,20 @@ export default [
     },
   },
   {
-    plugins: {
-      import: eslintPluginImport,
-    },
     files: [
       './tailwind.config.mjs',
       './.storybook/main.ts',
       './.storybook/preview.ts',
     ],
+    plugins: {
+      import: eslintPluginImport,
+    },
     rules: {
       'import/no-default-export': 'off',
     },
   },
   {
-    files: ['./stories/*.stories.tsx'],
+    files: ['stories/**/*.stories.tsx', 'stories/fixtures/**/*'],
     rules: {
       'max-lines': 'off',
     },

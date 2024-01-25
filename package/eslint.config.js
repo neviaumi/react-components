@@ -10,7 +10,14 @@ export default [
     },
   },
   {
-    ignores: ['package-lock.json'],
+    ignores: ['package-lock.json', 'storybook-static/', 'dist/'],
+  },
+  ...busyboxEslintConfig,
+  {
+    files: ['**/*.cy.tsx'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
   },
   {
     settings: {
@@ -19,31 +26,36 @@ export default [
       },
     },
   },
-  ...busyboxEslintConfig,
   {
+    files: ['**/*.tsx'],
     plugins: {
       import: eslintPluginImport,
     },
-    files: ['*.tsx'],
     rules: {
       'import/no-default-export': ['error'],
       'import/prefer-default-export': 'off',
     },
   },
   {
-    plugins: {
-      import: eslintPluginImport,
-    },
     files: [
-      '*.stories.tsx',
+      '**/*.stories.tsx',
       './tailwind.config.mjs',
       './vite.config.ts',
       './.storybook/main.ts',
       './cypress.config.ts',
       './.storybook/preview.ts',
     ],
+    plugins: {
+      import: eslintPluginImport,
+    },
     rules: {
       'import/no-default-export': 'off',
+    },
+  },
+  {
+    files: ['**/fixtures/*.ts'],
+    rules: {
+      'max-lines': 'off',
     },
   },
 ];
