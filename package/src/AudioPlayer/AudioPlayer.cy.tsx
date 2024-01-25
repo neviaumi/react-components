@@ -33,10 +33,10 @@ describe('AudioPreviewWhenFileUpload stories', () => {
 
   it('no default class should be applied when disableDefaultClasses used', () => {
     setupTest({ className: 'tw-w-full', disableDefaultClasses: true });
-    cy.findByTestId('test-audio-preview-audio-controls').should(
-      'have.attr',
-      'class',
-      'tw-w-full',
-    );
+    cy.findByTestId('test-audio-preview-audio-controls').then($el => {
+      const classes = $el.attr('class')?.split(' ');
+      cy.wrap(classes).should('have.length', 1);
+      cy.wrap(classes).should('deep.equal', ['tw-w-full']);
+    });
   });
 });

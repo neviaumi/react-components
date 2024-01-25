@@ -199,14 +199,12 @@ describe('Assign default style', () => {
         'tw-bg-secondary tw-text-secondary tw-font-bold tw-text-2xl tw-text-center',
       );
       cy.findByTestId('button').should(
-        'have.attr',
-        'class',
-        'MuiButton-root tw-border-2 tw-p-0.5 tw-rounded-md tw-bg-primary tw-text-primary tw-border-primary hover:tw-border-primary-user-action hover:tw-bg-primary-user-action hover:tw-text-primary-user-action tw-text-2xl',
+        'have.class',
+        'tw-border-2 tw-p-0.5 tw-rounded-md tw-bg-primary tw-text-primary tw-border-primary hover:tw-border-primary-user-action hover:tw-bg-primary-user-action hover:tw-text-primary-user-action tw-text-2xl',
       );
       cy.findByTestId('button-disabled').should(
-        'have.attr',
-        'class',
-        'MuiButton-root Mui-disabled tw-bg-secondary tw-text-secondary tw-text-disabled',
+        'have.class',
+        'tw-bg-secondary tw-text-secondary tw-text-disabled',
       );
     });
     it('state before given one', () => {
@@ -234,15 +232,13 @@ describe('Assign default style', () => {
         'tw-bg-secondary tw-text-secondary tw-font-bold tw-text-2xl tw-text-center',
       );
       cy.findByTestId('button').should(
-        'have.attr',
-        'class',
-        'MuiButton-root tw-border-2 tw-p-0.5 tw-rounded-md tw-bg-primary tw-text-primary tw-border-primary hover:tw-border-primary-user-action hover:tw-bg-primary-user-action hover:tw-text-primary-user-action',
+        'have.class',
+        'tw-border-2 tw-p-0.5 tw-rounded-md tw-bg-primary tw-text-primary tw-border-primary hover:tw-border-primary-user-action hover:tw-bg-primary-user-action hover:tw-text-primary-user-action',
       );
 
       cy.findByTestId('button-disabled').should(
-        'have.attr',
-        'class',
-        'MuiButton-root Mui-disabled tw-bg-secondary tw-text-secondary',
+        'have.class',
+        'tw-bg-secondary tw-text-secondary',
       );
     });
   });

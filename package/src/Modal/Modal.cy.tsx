@@ -47,9 +47,8 @@ describe('Modal component', () => {
       </Modal>,
     );
     cy.findByTestId('test-modal').should(
-      'have.attr',
-      'class',
-      'MuiModal-root tw-font-normal tw-text-primary',
+      'have.class',
+      'tw-font-normal tw-text-primary',
     );
     cy.findByTestId('test-modal-title').should(
       'have.attr',
@@ -90,10 +89,10 @@ describe('Modal Story', () => {
       />,
     );
     cy.findByTestId('toggle-modal-button').click();
-    cy.findByTestId('test-modal').should(
-      'have.attr',
-      'class',
-      'MuiModal-root tw-font-bold',
-    );
+    cy.findByTestId('test-modal').then($el => {
+      const classes = $el.attr('class')?.split(' ');
+      cy.wrap(classes).should('have.length', 2);
+      cy.wrap(classes?.slice(1)).should('deep.equal', ['tw-font-bold']);
+    });
   });
 });

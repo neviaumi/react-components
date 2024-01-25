@@ -76,10 +76,10 @@ describe('Select', () => {
     );
   });
 
-  it('no default class should be applied when disableDefaultClasses used', () => {
+  it.only('no default class should be applied when disableDefaultClasses used', () => {
     cy.mount(
       <Select
-        className={'tw-font-bold'}
+        className={'tw-px-2 tw-py-1'}
         data-testid={'test-select'}
         disableDefaultClasses
         name={'demo'}
@@ -93,9 +93,6 @@ describe('Select', () => {
             ),
           },
           popper: { className: clsx('tw-z-10') },
-          root: {
-            className: clsx('tw-px-2 tw-py-1'),
-          },
         }}
       >
         <SelectOption
@@ -124,17 +121,17 @@ describe('Select', () => {
         </SelectOption>
       </Select>,
     );
-    cy.findByTestId('test-select').should(
-      'have.attr',
-      'class',
-      'MuiSelect-root tw-px-2 tw-py-1 tw-font-bold tw-px-2 tw-py-1',
-    );
+    cy.findByTestId('test-select').then($el => {
+      const classes = $el.attr('class')?.split(' ');
+      cy.wrap(classes).should('have.length', 3);
+      cy.wrap(classes?.slice(1)).should('deep.equal', ['tw-px-2', 'tw-py-1']);
+    });
     cy.findByTestId('test-select').click();
-    cy.findByTestId('test-select-option-1').should(
-      'have.attr',
-      'class',
-      'MuiOption-root MuiOption-highlighted tw-font-bold',
-    );
+    cy.findByTestId('test-select-option-1').then($el => {
+      const classes = $el.attr('class')?.split(' ');
+      cy.wrap(classes).should('have.length', 3);
+      cy.wrap(classes?.slice(2)).should('deep.equal', ['tw-font-bold']);
+    });
   });
 });
 

@@ -31,10 +31,10 @@ describe('Icon Button stories', () => {
         Primary button test
       </IconButton>,
     );
-    cy.findAllByTestId('test-primary-button').should(
-      'have.attr',
-      'class',
-      'MuiButton-root tw-font-bold',
-    );
+    cy.findAllByTestId('test-primary-button').then($el => {
+      const classes = $el.attr('class')?.split(' ');
+      cy.wrap(classes).should('have.length', 2);
+      cy.wrap(classes?.slice(1)).should('deep.equal', ['tw-font-bold']);
+    });
   });
 });

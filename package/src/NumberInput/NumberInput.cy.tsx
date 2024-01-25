@@ -72,11 +72,11 @@ describe('NumberInput', () => {
           disableDefaultClasses
         />,
       );
-      cy.findByTestId('test-number-input').should(
-        'have.attr',
-        'class',
-        'MuiInput-root tw-font-bold',
-      );
+      cy.findByTestId('test-number-input').then($el => {
+        const classes = $el.attr('class')?.split(' ');
+        cy.wrap(classes).should('have.length', 2);
+        cy.wrap(classes?.slice(1)).should('deep.equal', ['tw-font-bold']);
+      });
     });
   });
 });

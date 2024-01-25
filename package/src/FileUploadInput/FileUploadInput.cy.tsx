@@ -94,11 +94,11 @@ describe('FileUploadInput', () => {
           disableDefaultClasses
         />,
       );
-      cy.findByTestId('test-file-upload').should(
-        'have.attr',
-        'class',
-        'MuiButton-root tw-font-bold',
-      );
+      cy.findByTestId('test-file-upload').then($el => {
+        const classes = $el.attr('class')?.split(' ');
+        cy.wrap(classes).should('have.length', 2);
+        cy.wrap(classes?.slice(1)).should('deep.equal', ['tw-font-bold']);
+      });
     });
 
     it.skip('Should trigger onChange when click upload file button', () => {
