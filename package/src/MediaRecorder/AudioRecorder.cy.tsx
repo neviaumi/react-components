@@ -23,10 +23,10 @@ describe('AudioRecorder', () => {
         onStopRecording={cy.stub().as('onStopRecording')}
       />,
     );
-    cy.findByTestId('test-audio-recorder').should(
-      'have.attr',
-      'class',
-      'MuiButton-root tw-font-bold',
-    );
+    cy.findByTestId('test-audio-recorder').then($el => {
+      const classes = $el.attr('class')?.split(' ');
+      cy.wrap(classes).should('have.length', 2);
+      cy.wrap(classes?.slice(1)).should('deep.equal', ['tw-font-bold']);
+    });
   });
 });

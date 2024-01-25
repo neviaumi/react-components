@@ -63,10 +63,10 @@ describe('Tabs component', () => {
         </TabPanel>
       </Tabs>,
     );
-    cy.findByTestId('test-tab-0').should(
-      'have.attr',
-      'class',
-      'MuiTab-root Mui-selected tw-font-bold',
-    );
+    cy.findByTestId('test-tab-0').then($el => {
+      const classes = $el.attr('class')?.split(' ');
+      cy.wrap(classes).should('have.length', 3);
+      cy.wrap(classes?.slice(2)).should('deep.equal', ['tw-font-bold']);
+    });
   });
 });

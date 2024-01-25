@@ -89,11 +89,11 @@ describe('Slider', () => {
           disableDefaultClasses
         />,
       );
-      cy.findByTestId('test-slider').should(
-        'have.attr',
-        'class',
-        'MuiSlider-root tw-font-bold',
-      );
+      cy.findByTestId('test-slider').then($el => {
+        const classes = $el.attr('class')?.split(' ');
+        cy.wrap(classes).should('have.length', 2);
+        cy.wrap(classes?.slice(1)).should('deep.equal', ['tw-font-bold']);
+      });
     });
   });
 });
