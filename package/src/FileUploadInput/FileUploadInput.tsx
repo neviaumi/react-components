@@ -42,9 +42,10 @@ export const FileUploadInput = forwardRef<HTMLInputElement, FileUploadProps>(
     const { formControlContext, id, name } = useFieldContext({
       onChange: rest.onChange || NO_OP,
     });
+    const { disabled, onChange, required, value } = formControlContext || {};
     const inputRef = useRef<HTMLInputElement>(null);
     const onUploadButtonClick = useCallback(() => {
-      inputRef.current!.click();
+      inputRef.current!.showPicker();
     }, [inputRef]);
 
     let slotProps = givenSlotProps;
@@ -63,6 +64,7 @@ export const FileUploadInput = forwardRef<HTMLInputElement, FileUploadProps>(
         <Button
           data-testid={testId}
           disableDefaultClasses={disableDefaultClasses}
+          disabled={disabled}
           slotProps={{
             root: { ...slotProps?.root, onClick: onUploadButtonClick },
           }}
@@ -78,9 +80,9 @@ export const FileUploadInput = forwardRef<HTMLInputElement, FileUploadProps>(
           data-testid={testId && `${testId}-raw-upload-input`}
           id={id}
           name={name || rootProps.name}
-          onChange={formControlContext?.onChange}
+          onChange={onChange}
           ref={inputRef}
-          required={formControlContext?.required}
+          required={value ? false : required}
           type="file"
         />
       </div>
