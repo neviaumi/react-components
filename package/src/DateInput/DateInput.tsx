@@ -30,7 +30,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
         : assocDefaultStyle<SlotProps>({
             slotWithDefaultClasses: {
               input: clsx(
-                'tw-form-input tw-w-full tw-border-primary focus:tw-border-primary-user-action focus:tw-ring-primary focus:tw-text-primary',
+                'tw-form-input tw-w-full tw-border-primary focus:tw-border-primary-user-action focus:tw-text-primary focus:tw-ring-primary',
               ),
             },
           })(givenSlotProps),

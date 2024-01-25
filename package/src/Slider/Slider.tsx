@@ -5,7 +5,7 @@ import {
 } from '@mui/base/Slider';
 import clsx from 'clsx';
 import { assocPath, identity, pipe } from 'ramda';
-import React, { forwardRef, type ComponentPropsWithRef } from 'react';
+import React, { type ComponentPropsWithRef, forwardRef } from 'react';
 
 import type {
   ComponentProps,
@@ -37,12 +37,13 @@ const SliderInput = forwardRef<
     ownerState: ComponentPropsWithRef<'input'>;
   }
 >(function SliderInput(props, ref) {
-  const { ownerState, value: inputValue, ...inputProps } = props;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { ownerState, value: _, ...inputProps } = props;
   return (
     <input
       {...inputProps}
-      value={ownerState?.value === 0 ? undefined : ownerState?.value}
       ref={ref}
+      value={ownerState?.value === 0 ? undefined : ownerState?.value}
     />
   );
 });
@@ -96,10 +97,10 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(function Slider(
         );
       }}
       slotProps={slotProps}
-      value={sliderValue}
       slots={{
         input: SliderInput,
       }}
+      value={sliderValue}
       {...rootProps}
       name={name || rootProps.name}
     />

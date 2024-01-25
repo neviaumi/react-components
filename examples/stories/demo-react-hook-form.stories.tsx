@@ -1,19 +1,18 @@
 import { Button } from '@busybox/react-components/Button';
 import { DateInput } from '@busybox/react-components/DateInput';
+import { FileUploadInput } from '@busybox/react-components/FileUploadInput';
 import { Field } from '@busybox/react-components/FormField/Field';
 import { FieldErrorMessage } from '@busybox/react-components/FormField/FieldErrorMessage';
-import { FileUploadInput } from '@busybox/react-components/FileUploadInput';
 import { Label } from '@busybox/react-components/FormField/Label';
 import { Content, Header, Main, Page } from '@busybox/react-components/Layout';
 import { Link } from '@busybox/react-components/Link';
 import { NumberInput } from '@busybox/react-components/NumberInput';
 import { Radio, RadioGroup } from '@busybox/react-components/RadioGroup';
 import { Select, SelectOption } from '@busybox/react-components/Select';
+import { Skeleton } from '@busybox/react-components/Skeleton';
 import { Slider } from '@busybox/react-components/Slider';
 import { TextInput } from '@busybox/react-components/TextInput';
 import { withCheckNewValueIsNotEqual } from '@busybox/react-components/utils/with-check-new-value-is-not-equal';
-import { Skeleton } from '@busybox/react-components/Skeleton';
-import clsx from 'clsx';
 import { expect } from '@storybook/jest';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
@@ -22,6 +21,7 @@ import {
   waitFor,
   within,
 } from '@storybook/testing-library';
+import clsx from 'clsx';
 import {
   type ChangeEvent,
   type PropsWithChildren,
@@ -30,9 +30,9 @@ import {
 } from 'react';
 import {
   Controller,
+  FormProvider,
   useForm,
   useFormContext,
-  FormProvider,
 } from 'react-hook-form';
 
 const meta: Meta = {
@@ -53,7 +53,8 @@ function FieldInput({
 
   if (formState.isSubmitting) {
     return skeleton;
-  } else return children;
+  }
+  return children;
 }
 
 export const CarSearchForm: Story = {
@@ -124,9 +125,9 @@ export const CarSearchForm: Story = {
       mode: 'onChange',
       shouldUseNativeValidation: true,
     });
-    const { control, handleSubmit, formState } = methods;
+    const { control, formState, handleSubmit } = methods;
     const [formValues, submitFormValues] = useState({});
-    const { isSubmitting, isSubmitted } = formState;
+    const { isSubmitted, isSubmitting } = formState;
     return (
       <Page>
         <Header>
@@ -140,8 +141,8 @@ export const CarSearchForm: Story = {
           <Main>
             <FormProvider {...methods}>
               <form
-                noValidate
                 className={'tw-flex tw-flex-col tw-justify-start tw-gap-2'}
+                noValidate
                 onSubmit={handleSubmit(async values => {
                   await new Promise(resolve => setTimeout(resolve, 1000));
                   submitFormValues(values);
@@ -153,7 +154,7 @@ export const CarSearchForm: Story = {
                   render={({ field, fieldState, formState }) => {
                     const { disabled, name, onBlur, onChange, ref, value } =
                       field;
-                    const { invalid, isDirty, error } = fieldState;
+                    const { error, invalid, isDirty } = fieldState;
                     const { isSubmitted } = formState;
                     const shouldShowAsError = isSubmitted || isDirty;
                     return (
@@ -164,8 +165,8 @@ export const CarSearchForm: Story = {
                         name={name}
                         onBlur={onBlur}
                         onChange={withCheckNewValueIsNotEqual(value)(onChange)}
-                        value={value}
                         required
+                        value={value}
                       >
                         <Label
                           className={clsx(
@@ -245,7 +246,7 @@ export const CarSearchForm: Story = {
                   render={({ field, fieldState, formState }) => {
                     const { disabled, name, onBlur, onChange, ref, value } =
                       field;
-                    const { invalid, isDirty, error } = fieldState;
+                    const { error, invalid, isDirty } = fieldState;
                     const { isSubmitted } = formState;
                     const shouldShowAsError = isSubmitted || isDirty;
                     return (
@@ -256,8 +257,8 @@ export const CarSearchForm: Story = {
                         name={name}
                         onBlur={onBlur}
                         onChange={onChange}
-                        value={value}
                         required
+                        value={value}
                       >
                         <Label
                           className={clsx(
@@ -273,8 +274,9 @@ export const CarSearchForm: Story = {
                           skeleton={<Skeleton className={'tw-h-5 tw-w-full'} />}
                         >
                           <TextInput
-                            data-testid={'form-stories-text-input'}
                             className={'tw-h-5'}
+                            data-testid={'form-stories-text-input'}
+                            ref={ref}
                             slotProps={{
                               input: {
                                 className: clsx(
@@ -284,7 +286,6 @@ export const CarSearchForm: Story = {
                                 ),
                               },
                             }}
-                            ref={ref}
                           />
                         </FieldInput>
                         <FieldErrorMessage className={'tw-text-error'}>
@@ -308,7 +309,7 @@ export const CarSearchForm: Story = {
                   render={({ field, fieldState }) => {
                     const { disabled, name, onBlur, onChange, ref, value } =
                       field;
-                    const { invalid, isDirty, error } = fieldState;
+                    const { error, invalid, isDirty } = fieldState;
                     const shouldShowAsError = isSubmitted || isDirty;
 
                     return (
@@ -319,9 +320,9 @@ export const CarSearchForm: Story = {
                         name={name}
                         onBlur={onBlur}
                         onChange={onChange}
+                        required
                         role={'radiogroup'}
                         value={value}
-                        required
                       >
                         <Label
                           className={clsx(
@@ -339,10 +340,6 @@ export const CarSearchForm: Story = {
                         >
                           <RadioGroup>
                             <Radio
-                              data-testid={'form-stories-radio-input-option-1'}
-                              id={'auto'}
-                              ref={ref}
-                              value={'automatic'}
                               className={clsx(
                                 shouldShowAsError
                                   ? 'group-invalid:tw-border-error group-invalid:tw-text-error'
@@ -350,25 +347,28 @@ export const CarSearchForm: Story = {
                                 'group-invalid:tw-border-l-8 group-invalid:tw-pl-0.5',
                                 'group-focus:tw-border group-focus:tw-border-primary-user-action',
                               )}
+                              data-testid={'form-stories-radio-input-option-1'}
+                              id={'auto'}
+                              ref={ref}
                               slotProps={{
                                 label: {
                                   className:
                                     'group-focus:tw-ring-primary group-focus:tw-ring-2',
                                 },
                               }}
+                              value={'automatic'}
                             >
                               Automatic
                             </Radio>
                             <Radio
-                              data-testid={'form-stories-radio-input-option-2'}
-                              id={'manual'}
-                              value={'manual'}
                               className={clsx(
                                 shouldShowAsError
                                   ? 'group-invalid:tw-border-error group-invalid:tw-text-error'
                                   : 'group-invalid:tw-border-warning group-invalid:tw-text-warning',
                                 'group-invalid:tw-border-l-8 group-invalid:tw-pl-0.5',
                               )}
+                              data-testid={'form-stories-radio-input-option-2'}
+                              id={'manual'}
                               slotProps={{
                                 // input: {
                                 //   className: 'focus-visible:tw-outline-primary'
@@ -378,6 +378,7 @@ export const CarSearchForm: Story = {
                                     'group-focus:tw-ring-primary group-focus:tw-ring-2',
                                 },
                               }}
+                              value={'manual'}
                             >
                               Manual
                             </Radio>
@@ -397,7 +398,7 @@ export const CarSearchForm: Story = {
                   render={({ field, fieldState, formState }) => {
                     const { disabled, name, onBlur, onChange, ref, value } =
                       field;
-                    const { invalid, isDirty, error } = fieldState;
+                    const { error, invalid, isDirty } = fieldState;
                     const { isSubmitted } = formState;
                     const shouldShowAsError = isSubmitted || isDirty;
                     return (
@@ -408,8 +409,8 @@ export const CarSearchForm: Story = {
                         name={name}
                         onBlur={onBlur}
                         onChange={onChange}
-                        value={value}
                         required
+                        value={value}
                       >
                         <Label
                           className={clsx(
@@ -429,11 +430,11 @@ export const CarSearchForm: Story = {
                             ref={ref}
                             slotProps={{
                               input: {
-                                max: 5,
-                                min: 2,
                                 className: shouldShowAsError
                                   ? 'invalid:tw-border-error'
                                   : 'invalid:tw-border-warning',
+                                max: 5,
+                                min: 2,
                               },
                             }}
                           />
@@ -458,12 +459,12 @@ export const CarSearchForm: Story = {
                 />
                 <Controller
                   control={control}
-                  name={'rating'}
                   defaultValue={1}
+                  name={'rating'}
                   render={({ field, fieldState, formState }) => {
                     const { disabled, name, onBlur, onChange, ref, value } =
                       field;
-                    const { invalid, isDirty, error } = fieldState;
+                    const { error, invalid, isDirty } = fieldState;
                     const { isSubmitted } = formState;
                     const isError = invalid || !value;
                     const shouldShowAsError = isSubmitted || isDirty;
@@ -527,8 +528,8 @@ export const CarSearchForm: Story = {
                     'tw-mt-2 disabled:tw-border-disabled disabled:tw-bg-disabled'
                   }
                   data-testid={'form-stories-submit-button'}
-                  type={'submit'}
                   disabled={isSubmitting}
+                  type={'submit'}
                 >
                   Submit
                 </Button>
@@ -598,8 +599,8 @@ export const CarInsuranceRegisterForm: Story = {
         <Content>
           <Main>
             <form
-              noValidate
               className={'tw-flex tw-flex-col tw-justify-start tw-gap-2'}
+              noValidate
               onSubmit={handleSubmit(submitFormValues)}
             >
               <Controller
@@ -608,7 +609,7 @@ export const CarInsuranceRegisterForm: Story = {
                 render={({ field, fieldState, formState }) => {
                   const { disabled, name, onBlur, onChange, ref, value } =
                     field;
-                  const { invalid, isDirty, error } = fieldState;
+                  const { error, invalid, isDirty } = fieldState;
                   const { isSubmitted } = formState;
                   const shouldShowAsError = isSubmitted || isDirty;
                   const uploadFileWhenInputChanged = (
@@ -638,8 +639,8 @@ export const CarInsuranceRegisterForm: Story = {
                         name={name}
                         onBlur={onBlur}
                         onChange={uploadFileWhenInputChanged}
-                        value={value}
                         required
+                        value={value}
                       >
                         <Label
                           className={clsx(
@@ -684,7 +685,7 @@ export const CarInsuranceRegisterForm: Story = {
                 render={({ field, fieldState, formState }) => {
                   const { disabled, name, onBlur, onChange, ref, value } =
                     field;
-                  const { invalid, isDirty, error } = fieldState;
+                  const { error, invalid, isDirty } = fieldState;
                   const { isSubmitted } = formState;
                   const shouldShowAsError = isSubmitted || isDirty;
                   return (
@@ -695,8 +696,8 @@ export const CarInsuranceRegisterForm: Story = {
                       name={name}
                       onBlur={onBlur}
                       onChange={onChange}
-                      value={value}
                       required
+                      value={value}
                     >
                       <Label
                         className={clsx(
@@ -710,6 +711,7 @@ export const CarInsuranceRegisterForm: Story = {
                       </Label>
                       <DateInput
                         data-testid={'form-stories-date-input'}
+                        ref={ref}
                         slotProps={{
                           input: {
                             className: clsx(
@@ -719,7 +721,6 @@ export const CarInsuranceRegisterForm: Story = {
                             ),
                           },
                         }}
-                        ref={ref}
                       />
                       <FieldErrorMessage className={'tw-text-error'}>
                         {error?.message}

@@ -13,7 +13,7 @@ export function withCheckNewValueIsNotEqual(
 ) {
   return (onChange: onChangeEventHandler) => {
     return (e: Event) => {
-      const newValue = e?.target?.hasOwnProperty('value') ? e.target.value : e;
+      const newValue = Object.hasOwn(e?.target, 'value') ? e.target.value : e;
       if (isNil(newValue) && isNil(currentValue)) return;
       if (isValueEqualFunction(newValue, currentValue)) return;
       onChange(e);

@@ -1,10 +1,11 @@
+import clsx from 'clsx';
+import React, { createElement } from 'react';
+
 import type {
   ComponentProps,
   SlotComponentPropsWithoutOverride,
 } from '../components.ts';
-import React, { createElement } from 'react';
 import { assocDefaultStyle } from '../utils/assign-default-style.ts';
-import clsx from 'clsx';
 import { mergeRootSlotPropsToComponentProps } from '../utils/merge-root-slot-props-to-component-prop.ts';
 
 interface SkeletonSlotProps {

@@ -1,11 +1,11 @@
 import { cy, describe, it } from '@busybox/cypress';
+import { useState } from 'react';
 
 import vehicleMadeInUK from './fixtures/vehicle-made-in-uk.ts';
 import {
   TablePagination,
   type TablePaginationProps,
 } from './TablePagination.tsx';
-import { useState } from 'react';
 
 function TestTableWithPagination(props: Partial<TablePaginationProps>) {
   const [rowsPerPage, setRowsPerPage] = useState(-1);
@@ -23,15 +23,15 @@ function TestTableWithPagination(props: Partial<TablePaginationProps>) {
         <tr>
           <TablePagination
             {...props}
-            rowsPerPageOptions={[10, 20, 30, { value: -1, label: 'All' }]}
             count={vehicleMadeInUK.length}
+            onPageChange={(_, page) => setCurrentPage(page)}
             onRowsPerPageChange={e => {
               setRowsPerPage(parseInt(e.target.value, 10));
               setCurrentPage(0);
             }}
-            onPageChange={(_, page) => setCurrentPage(page)}
             page={currentPage}
             rowsPerPage={rowsPerPage}
+            rowsPerPageOptions={[10, 20, 30, { label: 'All', value: -1 }]}
           />
         </tr>
         <tr className={'tw-text-left'}>

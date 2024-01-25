@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import { TablePagination as TablePaginationComponent } from './TablePagination.tsx';
+
 import vehicleMadeInUK from './fixtures/vehicle-made-in-uk.ts';
+import { TablePagination as TablePaginationComponent } from './TablePagination.tsx';
+
 const meta: Meta<typeof TablePaginationComponent> = {
   component: TablePaginationComponent,
   title: 'Component/Table/Pagination',
@@ -45,15 +47,15 @@ export const Pagination: Story = {
         <tfoot>
           <tr>
             <TablePaginationComponent
-              rowsPerPageOptions={[10, 20, 30, { value: -1, label: 'All' }]}
               count={vehicleMadeInUK.length}
+              onPageChange={(_, page) => setCurrentPage(page)}
               onRowsPerPageChange={e => {
                 setRowsPerPage(parseInt(e.target.value, 10));
                 setCurrentPage(0);
               }}
-              onPageChange={(_, page) => setCurrentPage(page)}
               page={currentPage}
               rowsPerPage={rowsPerPage}
+              rowsPerPageOptions={[10, 20, 30, { label: 'All', value: -1 }]}
             />
           </tr>
         </tfoot>
