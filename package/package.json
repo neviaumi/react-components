@@ -179,6 +179,16 @@
       "require": "./dist/TextInput.cjs",
       "types": "./dist/types/TextInput/TextInput.d.ts"
     },
+    "./base/no-ssr": {
+      "import": "./dist/no-ssr.js",
+      "require": "./dist/no-ssr.cjs",
+      "types": "./dist/types/base/no-ssr.d.ts"
+    },
+    "./base/use-auto-complete": {
+      "import": "./dist/use-auto-complete.js",
+      "require": "./dist/use-auto-complete.cjs",
+      "types": "./dist/types/base/use-auto-complete.d.ts"
+    },
     "./style.css": "./dist/index.css",
     "./tailwind-config": "./tailwind.config.mjs",
     "./useSnackbar": {
