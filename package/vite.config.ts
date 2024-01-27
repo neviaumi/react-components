@@ -40,6 +40,8 @@ export default defineConfig({
         resolve(rootDir, 'src/Skeleton/Skeleton.tsx'),
         resolve(rootDir, 'src/Form/useFieldContext.ts'),
         resolve(rootDir, 'src/Table/TablePagination.tsx'),
+        resolve(rootDir, 'src/base/use-auto-complete.ts'),
+        resolve(rootDir, 'src/base/no-ssr.ts'),
       ],
       name: '@busybox/react-components',
     },
