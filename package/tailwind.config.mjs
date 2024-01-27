@@ -1,7 +1,6 @@
-import tailwindConfig, {
-  withColors,
-  withSpacing,
-} from '@busybox/tailwindcss-config';
+import tailwindCssConfig from '@busybox/tailwindcss-config';
+import { withColors } from '@busybox/tailwindcss-config/themes/colors';
+import { withSpacing } from '@busybox/tailwindcss-config/themes/spacing';
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -10,7 +9,7 @@ const config = {
     './src/**/*.{ts,tsx}',
     './.storybook/**/*.{js,cjs}',
   ],
-  presets: [withSpacing(withColors(tailwindConfig.default))],
+  presets: [withSpacing(withColors(tailwindCssConfig))],
   theme: {
     extend: {
       keyframes: {

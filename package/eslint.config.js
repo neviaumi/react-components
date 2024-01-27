@@ -2,6 +2,14 @@ import busyboxEslintConfig, { globals } from '@busybox/eslint-config';
 import eslintPluginImport from '@busybox/eslint-config/plugins/eslint-plugin-import';
 
 export default [
+  ...busyboxEslintConfig,
+  {
+    settings: {
+      tailwindcss: {
+        config: './tailwind.config.mjs',
+      },
+    },
+  },
   {
     languageOptions: {
       globals: {
@@ -12,18 +20,10 @@ export default [
   {
     ignores: ['package-lock.json', 'storybook-static/', 'dist/'],
   },
-  ...busyboxEslintConfig,
   {
     files: ['**/*.cy.tsx'],
     rules: {
       'react-refresh/only-export-components': 'off',
-    },
-  },
-  {
-    settings: {
-      tailwindcss: {
-        config: './tailwind.config.mjs',
-      },
     },
   },
   {
