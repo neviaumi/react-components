@@ -174,6 +174,11 @@
       "require": "./dist/TablePagination.cjs",
       "types": "./dist/types/Table/TablePagination.d.ts"
     },
+    "./Table/withHiddenInput": {
+      "import": "./dist/withHiddenInput.js",
+      "require": "./dist/withHiddenInput.cjs",
+      "types": "./dist/types/Table/withHiddenInput.d.ts"
+    },
     "./TextInput": {
       "import": "./dist/TextInput.js",
       "require": "./dist/TextInput.cjs",
@@ -195,6 +200,16 @@
       "import": "./dist/useSnackbar.js",
       "require": "./dist/useSnackbar.cjs",
       "types": "./dist/types/Snackbar/useSnackbar.d.ts"
+    },
+    "./utils/create-component-with-omitted-props": {
+      "import": "./dist/create-component-with-omitted-props.js",
+      "require": "./dist/create-component-with-omitted-props.cjs",
+      "types": "./dist/types/utils/create-component-with-omitted-props.d.ts"
+    },
+    "./utils/create-empty-component": {
+      "import": "./dist/create-empty-component.js",
+      "require": "./dist/create-empty-component.cjs",
+      "types": "./dist/types/utils/create-empty-component.d.ts"
     },
     "./utils/with-check-new-value-is-not-equal": {
       "import": "./dist/with-check-new-value-is-not-equal.js",
