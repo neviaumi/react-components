@@ -3,7 +3,7 @@
   "dependencies": {
     "@busybox/tailwindcss-config": "2024.1.27-alpha.131",
     "@heroicons/react": "2.1.1",
-    "@mui/base": "5.0.0-beta.33",
+    "@mui/base": "5.0.0-beta.34",
     "clsx": "2.1.0",
     "parse-ms": "4.0.0",
     "ramda": "0.29.1",
