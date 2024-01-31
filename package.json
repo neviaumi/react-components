@@ -12,7 +12,7 @@
     "husky": "9.0.7",
     "is-ci": "3.0.1",
     "lerna": "8.0.2",
-    "lint-staged": "15.2.0"
+    "lint-staged": "15.2.1"
   },
   "engines": {
     "node": ">=18",
