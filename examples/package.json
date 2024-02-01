@@ -29,7 +29,7 @@
     "ramda": "0.29.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "7.49.3",
+    "react-hook-form": "7.50.0",
     "react-router-dom": "6.21.3",
     "start-server-and-test": "2.0.3",
     "storybook": "7.6.12",
