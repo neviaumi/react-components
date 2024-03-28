@@ -7,7 +7,7 @@
     "clsx": "2.1.0",
     "parse-ms": "4.0.0",
     "ramda": "0.29.1",
-    "tailwindcss": "3.4.1"
+    "tailwindcss": "3.4.3"
   },
   "description": "",
   "devDependencies": {
